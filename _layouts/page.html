@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="An archive of student final projects from the Computation Design Practices degree program at Columbia GSAPP." />
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link href="/normalize.css" rel="stylesheet" />
+    <link href="/main.css" rel="stylesheet" />
+    
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="https://www.arch.columbia.edu/" target="_blank">
+          Columbia GSAPP
+        </a>
+      </h1>
+      
+      <h2>
+        <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
+          M.S. Computational Design Practices
+        </a><br>
+        {% unless page.url == "/" %}
+          <a href="/">Home</a> →
+        {% endunless %}
+        {{ title }}
+      </h2>
+    
+      <a href="/about">About</a>
+    </header>
+    
+    <main>
+      {{ content }}
+    </main>
+    
+    <footer></footer>
+  </body>
+</html>

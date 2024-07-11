@@ -1,0 +1,5 @@
+/* CSS style sheet specific to a single student page. */
+
+article>h1:first-child {
+  color: blue;
+}
