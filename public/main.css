@@ -140,6 +140,12 @@ article.work section a {
   height: 200px;
   overflow: hidden;
 }
+article.work section a img {
+  max-width: initial;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* Simple mobile responsiveness. */
 
@@ -164,6 +170,11 @@ article.work section a {
 }
 @media (max-width: 600px) {
   article.work section {
-    width: 100%;
+    flex: 0 1 calc(100%);
+  }
+}
+@media (max-width: 400px) {
+  header, header h1, header h2 {
+    font-size: 1.0rem;
   }
 }
