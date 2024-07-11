@@ -71,7 +71,7 @@ header {
   line-height: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   min-height: 150px;
-  gap: 10px;
+  gap: 20px;
 }
 header a {
   border: none;
@@ -82,19 +82,21 @@ header a:hover {
 }
 header h1 {
   font-size: 1.3rem;
-  width: calc(50% - var(--column-width) / 2);
+  width: calc(50% - var(--column-width) / 2 - 20px);
 }
 header h2 {
   font-size: 1.3rem;
-  width: var(--column-width);
+  max-width: var(--column-width);
+  flex-grow: 2;
   color: gray;
 }
 header h2 a {
   color: var(--text-color);
 }
-header *:nth-child(3) {
-  text-align: right;
-  width: calc(50% - var(--column-width) / 2);
+header>nav {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
 }
 main {
   padding: 50px 20px;
@@ -152,10 +154,9 @@ article.work section a {
     width: initial;
   }
   header h2 {
-    width: 50%;
+    width: initial;
   }
-  header *:nth-child(3) {
-    text-align: right;
+  header>nav {
     width: initial;
     flex: 1 0 100%;
     order: 1;
