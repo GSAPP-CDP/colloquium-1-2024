@@ -1,5 +1,127 @@
-/* CSS style sheet specific to a single student page. */
+/* NAV BOX */
 
-article>h1:first-child {
-  color: blue;
+#draggableBox {
+  width: 115px;
+  height: 195px;
+  background-color: black;
+  color: #dadada;
+  border: 1px solid #dadada;
+  position: fixed;
+  cursor: move;
+  z-index: 1000;
+  top: 200px;
+  left: 50px;
+}
+
+#draggableBox ul {
+  list-style-type: none; /* Remove default list styles */
+  font-family: 'Poppins', sans-serif; 
+  font-size: 0.875rem;
+  padding: 0.25rem; /* Added 'rem' unit for padding */
+  margin: 0.5rem; /* Added 'rem' unit for margin */
+}
+
+#draggableBox ul li {
+  margin-bottom: 0.5rem; /* Adjust spacing between list items */
+}
+
+#draggableBox::after {
+  content: "";
+  position: absolute;
+  top: -1px; /* Adjust this value to control how far above the box the bar appears */
+  left: -1px; /* Adjust this value to align the bar with the box */
+  width: calc(100% + 2px); /* Adjusted width to include the borders */
+  height: 20px; /* Height of the white bar */
+  background-color: #dadada;
+  z-index: 1001; /* Ensure the bar is above the box */
+}
+
+#draggableBox::before {
+  content: "═";
+  position: absolute;
+  top: 4.5%;
+  left: 7px;
+  transform: translateY(-50%);
+  font-size: 20px; /* Adjust icon size */
+  color: #000000; /* Icon color */
+  z-index: 1002;
+}
+
+/* HEADER */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  z-index: 1000; /* Ensure the header is above other content */
+}
+
+header h1,
+header h2,
+nav {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+nav li {
+  display: inline; /* Display list items inline */
+  margin-right: 10px; /* Adjust spacing between items as needed */
+}
+
+nav a {
+  font-family: 'Poppins', sans-serif; 
+  font-size: 0.875rem;
+  font-weight: 200;
+  text-decoration: none; /* Remove underline from links */
+  color: #ffffff; /* Set link color */
+}
+
+/* BODY */
+
+body {
+  background-color: #000000;
+}
+
+h1 {
+  text-align: center; 
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+h2 {
+  text-align: center; 
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+h3 {
+  text-align: center; 
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Poppins', sans-serif; 
+  font-size: 0.875rem !important;
+  font-weight: 200;
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 auto;
+  hyphens: auto;
 }
