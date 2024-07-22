@@ -3,3 +3,55 @@
 article>h1:first-child {
   color: blue;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  font-family: helvetica;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+h4 {
+  margin: 0;
+  font-size: 18px;
+  white-space: pre-line;
+    overflow-y: auto;
+}
+
+.image-container1 {
+  display: flex;
+  flex-direction: row; /* 기본값이므로 생략 가능 */
+  justify-content: space-between; /* 이미지를 서로 균등하게 띄워 놓음 */
+}
+
+.image-container1 img {
+  max-width: 20%; /* 원하는 이미지 크기를 설정 */
+  height: auto;    /* 원본 비율 유지 */
+}
+
+.image-container2 {
+  display: flex;
+  flex-direction: row; /* 기본값이므로 생략 가능 */
+  justify-content: space-between; /* 이미지를 서로 균등하게 띄워 놓음 */
+}
+
+.image-container2 img {
+  max-width: 33%; /* 원하는 이미지 크기를 설정 */
+  height: auto;    /* 원본 비율 유지 */
+}
