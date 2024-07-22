@@ -12,6 +12,7 @@
   <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
   
   <link href="style.css" rel="stylesheet" />
+  <script src="scripts.js"></script>
   
   <title>Yilin Zheng</title>
 </head>
@@ -19,7 +20,7 @@
 <body>
   <header>
     <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
+      <a href="https://www.arch.columbia.edu/" target="_blank" class="floating">
         Columbia GSAPP
       </a>
     </h1>
@@ -28,7 +29,8 @@
       <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
         M.S. Computational Design Practices
       </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Yilin Zheng
+      <a href="/">Home</a> → <a href="/work">Student Work</a>
+      <div class="floating"><br> → Yilin Zheng</div>
     </h2>
 
     <nav>
@@ -43,141 +45,79 @@
 
   <main>
     <article>
-      <h1>Yilin Zheng</h1>
-  
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system.</p>
-        
-        <img src="featured.jpg">
-      </section>
-  
-      <section>
-        <h2>What is the system?</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-        </p>
-  
-        <p>
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-        </p>
 
-        <hr>
-  
-        <figure>
-          <img src="https://picsum.photos/1201/800">
-        </figure>
-  
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/601/400">
-          <img src="https://picsum.photos/600/400">
-        </figure>
-        
-        <hr>
-      </section>
-  
+      <div class="table_of_contents">
+          <a href="#assignment-1"> → Systems</a>
+          <br><a href="#assignment-1b" style="margin-left: 15px; font-size: 12px">Rube Goldberg Machine</a>
+          <br><a href="#assignment-2">→ Authorship</a>
+          <br><a href="#assignment-3">→ Politics</a>
+          <br><a href="#assignment-4">→ Governance</a>
+          <br><a href="#assignment-5">→ Behavior</a>
+      </div>
+    
       <section>
-        <h2>Whom does it impact?</h2>
-  
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-          tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-        </p>
-  
-        <p>
-          Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-        </p>
+        <h1 id="assignment-1">Systems</h1>
+        <h2 id="typing" style="color: #732222">Is it recyclable?</h2>
         
+        <img src="1a_system\timeline.jpg" alt="Wood Lifecycle Timeline" class="flex-image">
+
+        <p class="flex-text">Wood is considered as a renewable resource, it is recyclable, and environmentally friendly in consumers perspective. But it is not as simple as it is known for. There's a lot of hidden elements such as energy, water, and labor inputs behind the curtain of “good resource”. In addition, in recycling construction use of wood, the amount of flows of wood is the greatest. It is important to maintain and track the system to balance the material reuse loop.</p>
+        <img src="1a_system\system diagram.jpg" alt="system diagram" class="standard-image" style="height: 400px; width: auto;">
+
+        <h2 style="color: #732222">Whom does it impact?</h2>
+        <p class="flex-text">Understanding the lifecycle system could help users / decision makers to perform comparative analysis to products of similar functions. In addition, being mindful of sustainability of future material innovation. There's a huge group of stakeholders in the construction business that leverage the decision of the journey of wood throughout its lifecycle. The lifecycle awareness is essential for stakeholders to understand and create resilience in this decision system. The lifecycle of wood as a renewable resource presents a multifaceted system characterized by various properties and dynamics. Its renewability, recyclability, and perceived environmental friendliness gave the material a substantial amount of attention and increase in investment.</p>
+        <img src="1a_system\swot.jpg" alt="SWOT" class="standard-image" style="height: 400px; width: auto;">
+
         <blockquote>
           "Velit laoreet id donec ultrices tincidunt arcu…"
         </blockquote>
-      </section>
-  
-      <section>
-        <h2>What are its leverage points?</h2>
-  
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-          tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-        </p>
-  
-        <p>
-          Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-        </p>
         
-        <figure>
-          <img src="https://picsum.photos/601/401">
-          <img src="https://picsum.photos/600/401">
-        </figure>
-        
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/1201/801">
-        </figure>
+        <img src="1a_system\stakeholder.jpg" alt="stakeholder" class="standard-image" style="height: 500px; width: auto;">
+
+        <h2 style="color: #732222">What are its leverage points?</h2>
+        <p class="flex-text">Despite these positive aspects, there are significant challenges. Processing and recycling wood requires substantial energy, water, and labor resources, which can offset some of the environmental benefits. On the other hand, transportation and processing contribute significantly to carbon emissions and have a crucial role in scaling the system's efficiency and sustainability. Regulatory and market barriers can also hinder efficient recycling and reuse, making it challenging to maximize the benefits of wood as a renewable resource.</p>
+        <p class="flex-text">The recycling of wood, especially in the construction industry, involves substantial flows of material, which signifies the importance of maintaining and tracking the system to balance the material reuse loop. A diverse group of stakeholders influences the wood lifecycle. Understanding this system allows stakeholders to make informed decisions that promote sustainability and resilience. Material lifecycle awareness enables comparative analysis of products with similar functions and encourages innovation in sustainable material use, ultimately supporting long-term environmental goals.</p>
+        <img src="1a_system\flowchart.jpg" alt="flowchart" class="standard-image" style="height: 800px; width: auto;">
+  
       </section>
       
-      
+      <hr>
+
+      <h2 id="assignment-1b" style="color: #732222">Rube Goldberg Machine</h2>
+      <h2 id="typing1_2">Adjective: </h2>
+      <p class="descriptive-text">color tigger > sound tigger > computer vision > face recognition + motion tigger > projecting final clue</p>
+      <video width="960" height="540" controls>
+        <source src="1b_system\1b_rube_goldberg.mp4" type="video/mp4">
+      </video>
+
+      <hr>
+
       <section>
-        <h1 id="assignment-2">2 – Systems</h1>
+        <h1 id="assignment-2">Authorship</h1>
+
+        <div style="float: right; margin-left: 50px;">
+          <img src="2_authorship\zine.gif.gif" alt="Zine animation" class="" style="height: 300px; width: auto;">
+          <p class="descriptive-text">click to play the <a href="https://yilinzheng10.github.io/zine/">AI Artifact Playground</a></p>
+        </div>
+
+        <p class="flex-text">In the realm of digital technology, the authorship is an active interplay between the designer and the user. The digital world is filled with training data and inputs curated by the designers, but how users choose to interact with these systems shapes the ultimate experience. The designed space leads the user, potentially manipulating their actions, yet users inevitably bring their own creativity into the process. This co-generation, where both users and designers learn from each other, enhances the tool's development, adapting it to better serve its audience.</p>
+
+        <p class="flex-text">User inputs are crucial for increasing engagement and stickiness. Regardless of the tool's intended purpose, users often redefine its use in ways the designer might not have imagined. In my practice, I embrace this user-centric approach, allowing users to take majority control over the tool. This approach reflects my stakeholder diagram, which considers diverse audiences with varying needs for flexibility and lock-in.</p>
+          
+        <p class="flex-text">Jaron Lanier’s concept of “lock-in” in technology highlights the trade-offs between rigidity and adaptability. I believe certain aspects benefit from lock-in to ensure consistency and reliability in my work, particularly for new users. Key features should consider the short-cuts and affordability of the demography of my potential users. However, flexibility is central for those who seek more control and customization. This balance caters to different user journeys and enhances the overall user experience. I believe that the responsibility of authorship is shared between users, designers, and businesses. Control should be distributed to allow users to influence the system over customization, while designers maintain the ethical and foundational rules of the tools, and businesses uphold accountability for the technologies they deploy.</p>
+
       </section>
       
       <section>
-        <h1 id="assignment-3">3 – Politics</h1>
+        <h1 id="assignment-3">Politics</h1>
       </section>
       
       <section>
-        <h1 id="assignment-4">4 – Governance</h1>
+        <h1 id="assignment-4">Governance</h1>
       </section>
       
       <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
+        <h1 id="assignment-5">Behavior</h1>
       </section>
     </article>
   </main>
