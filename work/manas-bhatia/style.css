@@ -1,5 +1,32 @@
 /* CSS style sheet specific to a single student page. */
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+h1 {
+  font-family: "Nunito", sans-serif;
+}
+
+h2 {
+  font-family: "Nunito", sans-serif;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
 article>h1:first-child {
-  color: blue;
+  color: #abf263;
+}
+
+section>h1 {
+  color: #abf263;
+}
+
+section>h2 {
+  color: #abf263;
+}
+
+body {
+  background: linear-gradient(to right, #000000, #373737);
 }
