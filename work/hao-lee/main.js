@@ -1,3 +1,6 @@
+// Hao Lee
+// Draggable Box
+
 const draggableBox = document.getElementById('draggableBox');
 let mouseX, mouseY, boxLeft, boxTop;
 
@@ -33,3 +36,17 @@ draggableBox.addEventListener('mousedown', function(e) {
 draggableBox.ondragstart = function() {
   return false;
 };
+
+document.querySelectorAll('.scroll-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    const offset = 150; // Adjust this value as needed
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  });
+});

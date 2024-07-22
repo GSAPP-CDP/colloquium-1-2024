@@ -1,0 +1,29 @@
+import pandas as pd
+
+# Data for the world's 25 most populous cities
+data = {
+    "City": ["Tokyo", "Delhi", "Shanghai", "São Paulo", "Mexico City", "Cairo", "Dhaka", "Mumbai", "Beijing", "Osaka", 
+             "Karachi", "Chongqing", "Istanbul", "Buenos Aires", "Kolkata", "Lagos", "Kinshasa", "Manila", "Tianjin", 
+             "Guangzhou", "Rio de Janeiro", "Lahore", "Bangalore", "Moscow", "Shenzhen"],
+    "Country": ["Japan", "India", "China", "Brazil", "Mexico", "Egypt", "Bangladesh", "India", "China", "Japan",
+                "Pakistan", "China", "Turkey", "Argentina", "India", "Nigeria", "Democratic Republic of the Congo",
+                "Philippines", "China", "China", "Brazil", "Pakistan", "India", "Russia", "China"],
+    "Latitude": [35.6895, 28.7041, 31.2304, -23.5505, 19.4326, 30.0444, 23.8103, 19.0760, 39.9042, 34.6937,
+                 24.8607, 29.5630, 41.0082, -34.6037, 22.5726, 6.5244, -4.4419, 14.5995, 39.3434, 23.1291,
+                 -22.9068, 31.5497, 12.9716, 55.7558, 22.5431],
+    "Longitude": [139.6917, 77.1025, 121.4737, -46.6333, -99.1332, 31.2357, 90.4125, 72.8777, 116.4074, 135.5023,
+                  67.0011, 106.5516, 28.9784, -58.3816, 88.3639, 3.3792, 15.2663, 120.9842, 117.3616, 113.2644,
+                  -43.1729, 74.3436, 77.5946, 37.6173, 114.0579],
+    "Population": [37400000, 31000000, 27000000, 22000000, 21600000, 20500000, 20300000, 20200000, 20000000, 19100000,
+                   16500000, 16400000, 15400000, 15100000, 14900000, 14800000, 14300000, 14000000, 13900000, 13300000,
+                   13100000, 12500000, 12300000, 12200000, 12000000]
+}
+
+# Creating DataFrame
+df = pd.DataFrame(data)
+
+# Saving to CSV
+csv_file_path = "/mnt/data/most_populous_cities.csv"
+df.to_csv(csv_file_path, index=False)
+
+csv_file_path

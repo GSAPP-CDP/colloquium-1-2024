@@ -9,69 +9,85 @@
   <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
   <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
   <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
+  <!--<link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.14.8/build/matter.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
+
   <title>Draggable Box</title>
+  <title>Draggable Ball</title>
+  <style>    #canvas {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid #000;
+    display: block;
+    margin: 0;
+  }
+  </style>
 
   <title>Hao Lee</title>
 </head>
 
 <body>
-
   <div id="draggableBox">
     
     <ul>
       <br>
-      <li><a href="#assignment-1">Systems</a></li>
-      <li><a href="#assignment-2">Authorship</a></li>
-      <li><a href="#assignment-3">Politics</a></li>
-      <li><a href="#assignment-4">Governance</a></li>
-      <li><a href="#assignment-5">Behavior</a></li>
+      <li><a href="#assignment-1" class="scroll-link">SYSTEMS</a></li>
+      <li><a href="#assignment-2" class="scroll-link">AUTHORSHIP</a></li>
+      <li><a href="#assignment-3" class="scroll-link">POLITICS</a></li>
+      <li><a href="#assignment-4" class="scroll-link">GOVERNANCE</a></li>
+      <li><a href="#assignment-5" class="scroll-link">BEHAVIOR</a></li>
     </ul>
 
   </div>
   <script src="main.js"></script>
 
   <header>
-    <h1>
+    <h0>
       <a href="https://www.arch.columbia.edu/" target="_blank">
         Columbia GSAPP
       </a>
-    </h1>
-    
+    </h0>
+    <br>
     <h2>
       <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
         M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Hao Lee
+      </a>
     </h2>
+    <h3>
+      <a href="/">Home</a> → <a href="/work">Student Work</a> → Hao Lee
+    </h3>
     
-    <nav>
+    <!--<nav>
       <a href="/work">Student&nbsp;Work</a>
       <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
         Syllabus
       </a>
       <a href="/about">About</a>
-    </nav>
+    </nav>-->
   </header>
 
   <main>
     <article>
       <section>
         <br>
-        <img src="featured.png">
-        <h2>Hao's it going everyone</h2>
-        <h3>An analysis of a complex world system.</h3>
+        <img src="featured.png" alt="Featured Image" class="full-width-image">
+        <h2>Hao's it going?</h2>
       </section>
+
+      <br>
   
-      <h1 id="assignment-1">Systems</h1>
+      <h1 id="assignment-1">SYSTEMS</h1>
       <section>
         <h2>System A: Adaptive Reuse in Post-Industrial Zones</h2>
-        <h3>20240713</h3>
+        <br>
+        
         <p>
           Elements: Factory buildings, industrial infrastructure & street grid, architects/planners, developers/stakeholders, government agencies, construction workers, communities
         </p>
@@ -97,7 +113,8 @@
   
       <section>
         <h2>Whom does it impact?</h2>
-  
+        <br>
+        
         <p>
           Continuing from the problematic stuff, let’s first simplify the purpose of adaptive reuse in post-industrial zones, hereby referred to as 'the system,' into two outputs: address housing needs & increase property values. No matter how compassionate/malicious the initial intention might be, the system will always produce these two outputs. Like any complex system, we cannot rightfully determine whether an adaptive reuse project is “good-natured” or not, but what we can do is view the effort from a systemic perspective to perceive what crucial elements and relationships control the balance of its final output. 
         </p>
@@ -143,17 +160,19 @@
           <img src="CDP-ColloquiumI-03.png">
         </figure>
 
-        <blockquote>
+        <br>
+        <h2>
           Rube Goldberg Machine: Unpredictable
-        </blockquote>
+        </h2>
+        <br>
 
         <div class="video-container">
           <iframe 
-          src="https://www.youtube.com/embed/Dr4IfNH6Ngk"
+          width="720" 
+          height="315" 
+          src="https://www.youtube.com/embed/Dr4IfNH6Ngk" 
           frameborder="0" 
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen="" 
-          style="aspect-ratio: 16 / 9; width: 100%;">
+          allowfullscreen>
           </iframe>
         </div>
         
@@ -228,6 +247,13 @@
         <p>
           <b>Adapt, Reuse</b> internalizes the idea of its name by allowing users to submit, collect, and reuse resources. (The idea is great, but the execution, not so much.) One of the things I like about open-source projects is that they have a certain degree of “repeatability”. Actually, this sounds a bit like <b>LEGO Ideas</b> plus the LEGO subreddit, where users can submit and share different creations based on their unified passion for the same system. The reason many open-source projects became stagnant is because of the difficulty of replicating “projects”, whereas small and easy contributions could easily consolidate a whole system’s user base and its path forward.
         </p>
+        <br>
+
+        <h2>
+          <a href="colloquium-1-2024/work/sebastian-schloesser/zine.html">
+          Interactive Zine (*Click to play*)
+          </a>
+        </h2>
 
       </section>
       

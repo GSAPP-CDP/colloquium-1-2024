@@ -1,24 +1,80 @@
+/*CURSOR*/
+
+/* Apply the custom cursor globally */
+body {
+  cursor: url('cursor.png') 8 8, auto; /* Adjust hotspot if needed */
+}
+/* Apply a custom cursor for clickable elements */
+a, button, .clickable {
+  cursor: url('click-cursor.png') 8 8, pointer; /* Click cursor */
+}
+/* Apply a custom cursor for draggable or move actions */
+.draggable, .move {
+  cursor: url('move-cursor.png') 8 8, drag; /* Move cursor */
+}
+
+/* IMAGE */
+
+.full-width-image {
+  width: 100vw; /* Make the image span the full viewport width */
+  height: auto; /* Maintain the image’s aspect ratio */
+  display: block; /* Remove extra space below the image */
+}
+
+img {
+  display: block;
+  max-width: 100%; /* Ensure image scales down with the container */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto;
+}
+
+/* VIDEO */
+
+.video-container {
+  position: relative; /* Establish a relative positioning context */
+  width: 100%; /* Full width of the container */
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width * 100) */
+  height: 0; /* Height is controlled by padding */
+  overflow: hidden; /* Hide any overflowing content */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.video-container iframe {
+  position: absolute; /* Position the iframe absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  border: 0; /* Remove border */
+}
+
 /* NAV BOX */
 
 #draggableBox {
   width: 115px;
-  height: 195px;
-  background-color: black;
-  color: #dadada;
-  border: 1px solid #dadada;
+  height: 155px;
+  background-color: #dbdbdb;
+  color: #000000;
+  border: 1px solid #000000;
   position: fixed;
   cursor: move;
   z-index: 1000;
-  top: 200px;
-  left: 50px;
+  top: 160px;
+  left: 25px;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #draggableBox ul {
   list-style-type: none; /* Remove default list styles */
   font-family: 'Poppins', sans-serif; 
   font-size: 0.875rem;
-  padding: 0.25rem; /* Added 'rem' unit for padding */
+  padding: 0.15rem; /* Added 'rem' unit for padding */
   margin: 0.5rem; /* Added 'rem' unit for margin */
+  margin-top: 10px;
 }
 
 #draggableBox ul li {
@@ -32,18 +88,19 @@
   left: -1px; /* Adjust this value to align the bar with the box */
   width: calc(100% + 2px); /* Adjusted width to include the borders */
   height: 20px; /* Height of the white bar */
-  background-color: #dadada;
+  background-color: #000000;
   z-index: 1001; /* Ensure the bar is above the box */
+  border-radius: 6px 6px 0 0;
 }
 
 #draggableBox::before {
   content: "═";
   position: absolute;
-  top: 4.5%;
+  top: 5.5%;
   left: 7px;
   transform: translateY(-50%);
   font-size: 20px; /* Adjust icon size */
-  color: #000000; /* Icon color */
+  color: #dbdbdb; /* Icon color */
   z-index: 1002;
 }
 
@@ -53,7 +110,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #000000;
+  background-color: #dbdbdb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
   z-index: 1000; /* Ensure the header is above other content */
 }
@@ -61,7 +118,8 @@ header {
 header h1,
 header h2,
 nav {
-  margin: 0;
+  display: flex;
+  margin-top: 10px;
   padding: 10px 20px;
 }
 
@@ -69,59 +127,85 @@ nav ul {
   list-style-type: none; /* Remove default list style */
   padding: 0; /* Remove default padding */
   margin: 0; /* Remove default margin */
+  text-decoration: none;
 }
 
 nav li {
-  display: inline; /* Display list items inline */
+  display: inline;
   margin-right: 10px; /* Adjust spacing between items as needed */
+  text-decoration: none;
 }
 
 nav a {
+  text-align: right; 
   font-family: 'Poppins', sans-serif; 
   font-size: 0.875rem;
   font-weight: 200;
   text-decoration: none; /* Remove underline from links */
-  color: #ffffff; /* Set link color */
+  color: #000000; /* Set link color */
+  text-decoration: none;
 }
 
 /* BODY */
 
 body {
-  background-color: #000000;
+  background-color: #dbdbdb;
+}
+a {
+  justify-content: left;
+  text-decoration: none !important;
+  color: #000000
+}
+
+h0 {
+  text-align: left; 
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #000000;
+  position: relative;
+  top: 20px;
+  left: 20px;
 }
 
 h1 {
   text-align: center; 
-  margin: 0;
+  margin-top: 50px;
+  margin-bottom: 40px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
+  color: #000000
 }
 
 h2 {
   text-align: center; 
-  margin: 0;
+  margin-bottom: 0px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 1rem;
+  color: #000000
 }
 
 h3 {
-  text-align: center; 
-  margin: 0;
+  text-align: right; 
+  margin-right: 40px;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 2;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: #000000
 }
 
 p {
   font-family: 'Poppins', sans-serif; 
   font-size: 0.875rem !important;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.5;
   max-width: 500px;
   margin: 0 auto;
   hyphens: auto;
+  color: #000000
 }
