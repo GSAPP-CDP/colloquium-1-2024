@@ -1,0 +1,130 @@
+[
+    {
+        "id": 0,
+        "img": "a-thousand-aggressive-cat-students-whose-existence.png",
+        "adjective": "aggressive",
+        "profession": "student",
+        "species": "cat",
+        "description": "A thousand aggressive cat students whose existence will cause social unrest, but could be educated"
+    },
+    {
+        "id": 1,
+        "img": "an-experienced-dog-surgeon-whose-future-work-could.png",
+        "adjective": "experienced",
+        "profession": "surgeon",
+        "species": "dog",
+        "description": "An experienced dog surgeon whose future work could save hundreds of lives"
+    },
+    {
+        "id": 2,
+        "img": "an-old-gorilla-counselor-who-advocates-gradual-pro.png",
+        "adjective": "old",
+        "profession": "counselor",
+        "species": "gorilla",
+        "description": "An old gorilla counselor who advocates gradual progress, drawing on years of experience and historical perspective"
+    },
+    {
+        "id": 3,
+        "img": "a-young-monkey-activist-who-challenges-the-status-.png",
+        "adjective": "young",
+        "profession": "activist",
+        "species": "monkey",
+        "description": "A young monkey activist who challenges the status quo, fighting for social and political change with passion and energy"
+    },
+    {
+        "id": 4,
+        "img": "a-snarky-troll-monk-who-believes-in-compassion-and.png",
+        "adjective": "snarky",
+        "profession": "monk",
+        "species": "troll",
+        "description": "A snarky troll monk who believes in compassion and mercy, advocating for forgiveness over punishment"
+    },
+    {
+        "id": 5,
+        "img": "a-caring-gnome-judge-who-adheres-strictly-to-the-l.png",
+        "adjective": "caring",
+        "profession": "judge",
+        "species": "gnome",
+        "description": "A caring gnome judge who adheres strictly to the law, ensuring that everyone receives fair and equal treatment"
+    },
+    {
+        "id": 6,
+        "img": "a-virtuous-elf-scholar-who-remains-loyal-to-their-.png",
+        "adjective": "virtuous",
+        "profession": "scholar",
+        "species": "elf",
+        "description": "A virtuous elf scholar who remains loyal to their peaceful community, even if it means overlooking certain truths"
+    },
+    {
+        "id": 7,
+        "img": "a-violent-orc-politician-who-exposes-unethical-pra.png",
+        "adjective": "violent",
+        "profession": "politician",
+        "species": "orc",
+        "description": "A violent orc politician who exposes unethical practices, despite the risk to their career and relationships"
+    },
+    {
+        "id": 8,
+        "img": "a-compassionate-sphinx-president-who-make-decision.png",
+        "adjective": "compassionate",
+        "profession": "president",
+        "species": "sphinx",
+        "description": "A compassionate sphinx president who make decisions for the well-being of their country"
+    },
+    {
+        "id": 9,
+        "img": "a-grumpy-dryad-hermit-who-shares-immense-wisdom-an.png",
+        "adjective": "grumpy",
+        "profession": "hermit",
+        "species": "dryad",
+        "description": "A grumpy dryad hermit who shares immense wisdom and inspiration occasionally with the world"
+    },
+    {
+        "id": 10,
+        "img": "a-greedy-centaur-healer-with-the-power-to-cure-men.png",
+        "adjective": "greedy",
+        "profession": "healer",
+        "species": "centaur",
+        "description": "A greedy centaur healer with the power to cure mental illness and emotional trauma"
+    },
+    {
+        "id": 11,
+        "img": "a-passionate-and-cool-mermaid-professional-philoso.png",
+        "adjective": "passionate",
+        "profession": "philosopher",
+        "species": "mermaid",
+        "description": "A passionate mermaid philosopher who holds the answers to humanity's deepest questions"
+    },
+    {
+        "id": 12,
+        "img": "an-elusive-werewolf-environmentalist-who-can-insta.png",
+        "adjective": "elusive",
+        "profession": "environmentalist",
+        "species": "werewolf",
+        "description": "An elusive werewolf environmentalist who can instantly restore any damaged ecosystem"
+    },
+    {
+        "id": 13,
+        "img": "a-dying-unicorn-doctor-who-can-make-every-disease-.png",
+        "adjective": "dying",
+        "profession": "doctor",
+        "species": "unicorn",
+        "description": "A dying unicorn doctor who can make every disease disappear with a touch"
+    },
+    {
+        "id": 14,
+        "img": "a-lazy-sleepy-phoenix-bird-artist-with-an-art-brus.png",
+        "adjective": "lazy",
+        "profession": "artist",
+        "species": "phoenix",
+        "description": "A lazy phoenix artist whose paintings inspire global peace and creativity"
+    },
+    {
+        "id": 15,
+        "img": "a-rigorous-dragon-librarian-who-safeguards-all-the.png",
+        "adjective": "rigorous",
+        "profession": "librarian",
+        "species": "dragon",
+        "description": "A rigorous dragon librarian who safeguards all the world's knowledge"
+    }
+]

@@ -1,0 +1,249 @@
+{
+    "characters": [
+        {
+            "id": 0,
+            "img": "a-careless-reptilian-soldier.png",
+            "adjective": "kind",
+            "profession": "general",
+            "species": "reptilian"
+        },
+        {
+            "id": 1,
+            "img": "a-funny-rhino-pilot.png",
+            "adjective": "unserious",
+            "profession": "cadet",
+            "species": "rhino"
+        },
+        {
+            "id": 2,
+            "img": "a-loyal-yeti-dancer.png",
+            "adjective": "sexy",
+            "profession": "performer",
+            "species": "yeti"
+        },
+        {
+            "id": 3,
+            "img": "a-mean-slug-nanny.png",
+            "adjective": "gracious",
+            "profession": "teacher",
+            "species": "slug"
+        },
+        {
+            "id": 4,
+            "img": "a-messy-griffin-spy.png",
+            "adjective": "quick-witted",
+            "profession": "agent",
+            "species": "griffin"
+        },
+        {
+            "id": 5,
+            "img": "a-peaceful-bobcat-model.png",
+            "adjective": "patient",
+            "profession": "youtuber",
+            "species": "bobcat"
+        },
+        {
+            "id": 6,
+            "img": "a-prideful-fly-lawyer.png",
+            "adjective": "reliable",
+            "profession": "district attorney",
+            "species": "fly"
+        },
+        {
+            "id": 7,
+            "img": "a-sensitive-shark-manager.png",
+            "adjective": "zealous",
+            "profession": "HR",
+            "species": "shark"
+        },
+        {
+            "id": 8,
+            "img": "a-silent-zombie-nurse.png",
+            "adjective": "optimistic",
+            "profession": "nurse",
+            "species": "zombie"
+        },
+        {
+            "id": 9,
+            "img": "a-brave-eel-dancer.png",
+            "adjective": "friendly",
+            "profession": "singer",
+            "species": "eel"
+        },
+        {
+            "id": 10,
+            "img": "a-honest-zombie-pilot.png",
+            "adjective": "ambitious",
+            "profession": "pilot",
+            "species": "zombie"
+        },
+        {
+            "id": 11,
+            "img": "a-patient-reptilian-actor.png",
+            "adjective": "humble",
+            "profession": "director",
+            "species": "reptilian"
+        },
+        {
+            "id": 12,
+            "img": "a-timid-spider-hairdresser.png",
+            "adjective": "efficient",
+            "profession": "designer",
+            "species": "spider"
+        },
+        {
+            "id": 13,
+            "img": "a-kind-demon-model.png",
+            "adjective": "practical",
+            "profession": "public speaker",
+            "species": "demon"
+        },
+        {
+            "id": 14,
+            "img": "a-cowardly-skeleton-soldier.png",
+            "adjective": "cautious",
+            "profession": "grunt",
+            "species": "skeleton"
+        },
+        {
+            "id": 15,
+            "img": "a-elegant-hippo-nurse.png",
+            "adjective": "logical",
+            "profession": "pharmacist",
+            "species": "hippo"
+        },
+        {
+            "id": 16,
+            "img": "a-messy-cockroach-police.png",
+            "adjective": "reserved",
+            "profession": "police officer",
+            "species": "cockroach"
+        },
+        {
+            "id": 17,
+            "img": "a-humorous-chupacabra-banker.png",
+            "adjective": "honest",
+            "profession": "stock trader",
+            "species": "chupacabra"
+        },
+        {
+            "id": 18,
+            "img": "a-sincere-woodpecker-scientist.png",
+            "adjective": "discreet",
+            "profession": "developer",
+            "species": "woodpecker"
+        },
+        {
+            "id": 19,
+            "img": "a-serious-demon-manager.png",
+            "adjective": "adaptable",
+            "profession": "CEO",
+            "species": "demon"
+        },
+        {
+            "id": 20,
+            "img": "a-diligent-donkey-lawyer.png",
+            "adjective": "strategic",
+            "profession": "agent",
+            "species": "donkey"
+        },
+        {
+            "id": 21,
+            "img": "a-submissive-beetle-firefighter.png",
+            "adjective": "independent",
+            "profession": "firefighter",
+            "species": "beetle"
+        },
+        {
+            "id": 22,
+            "img": "a-mean-slug-electrician.png",
+            "adjective": "resourceful",
+            "profession": "handyman",
+            "species": "slug"
+        },
+        {
+            "id": 23,
+            "img": "a-honest-golem-designer.png",
+            "adjective": "curious",
+            "profession": "architect",
+            "species": "golem"
+        },
+        {
+            "id": 24,
+            "img": "a-creative-spider-teacher.png",
+            "adjective": "perceptive",
+            "profession": "principal",
+            "species": "spider"
+        },
+        {
+            "id": 25,
+            "img": "a-brave-giraffe-journalist.png",
+            "adjective": "fearful",
+            "profession": "journalist",
+            "species": "giraffe"
+        },
+        {
+            "id": 26,
+            "img": "a-cowardly-golem-dj.png",
+            "adjective": "systematic",
+            "profession": "entertainer",
+            "species": "golem"
+        },
+        {
+            "id": 27,
+            "img": "a-kind-yeti-enforcer.png",
+            "adjective": "kind",
+            "profession": "enforcer",
+            "species": "yeti"
+        },
+        {
+            "id": 28,
+            "img": "a-elegant-skeleton-actor.png",
+            "adjective": "methodical",
+            "profession": "actor",
+            "species": "skeleton"
+        },
+        {
+            "id": 29,
+            "img": "a-kind-demon-ceo.png",
+            "adjective": "versatile",
+            "profession": "cfo",
+            "species": "demon"
+        },
+        {
+            "id": 30,
+            "img": "a-ignorant-giraffe-cleaner.png",
+            "adjective": "rude",
+            "profession": "janitor",
+            "species": "giraffe"
+        },
+        {
+            "id": 31,
+            "img": "a-pessimistic-chupacabra-cook.png",
+            "adjective": "arrogant",
+            "profession": "chef",
+            "species": "chupacabra"
+        },
+        {
+            "id": 32,
+            "img": "a-patient-orangutan-mathmatician.png",
+            "adjective": "selfish",
+            "profession": "scientist",
+            "species": "orangutan"
+        },
+        {
+            "id": 33,
+            "img": "a-impatient-woodpecker-builder.png",
+            "adjective": "whiny",
+            "profession": "construction worker",
+            "species": "woodpecker"
+        },
+        {
+            "id": 34,
+            "img": "a-cruel-angel-philosopher.png",
+            "adjective": "envious",
+            "profession": "senator",
+            "species": "angel"
+        }
+    ]
+}
