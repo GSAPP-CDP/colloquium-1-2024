@@ -55,3 +55,8 @@ h4 {
   max-width: 33%; /* 원하는 이미지 크기를 설정 */
   height: auto;    /* 원본 비율 유지 */
 }
+.image-container3 img {
+  max-width: 100%; /* 원하는 이미지 크기를 설정 */
+  height: auto;    /* 원본 비율 유지 */
+}
+
