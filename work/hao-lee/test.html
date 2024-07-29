@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Cloud Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.0.6/wordcloud2.min.js"></script>
+</head>
+<body>
+    <canvas id="wordCloudCanvas" width="800" height="600"></canvas>
+    <script>
+        var words = [
+            {text: "HTML", weight: 10},
+            {text: "CSS", weight: 8},
+            {text: "JavaScript", weight: 25},
+            {text: "Responsive", weight: 7},
+            {text: "Web Development", weight: 9},
+            {text: "OpenAI", weight: 11},
+            {text: "Word Cloud", weight: 6},
+            {text: "Library", weight: 5},
+            {text: "React", weight: 10},
+            {text: "Node.js", weight: 9},
+            {text: "Python", weight: 11},
+            {text: "Database", weight: 8},
+            {text: "API", weight: 7},
+            {text: "Git", weight: 6},
+            {text: "Docker", weight: 8},
+            {text: "Cloud Computing", weight: 9},
+            {text: "Machine Learning", weight: 10},
+            {text: "Cybersecurity", weight: 8},
+            {text: "UI/UX", weight: 7},
+            {text: "Agile", weight: 6},
+            {text: "DevOps", weight: 8},
+            {text: "Blockchain", weight: 7},
+            {text: "IoT", weight: 6},
+            {text: "Big Data", weight: 9},
+            {text: "Angular", weight: 8},
+            {text: "Vue.js", weight: 7},
+            {text: "TypeScript", weight: 8},
+            {text: "GraphQL", weight: 7},
+            {text: "Kubernetes", weight: 8},
+            {text: "Serverless", weight: 7},
+            {text: "Progressive Web Apps", weight: 8},
+            {text: "Microservices", weight: 7},
+            {text: "CI/CD", weight: 6},
+            {text: "Data Science", weight: 9},
+            {text: "Artificial Intelligence", weight: 10},
+            {text: "Virtual Reality", weight: 7},
+            {text: "Augmented Reality", weight: 7},
+            {text: "5G", weight: 6}
+        ];
+
+        function generateWordCloud() {
+            WordCloud(document.getElementById('wordCloudCanvas'), {
+                list: words.map(word => [word.text, word.weight]),
+                gridSize: Math.round(16 * window.innerWidth / 1024),
+                weightFactor: function (size) {
+                    return size * (window.innerWidth / 1024);
+                },
+                fontFamily: 'Times, serif',
+                color: 'random-dark',
+                backgroundColor: '#f0f0f0',
+                rotateRatio: 0.5,
+                rotationSteps: 2,
+                shape: 'circle',
+                hover: function(item, dimension) {
+                    if (dimension) {
+                        document.getElementById('wordCloudCanvas').style.cursor = 'pointer';
+                    } else {
+                        document.getElementById('wordCloudCanvas').style.cursor = '';
+                    }
+                },
+                drawOutOfBound: true,
+                shrinkToFit: true,
+                animation: {
+                    step: function(frame) {
+                        const amplitude = 3;
+                        const frequency = 0.05;
+                        return {
+                            x: amplitude * Math.sin(frame * frequency),
+                            y: amplitude * Math.cos(frame * frequency)
+                        };
+                    },
+                    duration: Infinity
+                }
+            });
+        }
+
+        // Initial generation
+        generateWordCloud();
+
+        // Refresh every 1 second
+        setInterval(generateWordCloud, 1000);
+    </script>
+</body>
+</html>

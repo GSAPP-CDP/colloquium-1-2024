@@ -1,16 +1,94 @@
-/*CURSOR*/
+/* HIGHLIGHT*/
+::selection {
+  background-color: #ffcc00; /* Highlight color */
+  color: #000000; /* Text color */
+}
 
-/* Apply the custom cursor globally */
+/* For Webkit browsers like Chrome and Safari */
+::-webkit-selection {
+  background-color: #ffcc00; /* Highlight color */
+  color: #000000; /* Text color */
+}
+
+.highlight::selection {
+  background-color: #ffcc00;
+  color: #000000;
+}
+
+
+/* COLUMNS */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.outer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-column {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.image-column {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Stack images vertically */
+  align-items: center;
+}
+
+.image-column img {
+  margin-bottom: 20px;
+}
+
+figure {
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 600px;
+}
+
+/* CURSOR */
 body {
-  cursor: url('cursor.png') 8 8, auto; /* Adjust hotspot if needed */
+  cursor: url('cursor.png') 8 8, auto; 
 }
-/* Apply a custom cursor for clickable elements */
-a, button, .clickable {
-  cursor: url('click-cursor.png') 8 8, pointer; /* Click cursor */
+
+a, button, .clickable, .size-all, .dragging, .move, .grab {
+  cursor: url('click-cursor.png') 8 8, auto;
 }
-/* Apply a custom cursor for draggable or move actions */
-.draggable, .move {
-  cursor: url('move-cursor.png') 8 8, drag; /* Move cursor */
+
+.dragging, .move, .grab, #draggableBox {
+  cursor: url('move-cursor.png') 8 8, move; 
 }
 
 /* IMAGE */
@@ -28,34 +106,73 @@ img {
   margin: 0 auto;
 }
 
+
+/* MODEL VIEWER */
+
+.model-viewer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.model-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth transition for scrolling */
+  width: 300%; /* 3 models, so width is 300% */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  position: absolute;
+  top: 80%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  cursor: poHost Groteskr;
+  user-select: none;
+  z-index: 999;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
 /* VIDEO */
 
 .video-container {
   position: relative; /* Establish a relative positioning context */
   width: 100%; /* Full width of the container */
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width * 100) */
   height: 0; /* Height is controlled by padding */
-  overflow: hidden; /* Hide any overflowing content */
-  display: flex; /* Use flexbox to center content */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  box-sizing: border-box; /* Include padding in the element's total width and height */
+  margin-top: 200px; /* Move the container lower by adding more top margin */
+  margin-bottom: 200px; /* Move the container lower by adding more bottom margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-container iframe {
   position: absolute; /* Position the iframe absolutely within the container */
-  top: 0;
-  left: 0;
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
+  width: 600px; /* 70% width of the container */
+  height: 338px; /* 70% height of the container */
   border: 0; /* Remove border */
 }
 
 /* NAV BOX */
 
 #draggableBox {
-  width: 115px;
-  height: 155px;
+  width: 125px;
+  height: 215px;
   background-color: #dbdbdb;
   color: #000000;
   border: 1px solid #000000;
@@ -69,16 +186,26 @@ img {
 }
 
 #draggableBox ul {
-  list-style-type: none; /* Remove default list styles */
-  font-family: 'Poppins', sans-serif; 
-  font-size: 0.875rem;
-  padding: 0.15rem; /* Added 'rem' unit for padding */
-  margin: 0.5rem; /* Added 'rem' unit for margin */
-  margin-top: 10px;
+  list-style-type: none; /* Ensure there are no default list styles for the ul */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  margin-top: 15px;
+  margin-left: 5px;
 }
 
-#draggableBox ul li {
-  margin-bottom: 0.5rem; /* Adjust spacing between list items */
+#draggableBox ul li a {
+  color: darkgrey;
+  text-decoration: none;
+  list-style-type: none; /* Remove default list styles */
+  font-family: 'Host Grotesk', sans-serif; 
+  font-size: 0.875rem;
+  padding: 0.15rem;
+  margin: 0.5rem;
+  margin-top: 35px;
+}
+
+#draggableBox ul li a.active {
+  color: black;
 }
 
 #draggableBox::after {
@@ -96,12 +223,16 @@ img {
 #draggableBox::before {
   content: "═";
   position: absolute;
-  top: 5.5%;
+  top: 5%;
   left: 7px;
   transform: translateY(-50%);
   font-size: 20px; /* Adjust icon size */
   color: #dbdbdb; /* Icon color */
   z-index: 1002;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* HEADER */
@@ -124,10 +255,10 @@ nav {
 }
 
 nav ul {
-  list-style-type: none; /* Remove default list style */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
-  text-decoration: none;
+  list-style-type: none;
+  padding: 0; 
+  margin: 0;
+  
 }
 
 nav li {
@@ -138,7 +269,7 @@ nav li {
 
 nav a {
   text-align: right; 
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Host Grotesk', sans-serif; 
   font-size: 0.875rem;
   font-weight: 200;
   text-decoration: none; /* Remove underline from links */
@@ -147,6 +278,16 @@ nav a {
 }
 
 /* BODY */
+
+hr {
+  border: 1px solid darkgrey;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.spacer {
+  height: 300px;
+}
 
 body {
   background-color: #dbdbdb;
@@ -159,7 +300,7 @@ a {
 
 h0 {
   text-align: left; 
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
@@ -172,26 +313,41 @@ h0 {
 h1 {
   text-align: center; 
   margin-top: 50px;
-  margin-bottom: 40px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Host Grotesk', sans-serif;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 5rem;
   color: #000000
 }
 
 h2 {
   text-align: center; 
-  margin-bottom: 0px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-weight: 600;
+  max-width: 800px;
+  font-size: 1.5rem;
   color: #000000
 }
+
+.highlighted {
+  text-align: center; 
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-weight: 600;
+  max-width: 800px;
+  font-size: 1.5rem;
+  color: #000000
+}
+
 
 h3 {
   text-align: right; 
   margin-right: 40px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Host Grotesk', sans-serif;
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 2;
@@ -199,13 +355,152 @@ h3 {
   color: #000000
 }
 
-p {
-  font-family: 'Poppins', sans-serif; 
-  font-size: 0.875rem !important;
-  font-weight: 300;
-  line-height: 1.5;
-  max-width: 500px;
+h4 {
+  text-align: left; 
   margin: 0 auto;
-  hyphens: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
   color: #000000
+}
+
+p {
+  font-family: 'Host Grotesk', sans-serif; 
+  font-size: 0.875rem !important;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: #000000
+}
+
+span {
+  color: #000000;
+}
+
+.underline {
+  display: inline-block;
+  color: #000000;
+  position: relative;
+}
+.underline::after {
+  content: '';
+  display: block;
+  width: 100%; /* Matches the width of the span */
+  background-color: #dbdbdb;
+  height: 1px;
+  position: absolute;
+  bottom: -10px; /* Adjust this to position the line below the text */
+  left: 0;
+}
+
+.indent {
+  padding-left: 20px;
+}
+
+
+/* CSV SCROLLABLE WINDOW */
+.scrollable-container {
+  width: 600px;
+  height: 510px;
+  overflow-y: scroll;
+  border: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 2px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-family: 'Host Grotesk', sans-serif; 
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto;
+  color: #000000
+}
+
+th {
+  font-weight: 500; /* Make the first row bold */
+}
+
+
+.button {
+  border: none;
+  background-color: #dbdbdb;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  cursor: move;
+  left: 19px;
+  height: 40px;
+  width: 125px;
+  top: 355px;
+  color: rgb(0, 0, 0);
+  border: 1px solid #000000;
+  border-width: 1px;
+  text-decoration: none;
+  list-style-type: none; /* Remove default list styles */
+  font-family: 'Host Grotesk', sans-serif; 
+  font-size: 0.875rem;
+  padding: 0.15rem;
+  margin: 0.5rem;
+  margin-top: 35px;
+  z-index: 1000;
+}
+
+.button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#map {
+  width: 600px;
+  height: 300px;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  z-index: 999;
+}
+.legend {
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-size: 15px;
+}
+.legend div {
+  display: flex;
+  justify-content: space-between;
+}
+.legend .gradient {
+  width: 50%;
+  height: 20px;
+  opacity: 0.6;
 }
