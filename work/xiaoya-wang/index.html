@@ -10,9 +10,7 @@
   <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
   <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
   <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  
   <link href="style.css" rel="stylesheet" />
-  
   <title>Xiaoya Wang</title>
 </head>
 
@@ -88,7 +86,6 @@ allowfullscreen
 style="aspect-ratio: 16 / 9; width: 100%;">
 </iframe>
 
-      
       <section>
         <h1 id="assignment-2">2 – Authorship</h1>
 
@@ -188,15 +185,167 @@ style="aspect-ratio: 16 / 9; width: 100%;">
 
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         
-        <img src="gif.gif" alt="Animated GIF">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
+        <div style="float: right; margin-left: 50px;">
+          <img src="zine.gif.gif" alt="Zine animation" class="" style="height: 300px; width: auto;">
+          <p class="descriptive-text">click to play the <a href="https://yilinzheng10.github.io/zine/">AI Artifact Playground</a></p>
+        </div>
         <p></p>
       </section>
       
       <section>
         <h1 id="assignment-3">3 – Politics</h1>
+        <h2>Gathering Data</h2>
+        <p style="font-weight: bold">Hypothesis</p>
+        <p>When the users decide to use it design a residential building, they will focus on the comfort of the surrounding environment when choosing the site.</p>
+        <p style="font-weight: bold">Datasets</p>
+        <p>Dataset 1: Ten well-rated apartments in New York City</p>
+
+        <img src="points.png">
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+
+        <p>Locations of Ten Apartments</p>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        <style>
+            #map { height: 300px;width: 50%;filter: saturate(100%);border: 3px solid #000000; }
+        </style>
+        
+        <div id="map"></div>
+        <script src="main.js"></script>  <!-- Ensure this path is correct -->
+
+        <p>Dataset 2: Ratings and Reviews</p>
+
+        <img src="Comments.png">
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+
+        <p>Dataset 3: Tree Coverage</p>
+
+        <p>Count the number of trees and record the diameter at breast height of each tree in the four streets around the plot where these ten apartments is located.</p>
+
+        <img src="tree.png">
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+
+        <p>Dataset 4: Types of Buildings Around</p>
+
+        <img src="Surroundings.jpg">
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+
+        <p>Dataset 5: Number of Bus Stops in the Surrounding Area</p>
+
+        <img src="Bus_Stop.png">
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+
+        <p>By analyzing the number of bus stops around, we can analyze the convenience of the surrounding environment of residential buildings. As can be seen from the picture, each of these ten buildings is surrounded by at least one or two nearby bus stop shelter.</p>
+
+        <p>Among the five sets of data I selected, the first set is the determination of residential buildings, and the last four sets can directly or indirectly see the comfort level of the surrounding environment of the buildings. It can be seen that these ten buildings are all distributed in the middle and south of Manhattan, which are prosperous, convenient in transportation, and have a certain coverage rate of green plants, and it also explains the relationship between the comfort of the surrounding environment and residential buildings to a certain extent. This will also be helpful in the statistical process of designing the system in the future.</p>
+
+      </section>
+
+      <section>
+        <h2>Sketch Prototypes</h2>
+
+        <p>I choose the data set tree coverage for presentation. I show the overall arrangement of trees in the street and the distribution and quantity of trees around the ten residential buildings selected before.</p>
+
+        <p>1. Analytical x Mapping x P5.js</p>
+
+          <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+          <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+          <style>
+              body {
+                    margin: 0;
+                    padding: 0;
+                    height: 100vh;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .map-container {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                }
+                .map-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 10px; /* Add margin around each map wrapper */
+                    flex: 1; /* Allow maps to grow equally */
+                    max-width: 800px; /* Set a maximum width for each map */
+                }
+                #map2015, #map1995 {
+                    height: 500px;
+                    width:100%;
+                    border: 3px solid #000000;
+                }
+                /* Optional: Add spacing between the maps */
+                #map2015 {
+                  margin-right: 10px;
+                }
+                .map-title {
+                    text-align: center;
+                    font-size: 1em;
+                    margin-bottom: 10px;
+                    color: #333; /* Optional: Change title color */
+                }
+          </style>
+
+        <div class="map-container">
+          <div class="map-wrapper">
+            <div class="map-title">Street Trees Census in 2015</div>
+            <div id="map2015"></div>
+        </div>
+        <div class="map-wrapper">
+            <div class="map-title">Street Trees Census in 1995</div>
+            <div id="map1995"></div>
+        </div>
+      </div>
+      <script>
+          // Initialize the Leaflet map for 2015
+          var map2015 = L.map('map2015').setView([40.74, -74.0060], 12);  // New York City coordinates
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+              maxZoom: 18,
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+              opacity: 0.7
+          }).addTo(map2015);
+          // Load data for 2015
+          fetch('main2015.js').then(response => response.text()).then(script => eval(script));
+  
+          // Initialize the Leaflet map for 1995
+          var map1995 = L.map('map1995').setView([40.74, -74.0060], 12);  // New York City coordinates
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+              maxZoom: 18,
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+              opacity: 0.7
+          }).addTo(map1995);
+          // Load data for 1995
+          fetch('main1995.js').then(response => response.text()).then(script => eval(script));
+      </script>
+
+      <p>Above are two interactive maps of the distribution of street trees in 1995 and 2015, where the red circle represents the residential buildings, and the green dot represents the trees. Click on the dots representing trees, you can see the diameter at breast height of each tree. It can also be seen from the map that with the change of time, there are more and more trees around, and the tree coverage rate becomes higher.</p>
+
+      <p>2. Analytical x Data Visualization x Python</p>
+
+      <p>I took the points of ten residential buildings as the center of a circle and counted the number of trees within the radius of one kilometer.</p>
+
+      <img src="bar.png">
+      <link href="style.css" rel="stylesheet" />
+      <script src="script.js"></script>
+
+      <p>3. Analytical x Data Visualization x Grasshopper</p>
+
+      <p>Import the csv file into grasshopper, draw a circle in grasshopper with the coordinate points of the residential buildings as the center of the circle, screen the points in the circles, and use the gradient tool to fill in the color of each circle according to the number of points contained, so as to more obviously compare the change of the number of street trees from 1995 to 2015.</p>
+
+      <img src="View.jpg">
+      <link href="style.css" rel="stylesheet" />
+      <script src="script.js"></script>
+
       </section>
       
       <section>
@@ -210,6 +359,8 @@ style="aspect-ratio: 16 / 9; width: 100%;">
   </main>
   
   <footer></footer>
+  <link href="style.css" rel="stylesheet" />
+  <script src="script.js"></script>
 </body>
 
 </html>

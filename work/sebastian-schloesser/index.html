@@ -98,43 +98,6 @@ image: featured.jpeg
             <iframe width="390" height="700" src="https://www.youtube.com/embed/4oq0hd6UBA4?si=pTaiVaMITSvI-6iY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
 
-          <!-- <div class="full">
-            <blockquote>
-              ""
-            </blockquote>
-          </div>
-
-          <hr> -->
-
-          <!-- <div class="half">
-            <h2>What are its leverage points?</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-              vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-              est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-              tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-              tristique sollicitudin nibh sit amet. Quam pellentesque
-              nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-              in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-            </p>
-
-            <p>
-              Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-              tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-              Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-              aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-              nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-              in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-              odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-            </p>
-          </div> -->
-
-
-
-
-
           <hr>
 
           <div class="full assignment">
@@ -173,6 +136,13 @@ image: featured.jpeg
               <li>Patreon, Medium
                 <ul>
                   <li>These platforms allow consumers to pay creators directly and simply take a cut for running the environment.</li>
+                </ul>
+              </li>
+              <br>
+              <li>Plantoids
+                <ul>
+                  <li>This project is fascinating because it invokes evolutionary dynamics, as well as fair attribution in a series of artworks. A sculpture is created, and is given a QR code, where viewers can donate cryptocurrency such that it can "reproduce". Once the fundraising goal is met, the donors vote for which artist will produce the next iteration. This artist needs to take aspects from the ancestor artwork, such that genealogical traits are passed based on what people vote for. Ancestor artists are also rewarded with a percentage of the proceeds, creating a system for continued support.</li>
+                  <li><a href="https://plantoid.org/">Project Site</a></li>
                 </ul>
               </li>
               <br>
@@ -224,7 +194,7 @@ image: featured.jpeg
           <div class="full assignment">
             <h1 id="assignment-3">3 &ndash; Politics</h1>
             <h2>Online shopping or brick-and-mortar? What's better for the environment?</h2>
-            <img src="amazon.webp">
+            <img src="amazon.png">
           </div>
 
           <div class="half">
@@ -250,7 +220,7 @@ image: featured.jpeg
             </ul>
           </div>
           
-          <hr>
+          
 
           <div class="full">
             <h2>A Data Manifesto</h2>
@@ -261,58 +231,61 @@ image: featured.jpeg
               When the hypothesis in question is too broad and complex, I believe taking an individual case perspective can help illuminate the key levers of the system. In this case, the environmental cost of online shopping vs. brick-and-mortar is impossible to calculate. The nature of this problem is collective at heart, and one person won’t influence the whole. However, we make decisions on a daily basis, that in aggregate do matter. How else can we guide our choices other than by analyzing our particular situation with the data at hand? 
             </p>
           </div>
-          <!-- 
+
+          <hr>
+
           <div class="half">
-            <blockquote>
-              "Egestas fringilla phasellus faucibus. Aliquet porttitor lacus luctus accumsan tortor."
-            </blockquote>
+            <iframe src="top_20_places_map.html" style="width: 100%; height: 500px;"></iframe> 
+          </div>
+          <div class="half">
+            <h2>Grocery Store Visists</h2>            
+            <h3>Exploratory | Mapping | Python & JS</h3>
+            <p></p>
+            <p>
+              I started out with my Google Location History, which was a large JSON file with 2 kinds of data points, visits or trips. I focused first on the visits, which just showed coordinates and obscure ID. I had to use the Places API to fetch data about these places so that I could make any sense of them. I then flattened the JSON results and merged them to the dataframe. I filtered for places in NYC and over the past 3 years. This was an exploratory search into the data. I had no particular agenda, but found it fascinating to learn I've been to my friend's house 50 times, or that Joe's Pizza is my 16th most visited place in New York! I then realized these data are far from perfect, for example when I saw that I only had 11 recorded visits to the studio where I went every workday to for almost 2 years.
+            </p>
+            <p>
+              For the purposes of our case study, of whether to shop online or in person, I narrowed down the types of places to grocery stores, and they can be seen on the map here by number of visit. 
+            </p>
+          </div>
+
+          <div class="half">
+            <h2>Most Likely Next Trip</h2>
+            <h3>Predictive | Data Visualization | ipyleaflet + GIPHY</h3>
+            <p></p>
+            <p>
+              Here I am trying to figure out what's the most likely trip I'm going to make next. I trained a small machine learning model on all of my trips recorded in the timeline data. Then I created an interactive map in the python notebook environment, where you can click to set the starting point of a trip, and it will predict the ending point of it. Here is a GIF of some examples. Soon it will be interactively available on this site as well.
+            </p>
           </div>
 
           <div class="full">
-            <img src="https://placehold.co/1200x800">
-
-            <img src="https://placehold.co/1200x800">
-
-            <img src="https://placehold.co/1200x800">
+            <img src="predictive-map.gif" style="width: 100%;">
           </div>
 
+
+          <div class="half"></div>
           <div class="half">
+            <h2>Blending Aisles</h2>            
+            <h3>Narrative | Data Journalism | Photoshop</h3>
+            <p></p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-              vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-              est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-              tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-              tristique sollicitudin nibh sit amet. Quam pellentesque
-              nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-              in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-            </p>
-
-            <p>
-              Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-              tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-              Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-              aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-              nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-              in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-              odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
+              After looking at God's eye view maps of my experience shopping for groceries, I decided it would provide an interesting perspective to zoom in to the experience itself. I searched for `Food` and `Markets` on my Photo library, and created a collage on Photoshop of the images that resulted. I was surprised to find old friends, and even a long lost memory of walking into a shop to find the owner grinding a table while a patron held it in place. The isles of repeating color coordinated objects seem to be a staple of the experience. 
             </p>
           </div>
-
-          <div class="half">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-              vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-              est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-              tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-              tristique sollicitudin nibh sit amet. Quam pellentesque
-              nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-              in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-            </p>
+          <div class="full">
+            <img src="grocer_collage.png"/> 
           </div>
 
-          <div class="full assignment">
+          <div class="full">
+            <h2>A Methods Manifesto</h2>
+            <p>
+              As Catherine D'Ignazio and Lauren Klein assert in <b>Data Feminism</b>, “data are not neutral or objective.” The way they are collected tells a story. Approaching a particular data set with a specific question can skew our analysis. And regardless of what we intend, the data might simply take us somewhere else. In my explorations to answer the impossible, I allowed myself to be guided by the affordances the data and tools at hand offered. Embracing the unexpected led to wonderful insights about my own experience of the city—insights that would have eluded me if I had persisted in “finding proof” for my hypothesis. Therefore, I believe we should remain open to serendipitous encounters with our data as we explore it, and allow the answers to (re)formulate the questions.
+            </p>
+          </div>
+          
+          <hr>
+
+          <!-- <div class="full assignment">
             <h1 id="assignment-4">4 &ndash; Governance</h1>
             <h2>$ Lender Money $</h2>
             <p>A profile of governance.</p>
@@ -322,7 +295,7 @@ image: featured.jpeg
             <h1 id="assignment-5">5 &ndash; Behavior</h1>
             <h2>$ Lender Money $</h2>
             <p>Modeling agents of the system.</p>
-          </div> -->
+          </div>  -->
 
         </div>
       </div>
