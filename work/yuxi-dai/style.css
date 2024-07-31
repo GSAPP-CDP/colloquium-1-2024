@@ -1,5 +1,9 @@
 /* CSS style sheet specific to a single student page. */
 
 article>h1:first-child {
-  color: blue;
+  color: rgb(251, 0, 255);
+}
+body {
+  background-color: #c6a3a8; /* Light pink background */
+  font-family: 'Garamond', serif; /* Garamond font */
 }
