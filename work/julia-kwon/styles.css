@@ -1,0 +1,31 @@
+/* CSS style sheet specific to a single student page. */
+
+.body {
+    background-color: lightgray !important;
+}
+
+article>h1:first-child {
+    color: blue;
+  }
+
+.image-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+    background-color: none;
+    padding: 20px;
+}
+
+.column {
+    padding: 20px;
+    background-color: none;
+    /* text-align: center; */
+}
+

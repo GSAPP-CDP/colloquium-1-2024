@@ -14,6 +14,65 @@
   <link href="style.css" rel="stylesheet" />
   
   <title>Manas Bhatia</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  
+  <style>
+    #changing-text {
+      color: black;
+      font-weight: bold;
+      background-color: yellow;
+    }
+    #typed-title {
+      font-weight: bold; /* Make the text bold */
+    }
+    #animated-list {
+      font-weight: bold;
+      background-color: yellow;
+    }
+    .side-by-side {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px; 
+    }
+    .side-by-side figure {
+      flex: 1;
+      margin: 0 10px;
+    }
+    .slides-iframe {
+      padding: 20px 0; /* Add padding at the top and bottom */
+    }
+    .draggable-card {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 300px; /* Increase width */
+      padding: 20px; /* Add padding for equal spacing */
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: move;
+      z-index: 1000;
+      border-radius: 10px; /* Rounded edges */
+    }
+
+    .draggable-card h2 {
+      color: black;
+      font-weight: bold;
+    }
+
+    .draggable-card ul li a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .draggable-card ul li a:hover {
+      font-weight: bold;
+      background-color: yellow;
+    }
+  </style>
+  
+  
 </head>
 
 <body>
@@ -45,7 +104,7 @@
     <article>
       <h1>Manas Bhatia</h1>
   
-      <section>
+      <div class="draggable-card" id="toc-card">
         <h2>Table of Contents</h2>
         <ul>
           <li><a href="#assignment-1">1 – Systems</a></li>
@@ -54,23 +113,23 @@
           <li><a href="#assignment-4">4 – Governance</a></li>
           <li><a href="#assignment-5">5 – Behavior</a></li>
         </ul>
-      </section>
+      </div>
   
       <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>DIGITAL WORFLOWS OF ARCHITECTS</h2>
-        <p>Investigating the system of the digital design process in order to optimize it</p>
+        <h1 id="assignment-1"><strong>1 – Systems</strong></h1>
+        <h2 id="typed-title"></h2>
+        <p>Investigating the system of the digital design process in order to <span id="changing-text"></span></p>
         
-        <img src="featured.jpg">
+        <img src="featured.png">
       </section>
   
       <section>
-        <h2>What is the system?</h2>
+        <h2><strong>What is the system?</strong></h2>
         <p>
           The digital workflows of architects represent a complex system composed of interconnected 
           elements aimed at enhancing design efficiency and producing superior built environments.
-          This system integrates human and non-human components, including architects, software, simulations, 
-          hardware, computing power, generative AI, BIM, and computational design.
+          This system integrates human and non-human components, including 
+          <span id="animated-list"></span>.
         </p>
   
         <p>
@@ -101,21 +160,16 @@
         <hr>
   
         <figure>
-          <img src="user_journey.jpg">
+          <img src="user_journey.png">
         </figure>
   
         <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/601/400">
-          <img src="https://picsum.photos/600/400">
-        </figure>
         
         <hr>
       </section>
   
       <section>
-        <h2>Whom does it impact?</h2>
+        <h2><strong>Whom does it impact?</strong></h2>
   
         <p>
           The digital workflows of architects impact a diverse range of stakeholders, including 
@@ -133,13 +187,13 @@
           and successful project outcomes.
         </p>
         
-        <blockquote>
+        <blockquote class="glitch" data-text="From digital flows to crafted space, efficiency and vision interlace...">
           "From digital flows to crafted space, efficiency and vision interlace..."
         </blockquote>
       </section>
   
       <section>
-        <h2>What are its leverage points?</h2>
+        <h2><strong>What are its leverage points?</strong></h2>
   
         <p>
           Optimizing the integration of generative AI, for instance, can drastically reduce 
@@ -148,34 +202,25 @@
           boosting productivity.
         </p>
         
-        <figure>
-          <img src="https://picsum.photos/601/401">
-          <img src="https://picsum.photos/600/401">
-        </figure>
-        
         <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/1201/801">
-        </figure>
       </section>
       
       <section>
-        <h1 id="assignment-2">2 – Systems</h1>
+        <h1 id="assignment-2"><strong>2 – Authorship</strong></h1>
       </section>
 
       <iframe width="1080" height="720" src="https://www.youtube.com/embed/G-WMhnMjg8Q?si=OWNwzjzP3uPWGrFE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       
       <section>
-        <h2>Authorship in Digital Workflows of Architects</h2>
+        <h2><strong>Authorship in Digital Workflows of Architects</strong></h2>
   
         <p>
           In the chosen system of the digital workflows of architects, there are various stakeholders 
-          who interact with different levels of expertise:
+          who interact with different levels of expertise.
         </p>
 
 
-        <h2>Clients: </h2>
+        <h2><strong>Clients:</strong></h2>
 
         <p>
           Have authorship over project requirements and final approvals. As non-technical stakeholders, 
@@ -186,7 +231,7 @@
         </p>
 
 
-        <h2>Architects: </h2>
+        <h2><strong>Architects:</strong></h2>
 
         <p>
           Have authorship over creative designs, needing a balance of lock-in and flexibility. Lock-in 
@@ -197,7 +242,7 @@
           are original, comply with regulations, and ethically incorporate AI-generated elements.
         </p>
 
-        <h2>Project Managers & Contractors: </h2>
+        <h2><strong>Project Managers & Contractors:</strong></h2>
 
         <p>
           Require lock-in for compliance and efficient project management but need flexibility for on-site 
@@ -206,7 +251,7 @@
           flexibility with timelines.
         </p>
 
-        <h2>Consultants (Engineers, etc.): </h2>
+        <h2><strong>Consultants (Engineers, etc.):</strong></h2>
 
         <p>
           Benefit from standardized data formats for seamless integration and file sharing but need flexibility to 
@@ -216,54 +261,24 @@
           adjust proposals to fit the overall project concept.
         </p>
 
-        <h2>Government & Regulatory Bodies: </h2>
+        <h2><strong>Government & Regulatory Bodies:</strong></h2>
 
         <p>
           Require strict lock-in to ensure adherence to standards and regulations. In that sense they have the 
           greatest authorship over the built spaces but cannot take credit for the creative expression of the project.
         </p>
 
-        <h2>Software Developers:  </h2>
+        <h2><strong>Software Developers:</strong></h2>
 
         <p>
           Control the technical framework, ensuring it meets industry standards and user needs while being adaptable to 
           new innovations. They must be recognized for encoding rules and functionalities that enable architects to 
           perform their tasks efficiently. Developers create the framework within which users operate and are responsible 
-          for making transparent and ethical tools, ensuring users understand the tool’s capabilities and limitations. 
+          for making transparent and ethical tools, ensuring users understand the tool's capabilities and limitations. 
           The tool itself should not have copyright over the produced work, which should belong to the architect using 
           the tool. However, developers should receive credit through licensing agreements. For AI tools, credit should 
           be given to the architects whose works were referenced or used to train the AI models.
         </p>
-
-        <p>
-          In lieu of this investigation, here are three tools/products that showcase different levels of authorship in this system:
-        </p>
-
-        <p>
-          1. MidJourney (AI Image Generation):
-
-              MidJourney generates photorealistic images from text prompts using extensive datasets. It allows architects 
-              to rapidly iterate and explore design ideas and enables clients to express their requirements visually without 
-              technical skills. This aligns with my philosophy of empowering architects and clients.
-        </p>
-
-        <p>
-          2. Rhino 3D (Computational Design):
-
-              Rhino 3D is a versatile modeling tool supporting both precise technical and freeform organic shapes. Integrating 
-              with Grasshopper, it enhances computational design capabilities. Its balance of lock-in and flexibility allows 
-              detailed modeling and creative exploration, crucial for innovative architectural solutions.
-        </p>
-
-        <p>
-          3. LookX (AI Rendering) vs. Lumion:
-
-              LookX quickly generates detailed visualizations from basic massing models, facilitating early client involvement and 
-              reducing late-stage revisions. Unlike Lumion, it allows clients to have authorship over renders, enhancing satisfaction 
-              and engagement. It ensures compliance with fixed massing according to FAR regulations while maintaining creative flexibility.
-        </p>
-
-        <h2>Final thoughts</h2>
 
         <p>
           Incorporating these tools into my practice will streamline the design process, reduce redundancies, and enhance client 
@@ -271,21 +286,187 @@
           project delivery and client engagement.
         </p>
 
+        <h2><strong>Generative Zine</strong></h2>
+
+        <p>
+          The Zine has been designed a utilitarian tool that provides information to the users about the boroughs they choose (lock-in)
+          and lets them rate the area from 1-star to 5-star (user authorship)...
+        </p>
+
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="1080" height="720" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FX7Te9GnJ2KfJmJZM86gg6A%2F20240722_Colloquium-1_Assisgnment_Zine%3Ft%3D8S5pxSAfZglMsQFj-1%26node-id%3D1-1035%26starting-point-node-id%3D1%253A1035" allowfullscreen></iframe>
+
       <section>
-        <h1 id="assignment-3">3 – Politics</h1>
+        <h1 id="assignment-3"><strong>3 – Politics</strong></h1>
+
+        <h2><strong>Buildings closer to Hudson river have higher rentals as compared to other areas
+        </strong></h2>
+
+        <h2><strong>Data manifesto:</strong></h2>
+
+        <p>
+          The collected data illuminates the variations in rental prices, specifically how they fluctuate based on the buildings' proximity 
+          to the Hudson River. Higher rents correlate with taller buildings, with those offering river views commanding significantly higher prices, 
+          likely due to their enhanced views and the premium charged for such vistas. Market trends indicate that neighborhoods closer to 
+          the river have experienced increases in their median asking rents, whereas areas further from the river have either seen no change or a 
+          decrease in rental prices. However, the data does not establish a direct relationship between river proximity and rent, as rental 
+          prices in Manhattan are also influenced by the neighborhoods in which the buildings are located. For instance, buildings in neighborhoods 
+          farther from the river can exhibit similar rent prices. Notably, rent prices south of Central Park are substantially higher than those 
+          in the north, independent of river proximity.
+        </p>
+
+        <p>
+          The data collection process was straightforward, utilizing property rental websites such as Streeteasy and Zillow. However, obtaining building 
+          heights by neighborhood through NYC Open Data “Property Valuation and Assessment Data” was challenging, as the data is organized by boroughs 
+          rather than neighborhoods. Additional efforts are needed to locate data for properties with scenic views, like river views, as these often 
+          command a premium due to the aesthetic and perceived quality of life benefits they offer.
+        </p>
+
+        <p>
+          The data were sourced from rental property aggregator platforms designed to help users find the best properties. These platforms do not 
+          filter searches by distance from the river. Rental prices vary significantly based on amenities, interior design, and furnishing levels. 
+          Distances were measured using Google Earth, and the properties selected for rental price analysis were mapped using the Streeteasy website, 
+          adopting a top-down approach.
+        </p>
+        
+        <p>
+          For a more comprehensive understanding, it would be beneficial to utilize data from NYC Open Data. Additionally, the sample size currently 
+          selected is small and may not provide a clear picture. Conducting surveys could also offer valuable first-person insights into the problem 
+          or hypothesis. It is noteworthy that rental prices in Manhattan exhibit significant extremes, ranging from as low as $1,500 per month 
+          to $100,000 per month. Moreover, it is interesting to observe market trends and how rental costs have increased, decreased, or remained stable 
+          in different parts of the city.
+        </p>
+
+        <p>
+          To further analyse this, we may need to get more data on aspects like the amenities that different neighbourhoods have like the subways, 
+          the median income of the people living there,  Population Density, Crime Rate, Proximity to Schools and Parks, etc as an antithesis since some 
+          areas even though they are near the river may have low median income and as a result the rental costs may be affected
+        </p>
+
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRMj7SA9tRdR73fyee1ToGxwEhYwet_LPTI7PDRqQtsjoNtPhyx95uja0oW5qsU_JChl5qUqn1-E6gD/embed?start=false&loop=false&delayms=2000" frameborder="0" width="1080" height="720" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  
+       
+
+        <figure>
+          <img src="dATASETS\Narrative\Overall Board Png filer'2.png">
+        </figure>
+        
+        <div class="side-by-side">
+          <figure>
+            <img src="dATASETS\mapping\bar graph.png">
+          </figure>
+          <figure>
+            <img src="dATASETS\mapping\pie chart.png">
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <h2><strong>Kepler.gl Map</strong></h2>
+        <iframe src="kepler.gl.html" width="100%" height="720" frameborder="0"></iframe>
       </section>
       
       <section>
-        <h1 id="assignment-4">4 – Governance</h1>
+        <h1 id="assignment-4"><strong>4 – Governance</strong></h1>
+
+        <iframe src="https://player.vimeo.com/video/993147854?h=fd06f3ebb1" width="1080" height="720" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <p><a href="https://vimeo.com/993147854">04governance_video</a> from <a href="https://vimeo.com/user223800275">Yilin Zheng</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
       </section>
       
       <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
+        <h1 id="assignment-5"><strong>5 – Behavior</strong></h1>
       </section>
     </article>
   </main>
   
   <footer></footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const typedTitle = new Typed('#typed-title', {
+        strings: ['DIGITAL WORKFLOWS OF ARCHITECTS'],
+        typeSpeed: 50,
+        startDelay: 300,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+        loopCount: Infinity
+      });
+
+      // Intersection Observer to start/stop animation when the element enters/leaves view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            typedTitle.start();
+          } else {
+            typedTitle.stop();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(document.querySelector('#typed-title'));
+
+      // Typed.js for changing text
+      const changingText = new Typed('#changing-text', {
+        strings: [
+          'help design better-built spaces',
+          'help architects earn more',
+          'remove redundancies',
+          'explore new styles'
+        ],
+        typeSpeed: 50,
+        backSpeed: 25,
+        startDelay: 300,
+        loop: true,
+        showCursor: false,
+        loopCount: Infinity
+      });
+
+      // Typed.js for animated list
+      const animatedList = new Typed('#animated-list', {
+        strings: [
+          'architects',
+          'software',
+          'simulations',
+          'hardware',
+          'computing power',
+          'generative AI',
+          'BIM',
+          'computational design'
+        ],
+        typeSpeed: 50,
+        backSpeed: 25,
+        startDelay: 300,
+        loop: true,
+        showCursor: false,
+        loopCount: Infinity
+      });
+
+      // Make the card draggable
+      const card = document.getElementById('toc-card');
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      card.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - card.getBoundingClientRect().left;
+        offsetY = e.clientY - card.getBoundingClientRect().top;
+        card.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          card.style.left = `${e.clientX - offsetX}px`;
+          card.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+        card.style.cursor = 'move';
+      });
+    });
+  </script>
 </body>
 
 </html>

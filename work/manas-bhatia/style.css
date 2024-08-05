@@ -16,17 +16,108 @@ p {
 }
 
 article>h1:first-child {
-  color: #abf263;
+  color: #000000;
 }
 
 section>h1 {
-  color: #abf263;
+  color: #000000;
 }
 
 section>h2 {
-  color: #abf263;
+  color: #000000;
+}
+
+section>p {
+  color: #000000;
 }
 
 body {
-  background: linear-gradient(to right, #000000, #373737);
+  background: #ffffff;
+}
+
+/* Add this CSS rule to change the color of the hyperlinks */
+header h2 a {
+  color: grey;
+}
+/* Add this CSS rule to change the color of all links to grey */
+a {
+  color: grey;
+}
+/* Corrupted glitch effect CSS */
+.glitch {
+  color: black;
+  position: relative;
+  display: inline-block;
+  font-size: 3em; /* Adjust the font size */
+  padding: 20px; /* Add padding */
+  margin: 20px 0; /* Add margin */
+  border-left: 5px solid rgb(0, 0, 0); /* Optional: Add a border to the left */
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 50;
+  left: 8;
+  width: 100%;
+  height: 20%;
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+.glitch::before {
+  left: 20px;
+  text-shadow: -2px 0 rgb(114, 114, 114);
+  animation: corrupted-glitch 1s infinite linear alternate-reverse;
+}
+.glitch::after {
+  left: 20px;
+  text-shadow: -3px 0 rgb(114, 114, 114);
+  animation: corrupted-glitch 1s infinite linear alternate-reverse;
+}
+@keyframes corrupted-glitch {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip: rect(10px, 9999px, 50px, 0);
+    transform: translate(-5px, -5px);
+  }
+  20% {
+    clip: rect(20px, 9999px, 40px, 0);
+    transform: translate(5px, 5px);
+  }
+  30% {
+    clip: rect(30px, 9999px, 60px, 0);
+    transform: translate(-10px, 10px);
+  }
+  40% {
+    clip: rect(40px, 9999px, 30px, 0);
+    transform: translate(10px, -10px);
+  }
+  50% {
+    clip: rect(50px, 9999px, 20px, 0);
+    transform: translate(-15px, 15px);
+  }
+  60% {
+    clip: rect(60px, 9999px, 10px, 0);
+    transform: translate(15px, -15px);
+  }
+  70% {
+    clip: rect(70px, 9999px, 40px, 0);
+    transform: translate(-20px, 20px);
+  }
+  80% {
+    clip: rect(80px, 9999px, 50px, 0);
+    transform: translate(20px, -20px);
+  }
+  90% {
+    clip: rect(90px, 9999px, 60px, 0);
+    transform: translate(-25px, 25px);
+  }
+  100% {
+    clip: rect(100px, 9999px, 70px, 0);
+    transform: translate(25px, -25px);
+  }
 }

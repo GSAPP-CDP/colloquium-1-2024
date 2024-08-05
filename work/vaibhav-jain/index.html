@@ -63,35 +63,135 @@
         <p>The network of the entertainment hotspots in the city for foreign travellers. </p>
       </section>
 
-        <figure>
-          <img src="1a-Systems.jpg">
-          <link href="style.css" rel="stylesheet" />
-          <script src="script.js"></script>
-        </figure>
+      <figure>
+        <img src="1a-Systems.jpg">
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+      </figure>
+
 
       </section>  
 
          <hr>
 
          <section>
-          <h2>1b-Systems Behavior</h2>
+          <h2>1b - Systems Behavior</h2>
           <p>Rube Goldberg Machine </p>
 
-          <figure>
-            <div class="full">
-              <iframe width="960" height="640" src="https://www.youtube.com/embed/4oq0hd6UBA4?si=pTaiVaMITSvI-6iY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-          </figure
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom YouTube Video with Cover Image</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-          <br><br>
-  
-          <figure>
-            <img src="1b-Systems_2.jpg">
-            <link href="style.css" rel="stylesheet" />
-            <script src="script.js"></script>    
-          </figure>
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .cover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            color: #fff;
+        }
+
+        #youtube-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <div class="cover-image" id="cover-image">
+            <img src="1b-Systems_2.jpg" alt="Cover Image">
+            <div class="play-button">&#9658;</div>
+        </div>
+        <iframe id="youtube-video" src="https://www.youtube.com/embed/4oq0hd6UBA4?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <script>
+        var coverImage = document.getElementById('cover-image');
+        var video = document.getElementById('youtube-video');
+        var player;
+
+        // Load YouTube Iframe API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+                coverImage.style.display = 'flex';
+                video.style.display = 'none';
+            }
+        }
+
+        coverImage.addEventListener('click', function() {
+            coverImage.style.display = 'none';
+            video.style.display = 'block';
+            player.playVideo();
+        });
+    </script>
+</body>
+</html>
+
       
-  <p>Credits - Sebastian S,Badriyah S</p>  
+  <p>Credits - Badriyah Alsalem, Sebastian Schloesser and Vaibhav Jain</p>  
 
          </section>
 
@@ -103,6 +203,8 @@
         <p>My authorship philosophy revolves around the concept of authorship in the digital age, particularly in the context of filmmaking. I believe that authorship is a powerful tool for expression and creativity, and its dynamics have been profoundly altered by technological advancements. In this landscape, it's crucial to consider how authorship empowers various stakeholders and the responsibilities that come with it. </p>
       </section>
 
+
+      
       <section>
           <h2>Authorship and Power Dynamics</h2>
         <p>The act of authoring is intrinsically linked to power. In filmmaking, the director often holds significant control over the creative vision, but with the advent of collaborative tools and platforms, this power is more distributed. For example, platforms like YouTube democratize content creation, allowing anyone with a camera to become a filmmaker. This shift empowers a broader range of voices but also raises questions about the ownership and credit of content. </p>
@@ -132,34 +234,94 @@
   <h2>Examples of Authorship Models</h2>
         <section>
       <ul>
-        <li><a id="Youtube : ">1 – Youtube</a></li><p>YouTube exemplifies a flexible authorship model by allowing anyone to become a content creator. This inclusivity resonates with my philosophy as it empowers a diverse range of voices and democratizes content creation. However, YouTube must continuously improve its crediting and copyright enforcement mechanisms.</p>
-        <li><a id="Github : ">2 – Github</a></li><p>GitHub is a collaborative platform for software development that tracks contributions meticulously. This model ensures that every contributor is credited, fostering a sense of ownership and accountability. This resonates with my philosophy of fair attribution and collaborative authorship.</p>
-        <li><a id="Are.na : ">3 – Are.na</a></li><p>Are.na focuses on citation and recognition, allowing users to collect and credit content effectively. This approach aligns with my belief in the importance of proper attribution and the ethical use of borrowed content.
+        <li><a id="Youtube : ">1 – Democratization of Filmmaking through Platforms:</a></li><p>Platforms like YouTube have democratized filmmaking by allowing anyone with a camera and internet access to share their work with a global audience. This shift has redistributed the power traditionally held by major studios and distributors. While it empowers a diverse range of voices to contribute to the cinematic landscape, it also raises questions about content ownership and credit. For example, a filmmaker using a low-budget setup can create viral content that challenges established norms, reflecting the new dynamics of authorship and power in the digital age.
+        </p>
+        <li><a id="Github : ">2 – Balancing Expertise and Accessibility in Editing Software:</a></li><p>Editing software such as Adobe Premiere Pro offers advanced features for professional filmmakers, allowing for detailed control and customization of their projects. In contrast, simpler tools like iMovie cater to novices by providing guided, user-friendly interfaces. This distinction aligns with Jaron Lanier's concept of "lock-in," where experts benefit from sophisticated options while beginners use more accessible tools. By offering varying levels of functionality, these tools support a range of expertise, reflecting a balanced approach to flexibility and control in authorship.
+        </p>
+        <li><a id="Are.na : ">3 – AI in Screenwriting and Its Impact on Crediting:</a></li><p>The use of AI tools like ChatGPT in screenwriting raises complex issues regarding authorship and crediting. For instance, if a script is generated with the assistance of an AI, the human author who provided the initial input and guidance should be credited, while acknowledging the AI's role in developing the content. This approach ensures fair attribution of creative contributions and maintains the integrity of the work. By recognizing the contributions of both the human and the AI, this model addresses the challenges of ownership and creativity in the era of generative tools.
+
         </p>
       </ul>
     </section>    
   
     <hr>
 
+    <section>
+          <h2>2b - Authorship Philosophy - Zine</h2>
+          </section>
 
-  
+          <!-- Canva Embed -->
+    <div class="canva-embed">
+      <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;">
+          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+              src="https://www.canva.com/design/DAGLzJt0TaA/V5sak1r3R38UDDVwOKUbyA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+          </iframe>
+      </div>
+      <a href="https://www.canva.com/design/DAGLzJt0TaA/V5sak1r3R38UDDVwOKUbyA/view" target="_blank" rel="noopener">View Canva Design</a>
+  </div>
+          <p>Credits - Badriyah Alsalem,Chengxiu Yin,Siqi Zhang and Vaibhav Jain</p>  
+
+          <hr>
 
 
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
-</body>
-
-</html>
+          <section>
+            <h1 id="assignment-3">3 – Politics</h1>
+            <h2>3a - Politics - Encroachment of Private Spaces into Urban Public Areas</h2>
+            <p>My future practice revolves around addressing the intrusion of private spaces into public realms, such as cafes encroaching on pedestrian walkways, public plazas, and cycling paths. The types of data that resonate most with my practice include location coordinates, images, interview quotes, text reviews, and ratings. Location data (both lat/lon and addresses) help pinpoint specific areas of encroachment. Images capture visual evidence of the intrusion, while interview quotes provide firsthand accounts of its impact on pedestrians and cyclists. Text reviews and ratings offer public sentiment and highlight recurring issues.<p>
+              <p>The datasets shed light on the "pain points" by illustrating the frequency and severity of encroachments. They support my hypothesis by revealing patterns of intrusion and public dissatisfaction. Finding this data was relatively straightforward due to the prevalence of location-based services and online review platforms. However, the data is not exhaustive and may miss subtle or less-reported instances of intrusion.<p>
+              <p>The politics of data collection can influence its accuracy and representation. Data collected by business owners may downplay negative impacts, whereas data from affected individuals might emphasize them. Some methods, like interviews, offer a personal narrative, while geolocation data provides an overarching view. I am drawn to datasets that balance quantitative precision with qualitative depth, ensuring a comprehensive understanding of the issue. Addressing data gaps may involve conducting surveys or deploying sensors to gather unbiased, firsthand data. <p>
+            <div class="container">
+              <div class="grid">
+                <div class="box" data-pdf="Lido Harlem Restaurant">LIDO HARLEM RESTAURANT</div>
+                <div class="box" data-pdf="67 Orange Street">67 ORANGE STREET</div>
+                <div class="box" data-pdf="Arts and Crafts Beer Parlor">ARTS AND CRAFTS BEER PARLOR</div>
+                <div class="box" data-pdf="Bixi">BIXI</div>
+                <div class="box" data-pdf="Cantina Taqueria & Tequila Bar">CANTINA TAQUERIA & TEQUILA BAR</div>
+                <div class="box" data-pdf="Harlem Burger">HARLEM BURGER</div>
+                <div class="box" data-pdf="La Diagonal Agaveria">LA DIAGONAL AGAVERIA</div>
+                <div class="box" data-pdf="Lalibela Ethopian Restaurant">LALIBELA ETHOPIAN RESTAURANT</div>                          
+                <div class="box" data-pdf="Melba's Restaurant">MELBA'S RESTAURANT</div>
+                <div class="box" data-pdf="Mess Hall">MESS HALL</div>
+                <div class="box" data-pdf="Ortomare Ristorante Pizzeria">ORTOMARE RISTORANTE PIZZERIA</div>
+                <div class="box" data-pdf="Rosa Pizza">ROSA PIZZA</div>
+                <div class="box" data-pdf="Silvana">SILVANA</div>
+                <div class="box" data-pdf="Tartina">TARTINA</div>
+                <div class="box" data-pdf="Vinateria">VINATERIA</div>
+              </div>
+            </div>
+    
+            <!-- Modal for displaying PDF -->
+            <div id="pdf-modal" class="modal">
+              <span class="close">&times;</span>
+              <iframe id="pdf-viewer" src="" width="100%" height="80%"></iframe>
+              <div id="pdf-controls" class="controls">
+                <button id="prev-slide">Previous</button>
+                <button id="next-slide">Next</button>
+              </div>
+            </div>
+          </section>
+    
+          <hr>
+    
+          <section>
+            <h1 id="assignment-4">4 – Governance</h1>
+            <h2>4a - Design Fiction - Amazon Homes</h2>
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe src="https://player.vimeo.com/video/993573571?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Amazon Homes"></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+            <p>Credits - Badriyah Alsalem, Sebastian Schloesser, and Vaibhav Jain</p>
+          </section>
+    
+          <hr>
+    
+          <section>
+            <h1 id="assignment-5">5 – Behavior</h1>
+            <p>Content for Assignment 5...</p>
+          </section>
+    
+        </article>
+      </main>
+    </body>
+    
+    </html>
