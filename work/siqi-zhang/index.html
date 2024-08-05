@@ -261,11 +261,160 @@
       
       <section>
         <h1 id="assignment-3">3 – Politics</h1>
-      </section>
+        <figure>
+          <img src="Group 1.png">
+        </figure>
+        <p>
+          First, I obtained basic built environment and construction year information through NYC Planning's publicly available dataset, PLUTO, which provides comprehensive and authoritative mapping data. 
+        </p>
+        <figure>
+          <img src="1.png">
+          <img src="2.png">
+          <img src="3.png">
+        </figure>
+        <p>
+          Additionally, I collected a dataset of popular Instagram photos and their corresponding number of likes, which are more first-person narrative view, to reflect the color characteristics of tourism and branding on social media. I plan to differentiate the color weights of these images based on their number of likes on Instagram.
+        </p>
+        <figure>
+          <img src="5.png">
+          <img src="6.png">
+        </figure>
+        <p>
+          By integrating all four datasets—built year (number), land use (text), location (lat lon), and Instagram photos —I aim to construct a relationship that informs the city color scheme. To explore this connection, I used street view images from Google Maps to gather output data for creating the tool model. 
+
+        </p>
+        <figure>
+          <img src="7.png">
+        </figure>
+        <p>
+          However, there are still some limitations in the data. According to "Colors of the World" by Jean-Philippe Lenclos and Dominique Lenclos, city color is influenced by sociocultural behaviors and traditions, which are challenging to quantify. One possible approach could be to consider demographics, but this solution is imperfect. City color expression is also closely related to time, season, and lighting. Since most of the street images collected are taken during sunny daytime conditions, this introduces some bias to the study.
+
+        </p>
+        <figure>
+          <img src="4.png">
+        </figure>
+        <p>
+          The data we use inherently carries politics; PLUTO data, for instance, might be shaped by urban planning priorities, while Instagram data reflects social media biases. These biases could affect our "accurate" reading of the system. I am drawn to these datasets because they offer a multifaceted view, balancing top-down planning perspectives with bottom-up social experiences.
+
+
+        </p>
+
+
+
+
+    
+      <p>
+          First, I obtained basic built environment and construction year information through NYC Planning's publicly available dataset, PLUTO, which provides comprehensive and authoritative mapping data. 
+        </p>
+        <figure>
+          <img src="1.png">
+          <img src="2.png">
+          <img src="3.png">
+        </figure>
+        <p>
+          Additionally, I collected a dataset of popular Instagram photos and their corresponding number of likes, which are more first-person narrative view, to reflect the color characteristics of tourism and branding on social media. I plan to differentiate the color weights of these images based on their number of likes on Instagram.
+        </p>
+        <figure>
+          <img src="5.png">
+          <img src="6.png">
+        </figure>
+        <p>
+          By integrating all four datasets—built year (number), land use (text), location (lat lon), and Instagram photos —I aim to construct a relationship that informs the city color scheme. To explore this connection, I used street view images from Google Maps to gather output data for creating the tool model. 
+
+        </p>
+        <figure>
+          <img src="7.png">
+        </figure>
+        <p>
+          However, there are still some limitations in the data. According to "Colors of the World" by Jean-Philippe Lenclos and Dominique Lenclos, city color is influenced by sociocultural behaviors and traditions, which are challenging to quantify. One possible approach could be to consider demographics, but this solution is imperfect. City color expression is also closely related to time, season, and lighting. Since most of the street images collected are taken during sunny daytime conditions, this introduces some bias to the study.
+
+        </p>
+        <figure>
+          <img src="4.png">
+        </figure>
+        <p>
+          The data we use inherently carries politics; PLUTO data, for instance, might be shaped by urban planning priorities, while Instagram data reflects social media biases. These biases could affect our "accurate" reading of the system. I am drawn to these datasets because they offer a multifaceted view, balancing top-down planning perspectives with bottom-up social experiences.
+
+
+        </p>
+        
+        <h2>method manifesto</h2>
+        <figure>
+          <img src="title.png">
+        </figure>
+     
+        <p>
+          My hypothesis is that city color is closely related to the built year of a building. Streets with different building years will exhibit different color expressions. At the same time, when a single street features buildings from various decades, its color will display a certain fusion characteristic. To establish a foundation for further research and to explore the feasibility to some extent, I initially selected the official PLUTO dataset for New York, extracted information about the built year of buildings in the Manhattan area, divided it into five-year intervals, and used Python to conduct analytical data histograms of the area's building years to gain a preliminary understanding (analytical-analytics->python).
+        </p>
+        <figure>
+          <img src="dia.png">
+        </figure>
+        <p>
+          To visualize the data, I first mapped it using QGIS, which provided an overall picture of the situation. 
+        </p>
+        <figure>
+          <img src="output.png">
+        </figure>
+
+        <p>
+          At this point, I wanted to connect this data to my system theme color, so I began exploring possibilities. I calculated the diversity of building years per block (with more than 20 buildings) using Python and identified the three most diverse streets (blocks 1235, 1067, and 790) that had five-year intervals. Additionally, I obtained streets with more homogeneous building years: block 486, which has buildings only from 1900-1930, and block 1746, which has buildings only from after 2000.
+          I then created an interactive map by storing the data as geojson and importing it onto the web, making it easier to study the nodes (analytical-mapping-geojson->web).
+        </p>
+        <figure>
+          <img src="output2.png">
+        </figure>
+        <h1>manhattan year_built variety map</h1>
+        <iframe src="manhattan_diversity_map.html" width="100%" height="600px" frameborder="0"></iframe>
+        <p>
+          Using Google Street View, I captured three street views for each block and imported the images for color analysis through Python and Photoshop to preliminarily link the data (exploratory-data visualization->Photoshop).
+
+        </p>
+        <figure>
+          <img src="color.png">
+        </figure>
+        <p>
+          It appears that my hypothesis is not well represented by the selected sample data, which might be due to the following reasons: 1. The data sample is too small; I should select the same zip code range for the study, expand the scope, and increase the number of streetscapes; 2. New York may not adequately represent the hypothesis, and it would be beneficial to select a new city for a comparative study, such as Shanghai.
+        </p>
+        <p>
+          To quickly visualize the architectural color trends of different eras in New York City, I utilized the DALLE-3 model for image generation. Given that this AI tool is trained on extensive datasets, its outputs can provide a reasonable summary of actual scenarios. I tasked the model with generating images of New York streets featuring only pre-1900, 1900-2000, and post-2000 buildings, as well as a street with a mix of buildings from various periods. The resulting images demonstrate a notable convergence in the AI's color choices for New York's streets（predictive）.
+        </p>
+        <figure>
+          <img src="various.png">
+        </figure>
+ 
       
       <section>
         <h1 id="assignment-4">4 – Governance</h1>
       </section>
+      <h1>Design Fiction</h1>
+      <p>
+
+In the future, the city of NeoMosaic implements the Vibrant City Initiative, a revolutionary governance model for urban color planning. The initiative blends cutting-edge technology with deep community engagement, transforming the city's visual identity through participatory and adaptive color management.</p>
+<p>
+Citizen Participation:
+Residents of NeoMosaic use a dedicated app, ColorPulse, to propose and vote on color schemes for various districts. ColorPulse integrates AI-driven suggestions based on social media trends, ensuring that the city's colors reflect contemporary tastes and cultural relevance.
+</p>
+<p>
+Metaverse Collaboration:
+In the metaverse platform NeoSpace, citizens can explore a digital twin of their city, experimenting with different color schemes in real-time. Virtual workshops and interactive sessions educate residents about the historical and cultural significance of traditional colors, fostering a deeper appreciation and more informed choices.
+</p>
+<p>
+Balanced Governance:
+The Vibrant City Initiative is overseen by a council comprising government representatives, urban planners, community leaders, and citizen-elected members. This council ensures that the city's color policies are both visionary and respectful of its rich history, creating a vibrant, inclusive, and adaptive urban environment.
+</p>
+<p>
+NeoMosaic stands as a testament to how technology, community engagement, and thoughtful governance can harmonize to create a visually stunning and culturally resonant urban landscape.
+</p>
+<iframe
+src="https://www.youtube.com/embed/8rdwB0I3IE4?si=zR8Wlg8vGQylnfDD" 
+frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen
+style="aspect-ratio: 16 / 9; width: 100%;">
+</iframe>
+
+
+
       
       <section>
         <h1 id="assignment-5">5 – Behavior</h1>
