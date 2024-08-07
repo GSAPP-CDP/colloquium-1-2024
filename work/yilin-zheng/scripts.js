@@ -1,3 +1,32 @@
+//reference: https://docs.google.com/document/d/1qLuQIsmAmPtSL0i-C5rSPVQyBt5IhxoX-oq7fyIXsW4/edit ; https://pudding.cool/process/introducing-scrollama/
+
+//table of contents visibility
+// document.addEventListener('DOMContentLoaded', function () {
+//     const tocLinks = document.querySelectorAll('.table_of_contents a');
+//     const sections = document.querySelectorAll('.section');
+
+//     tocLinks.forEach(link => {
+//         link.addEventListener('click', function (e) {
+//             e.preventDefault();
+
+//             // Hide all sections
+//             sections.forEach(section => {
+//                 section.classList.remove('active');
+//             });
+
+//             // Show the clicked section
+//             const targetSection = document.getElementById(this.getAttribute('data-section'));
+//             targetSection.classList.add('active');
+//         });
+//     });
+
+//     // Show the first section by default
+//     if (sections.length > 0) {
+//         sections[0].classList.add('active');
+//     }
+// });
+
+//typing animation 1
 document.addEventListener("DOMContentLoaded", function() {
     const staticText = "Is it recyclable? "; // Text that remains visible
     const typingText = "  Logic of Cradle to Grave of Industrial Wood"; // Text to be typed
@@ -27,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     typeWriter();
 });
 
+//typing animation 2
 document.addEventListener("DOMContentLoaded", function() {
     const staticText = "Adjective: "; // Text that remains visible
     const typingText = "  Whimsical"; // Text to be typed
