@@ -1,0 +1,115 @@
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Ubuntu, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft Yahei UI', 'Microsoft Yahei',
+    'Source Han Sans CN', sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width: 1440px;
+  height: 1921px;
+  margin: 0 auto;
+  font-size: 0px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.authorship-philosophy {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: 525px;
+  height: 164px;
+  margin: 180px 0 0 458px;
+  color: #000000;
+  font-family: Vollkorn, var(--default-font-family);
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 82.336px;
+  text-align: center;
+  z-index: 2;
+}
+.user-interface-design {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: 711px;
+  height: 105px;
+  margin: 62px 0 0 365px;
+  color: #000000;
+  font-family: Roboto, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 21.4px;
+  text-align: center;
+  z-index: 3;
+}
+.rectangle {
+  position: relative;
+  width: 957px;
+  height: 570px;
+  margin: 75px 0 0 242px;
+  /* background: #d9d9d9; */
+  z-index: 5;
+}
+.concept-authorship {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: 957px;
+  height: 441px;
+  margin: 52px 0 0 242px;
+  color: #000000;
+  font-family: Roboto, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 21.4px;
+  text-align: center;
+  z-index: 4;
+}
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  position: relative;
+  width: 1440px;
+  height: 91px;
+  margin: 181px 0 0 0;
+  padding: 10px 10px 10px 10px;
+  border-bottom: 1px solid #4b5563;
+}
+.suji-lee {
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  height: 13px;
+  color: #000000;
+  font-family: Manrope, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 1;
+}
