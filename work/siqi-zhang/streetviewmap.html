@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street View Mapping</title>
+    <!-- Include PapaParse Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <!-- Include Leaflet Library -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Set background to black */
+        }
+        #map {
+            height: 100vh; /* Full viewport height */
+            width: 100vw;  /* Full viewport width */
+            transition: opacity 0.5s ease; /* Smooth transition for opacity changes */
+        }
+
+        /* Header Styling */
+        .heading {
+            width: 100%;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(255,0,0,0.3), rgba(255,165,0,0.3), rgba(255,255,0,0.3), rgba(0,128,0,0.3), rgba(0,0,255,0.3), rgba(75,0,130,0.3), rgba(238,130,238,0.3));
+            text-align: center;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+            position: relative; /* Make space for the left-aligned text */
+        }
+
+        .heading .line {
+            margin: 2px 0;
+        }
+
+        /* Left-Aligned Header Text */
+        .left-header-text {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Button Container Styling */
+        .button-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            z-index: 1000;
+            cursor: move;
+            transition: background 0.3s ease; /* Smooth transition for background color changes */
+        }
+        .button-container:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .button {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease; /* Smooth transition for button hover effect */
+        }
+        .button:hover {
+            background-color: #f0f0f0;
+        }
+
+        #metrix-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    z-index: 1000; /* Ensure it's above other elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#metrix-container .button {
+    background-color: transparent;
+    color: white; /* White text */
+    margin-bottom: 5px; /* Add margin between buttons */
+    width: 150px; /* Ensure buttons have equal width */
+    text-align: center;
+}
+
+#metrix-container .button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+        /* Highlight specific grid items */
+        .highlighted {
+            border: 3px solid #ff0000;
+        }
+
+        /* Modal styling */
+        .modal {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            z-index: 2000;
+            display: none;
+        }
+        .modal-header {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-close {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .modal-body {
+            padding: 10px;
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            height: 150px; /* Reduce height */
+            width: 533px; /* Reduce width */
+        }
+
+        .modal-body img {
+            max-height: 100%; /* Ensure images fill the height */
+            margin-right: 10px;
+            flex-shrink: 0; /* Prevent images from shrinking */
+        }
+        .modal-body img.highlight {
+            border: 2px solid red; /* Add red border for highlighted images */
+        }
+
+        /* Draggable Tooltip */
+        .tooltip {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background: rgba(255, 255, 204, 0.9); /* Light yellow background */
+            color: black;
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 1000;
+            cursor: move;
+            display: none;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <div class="right-header-text">Space - Color</div>
+        <div class="line">Columbia GSAPP M.S. Computational Design Practices 2024 Summer</div>
+        <div class="line">Siqi Zhang Student Work Colloquium I</div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="button-container" id="button-container">
+        <div id="street-view-button" class="button">Street View</div>
+        <div id="color-toggle-button" class="button">Main Color</div>
+        <div id="change-mode-button" class="button">Change Mode</div>
+    </div>
+
+    <div id="metrix-container">
+        <div id="metrix-button" class="button">Time - Color</div>
+        <div id="timespace-button" class="button">Time-Space-Color</div>
+    </div>
+    
+
+
+    <div id="return-button" class="button">Return to Text</div>
+
+    <!-- Draggable Tooltip -->
+    <div id="tooltip" class="tooltip">Click on any grid to get the locations and street view images of the 5 closest color matches.</div>
+
+    <!-- Modal for image slider -->
+    <div id="image-modal" class="modal">
+        <div class="modal-header">
+            <span>Image Slider</span>
+            <span class="modal-close">X</span>
+        </div>
+        <div class="modal-body"></div>
+    </div>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([40.8075, -73.9626], 15); // Center map on Columbia University
+
+        // Add a dark-themed base map (CartoDB Dark Matter)
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors, © CartoDB',
+            maxZoom: 18
+        }).addTo(map);
+
+        // Store grid items for color toggling and image overlays
+        let gridItems = [];
+
+        // Convert latitude/longitude to Leaflet LatLng
+        function latLngToLeaflet(lat, lng) {
+            return L.latLng(lat, lng);
+        }
+
+        // Function to parse geometry from POLYGON string
+        function parseGeometry(geometry) {
+            if (!geometry) {
+                console.warn('Geometry is undefined or null:', geometry);
+                return [];
+            }
+            // Extract coordinates from POLYGON string
+            const match = geometry.match(/POLYGON \(\(([^)]+)\)\)/);
+            if (match) {
+                return match[1].split(',').map(coord => {
+                    const [lng, lat] = coord.trim().split(' ').map(Number);
+                    return { lat, lng };
+                });
+            } else {
+                console.warn('Geometry format is incorrect:', geometry);
+            }
+            return [];
+        }
+
+        // Function to parse RGB string into a usable format
+        function parseRGB(rgbString) {
+            if (rgbString) {
+                const match = rgbString.match(/\((\d+),\s*(\d+),\s*(\d+)\)/);
+                if (match) {
+                    return [parseInt(match[1]), parseInt(match[2]), parseInt(match[3])];
+                }
+            }
+            return [0, 0, 0]; // Default to black if parsing fails
+        }
+
+        // Function to calculate color distance (Euclidean distance in RGB space)
+        function colorDistance(rgb1, rgb2) {
+            const rDiff = rgb1[0] - rgb2[0];
+            const gDiff = rgb1[1] - rgb2[1];
+            const bDiff = rgb1[2] - rgb2[2];
+            return Math.sqrt(rDiff * rDiff + gDiff * gDiff + bDiff * bDiff);
+        }
+
+        // Function to find the closest color grid items (returns an array of closest 5 items)
+        function findClosestColors(targetItem) {
+            const distances = gridItems
+                .filter(item => item !== targetItem)
+                .map(item => ({
+                    item,
+                    distance: colorDistance(targetItem.rgb, item.rgb)
+                }))
+                .sort((a, b) => a.distance - b.distance);
+
+            return distances.slice(0, 5).map(d => d.item);
+        }
+
+        // Function to highlight grid items temporarily
+        function highlightGridItemTemporarily(item, color = "#00ff00", duration = 3000) {
+            if (item.highlight) {
+                item.highlight.remove();
+            }
+            item.highlight = L.rectangle(item.boundsBox, {
+                color: color, weight: 3, fillOpacity: 0
+            }).addTo(map);
+
+            setTimeout(() => {
+                if (item.highlight) {
+                    item.highlight.remove();
+                }
+            }, duration);
+        }
+
+        // Function to create grid items based on data
+        function createGrid(data) {
+            data.forEach(item => {
+                const rgb = parseRGB(item.RGB);
+                if (rgb[0] === 226 && rgb[1] === 225 && rgb[2] === 221) {
+                    // Skip items with the specific RGB value (226, 225, 221)
+                    return;
+                }
+
+                if (item.geometry) { // Ensure geometry exists
+                    const bounds = parseGeometry(item.geometry);
+                    if (bounds.length) {
+                        // Create a bounding box and add it to the map
+                        const latLngs = bounds.map(point => latLngToLeaflet(point.lat, point.lng));
+                        const boundsBox = L.polygon(latLngs).getBounds();
+
+                        // Store the grid item for later use
+                        const gridItem = {
+                            id: item['Image ID'], // Store Image ID
+                            boundsBox,
+                            imgUrl: `sv2/${item['Image ID']}.jpg`,
+                            color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`,
+                            rgb: rgb
+                        };
+                        gridItems.push(gridItem);
+
+                        // Add an image overlay to the map
+                        const imageOverlay = L.imageOverlay(gridItem.imgUrl, boundsBox).addTo(map);
+                        gridItem.overlay = imageOverlay;
+                        gridItem.isColor = false; // Track whether item is color or image
+
+                        // Add click event to show images and highlight temporarily
+                        imageOverlay.on('click', () => {
+                            highlightGridItemTemporarily(gridItem, "#ff0000");
+                            const closestItems = findClosestColors(gridItem);
+                            closestItems.forEach(ci => highlightGridItemTemporarily(ci));
+                            showSimilarImages(gridItem, closestItems);
+                        });
+                    } else {
+                        console.warn('Parsed bounds are empty:', bounds);
+                    }
+                } else {
+                    console.warn('Missing geometry for item:', item);
+                }
+            });
+        }
+
+        // Function to toggle color blocks
+        function toggleColors() {
+            gridItems.forEach(item => {
+                if (item.overlay) {
+                    item.overlay.remove();
+                }
+                if (!item.isColor) {
+                    L.rectangle(item.boundsBox, {
+                        color: item.color,
+                        weight: 0,
+                        fillOpacity: 1
+                    }).addTo(map).on('click', () => {
+                        highlightGridItemTemporarily(item, "#ff0000");
+                        const closestItems = findClosestColors(item);
+                        closestItems.forEach(ci => highlightGridItemTemporarily(ci));
+                        showSimilarImages(item, closestItems);
+                    });
+                    item.isColor = true; // Mark as color
+                }
+            });
+
+            // Show the tooltip
+            document.getElementById('tooltip').style.display = 'block';
+        }
+
+        // Function to toggle street view images
+        function toggleStreetView() {
+            gridItems.forEach(item => {
+                if (item.isColor) {
+                    map.eachLayer(layer => {
+                        if (layer instanceof L.Rectangle && layer.getBounds().equals(item.boundsBox)) {
+                            map.removeLayer(layer);
+                        }
+                    });
+                    L.imageOverlay(item.imgUrl, item.boundsBox).addTo(map).on('click', () => {
+                        highlightGridItemTemporarily(item, "#ff0000");
+                        const closestItems = findClosestColors(item);
+                        closestItems.forEach(ci => highlightGridItemTemporarily(ci));
+                        showSimilarImages(item, closestItems);
+                    });
+                    item.isColor = false; // Mark as image
+                }
+            });
+
+            // Hide the tooltip
+            document.getElementById('tooltip').style.display = 'none';
+        }
+
+        // Show modal with images corresponding to the clicked grid item and its closest color matches
+        function showSimilarImages(clickedItem, closestItems = []) {
+            const modal = document.getElementById('image-modal');
+            const modalBody = document.querySelector('.modal-body');
+
+            // Clear the current images
+            modalBody.innerHTML = '';
+
+            const itemsToShow = [clickedItem, ...closestItems];
+            itemsToShow.forEach((item, index) => {
+                const img = document.createElement('img');
+                img.src = item.imgUrl;
+                if (index === 0) {
+                    img.classList.add('highlight'); // Highlight the first image
+                }
+                img.onerror = () => { img.style.display = 'none'; }; // Hide the image if not found
+                modalBody.appendChild(img);
+            });
+
+            // Display the modal
+            modal.style.display = 'block';
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById('image-modal').style.display = 'none';
+        }
+
+        document.querySelector('.modal-close').addEventListener('click', closeModal);
+
+        // Make the modal draggable
+        const modal = document.getElementById('image-modal');
+        modal.onmousedown = function (event) {
+            let shiftX = event.clientX - modal.getBoundingClientRect().left;
+            let shiftY = event.clientY - modal.getBoundingClientRect().top;
+
+            function moveAt(pageX, pageY) {
+                modal.style.left = pageX - shiftX + 'px';
+                modal.style.top = pageY - shiftY + 'px';
+            }
+
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+
+            modal.onmouseup = function () {
+                document.removeEventListener('mousemove', onMouseMove);
+                modal.onmouseup = null;
+            };
+        };
+
+        // Load CSV data and create grid
+        function loadCSV() {
+            if (typeof Papa === 'undefined') {
+                console.error('PapaParse is not loaded.');
+                return;
+            }
+            Papa.parse('merged_data.csv', {
+                download: true,
+                header: true,
+                dynamicTyping: true,
+                complete: function(results) {
+                    console.log('CSV data loaded:', results.data);
+                    createGrid(results.data);
+                },
+                error: function(error) {
+                    console.error('Error loading CSV:', error);
+                }
+            });
+        }
+
+        loadCSV();
+
+        // Add event listeners for buttons
+        document.getElementById('color-toggle-button').addEventListener('click', toggleColors);
+        document.getElementById('street-view-button').addEventListener('click', toggleStreetView);
+        
+        // Navigate to the new4.html page
+        document.getElementById('return-button').addEventListener('click', () => {
+            window.location.href = 'def.html';
+        });
+
+        // Navigate to the METRIX page
+        document.getElementById('metrix-button').addEventListener('click', () => {
+            window.location.href = 'metrix.html';
+        });
+
+        // Change Mode button to load another map view
+        document.getElementById('change-mode-button').addEventListener('click', () => {
+            window.location.href = 'space.html';
+        });
+// Navigate to the timespace.html page
+document.getElementById('timespace-button').addEventListener('click', () => {
+    window.location.href = 'timespace.html';
+});
+
+
+
+        // Drag and drop functionality for all buttons
+        dragElement(document.getElementById('button-container'));
+        dragElement(document.getElementById('metrix-button'));
+        dragElement(document.getElementById('tooltip'));
+
+        function dragElement(elmnt) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            elmnt.onmousedown = dragMouseDown;
+
+            function dragMouseDown(e) {
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+</html>

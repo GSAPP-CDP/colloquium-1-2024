@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Page 2</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #111;
+      color: white;
+      font-size: 1.5em;
+      text-align: center;
+      margin: 0;
+      overflow: hidden; /* Prevent scrollbar */
+      transition: background 1s;
+    }
+    .container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .side {
+      width: 50%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .side.left {
+      background: linear-gradient(to right, red, orange, yellow); /* Red to Yellow gradient */
+      animation: slideInLeft 1s ease-out;
+    }
+    .side.right {
+      background: linear-gradient(to right, green, blue, indigo, violet); /* Green to Violet gradient */
+      animation: slideInRight 1s ease-out;
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    .center {
+      position: absolute;
+      bottom: 20px; /* Positioning the button at the bottom */
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 20px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      border-radius: 10px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .center:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05); /* Adjusted for smoother hover effect */
+    }
+    .text-content {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s, transform 1s;
+    }
+    .text-content.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hidden {
+      display: none;
+    }
+    .additional-info {
+      position: absolute;
+      left: 50%;
+      bottom: 120px; /* Adjusted position */
+      transform: translate(-50%, 0); /* Center horizontally */
+      background: rgba(0, 0, 0, 0.8); /* Darker background for better readability */
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 10px;
+      width: 90%; /* Set the width to occupy most of the page width */
+      max-width: 800px; /* Set the maximum width */
+      color: white;
+      font-size: 1em;
+      text-align: left;
+      overflow-y: auto; /* Allow scrolling for long content */
+      height: 100px; /* Set a fixed height */
+    }
+    .fade-to-black {
+      background: black !important;
+      transition: background 3s ease-in-out;
+    }
+    .floating-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      font-size: 2em;
+      text-align: center;
+      transition: opacity 2s, transform 2s;
+    }
+    .floating-text.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="side left">
+           <h2>Empirical Space</h2>
+          <p>Empirical space represents the everyday structures and tools that shape our cities, like those captured in street view images. These images reveal the tangible, often overlooked elements—buildings, roads, and infrastructure—that define urban color through the physical realities of our daily environment.</p>
+        </div> 
+        <div class="side right">
+        <h2>Image Space</h2>
+          <p>
+            Image Space reflects urban color schemes on social platforms like Instagram and TikTok, shaping public perceptions and driving rapid shifts in color trends. Social media serves as a feedback loop, where trends and user content continually influence urban color choices.</p>
+        </div>
+        <div class="center">
+            Time
+        </div>
+        <div class="additional-info hidden">
+          <p>Historically, city construction was limited by transportation and materials, often leading to the use of local resources. As new materials became available, the color palette of buildings began to change, reflecting different eras. </p>
+        </div>
+      </div>
+  
+    <div class="floating-text hidden" id="text1">Does the year of construction significantly affect color expression?</div>
+    <div class="floating-text hidden" id="text2">Do empirical space (street views) and image space (social media) differ in color, yet influence each other?</div>
+  
+  <script>
+    // Handle scroll event to navigate to a new page
+    window.addEventListener('wheel', (event) => {
+      if (event.deltaY < 0) {
+        window.location.href = 'intro.html'; // Scroll down to navigate
+      } else if (event.deltaY > 0) {
+        window.location.href = 'streetviewmap.html'; // Scroll up to return to newPage.html
+      }
+    });
+  
+    // Handle click event to reveal additional information and then fade to black with text
+    document.querySelector('.center').addEventListener('click', () => {
+      document.querySelector('.additional-info').classList.toggle('hidden');
+  
+      setTimeout(() => {
+        document.body.classList.add('fade-to-black');
+      }, 5000); // Wait 5 seconds before fading to black
+  
+      setTimeout(() => {
+        document.getElementById('text1').classList.remove('hidden');
+        document.getElementById('text1').classList.add('show');
+      }, 2000); // Wait 2 seconds before showing the first floating text
+  
+      setTimeout(() => {
+        document.getElementById('text1').classList.remove('show');
+        document.getElementById('text2').classList.remove('hidden');
+        document.getElementById('text2').classList.add('show');
+      }, 5000); // Wait 10 seconds before showing the second floating text
+    });
+  </script>
+</body>
+</html>

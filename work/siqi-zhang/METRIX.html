@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrix Page</title>
+    <!-- Include PapaParse Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js for pie charts -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Change background to black */
+        }
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(35, 1fr); /* Adjusted for smaller grid */
+            gap: 1px;
+            width: 100%;
+            max-width: 1400px; /* Adjusted for grid size */
+            background: #333;
+            position: relative;
+        }
+        .grid-item {
+            width: 100%;
+            padding-top: 100%; /* 1:1 aspect ratio */
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .grid-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .grid-item:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+        .button-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            z-index: 1000;
+            cursor: move; /* Indicate draggable */
+        }
+        .button {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Updated button container for map and new button */
+        #map-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #007bff; /* Blue background */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            z-index: 1000; /* Ensure it's above other elements */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #map-container .button {
+            background-color: transparent;
+            color: white; /* White text */
+            margin-bottom: 5px; /* Add margin between buttons */
+            width: 150px; /* Ensure buttons have equal width */
+            text-align: center;
+        }
+
+        #map-container .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .year-bin-label {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin: 10px 0;
+            font-size: 12px; /* Smaller font size for labels */
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            width: 100%;
+            max-width: 1000px; /* Adjusted for larger chart size */
+            margin-top: 50px;
+        }
+        .chart-container canvas {
+            width: 180px !important; /* Larger chart size */
+            height: 180px !important; /* Larger chart size */
+        }
+        .year-label {
+            font-size: 10px; /* Smaller font size for year labels */
+            color: white;
+        }
+        .chart-title {
+            display: none; /* Initially hidden */
+            position: absolute;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            pointer-events: none; /* Prevent interaction */
+        }
+
+        /* Header Styling */
+        .heading {
+            width: 100%;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(255,0,0,0.3), rgba(255,165,0,0.3), rgba(255,255,0,0.3), rgba(0,128,0,0.3), rgba(0,0,255,0.3), rgba(75,0,130,0.3), rgba(238,130,238,0.3));
+            text-align: center;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+
+        .heading .line {
+            margin: 2px 0;
+        }
+
+        /* Left-Aligned Header Text */
+        .left-header-text {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <div class="right-header-text">Time - Color</div>
+        <div class="line">Columbia GSAPP M.S. Computational Design Practices 2024 Summer</div>
+        <div class="line">Siqi Zhang Student Work Colloquium I</div>
+    </div>
+
+    <div class="button-container" id="draggable">
+        <div id="street-view-button" class="button">Street View</div>
+        <div id="color-toggle-button" class="button">Main Color</div>
+        <div id="color-similarity-button" class="button">Color Similarity</div>
+        <div id="year-built-button" class="button">Year Built</div>
+        <div id="year-bin-button" class="button">Year Bin</div> <!-- Reassign YearBin button for pie charts -->
+    </div>
+
+    <div id="grid-container"></div>
+    <div id="chart-container" class="chart-container" style="display: none;"></div> <!-- Hidden chart container -->
+
+    <div id="map-container">
+        <div id="map-button" class="button">Space - Color</div>
+        <div id="timespace-button" class="button">Time - Space - Color</div>
+    </div>
+
+    <script>
+        const gridContainer = document.getElementById('grid-container');
+        const chartContainer = document.getElementById('chart-container');
+        let gridItems = [];
+
+        function loadCSV() {
+            Papa.parse('merged_data.csv', {
+                download: true,
+                header: true,
+                dynamicTyping: true,
+                complete: function(results) {
+                    console.log('CSV data loaded:', results.data);
+                    gridItems = results.data;
+                    displayStreetView(); // Default to street view
+                },
+                error: function(error) {
+                    console.error('Error loading CSV:', error);
+                }
+            });
+        }
+
+        function createGrid(items) {
+            items.forEach((item) => {
+                if (item.imgUrl) { // Check if imgUrl exists
+                    const gridItem = document.createElement('div');
+                    gridItem.className = 'grid-item';
+                    const img = document.createElement('img');
+                    img.src = item.imgUrl; // Set image URL
+                    gridItem.appendChild(img);
+                    gridContainer.appendChild(gridItem);
+
+                    // Add hover effect to show YearBuilt
+                    let timeoutId;
+                    gridItem.addEventListener('mouseover', function() {
+                        timeoutId = setTimeout(() => {
+                            const yearLabel = document.createElement('div');
+                            yearLabel.innerText = `${item.YearBuilt}`; // Display only the year
+                            yearLabel.style.position = 'absolute';
+                            yearLabel.style.bottom = '0';
+                            yearLabel.style.left = '0';
+                            yearLabel.style.right = '0';
+                            yearLabel.style.textAlign = 'center';
+                            yearLabel.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                            yearLabel.style.color = '#fff';
+                            yearLabel.style.padding = '2px 0';
+                            yearLabel.style.borderRadius = '3px';
+                            yearLabel.className = 'year-label';
+                            gridItem.appendChild(yearLabel);
+                        }, 1000); // Delay 1 second before showing
+                    });
+
+                    gridItem.addEventListener('mouseout', function() {
+                        clearTimeout(timeoutId); // Clear timeout if mouse leaves early
+                        const yearLabel = gridItem.querySelector('.year-label');
+                        if (yearLabel) {
+                            setTimeout(() => {
+                                if (gridItem.contains(yearLabel)) {
+                                    gridItem.removeChild(yearLabel);
+                                }
+                            }, 5000); // Delay before removing the label (5 seconds)
+                        }
+                    });
+                }
+            });
+        }
+
+        function displayStreetView() {
+            gridContainer.innerHTML = ''; // Clear existing grid
+            chartContainer.style.display = 'none'; // Hide chart container
+            const items = gridItems
+                .filter(item => item['SVI_ID'] && !shouldSkip(item.RGB)) // Filter out the unwanted RGB values
+                .sort((a, b) => a['SVI_ID'] - b['SVI_ID']) // Sort by SVI_ID
+                .map(item => ({
+                    imgUrl: item['SVI_ID'] ? `sv2/${item['SVI_ID']}.jpg` : '',
+                    YearBuilt: item.YearBuilt // Include YearBuilt for hover effect
+                }));
+            createGrid(items);
+        }
+
+        function displayMainColor() {
+            gridContainer.innerHTML = ''; // Clear existing grid
+            chartContainer.style.display = 'none'; // Hide chart container
+            const items = gridItems
+                .filter(item => item['SVI_ID'] && !shouldSkip(item.RGB)) // Filter out the unwanted RGB values
+                .sort((a, b) => a['SVI_ID'] - b['SVI_ID']) // Sort by SVI_ID
+                .map(item => ({
+                    imgUrl: createColorBlock(item.RGB),
+                    YearBuilt: item.YearBuilt // Include YearBuilt for hover effect
+                }));
+            createGrid(items);
+        }
+
+        function displayColorSimilarity() {
+            gridContainer.innerHTML = ''; // Clear existing grid
+            chartContainer.style.display = 'none'; // Hide chart container
+            const items = gridItems
+                .filter(item => item.SortColor !== undefined && !shouldSkip(item.RGB)) // Filter out the unwanted RGB values
+                .sort((a, b) => a.SortColor - b.SortColor)
+                .map(item => ({
+                    imgUrl: createColorBlock(item.RGB),
+                    YearBuilt: item.YearBuilt // Include YearBuilt for hover effect
+                }));
+            createGrid(items);
+        }
+
+        function displayYearBuilt() {
+            gridContainer.innerHTML = ''; // Clear existing grid
+            chartContainer.style.display = 'none'; // Hide chart container
+
+            const yearBins = {
+                0: 'Before 1900',
+                1: '1900-1930',
+                2: '1930-1960',
+                3: '1960-2000',
+                4: 'After 2000'
+            };
+
+            for (let bin in yearBins) {
+                const items = gridItems
+                    .filter(item => item.YearBin == bin && !shouldSkip(item.RGB)) // Filter out the unwanted RGB values
+                    .sort((a, b) => a.SortYear - b.SortYear)
+                    .map(item => ({
+                        imgUrl: createColorBlock(item.RGB),
+                        YearBuilt: item.YearBuilt // Include YearBuilt for hover effect
+                    }));
+
+                createGrid(items);
+
+                const label = document.createElement('div');
+                label.className = 'year-bin-label';
+                label.innerText = yearBins[bin];
+                gridContainer.appendChild(label);
+            }
+        }
+
+        function displayYearBin() {
+            gridContainer.innerHTML = ''; // Clear existing grid
+            chartContainer.style.display = 'grid'; // Show chart container
+            chartContainer.innerHTML = ''; // Clear existing charts
+
+            const yearBins = {
+                0: 'Before 1900',
+                1: '1900-1930',
+                2: '1930-1960',
+                3: '1960-2000',
+                4: 'After 2000'
+            };
+
+            for (let bin in yearBins) {
+                const binItems = gridItems.filter(item => item.YearBin == bin && !shouldSkip(item.RGB));
+                const colors = binItems.map(item => `rgb(${convertRGBString(item.RGB).join(',')})`);
+                const colorCounts = colors.reduce((acc, color) => {
+                    acc[color] = (acc[color] || 0) + 1;
+                    return acc;
+                }, {});
+
+                const chartData = {
+                    labels: Object.keys(colorCounts),
+                    datasets: [{
+                        data: Object.values(colorCounts),
+                        backgroundColor: Object.keys(colorCounts),
+                        borderWidth: 0
+                    }]
+                };
+
+                const chartCanvas = document.createElement('canvas');
+                chartContainer.appendChild(chartCanvas);
+
+                const chart = new Chart(chartCanvas, {
+                    type: 'pie',
+                    data: chartData,
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false // Hide legend
+                            }
+                        },
+                        onClick: function(e, elements) {
+                            if (elements.length) {
+                                const title = chartCanvas.parentElement.querySelector('.chart-title') || document.createElement('div');
+                                title.className = 'chart-title';
+                                title.innerText = yearBins[bin];
+                                chartCanvas.parentElement.appendChild(title);
+                                title.style.display = 'block'; // Show the title
+
+                                // Fill the pie chart with the average color
+                                const averageColor = calculateAverageColor(binItems);
+                                chartCanvas.style.backgroundColor = `rgb(${averageColor[0]}, ${averageColor[1]}, ${averageColor[2]})`;
+
+                                // Animate the fill
+                                const context = chartCanvas.getContext('2d');
+                                context.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+                                context.fillStyle = `rgb(${averageColor[0]}, ${averageColor[1]}, ${averageColor[2]})`;
+                                context.beginPath();
+                                context.arc(chartCanvas.width / 2, chartCanvas.height / 2, chartCanvas.width / 2, 0, 2 * Math.PI);
+                                context.fill();
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function calculateAverageColor(items) {
+            const totalColor = items.reduce((acc, item) => {
+                const color = convertRGBString(item.RGB);
+                acc[0] += color[0];
+                acc[1] += color[1];
+                acc[2] += color[2];
+                return acc;
+            }, [0, 0, 0]);
+
+            const itemCount = items.length;
+            return [
+                Math.round(totalColor[0] / itemCount),
+                Math.round(totalColor[1] / itemCount),
+                Math.round(totalColor[2] / itemCount)
+            ];
+        }
+
+        function shouldSkip(rgbString) {
+            return rgbString === '(226, 225, 221)';
+        }
+
+        function convertRGBString(rgbString) {
+            if (typeof rgbString !== 'string') {
+                console.error('Invalid RGB string:', rgbString);
+                return [0, 0, 0];
+            }
+            const match = rgbString.match(/\((\d+),\s*(\d+),\s*(\d+)\)/);
+            if (match) {
+                const [, r, g, b] = match;
+                return [parseInt(r, 10), parseInt(g, 10), parseInt(b, 10)];
+            }
+            console.error('Invalid RGB format:', rgbString);
+            return [0, 0, 0];
+        }
+
+        function createColorBlock(rgbString) {
+            const rgbColor = convertRGBString(rgbString);
+            const canvas = document.createElement('canvas');
+            canvas.width = 50; /* Smaller grid size */
+            canvas.height = 50; /* Smaller grid size */
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = `rgb(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            return canvas.toDataURL();
+        }
+
+        // Make button container draggable
+        dragElement(document.getElementById("draggable"));
+
+        function dragElement(elmnt) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+        document.getElementById('street-view-button').addEventListener('click', displayStreetView);
+        document.getElementById('color-toggle-button').addEventListener('click', displayMainColor);
+        document.getElementById('color-similarity-button').addEventListener('click', displayColorSimilarity);
+        document.getElementById('year-built-button').addEventListener('click', displayYearBuilt);
+        document.getElementById('year-bin-button').addEventListener('click', displayYearBin); // Event listener for YearBin
+
+        document.getElementById('map-button').addEventListener('click', () => {
+            window.location.href = 'space.html';
+        });
+
+        document.getElementById('timespace-button').addEventListener('click', () => {
+            window.location.href = 'timespace.html';
+        });
+
+        loadCSV();
+    </script>
+</body>
+</html>

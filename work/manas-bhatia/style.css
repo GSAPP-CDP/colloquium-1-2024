@@ -2,122 +2,412 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-h1 {
-  font-family: "Nunito", sans-serif;
+/* Loading screen styles */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  z-index: 2000;
+  transition: opacity 2s ease-out;
+  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
 }
 
-h2 {
-  font-family: "Nunito", sans-serif;
+#loading-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('logo.png'); /* Add your background image */
+  background-size: cover; /* Ensure the image covers the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  opacity: 0.5; /* Set the image transparency */
+  z-index: -1; /* Place the image behind the text */
 }
 
-p {
-  font-family: "Roboto", sans-serif;
+#loading-screen span {
+  position: relative;
+  padding: 10px 20px;
+  animation: zoom-out 2s ease-out forwards;
 }
 
-article>h1:first-child {
-  color: #000000;
+@keyframes zoom-out {
+  0% { transform: scale(10); }
+  100% { transform: scale(2); }
 }
 
-section>h1 {
-  color: #000000;
-}
-
-section>h2 {
-  color: #000000;
-}
-
-section>p {
-  color: #000000;
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  background: #ffffff;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Add this CSS rule to change the color of the hyperlinks */
-header h2 a {
-  color: grey;
+h1, h2 { font-family: "Nunito", sans-serif; }
+p { font-family: "Roboto", sans-serif; text-align: justify; font-size: 2px ; }
+
+section {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
 }
-/* Add this CSS rule to change the color of all links to grey */
-a {
-  color: grey;
+
+section > h1, section > h2, section > p {
+  color: #fff;
 }
-/* Corrupted glitch effect CSS */
-.glitch {
-  color: black;
-  position: relative;
-  display: inline-block;
-  font-size: 3em; /* Adjust the font size */
-  padding: 20px; /* Add padding */
-  margin: 20px 0; /* Add margin */
-  border-left: 5px solid rgb(0, 0, 0); /* Optional: Add a border to the left */
-}
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 50;
-  left: 8;
+
+section > h2 { font-size: 3em; }
+
+
+.responsive-iframe, .embedded-iframe {
   width: 100%;
-  height: 20%;
-  background: rgb(255, 255, 255);
+  border: none;
   overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
 }
-.glitch::before {
+
+.responsive-iframe { height: 500px; object-fit: scale-down; }
+.embedded-iframe { height: auto; z-index: 9999; }
+
+.side-nav {
+  position: fixed;
+  top: 50%;
   left: 20px;
-  text-shadow: -2px 0 rgb(114, 114, 114);
-  animation: corrupted-glitch 1s infinite linear alternate-reverse;
+  transform: translateY(-50%);
+  width: 120px;
+  background-color: #b3b3b3;
+  border-radius: 30px;
+  padding: 20px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.glitch::after {
-  left: 20px;
-  text-shadow: -3px 0 rgb(114, 114, 114);
-  animation: corrupted-glitch 1s infinite linear alternate-reverse;
+
+.side-nav ul {
+  list-style-type: none;
+  padding: 8px;
+  margin: 0;
+  position: relative;
 }
-@keyframes corrupted-glitch {
-  0% {
-    clip: rect(0, 9999px, 0, 0);
-    transform: translate(0, 0);
-  }
-  10% {
-    clip: rect(10px, 9999px, 50px, 0);
-    transform: translate(-5px, -5px);
-  }
-  20% {
-    clip: rect(20px, 9999px, 40px, 0);
-    transform: translate(5px, 5px);
-  }
-  30% {
-    clip: rect(30px, 9999px, 60px, 0);
-    transform: translate(-10px, 10px);
-  }
-  40% {
-    clip: rect(40px, 9999px, 30px, 0);
-    transform: translate(10px, -10px);
-  }
-  50% {
-    clip: rect(50px, 9999px, 20px, 0);
-    transform: translate(-15px, 15px);
-  }
-  60% {
-    clip: rect(60px, 9999px, 10px, 0);
-    transform: translate(15px, -15px);
-  }
-  70% {
-    clip: rect(70px, 9999px, 40px, 0);
-    transform: translate(-20px, 20px);
-  }
-  80% {
-    clip: rect(80px, 9999px, 50px, 0);
-    transform: translate(20px, -20px);
-  }
-  90% {
-    clip: rect(90px, 9999px, 60px, 0);
-    transform: translate(-25px, 25px);
-  }
-  100% {
-    clip: rect(100px, 9999px, 70px, 0);
-    transform: translate(25px, -25px);
-  }
+
+.side-nav ul li {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.side-nav ul li a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.side-nav ul li a.home-button {
+  background-color: #000;
+  color: #fff;
+}
+
+.hover-button {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 20px;
+  transition: top 0.3s, left 0.3s, width 0.3s, height 0.3s, opacity 0.3s;
+  z-index: -1;
+  opacity: 0;
+}
+
+
+
+#background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+.text-content { width: 50%; }
+
+
+header {
+  position: relative;
+  z-index: 1000;
+  display: none;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+main h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+}
+
+main section div {
+  display: inline-block;
+  text-align: center;
+}
+
+main section p {
+  font-size: 1.2em;
+}
+
+.logo {
+  margin: 144px 0 34px;
+}
+
+.logo img {
+  max-width: 500px;
+}
+
+.rotating-logo {
+  animation: rotate 10s linear infinite;
+  width: 377px;
+  height: auto;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.custom-heading {
+  font-family: "Audiowide", sans-serif;
+  color: #fff;
+  font-size: 55px;
+  text-align: center;
+}
+
+.section-seed {
+  height: 100vh;
+  width: 100vw;
+}
+
+.section-germination {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('Beehive.jpg'); /* Add your background image */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  position: relative; /* Ensure the overlay is positioned correctly */
+}
+
+.section-germination::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black overlay with 50% opacity */
+  z-index: 1; /* Ensure the overlay is above the background image */
+}
+
+.section-germination .section-content {
+  position: relative;
+  z-index: 3; /* Ensure the content is above the section */
+}
+
+.section-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 300px;
+}
+
+
+
+.bubble-chart-container {
+  flex: 1;
+  width: 50%;
+  /* Ensure it takes full height of the parent */
+  height: 100%;
+}
+
+.embedded-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.section-Utopia {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-Sapling {
+  display: grid;
+  grid-template-rows: repeat(3, 33.33vh); /* Each row is 20vh tall */
+  height: 100vh;
+  grid-template-columns: repeat(4, 25vw); /* 5 columns, each 20vw wide */
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 20px;
+  grid-auto-flow: dense; /* Allows filling of gaps without wrapping to the first column */
+}
+
+.grid-item-1x2 {
+  grid-column: span 1; /* Span across 1 columns */
+  grid-row: span 2; /* Span across 2 rows */
+  border: 1px dashed rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column;
+  box-sizing: border-box;
+  object-fit: cover;
+  padding: 10px;
+}
+
+.grid-item-2x2 {
+  grid-column: span 2; /* Span across 2 columns */
+  grid-row: span 1; /* Span across 2 rows */
+  border: 1px dashed rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: column; /* Ensure items stack vertically */
+  box-sizing: border-box;
+  object-fit: cover;
+  margin: 0;
+  padding: 10px;
+}
+
+.grid-item {
+  grid-column: span 1; /* Span across 2 columns */
+  grid-row: span 1; /* Span across 2 rows */
+  border: 1px dashed rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.grid-text {
+  grid-column: span 2; /* Span across 2 columns */
+  grid-row: span 1; /* Span across 2 rows */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.section-References {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: repeat(2, 50vh); /* 5 columns, each 20vw wide */
+  grid-template-columns: repeat(4, 25vw); /* 5 columns, each 20vw wide */
+  width: 100vw;
+  box-sizing: border-box;
+  margin-right: 200px;
+  grid-auto-flow: dense; /* Allows filling of gaps without wrapping to the first column */
+}
+
+.grid-reference-item {
+  grid-column: span 1; /* Span across 2 columns */
+  grid-row: span 1; /* Span across 2 rows */
+  border: 1px dashed rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  object-fit: cover;
+  padding: 20px;
+}
+
+.overlay-text-small {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2em;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.utopia-video-container { position: relative; }
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-20%, -20%);
+  color: white;
+  font-size: 5em;
+  font-family: 'Audiowide', sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+footer {
+  height: 200px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 100px;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
 }

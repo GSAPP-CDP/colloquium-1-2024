@@ -1,0 +1,332 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+body, h1, h2, h3, h4, h5, p {
+    font-family: 'Jersey 20', sans-serif;
+    color: white; /* Set font color to white */
+    margin: 0;
+    text-align: center;
+}
+
+
+#landing {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+#backgroundContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222; /* Dark background for visibility */
+    z-index: 10;
+}
+#content {
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+       
+}
+    #threeContainer, #soundContainer {
+        width: 100%;
+        height: 600px; 
+        padding-top: 40px;
+    }
+    #imageRow {
+        flex-direction: row;
+    }
+
+
+button {
+    position: absolute;
+}
+
+#imageRow {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.overlayImage {
+    width: 100px;
+    height: 80px;
+    display: none; /* Initially hidden */
+}
+
+
+#compare{
+    display: flex;
+    flex-direction:column ;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height:100vh;
+    background-color: black;
+    gap: 40px;
+}
+.soundcontainer{
+    width: 50%;
+    gap: 40px;
+}
+#nyc,#thai{
+    width: 400px;
+    height:400px;
+}
+
+.s.story {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+z-index: 1; /* Ensure it's above soundbackground */
+}
+
+#scroll{
+    position: relative;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding: 100;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 1; /* Ensure text is above threeContainer */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+}
+
+#soundbackground{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Story Section Styles */
+.story {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Optional: To darken the video for better text visibility */
+}
+
+h3 {
+    font-size: 2rem;
+    white-space: wrap;
+    overflow: hidden;
+}
+h1 {
+    font-size: 5rem;
+    white-space: wrap;
+    overflow: hidden;
+    color: #f0f0f0;
+}
+
+h2{
+    font-size: 4rem;
+    white-space: wrap;
+    overflow: hidden;
+    color: #f0f0f0;
+}
+
+/* Compare Sound Section */
+
+/* .soundcontainer {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+} */
+
+@media (max-width: 768px) {
+    .story h3 {
+        font-size: 1.5rem;
+    }
+
+    #skipButton {
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typingAnim 3s steps(50);
+    }
+}
+
+.quote {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#landingTitle{
+position: absolute;
+z-index: 10000;
+align-items: center;
+justify-content: center;
+}
+#read{
+    background-color: black;
+}
+#how {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 100;
+}
+
+#explain {
+    position: relative;
+    width: 600px; 
+    height: 600px;
+    overflow: hidden;
+}
+#title{
+    width: 100vw;
+    height: 100vh;
+}
+
+#content{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+#r {
+    flex: 1; /* Allow this section to take up half the width */
+    padding: 20px;
+    max-width: 600px; /* Optional max-width for better control */
+    text-align: left; /* Align text to the left */
+    align-items: left;
+}
+
+#r h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #f0f0f0; /* Slightly off-white for better contrast */
+}
+
+#r h4 {
+    font-size: 2rem;
+    margin: 5px 0;
+    color: #cccccc; /* Lighter color for subheadings */
+}
+
+#l {
+    flex: 1; /* Allow this section to take up half the width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#explain {
+    width: 600px; 
+    height: 600px;
+    background-color: #333; /* Darker background to match the theme */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden;
+}
+
+#compare2{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+ /* Side Navigation */
+ #sideNav {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideNav .nav-line {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    margin: 20px 0;
+    position: relative;
+    transition: width 0.3s ease; /* Smooth transition for the line width */
+}
+
+/* Longer line for current page */
+#sideNav .nav-line.current {
+    width: 40px;
+}
+
+/* Extend line on hover */
+#sideNav .nav-line:hover {
+    width: 40px;
+}
+
+#sideNav .nav-line:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: 'Jersey 20', sans-serif;
+}

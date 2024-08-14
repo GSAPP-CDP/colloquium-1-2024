@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">  
+  <meta name="description" content="Student work by Fern Itthisang from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
+  
+  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
+  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
+  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
+  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
+  
+  <!-- <link href="style/style.css" rel="stylesheet" /> -->
+  <style>
+    /* CSS style sheet specific to a single student page. */
+
+article>h1:first-child {
+  color: blue;
+}
+
+/* Side Navigation */
+#sideNav {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideNav .nav-line {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    margin: 20px 0;
+    position: relative;
+    transition: width 0.3s ease; /* Smooth transition for the line width */
+}
+
+/* Longer line for current page */
+#sideNav .nav-line.current {
+    width: 40px;
+}
+
+/* Extend line on hover */
+#sideNav .nav-line:hover {
+    width: 40px;
+}
+
+#sideNav .nav-line:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: 'Jersey 20', sans-serif;
+}
+
+
+  </style>
+  <title>Fern Itthisang</title>
+</head>
+
+<body>
+  <div id="sideNav">
+    <a href="index.html">
+        <div class="nav-line" data-title="VocaLocal"></div>
+    </a>
+    <a href="1.html">
+        <div class="nav-line current" data-title="Work"></div>
+    </a>
+    <a href="2.html">
+        <div class="nav-line" data-title="Profile"></div>
+    </a>
+</div>
+
+  <header>
+    <h1>
+      <a href="https://www.arch.columbia.edu/" target="_blank">
+        Columbia GSAPP
+      </a>
+    </h1>
+    
+    <h2>
+      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
+        M.S. Computational Design Practices
+      </a><br>
+      <a href="/">Home</a> → <a href="/work">Student Work</a> → Fern Itthisang
+    </h2>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/work">Student&nbsp;Work</a>
+      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
+        Syllabus
+      </a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h1>Fern Itthisang</h1>
+  
+      <section>
+        <h2>Table of Contents</h2>
+        <ul>
+          <li><a href="#assignment-1">1 – Systems</a></li>
+          <li><a href="#assignment-2">2 – Authorship</a></li>
+          <li><a href="#assignment-3">3 – Politics</a></li>
+          <li><a href="#assignment-4">4 – Governance</a></li>
+          <li><a href="#assignment-5">5 – Behavior</a></li>
+        </ul>
+      </section>
+  
+      <section>
+        <h1 id="assignment-1">1 – Systems</h1>
+        <h2>Bike-sharing System in NYC</h2>
+        <p>Purpose: To provide an accessible, sustainable, and efficient mode of transportation for 
+          city residents and visitors.
+
+          Elements: Bicycles, docking stations, users, maintenance teams, and a central 
+          management platform.
+          </p>
+        
+        <img src="asset/work/image 3.jpg">
+      </section>
+  
+      <section>
+        <h2>What is the system?</h2>
+        <p>
+          One system I am particularly drawn to is the urban bike-sharing system in New York City. 
+          This system consists of multiple interconnected elements, including the bicycles, docking 
+          stations, users, maintenance teams, and the central management platform. The primary 
+          purpose of this system is to provide an accessible,sustainable, and efficient mode of 
+          transportation for city residents and visitors.
+
+        </p>
+  
+        <p>
+          The system operates with several key dynamics. One crucial component is the feedback loop 
+          that governs bike availability. This balancing feedback loop ensures that when bikes are 
+          heavily used in one area, maintenance teams are alerted to redistribute bikes from less 
+          busy stations, maintaining a balance across the city. Stocks in this system refer to the 
+          number of bikes available at each docking station, while flows represent the movement of 
+          bikes between stations as users pick up and drop them off.
+        </p>
+
+        <p>
+          A fascinating aspect of this system is its resilience. Despite frequent use and occasional 
+          vandalism, the system is designed to continue functioning effectively. The hierarchy within 
+          this system includes individual docking stations, the network of stations in a borough,and 
+          the entire city-wide system. Each level has its own management and operational strategies, 
+          ensuring efficiency and quick response to local demands.
+        </p>
+
+        <p>
+          One of the most interesting dynamics is the reinforcing feedback loop related to user 
+          satisfaction and system usage. As more people use the bike-sharing system and find it 
+          convenient, their positive experiences encourage even more usage, leading to increased 
+          demand and system expansion. This positive reinforcement can lead to rapid growth and 
+          greater sustainability benefits.
+        </p>
+
+        <p>
+          One of the most interesting dynamics is the reinforcing feedback loop related to user 
+          satisfaction and system usage. As more people use the bike-sharing system and find it 
+          convenient, their positive experiences encourage even more usage, leading to increased 
+          demand and system expansion. This positive reinforcement can lead to rapid growth and 
+          greater sustainability benefits.
+        </p>
+
+        <hr>
+  
+        <figure>
+          <img src="asset/work/image 1.jpg">
+          <img src="asset/work/image 2.jpg">
+        </figure>
+  
+        <hr>
+        
+        <figure>
+          <img src="asset/work/Frame 1.png">
+          <img src="asset/work/Frame 2.png">
+          <img src="asset/work/Frame 3.png">
+          <img src="asset/work/Frame 4.png">
+          <img src="asset/work/Frame 5.png">
+        </figure>
+        
+        <hr>
+
+        <h2>Rube goldberg</h2>
+      - Fern
+      - Suzy
+      - Genda
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/mKvLZF7sqI8?si=SqH2gKMoz1thXYIE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      </section>
+      <hr>
+
+        
+      <section>
+      <p> As we explore the blend of technology and human creativity, the idea of "authorship" is key. Inspired by various readings and reflecting on my own work, I aim to create a philosophy that balances innovation, user empowerment, and ethical considerations.
+Lock-In vs. Flexibility in Technology
+Jaron Lanier's concept of "lock-in" warns about rigid technological standards limiting creativity and innovation. This aligns with my tech development approach. Some standards are essential for consistency and interoperability, but too much rigidity stifles creativity and user agency. Useful lock-in includes standards and protocols for data security and interoperability, and core functionality standardization to ensure consistent user experiences. Flexibility is better in user interfaces, accommodating different user needs, and creative tools, allowing customization for innovative outcomes.
+Authorship Models for Various Audiences
+Users should control customization, like modifying web design templates. Developers must ensure usability and security without restricting creativity, offering APIs and plugins for extended functionality. Content from existing datasets must acknowledge original authors, maintaining transparency and ethical standards in AI models.
+Data as Material and Its Limitations
+Data serves as the fundamental material for digital creation. Its quality, accessibility, and structure define creative possibilities. While data provides a rich resource and versatility, it has limitations: poor quality or biased data can mislead, accessibility disparities can hinder innovation, and ethical concerns around privacy and ownership are significant.
+Credit and Responsibility
+Users should retain full copyright over their creations, with platforms facilitating attribution. AI shouldn’t hold copyrights; creators of AI and training data should be acknowledged. Developers must ensure ethical tool use, users should understand AI-generated content's implications, and businesses must maintain transparency in data use.
+Control and Power Dynamics
+Users should control their data and content, developers should oversee core functionality and ethical guidelines, and regulatory bodies should ensure industry standards. Control should be exercised through customizable settings, best practices in development, and compliance checks.
+Examples of Authorship Models
+Wikipedia promotes collaborative authorship and democratizes knowledge creation. GitHub encourages open-source collaboration and rapid innovation. Medium supports user-generated content and diverse voices. Integrating these elements fosters inclusive, flexible, and ethical technologies that empower users and value their contributions.
+
+        </p>
+        
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FSbRCjgTDOoV62Q9dqEVpkf%2FZine-Assignment%3Fpage-id%3D0%3A1%26node-id%3D46-24%26viewport%3D857%2C1297%2C0.15%26t%3Desi8F8MDVE0eYsvP-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D46%3A24" allowfullscreen></iframe>
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZhHwTqa2q_U?si=8wmfPhNQYJcxFaFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <hr>
+        
+        <figure>
+          <img src="https://picsum.photos/1201/801">
+        </figure>
+      </section>
+      
+      
+      
+      <section>
+        <h1 id="assignment-2">2 – Systems</h1>
+      </section>
+      
+      <section>
+        <h1 id="assignment-3">3 – Politics</h1>
+      </section>
+      
+      <section>
+        <h1 id="assignment-4">4 – Governance</h1>
+      </section>
+      
+      <section>
+        <h1 id="assignment-5">5 – Behavior</h1>
+      </section>
+    </article>
+  </main>
+  
+  <footer></footer>
+</body>
+
+</html>

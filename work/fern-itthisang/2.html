@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Introduction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .text-section {
+            flex: 1;
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .intro {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            height: 100vh;
+        }
+
+        .title {
+            display: flex;
+            flex-direction: row;
+            font-size: 4rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin-left: 0;
+                margin-top: 20px;
+                width: 200px;
+            }
+
+            .title {
+                font-size: 3rem;
+            }
+
+            .intro {
+                font-size: 1.5rem;
+            }
+        }
+
+        .about-section h2 {
+            text-align: center;
+                font-size: 2.5rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+
+            .about-section .highlight {
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .highlight{
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            /* Side Navigation */
+#sideNav {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sideNav .nav-line {
+    width: 20px;
+    height: 2px;
+    background-color: blue;
+    margin: 20px 0;
+    position: relative;
+    transition: width 0.3s ease; /* Smooth transition for the line width */
+}
+
+/* Longer line for current page */
+#sideNav .nav-line.current {
+    width: 40px;
+}
+
+/* Extend line on hover */
+#sideNav .nav-line:hover {
+    width: 40px;
+}
+
+#sideNav .nav-line:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: blue;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-family: 'Jersey 20', sans-serif;
+}
+
+        
+    </style>
+</head>
+<body>
+    <div id="sideNav">
+        <a href="index.html">
+            <div class="nav-line" data-title="VocaLocal"></div>
+        </a>
+        <a href="1.html">
+            <div class="nav-line" data-title="Work"></div>
+        </a>
+        <a href="2.html">
+            <div class="nav-line current" data-title="Profile"></div>
+        </a>
+    </div>
+
+<div class="container">
+    <div class="intro">
+        <span class="emoji">👋</span>My name is Fern and I am a ...
+    </div>
+    <div class="title">
+        Data Visualizer,<br>
+        UX/UI and<br>
+        Interaction Designer
+        <img src="asset/picture/Profile.webp" alt="Fern's Profile Picture" class="profile-image">
+    </div>
+</div>
+<div class="about-section">
+    <h2>More About Me <span class="emoji">✌️</span></h2>
+    <h3>
+        As a Data Visualizer, I have always wanted to dedicate my career to making a positive impact on Thai society. <br>
+        I started my journey as an Architect before becoming a Data Visualizer. <br>
+        I see both architects and data visualizers as "Storytellers" who have the power to change the way we view the world.
+    </h3>
+    <p class="highlight">
+        I’m an architect who visualizes space and I’m the data visualizer who visualizes data
+    </p>
+</div>
+</body>
+</html>

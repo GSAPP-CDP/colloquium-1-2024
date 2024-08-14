@@ -1,197 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Fern Itthisang from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  
-  <link href="style.css" rel="stylesheet" />
-  
-  <title>Fern Itthisang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VocaLocal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css"> 
 </head>
-
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
+<!-- Side Navigation -->
+<div id="sideNav">
+    <a href="index.html">
+        <div class="nav-line current" data-title="VocaLocal"></div>
+    </a>
+    <a href="1.html">
+        <div class="nav-line" data-title="Work"></div>
+    </a>
+    <a href="2.html">
+        <div class="nav-line" data-title="Profile"></div>
+    </a>
+</div>
+
+
+<!-- For landing.js (landing page)-->
+<div id="backgroundContainer">
+        <div id="landingTitle">
+        <h1>VocaLocal</h1>
+        <h3>Hear the Vibe, Feel the Culture</h3>
+    </div>
+</div> 
+
+  
+<!-- First Story Section -->
+<div id="story1" class="story" style="display: none;">
+    <video id="firstVideo">
+        <source src="asset/video/Sequence 01.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- End Story Section -->
+<div class ="quote">
+    <h3>Both serve delicious Thai food, but the vibes are worlds apart.</h3>
+</div>
+
+<div class ="quote">
+    <h3>"It is the beauty of the dim, the subtle, and the elusive that we should aim for" </h3>
+    <br><h4>- Jun'ichirō Tanizaki </h4>
+</div>
+<div id="read">
+<h2>Before we start</h2>
+<div id="how">
+<div id="r">
+<h3> How to Read the Visualization</h3>
+<h4> X Axis: Horizontal Position</h4>
+<br>
+<h4> Y Axis: Volume level</h4>
+<br>
+<h4> Z Axis: Depth Position</h4>
+<br>
+<h4> Grid: Position Guideline</h4>
+<br>
+<h4> Hover/Press: Interact with the elements to dynamically play sound</h4>
+<br>
+</div>
+<div id="l">
+<div id ="explain"></div>
+</div>
+</div>
+</div>
+<!-- Compare Sound Section -->
+<div id="compare" class="compare">
+  
+     <h2> The Duality of Sound</h2>  
+    <div id="compare2">
+    <div id="nyc" class="soundcontainer">
+        <h3>Thai Restaurant,New York</h3>
+    </div>
+    <div id="thai" class="soundcontainer">
+        <h3>China Town, Bangkok</h3>
+    </div>
+</div>
+</div>
+
+<div class ="quote">
+    <h3>" We find beauty not in the thing itself but in the 
+        patterns of shadows, the light and the darkness,
+        that one thing against another creates." </h3>
+        <br>
+    <h4>- Jun'ichirō Tanizaki </h4>
+</div>
+
+<!-- For story.js -->
+
+    <div id="soundbackground"></div>
+    <section class="section1">
+        <p>System</p>
+        <p>It's is the "Ecosystem" in this communities that the 
+            <br>vendors exchange of coins and banknotes 
+            between vendors and customers buy the food.</p>
+    </section>
+    <section class="section2">
+        <p>Authorship</p>
+        <p>The vendors are the true creators of the market, 
+            <br>shaping its unique vibe 
+            through their recipes and customer interactions.</p>
+    </section>
+    <section class="section3">
+        <p>Governance</p>
+        <p>This market and the need for more support from local authorities.</p>
+    </section>
+    <section class="section4">
+        <p>Politic</p>
+        <p> The local regulations on vendors and sees the delicate balance between 
+            <br>preserving 
+            authenticity and modernizing.</p>
+    </section>
+
+
+   <!-- For play.js -->
+<div id="title">
+    <h2>Step into the Vibrant World of Thai Street Food</h2>
+    <h3>The sound player lets you craft a personalized playlist, 
+        <br>capturing the essence of bustling and lively streets.<br></h3>
+</div>
+<div id="content">
+    <div id="leftcontainer">
+        <h3>Visualize the Market</h3>
+        <p>Explore the layout and dynamics of a typical Thai street food.</p>    
+        <div id="threeContainer">
+        </div>
+    </div>
+    <div id="rightcontainer">
+        <h3>Create Your Soundscape</h3>
+        <p>Select and arrange sounds to build your own Thai street food soundscape.</p>
+        <div id="imageRow"></div>
+        <div id="soundContainer">
+        </div>
+    </div>
+</div>
+
+    <script type="importmap">
+        {
+            "imports": {
+              "three": "https://unpkg.com/three@0.152.0/build/three.module.js",
+              "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.152.0/examples/jsm/controls/OrbitControls.js",
+              "three/addons/loaders/FontLoader.js": "https://unpkg.com/three@0.152.0/examples/jsm/loaders/FontLoader.js",
+              "three/addons/geometries/TextGeometry.js": "https://unpkg.com/three@0.152.0/examples/jsm/geometries/TextGeometry.js",
+              "three/examples/jsm/postprocessing/EffectComposer.js": "https://unpkg.com/three@0.152.0/examples/jsm/postprocessing/EffectComposer.js",
+              "three/examples/jsm/postprocessing/RenderPass.js": "https://unpkg.com/three@0.152.0/examples/jsm/postprocessing/RenderPass.js",
+              "three/examples/jsm/postprocessing/OutlinePass.js": "https://unpkg.com/three@0.152.0/examples/jsm/postprocessing/OutlinePass.js",
+              "three/examples/jsm/postprocessing/ShaderPass.js": "https://unpkg.com/three@0.152.0/examples/jsm/postprocessing/ShaderPass.js",
+              "three/examples/jsm/shaders/FXAAShader.js": "https://unpkg.com/three@0.152.0/examples/jsm/shaders/FXAAShader.js"
+            }
+          }
+          
+    </script>
+    <script type="module" src="./js/landing.js"></script>
+    <script type="module" src="./js/explain.js"></script>
+    <script type="module" src="./js/compare.js"></script>
+    <script type="module" src="./js/story.js"></script>
+    <script type="module" src="./js/play3.js"></script>
+    <script type="module" src="./js/video.js"></script>
     
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Fern Itthisang
-    </h2>
-
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h1>Fern Itthisang</h1>
-  
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Bike-sharing System in NYC</h2>
-        <p>Purpose: To provide an accessible, sustainable, and efficient mode of transportation for 
-          city residents and visitors.
-
-          Elements: Bicycles, docking stations, users, maintenance teams, and a central 
-          management platform.
-          </p>
-        
-        <img src="image 3.jpg">
-      </section>
-  
-      <section>
-        <h2>What is the system?</h2>
-        <p>
-          One system I am particularly drawn to is the urban bike-sharing system in New York City. 
-          This system consists of multiple interconnected elements, including the bicycles, docking 
-          stations, users, maintenance teams, and the central management platform. The primary 
-          purpose of this system is to provide an accessible,sustainable, and efficient mode of 
-          transportation for city residents and visitors.
-
-        </p>
-  
-        <p>
-          The system operates with several key dynamics. One crucial component is the feedback loop 
-          that governs bike availability. This balancing feedback loop ensures that when bikes are 
-          heavily used in one area, maintenance teams are alerted to redistribute bikes from less 
-          busy stations, maintaining a balance across the city. Stocks in this system refer to the 
-          number of bikes available at each docking station, while flows represent the movement of 
-          bikes between stations as users pick up and drop them off.
-        </p>
-
-        <p>
-          A fascinating aspect of this system is its resilience. Despite frequent use and occasional 
-          vandalism, the system is designed to continue functioning effectively. The hierarchy within 
-          this system includes individual docking stations, the network of stations in a borough,and 
-          the entire city-wide system. Each level has its own management and operational strategies, 
-          ensuring efficiency and quick response to local demands.
-        </p>
-
-        <p>
-          One of the most interesting dynamics is the reinforcing feedback loop related to user 
-          satisfaction and system usage. As more people use the bike-sharing system and find it 
-          convenient, their positive experiences encourage even more usage, leading to increased 
-          demand and system expansion. This positive reinforcement can lead to rapid growth and 
-          greater sustainability benefits.
-        </p>
-
-        <p>
-          One of the most interesting dynamics is the reinforcing feedback loop related to user 
-          satisfaction and system usage. As more people use the bike-sharing system and find it 
-          convenient, their positive experiences encourage even more usage, leading to increased 
-          demand and system expansion. This positive reinforcement can lead to rapid growth and 
-          greater sustainability benefits.
-        </p>
-
-        <hr>
-  
-        <figure>
-          <img src="image 1.jpg">
-          <img src="image 2.jpg">
-        </figure>
-  
-        <hr>
-        
-        <figure>
-          <img src="Frame 1.png">
-          <img src="Frame 2.png">
-          <img src="Frame 3.png">
-          <img src="Frame 4.png">
-          <img src="Frame 5.png">
-        </figure>
-        
-        <hr>
-
-        <h2>Rube goldberg</h2>
-      - Fern
-      - Suzy
-      - Genda
-
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/mKvLZF7sqI8?si=SqH2gKMoz1thXYIE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-      </section>
-      <hr>
-
-        
-      <section>
-      <p> As we explore the blend of technology and human creativity, the idea of "authorship" is key. Inspired by various readings and reflecting on my own work, I aim to create a philosophy that balances innovation, user empowerment, and ethical considerations.
-Lock-In vs. Flexibility in Technology
-Jaron Lanier's concept of "lock-in" warns about rigid technological standards limiting creativity and innovation. This aligns with my tech development approach. Some standards are essential for consistency and interoperability, but too much rigidity stifles creativity and user agency. Useful lock-in includes standards and protocols for data security and interoperability, and core functionality standardization to ensure consistent user experiences. Flexibility is better in user interfaces, accommodating different user needs, and creative tools, allowing customization for innovative outcomes.
-Authorship Models for Various Audiences
-Users should control customization, like modifying web design templates. Developers must ensure usability and security without restricting creativity, offering APIs and plugins for extended functionality. Content from existing datasets must acknowledge original authors, maintaining transparency and ethical standards in AI models.
-Data as Material and Its Limitations
-Data serves as the fundamental material for digital creation. Its quality, accessibility, and structure define creative possibilities. While data provides a rich resource and versatility, it has limitations: poor quality or biased data can mislead, accessibility disparities can hinder innovation, and ethical concerns around privacy and ownership are significant.
-Credit and Responsibility
-Users should retain full copyright over their creations, with platforms facilitating attribution. AI shouldn’t hold copyrights; creators of AI and training data should be acknowledged. Developers must ensure ethical tool use, users should understand AI-generated content's implications, and businesses must maintain transparency in data use.
-Control and Power Dynamics
-Users should control their data and content, developers should oversee core functionality and ethical guidelines, and regulatory bodies should ensure industry standards. Control should be exercised through customizable settings, best practices in development, and compliance checks.
-Examples of Authorship Models
-Wikipedia promotes collaborative authorship and democratizes knowledge creation. GitHub encourages open-source collaboration and rapid innovation. Medium supports user-generated content and diverse voices. Integrating these elements fosters inclusive, flexible, and ethical technologies that empower users and value their contributions.
-
-        </p>
-        
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FSbRCjgTDOoV62Q9dqEVpkf%2FZine-Assignment%3Fpage-id%3D0%3A1%26node-id%3D46-24%26viewport%3D857%2C1297%2C0.15%26t%3Desi8F8MDVE0eYsvP-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D46%3A24" allowfullscreen></iframe>
-        
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZhHwTqa2q_U?si=8wmfPhNQYJcxFaFd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/1201/801">
-        </figure>
-      </section>
-      
-      
-      
-      <section>
-        <h1 id="assignment-2">2 – Systems</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
-</body>
-
+    </body>
 </html>

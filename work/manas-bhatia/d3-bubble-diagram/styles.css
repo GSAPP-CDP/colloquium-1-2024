@@ -1,0 +1,33 @@
+.bubble {
+    font-family: "Arial", sans-serif;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    padding: 8px;
+    background: lightgray;
+    border: 0px;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.link {
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+
+.node circle {
+    cursor: pointer;
+    stroke: #fff;
+    stroke-width: 0px;
+}
+
+.node text {
+    fill: #fff !important; /* Ensure text is white */
+    font-size: 12px; /* Optionally adjust font size */
+}

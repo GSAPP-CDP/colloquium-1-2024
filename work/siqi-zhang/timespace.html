@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Stacked Bar Chart</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        body { margin: 0; padding: 0; display: flex; }
+        #map { width: 50%; height: 100vh; }
+        #right-side {
+            width: 50%;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .image-container {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .image-container.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .button-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 150px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            z-index: 1000;
+            cursor: move;
+            transition: background 0.3s ease;
+        }
+        .button-container:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .button {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #f0f0f0;
+        }
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+            z-index: 1000;
+        }
+        .legend div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend div span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+
+        .heading {
+            width: 100%;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(255,0,0,0.3), rgba(255,165,0,0.3), rgba(255,255,0,0.3), rgba(0,128,0,0.3), rgba(0,0,255,0.3), rgba(75,0,130,0.3), rgba(238,130,238,0.3));
+            text-align: center;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+            position: fixed; /* Fixed position to keep header on top */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .heading .line {
+            margin: 2px 0;
+        }
+
+        .left-header-text {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with left-aligned text -->
+    <div class="heading">
+        <div class="left-header-text">Time - Space - Color</div>
+        <div class="line">Columbia GSAPP M.S. Computational Design Practices 2024 Summer</div>
+        <div class="line">Siqi Zhang Student Work Colloquium I</div>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Right side with black background -->
+    <div id="right-side">
+        <img id="img-before1900" class="image-container" src="TOOL/1.png" alt="Before 1900">
+        <img id="img-1900-1930" class="image-container" src="TOOL/2.png" alt="1900-1930">
+        <img id="img-1930-1960" class="image-container" src="TOOL/3.png" alt="1930-1960">
+        <img id="img-1960-2000" class="image-container" src="TOOL/4.png" alt="1960-2000">
+        <img id="img-after2000" class="image-container" src="TOOL/5.png" alt="After 2000">
+        <img id="img-complete" class="image-container" src="TOOL/6.png" alt="Complete Map">
+    </div>
+
+    <!-- Draggable button container -->
+    <div class="button-container" id="button-container">
+        <div id="filter-before1900" class="button">Before 1900</div>
+        <div id="filter-1900-1930" class="button">1900-1930</div>
+        <div id="filter-1930-1960" class="button">1930-1960</div>
+        <div id="filter-1960-2000" class="button">1960-2000</div>
+        <div id="filter-after2000" class="button">After 2000</div>
+        <div id="complete-map" class="button">Complete Map</div>
+    </div>
+
+    <!-- Legend -->
+    <div id="legend" class="legend">
+        <div><span style="background-color: rgba(255, 0, 0, 0.7);"></span> Before 1900</div>
+        <div><span style="background-color: rgba(255, 127, 0, 0.7);"></span> 1900-1930</div>
+        <div><span style="background-color: rgba(255, 255, 0, 0.7);"></span> 1930-1960</div>
+        <div><span style="background-color: rgba(0, 255, 0, 0.7);"></span> 1960-2000</div>
+        <div><span style="background-color: rgba(0, 0, 255, 0.7);"></span> After 2000</div>
+    </div>
+
+    <!-- Bottom-right blue button container -->
+    <div class="button-container" id="bottom-buttons" style="position: absolute; bottom: 10px; right: 10px; background: rgba(0, 0, 255, 0.8); padding: 10px; border-radius: 4px; width: 150px;">
+        <div id="space-color" class="button" style="background-color: #007bff; color: white; margin-bottom: 5px;">Space - Color</div>
+        <div id="time-color" class="button" style="background-color: #007bff; color: white;">Time - Color</div>
+        <div id="timespace-color" class="button" style="background-color: #007bff; color: white;">Continue</div>
+    </div>
+
+    <script>
+        // Mapbox access token
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2t5bGFyNyIsImEiOiJjbG1vcDBubnIxNTZ5MmpxYW1rNXBrMW4yIn0.jZYrBPww12aXYpLvVzEGRw';
+
+        // Initialize the map with a dark background
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10',
+            center: [-73.9626, 40.8075], // Columbia University
+            zoom: 14 // Adjust zoom level for better focus on Columbia University
+        });
+
+        // Array to hold all markers by year bin
+        const markersByYearBin = {
+            'percent1900': [],
+            'percent1930': [],
+            'percent1960': [],
+            'percent2000': [],
+            'percent2024': [],
+            'completeMap': []
+        };
+
+        // Initialize variables to store the bounds of all points
+        let bounds = new mapboxgl.LngLatBounds();
+
+        // Load CSV data and create all markers in advance
+        d3.csv('faketool-ll.csv').then(function(data) {
+            const colorMap = {
+                'percent1900': "rgba(255, 0, 0, 0.7)",
+                'percent1930': "rgba(255, 127, 0, 0.7)",
+                'percent1960': "rgba(255, 255, 0, 0.7)",
+                'percent2000': "rgba(0, 255, 0, 0.7)",
+                'percent2024': "rgba(0, 0, 255, 0.7)"
+            };
+
+            const topMarkersByYearBin = {};
+
+            data.forEach(function(d) {
+                d.percent1900 = +d.percent1900;
+                d.percent1930 = +d.percent1930;
+                d.percent1960 = +d.percent1960;
+                d.percent2000 = +d.percent2000;
+                d.percent2024 = +d.percent2024;
+
+                const stackedData = [
+                    { key: "percent1900", value: d.percent1900 },
+                    { key: "percent1930", value: d.percent1930 },
+                    { key: "percent1960", value: d.percent1960 },
+                    { key: "percent2000", value: d.percent2000 },
+                    { key: "percent2024", value: d.percent2024 }
+                ];
+
+                let yOffset = 0;
+
+                // Calculate the bounding box that includes all data points
+                bounds.extend([+d.Longitude, +d.Latitude]);
+
+                stackedData.forEach(function(sd) {
+                    if (sd.value > 0) {
+                        // Simplified creation of canvas-based markers
+                        const height = Math.max(sd.value * 100, 5); // Ensure a minimum height for visibility
+                        const canvas = document.createElement('canvas');
+                        canvas.width = 10;
+                        canvas.height = height;
+                        const context = canvas.getContext('2d');
+                        context.fillStyle = colorMap[sd.key];
+                        context.fillRect(0, 0, 10, height);
+
+                        const marker = new mapboxgl.Marker({
+                            element: canvas,
+                            anchor: 'bottom'
+                        })
+                        .setLngLat([+d.Longitude, +d.Latitude])
+                        .setPopup(new mapboxgl.Popup().setText(`${sd.key}: ${(sd.value * 100).toFixed(2)}%\nCoords: (${d.Longitude}, ${d.Latitude})`));
+
+                        markersByYearBin[sd.key].push(marker);
+
+                        // Store top 3 values by year bin for highlighting
+                        if (!topMarkersByYearBin[sd.key]) topMarkersByYearBin[sd.key] = [];
+                        topMarkersByYearBin[sd.key].push({ value: sd.value, marker: marker });
+
+                        // For the complete map, combine all year bins
+                        const completeCanvas = document.createElement('canvas');
+                        completeCanvas.width = 10;
+                        completeCanvas.height = 100;
+                        const completeContext = completeCanvas.getContext('2d');
+                        stackedData.forEach(function(sd) {
+                            completeContext.fillStyle = colorMap[sd.key];
+                            completeContext.fillRect(0, yOffset, 10, sd.value * 100);
+                            yOffset += sd.value * 100;
+                        });
+
+                        const completeMarker = new mapboxgl.Marker({
+                            element: completeCanvas,
+                            anchor: 'bottom'
+                        })
+                        .setLngLat([+d.Longitude, +d.Latitude])
+                        .setPopup(new mapboxgl.Popup().setText(`All YearBins:\n` +
+                            `1900: ${(d.percent1900 * 100).toFixed(2)}%\n` +
+                            `1930: ${(d.percent1930 * 100).toFixed(2)}%\n` +
+                            `1960: ${(d.percent1960 * 100).toFixed(2)}%\n` +
+                            `2000: ${(d.percent2000 * 100).toFixed(2)}%\n` +
+                            `2024: ${(d.percent2024 * 100).toFixed(2)}%\nCoords: (${d.Longitude}, ${d.Latitude})`));
+
+                        markersByYearBin['completeMap'].push(completeMarker);
+                    }
+                });
+            });
+
+            // Sort and highlight the top 3 markers for each year bin
+            for (const key in topMarkersByYearBin) {
+                topMarkersByYearBin[key].sort((a, b) => b.value - a.value);
+                topMarkersByYearBin[key].slice(0, 3).forEach(entry => {
+                    entry.marker.getElement().style.border = "4px solid #FFFF00"; // Highlight with a thicker bright yellow border
+                    entry.marker.getElement().style.width = "20px";  // Increase marker width
+                    entry.marker.getElement().style.height = "20px"; // Increase marker height
+                });
+            }
+
+            // Sort and highlight the top 3 markers for 'evenness' in complete map
+            const topEvennessMarkers = data
+                .sort((a, b) => b.evenness - a.evenness)
+                .slice(0, 3)
+                .map(d => markersByYearBin['completeMap'].find(marker => {
+                    return marker.getLngLat().lng === +d.Longitude && marker.getLngLat().lat === +d.Latitude;
+                }));
+            
+            topEvennessMarkers.forEach(marker => {
+                if (marker) {
+                    marker.getElement().style.border = "4px solid #FFFF00"; // Highlight with a thicker bright yellow border
+                    marker.getElement().style.width = "20px";  // Increase marker width
+                    marker.getElement().style.height = "20px"; // Increase marker height
+                }
+            });
+
+            // Fit the map to the bounding box that includes all data points
+            map.fitBounds(bounds, { padding: 20 });
+
+            // Show markers based on selected year bin
+            function showMarkers(yearBin) {
+                // Hide all markers
+                for (const bin in markersByYearBin) {
+                    markersByYearBin[bin].forEach(marker => marker.remove());
+                }
+
+                // Show selected markers
+                markersByYearBin[yearBin].forEach(marker => marker.addTo(map));
+            }
+
+            // Event listeners for buttons
+            document.getElementById('filter-before1900').addEventListener('click', function() {
+                showMarkers('percent1900');
+                activateImage('img-before1900'); // Activate corresponding image
+            });
+            document.getElementById('filter-1900-1930').addEventListener('click', function() {
+                showMarkers('percent1930');
+                activateImage('img-1900-1930'); // Activate corresponding image
+            });
+            document.getElementById('filter-1930-1960').addEventListener('click', function() {
+                showMarkers('percent1960');
+                activateImage('img-1930-1960'); // Activate corresponding image
+            });
+            document.getElementById('filter-1960-2000').addEventListener('click', function() {
+                showMarkers('percent2000');
+                activateImage('img-1960-2000'); // Activate corresponding image
+            });
+            document.getElementById('filter-after2000').addEventListener('click', function() {
+                showMarkers('percent2024');
+                activateImage('img-after2000'); // Activate corresponding image
+            });
+            document.getElementById('complete-map').addEventListener('click', function() {
+                showMarkers('completeMap');
+                activateImage('img-complete'); // Activate corresponding image
+            });
+
+            // Add event listeners for the new buttons
+            document.getElementById('space-color').addEventListener('click', function() {
+                window.location.href = 'space.html';
+            });
+
+            document.getElementById('time-color').addEventListener('click', function() {
+                window.location.href = 'METRIX.html';
+            });
+
+            document.getElementById('timespace-color').addEventListener('click', function() {
+                window.location.href = 'new.html';
+            });
+
+            // Make the new button container draggable
+            dragElement(document.getElementById('bottom-buttons'));
+
+            // Preload all markers but show the complete map by default
+            showMarkers('completeMap');
+
+            // Make the button container draggable
+            function dragElement(elmnt) {
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                elmnt.onmousedown = dragMouseDown;
+
+                function dragMouseDown(e) {
+                    e.preventDefault();
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                    e.preventDefault();
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+
+            dragElement(document.getElementById('button-container'));
+        });
+
+        // Function to handle image animations on the right side
+        function activateImage(imageId) {
+            // Remove 'active' class from all images
+            document.querySelectorAll('.image-container').forEach(function(img) {
+                img.classList.remove('active');
+            });
+            // Add 'active' class to the selected image
+            document.getElementById(imageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

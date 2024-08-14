@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart of Rent Prices by Neighborhood</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="rentPieChart"></canvas>
+    <script>
+        var ctx = document.getElementById('rentPieChart').getContext('2d');
+        var rentPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Tribeca', 'Soho', 'Flatiron', 'Chelsea', 'Battery Park City', 'Greenwich Village', 'West Village', 'Midtown South', 'Midtown', 'Financial District', 'Roosevelt Island', 'Upper West Side', 'East Village', 'Lower East Side', 'Little Italy', 'Morningside Heights', 'Upper East Side', 'Chinatown', 'Central Harlem', 'East Harlem', 'Hamilton Heights', 'Washington Heights', 'Inwood'],  // Use the names array from Python output
+                datasets: [{
+                    label: 'Asking Rent',
+                    data: [10000.0, 6491.0, 6120.0, 5571.0, 5500.0, 5350.0, 5250.0, 4995.0, 4800.0, 4725.0, 4500.0, 4400.0, 4400.0, 4400.0, 4250.0, 4000.0, 3900.0, 3248.0, 3200.0, 3000.0, 2950.0, 2750.0, 2100.0],  // Use the rents array from Python output
+                    backgroundColor: ['#800026', '#950026', '#ac0026', '#c00225', '#ce0c22', '#dc151e', '#e7231e', '#f13624', '#fa4a29', '#fc5f2f', '#fd7636', '#fd8c3c', '#fd9a42', '#fea848', '#feb54f', '#fec45f', '#fed36f', '#fedd7e', '#ffe48d', '#ffec9d', '#fff2ac', '#fff9bd', '#ffffcc'],  // Use the colors array from Python output
+                    borderColor: 'white',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                    labels: {
+                        fontColor: 'white'  // Set legend text color to white
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Asking Rent Distribution by Neighborhood in Manhattan',
+                    fontColor: 'white'  // Set title text color to white
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: true,
+                    bodyFontColor: 'white',  // Set tooltip body text color to white
+                    titleFontColor: 'white'  // Set tooltip title text color to white
+                },
+                animation: {
+                    animateRotate: true,
+                    animateScale: true,  // Added to scale the chart in
+                    duration: 2000,  // Duration of the animation in milliseconds
+                    onComplete: function() {
+                        setTimeout(function() {
+                            rentPieChart.reset();
+                            rentPieChart.update();
+                        }, 2000);  // Delay before restarting the animation (2000 milliseconds = 2 seconds)
+                    }
+                },
+                // Add scales to ensure all text is white
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'white'  // Set y-axis text color to white
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'white'  // Set x-axis text color to white
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
