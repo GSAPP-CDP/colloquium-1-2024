@@ -1,5 +1,95 @@
-/* CSS style sheet specific to a single student page. */
+/* div, section{
+    border:1px solid red;
+    padding: 1px;
+    margin: 1px;
+} */
 
-article>h1:first-child {
-  color: blue;
+@font-face {
+    font-family: 'Suissebook';
+    src: url('Fonts/suisseintl-book-webfont.woff2') format('woff2'),
+        font-weight: normal;
+    font-style: normal;
+}
+header {
+    background-color: black;
+  }
+
+body {
+    font-family: 'Suissebook';
+    font-size: 1rem;
+    line-height: 1.2;
+    color: #d8dada;
+    background-color: #F8FAFB;
+}
+
+H1 {
+    font-size: 2rem;
+    color: #3E3F53;
+}
+
+span {
+    color: #3E3F53;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative; /* Added this */
+}
+
+.heading {
+    top: 0;
+    position: sticky;
+    padding: 1rem;
+    top: 0;
+    left: 0;
+    width: 24%;
+    background-color: #F8FAFB;
+    z-index: 1;
+}
+
+.slide {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.sidebar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+}
+
+.text {
+    position: -webkit-sticky;
+    position: sticky;
+    width: 85%;
+    bottom: 0;
+    z-index: 10;
+    background-color: #F8FAFB;;
+    padding: 20px;
+    z-index: -1;
+}
+
+.blank {
+    flex-grow: 2;
+}
+
+.image {
+    width: 72vw;
+    height: auto; /* Maintain aspect ratio */
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide any overflow */
+}
+
+.image img {
+    width: 100%; /* Make the image fill the container's width */
+    height: 100%; /* Make the image fill the container's height */
+    object-fit: contain; /* Ensure the image scales proportionally within the container */
 }

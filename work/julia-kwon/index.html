@@ -2,554 +2,80 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Julia Kwon from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <!-- <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" /> -->
-  
-  <link href="styles.css" rel="stylesheet" />
-  <link href="style2.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox GL JS Example</title>
+    <!-- Include Mapbox GL CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
 
-  
-  <title>Julia Kwon</title>
-
+    <!-- Include Mapbox GL JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
-    
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Julia Kwon
-    </h2>
-
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h1>Julia Kwon</h1>
-  
-      <section>
-        <h2>Table of Contents</h2>
+    <div id="draggableBox">
         <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system.</p>
-        
-        <img src="featured.jpg">
-      </section>
-
-      
-
-      <figure>
-        <img src="./media/DIAGRAMS-02.png">
-      </figure>
-      <figure>
-        <img src="./media/DIAGRAMS-03.png">
-      </figure>
-      <figure>
-        <img src="./media/DIAGRAMS-05.png">
-      </figure>
-      <figure>
-        <img src="./media/DIAGRAMS-01.png">
-      </figure>
-      <figure>
-        <img src="./media/DIAGRAMS-04.png">
-      </figure>
-      <section>
-        <h2>What is the system?</h2>
-        <br>
-        <p>
-            A system that I am particularly drawn to is the parasitic system, such as mycelium.
-            Mycelium, the vegetative part of fungi, consists of a network of fine white filaments
-            (hyphae) that infiltrate and colonize host organisms. This system exemplifies
-            fascinating dynamics and interactions within ecosystems, particularly through its
-            parasitic relationships.
-            </p>
-            <section>
-              
-              <h2>Whom does it impact?</h2>
-              <br>
-              <p> 
-            In this system, the elements include the mycelium, the host organism (such as plants
-            or trees), and the surrounding environment. The function of the parasitic mycelium
-            is to extract nutrients from the host, often at the host's expense, to sustain its
-            own growth and reproduction. The feedback loop in this system is intricate; as the
-            mycelium extracts nutrients, it weakens the host, potentially leading to a reinforcing
-            feedback loop where the declining health of the host further facilitates the spread
-            of the mycelium. 
-            </p>
             <br>
-            <p>
-            Conversely, a balancing feedback loop may occur if the host develops defenses that
-            limit the spread of the parasite, maintaining a dynamic equilibrium. Stocks in this
-            system include the nutrients within the host and the biomass of the mycelium. Flows
-            represent the transfer of these nutrients from the host to the mycelium. The frequency
-            and delay of these flows depend on environmental conditions, such as moisture and
-            temperature, which can accelerate or slow down the mycelium's growth. Leverage points
-            in the parasitic mycelium system could involve altering environmental conditions to
-            disrupt the parasitic relationship, such as changing soil composition or introducing
-            competing organisms. The system's hierarchy is evident in the mycelium's position
-            within the ecosystem, often acting as a decomposer but shifting roles when engaging
-            in parasitism.
-        </p>
-        <section>
-          <h2>What are its leverage points?</h2>
-        <br>
-        <p>
-            Boundaries of this system are defined by the extent of the mycelium's reach and the
-            host organism's range. The resilience of this system is notable; mycelium can persist
-            in adverse conditions and quickly exploit opportunities for growth. This resilience
-            allows the system to withstand disturbances, such as changes in environmental conditions
-            or the introduction of new host defenses, and maintain its essential functions and
-            structure. The most interesting dynamic of this system is the mycelium's ability to adapt
-            and exploit its host, showcasing nature's intricate balance between cooperation and
-            competition. However, this adaptability can also be problematic, as it can lead to the
-            decline or death of host organisms, potentially disrupting entire ecosystems. 
-            Understanding and managing this system is crucial for maintaining ecological balance
-            and health.
-        </p>
+            <li><a href="#about" class="scroll-link">about</a></li>
+            <br>
+            <hr>
+            <br>
+            <li><a href="waste.html" class="scroll-link">waste from consumption</a></li>
+            <li><a href="urban.html" class="scroll-link">urban foraging</a></li>
+            <li><a href="system.html" class="scroll-link">system: le module</a></li>
+            <li><a href="design.html" class="scroll-link">design fiction</a></li>
+            <br>
+            <hr>
+            <br>
+            <li><a href="miscellaneous.html" class="scroll-link">miscellaneous</a></li>
+        </ul>
+    </div>
 
-        <hr>
-        
-        <br>
-        <h2>Rube Goldberg Machine</h2>
-        <br>
-        <figure>
-            <iframe width="1080px" height="720px" src="https://www.youtube.com/embed/Dr4IfNH6Ngk?si=qUcQaElLiGBpDXKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            
-            <h4>Rube Goldberg Demonstration, representing the adjective "unpredictable"</h4>
-        </figure>
-  
-        <hr>
-        
-    
-      
-      <section>
-        <h1 id="assignment-2">2 – Authorship</h1>
-      </section>
-
-        <h2>Recording and Collecting Recycling Behaviors in Apartment Buildings using Participatory Gadget (APP)</h2>
-        
-            <h2>Useful Lock-In in My System</h2>
-          <p>
-The ultimate author of my system is the City or the Municipality that controls the recycling efforts. Co-authors that also control my system are individual entities participating in recycling efforts laid out by the city. Within each apartment building, there are people who collect the recycling and place it outdoors for pickup. These entities responsible for sorting through the recycling are also co-authors. In my system, everyone, even those who do not participate in the recycling process, are authors. Everyone who lives in the apartment units is a participant in recycling, whether actively or passively.
-</p>
-<br>
-<h2>Lock-in measures</h2>
-<p>Data Privacy_Ensuring that the data collected by the app does not tap into individuals' identification, addresses, or phone numbers. This is crucial to protect personal information and maintain trust.
-Compliance and Standards_Adhering to municipal guidelines and standards to ensure the system’s integrity and reliability. 
-</p>
-<br>
-<h2>Flexibility in My System</h2>
-<p>Flexibility is better used in
-Data Availability_Making the number of participants in each apartment building available as open-source data. This allows any audience to use the data for research or development purposes, fostering innovation and wider use.
-User Engagement_Providing a flexible system that can adapt to the various needs and preferences of users, encouraging broader participation and interaction.
-</p>
-<br>
-<h2>Variability in User Interface Design</h2>
-<p>If there were an app that collects and tracks recycling behaviors of participants in apartment buildings, it could:</p>
-<h3>For Active Participants</h3>
-<p>Lock-In_securely record participation without compromising personal data. This would enhance user trust and compliance.
-Impact_Provides a clear and reliable map or graph of recycling participation, helping the city track and improve recycling efforts.</p> 
-<h3>For Passive Participants</h3>
-<p>Flexibility_Simplified interface that allows easy reporting of recycling activities, perhaps with incentives for participation.
-  Impact_Encourages more residents to become active participants, thereby increasing overall recycling rates.</p>
-
-<br>
-<h2>Authorship Models and Credit</h2>
-
-<p>User Author_Residents and building staff who contribute data through the app should be credited for their participation. An incentive system, such as discounts on public transportation, could further motivate involvement.
-Program Author_As the developer, my role is to ensure the system is ethical, secure, and transparent.
-Masses Author_The city and its broader community, who provide the initial data and context, should be acknowledged for their foundational role.</p>
-<br>
-<h2>Copyright Considerations</h2>
-<p>AI and Copyright_I believe enforcing copyright laws for AI might hinder the development of new tools. Instead, a reasonable tax or profit-sharing model, such as a percentage of profits going back to the municipality, could support public resources without stifling innovation.
-  User-Generated Content_Users should retain rights to their contributions, promoting ownership and responsibility.
-  Source Authors_Authors of original datasets should be acknowledged and compensated, ensuring fair use and ethical practices.</p>
-<br>
-<h2>Responsibility and Accountability</h2>
-<p>Being an author, whether a user, developer, or data contributor, carries significant responsibility. Accountability should be maintained through:
-  Transparency_Clear communication of data usage and decision-making processes.
-  Ethical Guidelines_Establishing and adhering to standards that prevent misuse and harm.
-  Legal Frameworks_Ensuring compliance with relevant laws and regulations.</p>
-<br>
-<h2>Control and Power Distribution</h2>
-<h3>Stakeholders with Control </h3>
-<p>City/Municipality_Should have control over the system’s overall direction and data security.
-  Users_Should have control over their personal data and participation records.
-  Developers_Need to maintain system integrity and ensure ethical standards are met.</p>
-<br>
-<h2>Implementation</h2>
-<p>User Empowerment_Through privacy settings, customizable interfaces, and clear ownership policies.
-  Developer Oversight_Via rigorous testing, ethical guidelines, and continuous monitoring.
-  Author Compensation_By implementing frameworks for licensing and royalties.</p>
-<br>
-<h2>Conclusion</h2>
-<p>Balancing “lock-in” and flexibility in technology design is essential to cater to the varied needs 
-  of stakeholders in the recycling system. Thoughtful approaches to authorship, responsibility, and 
-  control can create an ethical, efficient, and user-friendly environment that encourages participation 
-  and innovation in recycling efforts.
-</p>
-        </p>
-        <section> 
-        <h2>Products</h2>
-<br>
-        
-          <h3>1. Strava (Fitness Tracking)</h3>
-          <p>Strava is a fitness tracking app that allows users to record their physical activities 
-            such as running and cycling. The app collects data on user activities, creates maps and 
-            graphs, and provides a social platform for users to share their achievements and progress.</p>
-
-<h3>Authorship Model</h3>
-<p>User Author: Users are the primary authors as they record and share their activities. Each user’s contribution is personalized and unique.
-  Program Author: Strava developers create the algorithms and interfaces that collect, analyze, and display user data.
-  Community Author: Aggregated data from all users contributes to community features such as leaderboards and heatmaps.</p>
-
-<h3>Why It Resonates</h3>
-<p>Strava’s model is similar to your recycling app in that it collects individual user data to create a 
-  larger community-based dataset. It respects user privacy while allowing users to contribute to a bigger 
-  picture. The app’s ability to incentivize participation through social sharing and gamification could be 
-  adapted to encourage recycling behavior.
-</p>
-<figure>
-  <img src="./media/Image 1.png">
-</figure>
-<br>
-
-  <h3>2. Waze (Community-based Traffic and Navigation App)</h3>
-  <p>Waze is a GPS navigation software that relies on community input to provide real-time traffic and road 
-  information. Users can report accidents, traffic jams, and other hazards, which are then shared with the 
-  community to improve navigation.</p>
-  
-  <h3>Authorship Model</h3>
-  <p>User Author: Users contribute real-time data by reporting road conditions and traffic incidents.
-    Program Author: Waze developers design the system that processes user reports and integrates them into the navigation algorithms.
-    Community Author:The collective input from all users enhances the accuracy and utility of the app for everyone.</p>
-  
-  <h3>Why It Resonates</h3>
-  <p>Waze’s community-driven data collection model is akin to your recycling app’s approach of using user input to 
-    track and improve recycling efforts. The app’s balance of user-contributed data and system-generated insights 
-    can help create a dynamic and responsive recycling tracking system.</p>
-
-  <figure>
-    <img src="./media/Image 2.png">
-  </figure>
-  <br>
-    <h3>3. Duolingo (Language Learning App)</h3>
-    <p>Duolingo is a language learning platform that uses gamification to engage users in learning new languages. 
-      The app tracks user progress, provides personalized feedback, and encourages practice through a series of 
-      interactive lessons and challenges.</p>
-    
-    <h3>Authorship Model</h3>
-    <p>User Author_Users generate data by completing lessons, exercises, and tests, which the app tracks to personalize 
-      the learning experience.
-      Program Author_Duolingo’s developers create the educational content, algorithms, and user interface that guide and 
-      assess user learning.
-      Community Author_The collective data from all users helps refine the app’s content and features, benefiting the 
-      entire learning community.</p>
-    
-    <h3>Why It Resonates</h3>
-    <p>Duolingo’s model of tracking individual user progress and using that data to improve the overall learning experience 
-      parallels your recycling app’s goal of tracking individual recycling behavior to enhance community recycling efforts. 
-      The app’s use of gamification to motivate users can also be applied to encourage recycling participation.</p>
-    
-    <figure>
-      <img src="./media/Image 3.png">
-    </figure> 
-    <hr>
-        
-        <br>
-        <h2>Generative Zine</h2>
-        <br>
-    <figure>
-      <iframe width="1080px" height="720px" src="https://www.youtube-nocookie.com/embed/ZhHwTqa2q_U?si=nnf1Gg6JxPeS1rWY&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <h4>Generative Zine demonstrating the concept of "co-creation"</h4>
-  </figure>
-  <br>
-  <h3>Authorship Philosophy</h3>
-    <p>Rooted in the notion of collective exchange of information, this bespoke game of participation simulates
-      synergy created from collaboration. When the participant accepts further "meetings" of another players, 
-      he/she will be able to acquire more data from the pool. If the player does not wish to meet other players, 
-      he/she will have ended the game without much additional data being collected.  Each player leaves a trace 
-      of the game, where a small thread of data will be attached with his/her character. From this generation of 
-      thread, the data pool will select a thread matching and an outcome of a combination of data will be given in a short 
-      narrative. The takeawy from this game is the philosophy that the synergy created from the collective data pool
-      is more powerful than a single participant experience. 
-    </p>
-    <hr>
-  </section>
-  
-  <section>
     <div class="container">
-        <div class="column">
-            hi
+        <!-- About Section -->
+        <div class="section" id="about">
+            <h2>about</h2>
+            <div id="typingEffect"></div>
         </div>
-        <div class="column">
-            im carl
+        <div class="section" id="about">
+            <h2>about</h2>
+            <div id="typingEffect2"></div>
+            <b>I did it too because it was there.</b>
+        </div>
+
+        <!-- Waste from Consumption Section -->
+        <div class="section" id="section2">
+            <h2>waste from consumption</h2>
+        </div>
+
+        <!-- Urban Foraging Section with Map -->
+        <div class="section" id="section3">
+            <h2>urban foraging</h2>
+            <div id="map"></div>
+        </div>
+
+        <!-- System: Le Module Section -->
+        <div class="section" id="section4">
+            <h2>system: le module</h2>
+        </div>
+
+        <!-- Design Fiction Section -->
+        <div class="section" id="section5">
+            <h2>design fiction</h2>
+        </div>
+
+        <!-- Miscellaneous Section -->
+        <div class="section" id="section6">
+            <h2>miscellaneous</h2>
         </div>
     </div>
-  </section> 
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-      </section>
-      
-      <br>
-      <h2>Hypothesis</h2>
-      <p>We live in the world of this trend where we are aware of population density and depletion of resources.  
-        My hypothesis seeks to question what are some things that are already viable to live off of?  
-        What are some ways that we do not further deplete the resources by cultivating these edible resources? 
-        What grows naturally, and what are these things that we can also consume?  
-        For example, do mushrooms grow well outdoors without human influence?</p>
-            
-        <p>Interestingly, a good number of New Yorkers were also interested in seeking mushrooms in Central Park.</p>
-<br>
-<h2>Location (Latitude and Longitude)</h2>
-<p>Mushrooms of Central Park</p>
 
-  <p>1.  Lycoperdon curtisii…..96th St. near CPW
-    Latitude: 40.7916° N
-    Longitude: 73.9640° W</p>
-  <p>2.  Crucibulum laeve…..97th St. near Tennis Courts in mulch
-    Latitude: 40.7925° N
-    Longitude: 73.9582° W</p>
-  <p>3.  Calocera cornea…..in the Ravine</p>
-  <p>4.  Hericium erinaceus…..near 88th St. and CPW
-    Latitude: 40.7961° N
-    Longitude: 73.9588° W</p>
-  <p>5.  Laetiporus sulphureus (Chicken Mushroom)…..near 98th & 5th Ave
-    Latitude: 40.7935° N
-    Longitude: 73.9530° W</p>
-  <p>6.  Tylopilus badiceps (ferrugineus)…..near the Delacorte Theater
-    Latitude: 40.7794° N
-    Longitude: 73.9718° W</p>
-  <p>7.  Phellinus robiniae (P. rimosus)…..Near the wood-chipping area, 100th & East Drive
-    Latitude: 40.7939° N
-    Longitude: 73.9514° W</p>
-  <p>8.  Boletus campestris…..97th St. west of West Drive
-    Latitude: 40.7884° N, 
-    Longitude: 73.9561° W</p>
-  <p>9.  Neonectria coccinea (on European beech) (Coral Spot)…..97th St. west of East Drive
-    Latitude: 40.7891° N 
-    Longitude: 73.9580° W</p>
-  <p>10. Hypholoma sublateritium (H. lateritium) (Bricktops)
-    Latitude: 40.7794° N
-    Longitude: 73.9690° W</p>
-  
-<br>
-<h2>Interview excepts and URLs</h2>
-<p>1. In the interview with William Padilla-Brown, he discusses optimal conditions for mushroom 
-  growth in urban areas, emphasizing the importance of:</p>
+    <!-- Your custom JavaScript files -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
 
-  <p>Temperature and Humidity Control: Mushrooms need specific temperature and humidity levels 
-    to thrive, which can be managed using simple technologies like humidifiers and heaters in urban settings.</p>
-  <p>Substrate Quality: Using high-quality substrates, such as sawdust, straw, or coffee grounds, 
-    is crucial for successful mushroom cultivation.</p> 
-    <p>Light and Airflow: Ensuring proper light exposure and good airflow helps prevent contamination 
-      and supports healthy growth.</p> 
-
-  <p>For more detailed insights, 
-    https://www.nativve.com/people/an-interview-with-william-padilla-brown-master-mycologist/ </p><br>
-
-    <p>2. The blog post "For the Love of Fungi" by Holden Forests & Gardens highlights optimal conditions 
-      for mushroom growth in urban areas. Key points include:</p>
-    
-      <p>Temperature and Humidity: Maintaining consistent temperature and humidity levels is crucial.</p>
-      <p>Quality Substrates: Using substrates like straw, sawdust, and coffee grounds can enhance growth.</p> 
-        <p>Light and Airflow: Proper light and good airflow are essential to prevent contamination.</p> 
-    
-      <p>For a more detailed exploration, 
-        https://holdenfg.org/blog/for-the-love-of-fungi-an-ode-to-the-amateur-mycologist/</p><br>
-  
-    <p>3. The article from Civil Eats discusses the increasing popularity of mushrooms and the emerging 
-      "radical mycology" movement, which explores mushrooms' role in nutrition, food security, ecological 
-      healing, and medicinal sovereignty. Key points about optimal conditions for urban mushroom cultivation 
-      include the importance of community and low-tech approaches, allowing for sustainable practices and 
-      deeper connections with nature.</p>
-        
-      <p>  For a detailed exploration, 
-        https://civileats.com/2021/03/11/as-mushrooms-grow-in-popularity-a-radical-mycology-movement-is-emerging/</p><br>
-
-  <p>4. The SARE project described on the page focuses on integrating mushroom cultivation into an urban, 
-    organic, no-till farming system. It details the optimal conditions for mushroom growth in such 
-    environments, emphasizing the use of shaded and unproductive spaces to grow varieties like oyster and 
-    shiitake mushrooms. This method promotes soil health and sustainability in urban farming.</p>
-            
-    <p>For more detailed article about their approach, https://projects.sare.org/sare_project/fnc23-1392/</p><br>
-  
-  <p>5. In the book "Organic Mushroom Farming and Mycoremediation" by Tradd Cotter, it discusses methods 
-    for growing mushrooms organically and using fungi for ecological remediation. The book covers the optimal 
-    conditions for mushroom cultivation, emphasizing sustainable and low-cost approaches that can be applied 
-    in urban settings.</p>
-              
-    <p>For more detailed information on mushroom growth conditions and other techniques, 
-      https://www.chelseagreen.com/product/organic-mushroom-farming-and-mycoremediation/</p><br>
-
-      <p>6. The article from MDPI discusses the integration of mushroom cultivation into community forest management 
-        in Portugal. It highlights the use of mushrooms as a tool to reconnect people with forest ecosystems, 
-        emphasizing sustainable harvesting and the socio-economic benefits of involving local communities in 
-        mushroom gathering. The optimal conditions for mushroom growth in urban areas mentioned involve community 
-        engagement and sustainable practices that respect the ecological balance and promote biodiversity. </p>
-                  
-        <p>For more detailed information on mushrooms,   
-          https://www.mdpi.com/2071-1050/9/6/924</p><br>
-
-          <p>7. The blog post on Food Bank NYC's website explores the history and impact of urban agriculture in 
-            New York City, emphasizing its vital role in enhancing food security and community engagement. It details 
-            how urban gardens and farms are integrated into various spaces such as rooftops and vacant lots, providing 
-            fresh, nutritious produce to local communities. The article stresses the importance of community involvement 
-            and sustainable practices to ensure the growth and resilience of urban farming initiatives.</p>
-                      
-            <p>For more detailed information on mushrooms, 
-              https://blog.foodbanknyc.org/a-quick-history-of-urban-farming-in-nyc</p><br>
-
-              <p>7. The blog post on Food Bank NYC's website explores the history and impact of urban agriculture in 
-                New York City, emphasizing its vital role in enhancing food security and community engagement. It details 
-                how urban gardens and farms are integrated into various spaces such as rooftops and vacant lots, providing 
-                fresh, nutritious produce to local communities. The article stresses the importance of community involvement 
-                and sustainable practices to ensure the growth and resilience of urban farming initiatives.</p>
-                          
-                <p>For more detailed information on mushrooms,  
-                  https://blog.foodbanknyc.org/a-quick-history-of-urban-farming-in-nyc</p><br>
-                  
-<p>8. The NYC Mayor’s Office of Urban Agriculture page outlines efforts to promote urban agriculture through 
-  research, policy development, and community engagement, aiming to strengthen local food systems and enhance 
-  climate resiliency. It emphasizes the importance of collaboration and community involvement in establishing 
-  productive green spaces throughout the city, integrating gardens and farms into urban environments to ensure 
-  sustainable and equitable access to locally grown food.</p>
-                              
-<p>For more detailed information, 
-  https://www.nyc.gov/site/agriculture/index.page</p><br>
-  
-  <p>9. The article A new generation of community gardeners have big goals for cultivating the concrete jungle 
-    discusses the challenges and strategies for cultivating vegetables and plants in New York City. It highlights 
-    the need for innovative solutions to overcome issues like limited space and the high cost of land. Proposals 
-    include tax reductions for properties hosting urban agriculture projects, mandatory solar or green roofs that 
-    can double as food-producing areas, and improving water access for community gardens. The importance of 
-    designing urban spaces that incorporate food production is also emphasized. </p>
-                                
-  <p>For more detailed iFor more details, 
-    https://www.archpaper.com/2023/11/new-generation-community-gardeners-goals-cultivating-concrete-jungle/</p><br>
-
-    <p>10. The article from NYC Food Policy discusses the political landscape of urban farming in NYC, highlighting 
-      recent legislation to improve urban agriculture's framework. It points to the necessity of clear zoning laws 
-      and city planning that accommodate urban farms to enhance local food systems and support community-driven 
-      agricultural initiatives. The text advocates for integrating agriculture into city infrastructure to promote 
-      sustainability and food security.</p>
-                                  
-    <p>For more detailed information, 
-      https://www.nycfoodpolicy.org/the-politics-of-nycs-urban-farming-the-city-notices-urban-agriculture/</p><br>
-
-<h2>Data Manifesto</h2>
-<p>In my future practice, the types of data and collection methods that resonate most involve ecological, spatial, 
-  and observational data. Each dataset offers unique affordances.</p>
-<h3>Ecological Data</h3>
-<p> Ecological data illuminates species interactions and environmental conditions, supporting my hypothesis 
-  about mycelium systems. Finding relevant ecological data was challenging but essential for validating my arguments.
-</p> 
-<h3>Spatial Data</h3>
-<p>Spatial data, collected via GeoJSON and mapping tools, captures precise locations and distributions of mushrooms 
-  and plants. It paints a clear picture of spatial relationships but often lacks detailed contextual data. This 
-  data can have politics, influenced by the collectors' objectives, potentially impacting accuracy.</p>
-<h3>Observational Data</h3>
-<p>Observational data from field studies provides a first-person narrative view, offering granular insights but may 
-  be biased by the observer's perspective.
-  These datasets together illustrate complex ecological systems but leave out nuanced behavioral patterns. Concerns 
-  about gaps in data can be addressed by creating custom datasets through user interviews, surveys, and deploying 
-  sensors to capture real-time data, ensuring a comprehensive understanding.
-  </p>
-
-<br>
-<section>
-  <h1>One Data Set in 3 Ways</h1>
-</section>
-<p><h2>Location: Latitude + Longitude</h2></p>
-
-<figure>
-  <img src="./media/Politics3.png">
-</figure>
-<figure>
-  <img src="./media/Politics4.png">
-</figure>
-<figure>
-  <img src="./media/Politics2.png">
-</figure>
-<figure>
-  <img src="./media/Politics5.png">
-</figure>
-<figure>
-  <img src="./media/Politics6.png">
-</figure>
-
-<h2>Method Manifesto</h2>
-
-<p>In exploring parasitic mycelium systems and ecological interactions in Central Park, I embrace a methodical approach 
-  intertwining exploration, analysis, and visualization. This manifesto outlines the principles and tools guiding my 
-  practice.</p>
-<br>
-<h3>Exploratory and Analytical Synergy</h3>
-<p>Balancing curiosity with analytical rigor, my practice delves into the unknown while grounding findings in robust
-  analysis, ensuring innovative and credible insights.
-</p>
-<h3>Design Computation: Grasshopper</h3>
-<p>Grasshopper is essential for design computation, enabling meticulous exploration through trial and error. This 
-  iterative process refines visualizations and proofs of concept, embodying my hypotheses with precision.
-</p>
-<h3>Spatial Data Visualization: GeoJSON</h3>
-<p>Geojson.io offers a quick means to map spatial data, capturing ecological interactions. Though limited in 
-  retaining coordinate-specific data, it initiates the mapping process effectively.
-</p>
-<h3>Innovative Mapping: AI and Photoshop</h3>
-<p>Interactive generative mapping AI with Photoshop provides a dynamic platform for creating compelling representations. 
-  These tools are crucial for recording mushroom sightings and conducting shadow studies for mycelium incubators.
-</p>
-<h3>Adaptive Approach</h3>
-<p>My method adapts to new tools, leveraging each for comprehensive, accurate, and engaging visualizations, driving 
-  continuous improvement and deeper understanding.
-</p>
-<br>      
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-      </section>
-      <figure>
-        <iframe width="1120" height="630" src="https://www.youtube.com/embed/KnuiGaW3kr0?si=lG4zcMnRT4QidKrL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
 </body>
 
 </html>

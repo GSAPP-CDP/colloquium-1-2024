@@ -1,0 +1,30 @@
+.youtubeBox {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-radius: 15px; /* Added to round off the edges */
+}
+
+.youtubeBox iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px; /* Added to round off the edges */
+}
+
+.videoBox {
+    width: 560px; /* Made smaller */
+    height: 315px; /* Made smaller */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    cursor: grab; /* Changed to grab to indicate draggable */
+    z-index: 1000;
+    border-radius: 15px; /* Added to round off the edges */
+}
+
+.videoBox:active {
+    cursor: grabbing; /* Changed to grabbing when the box is being dragged */
+}
