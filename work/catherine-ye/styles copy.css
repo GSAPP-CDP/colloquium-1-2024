@@ -1,0 +1,503 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.2em; /* Increased font size for better readability */
+  color: #cccccc; /* Darker text color */
+}
+
+/* Navigation Styles */
+.timeline-navbar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.timeline-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.timeline-links a {
+  font-family: inherit;
+  color: #cccccc8e; /* Darker text color */
+  text-decoration: none;
+  padding: 8px;
+  font-size: 1.2em; /* Larger font size */
+  opacity: 0.8; /* Increased opacity for better visibility */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline-links a:hover {
+  opacity: 1;
+  background-color: #e0e0e0; /* Slightly darker background on hover */
+  color: #000; /* Darker text on hover */
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+/* Special Style for 'Home' Button */
+.timeline-links .home-link {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007BFF; /* Blue background for Home button */
+  border-radius: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 1.3em; /* Slightly larger font size for Home */
+  transition: all 0.3s ease;
+}
+
+.timeline-links .home-link:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  color: #ffffff;
+}
+
+/* Section Containers */
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1.2em; /* Larger font size */
+  color: #cccccc75; /* Darker text color */
+}
+
+.firstContainer img {
+  width: 500px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  transform: translate(-50%, -50%) scale(0.5) rotate(10deg);
+  animation: fadeIn 0.5s;
+}
+
+.firstContainer img:hover {
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/* Transition Section */
+.transition-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000;
+  padding: 0 20px;
+  position: relative;
+}
+
+.headline-text,
+.transition-text {
+  font-size: 2em;
+  line-height: 1.5;
+  opacity: 1;
+  transform: translateY(0); /* Center the text vertically */
+}
+.transition-text {
+  margin-top: 2rem;
+}
+
+/* Highlight Text Effect - Animation */
+.highlight {
+  position: relative;
+  display: inline;
+  color: #fff; /* Initial color */
+  font-family: inherit; /* Inherit the font from the parent */
+  font-size: inherit; /* Inherit the font size from the parent */
+  line-height: inherit; /* Inherit the line height from the parent */
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fe7200; /* Orange highlight color */
+  z-index: -1; /* Behind the text */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 2s ease 2s; /* 1s delay before the animation starts */
+}
+
+.highlight.animate::before {
+  transform: scaleX(1); /* Expand the highlight effect */
+}
+
+.highlight.animate {
+  color: #ffffff; /* Change text color when highlighted */
+}
+
+
+/* Arrow pointing down */
+.down-arrow {
+  font-size: 3em;
+  margin-top: 2rem;
+  color: #fe7200; /* Orange color for the arrow */
+  animation: bounce 1s infinite; /* Simple bounce animation */
+}
+
+/* Bouncing arrow animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+
+
+.diagram-container,
+.globeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+  width: 100%;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1.2em; /* Larger font size */
+  color: #cccccc; /* Darker text color */
+}
+/* Scroll Section and Background */
+#scroll-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  z-index: -1;
+  border: none;
+}
+
+#graphs {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+}
+
+
+#graph-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure the graph takes up the full height */
+  transform: scale(1.2); /* Scale up the graph by 20% */
+  transform-origin: center; /* Scale from the center */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Ensure smooth transitions */
+  z-index: 2;
+  border: none; /* Ensure no border */
+  background: transparent; /* Ensure no background color */
+}
+
+/* Text Containers within the Scroll Section */
+#text > div {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 3;
+}
+
+/* Step Frame with Glowing Border */
+.step {
+  position: relative;
+  width: 27%; /* 40% of the screen width */
+  height: relative; /* 30% of the screen height */
+  padding: 2rem;
+  margin: 0 0 40rem 16%; /* Added 10% margin on the left side */
+  border: 5px solid #DD5800;
+  border-radius: 10px;
+  background: #fff1e6;
+  box-shadow: 0 0 20px #DD5800;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.spacer-header {
+  margin-bottom: 2rem;
+  font-family: inherit;
+  font-size: 3rem; /* Larger font size */
+  padding: 0;
+  color: #FF6600; /* Darker text color for readability */
+  text-align: left; /* Centered text */
+}
+
+.spacer {
+  margin-top: 20px;
+  color: #333; /* Darker text color for readability */
+  text-align: left; /* Centered text */
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content within the smaller rectangle */
+  justify-content: center; /* Center content within the smaller rectangle */
+}
+
+.column.first {
+  margin-bottom: 20px;
+}
+
+.add-left-padding {
+  padding-left: 20px;
+}
+
+.customerjourney {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  overflow: hidden;
+  position: relative; /* 添加相对定位 */
+}
+
+.customerjourneytext {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  z-index: 2; /* 确保文本在最上层 */
+  color: #fff; 
+  font-size: 2rem;
+  background-color: none;
+}
+
+.journey-graph {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+/* General Reset */
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Globe Container Section */
+.globeContainer iframe {
+  width: 80%;
+  height: 80vh;
+  border: none;
+}
+
+.globeContainer {
+  position: relative;
+  top: 10%;
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.globeText {
+  font-size: 1.4em;
+  top: 20%;
+  padding: 60px;
+  color: #fff; 
+  text-align: center;
+  margin-top: 20px; /* Adjust the margin to position the text at the desired height */
+  z-index: 2; /* Ensure the text is above the globe */
+}
+
+/* Tabs Container and Description Panel */
+.container {
+  width: 100%;
+  background-color: #000000;
+  color: #fff; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+}
+
+.tab:hover {
+  background-color: #333;
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tab.active {
+  background-color: #FF6600;
+  color: #ffffff;
+}
+
+.panel.blue {
+  background-color: #121212;
+  color: #fff; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0px 10px 30px#ff66003f;
+  font-size: 1.2em;
+}
+
+#animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.info-section {
+  margin-top: 20px;
+  color: #ffffffac;
+  font-size: 1em;
+  font-family: inherit;
+}
+
+
+/* Conclusion Section */
+.conclusion-container {
+  background-color: #121212; /* Dark background to contrast the previous sections */
+  color: #ffffff; /* White text for readability */
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.conclusion-content {
+  max-width: 1200px;
+  margin-bottom: 40px;
+}
+
+.conclusion-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fe7200; /* Orange color to emphasize the conclusion heading */
+}
+
+
+
+/* Arrow pointing down */
+.down-arrow {
+font-size: 3em;
+margin-top: 2rem;
+color: #fe7200; /* Orange color for the arrow */
+animation: bounce 1s infinite; /* Simple bounce animation */
+}
+
+/* Bouncing arrow animation */
+@keyframes bounce {
+0%, 100% {
+  transform: translateY(0);
+}
+50% {
+  transform: translateY(10px);
+}
+}

@@ -1,267 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Catherine Ye from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  
-  <link href="style.css" rel="stylesheet" />
-  
-  <title>Catherine Ye</title>
-</head>
-
-<body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finalwebite</title>
     
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Catherine Ye
-    </h2>
+    <link rel="stylesheet" href="styles copy.css">   
 
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="your-script.js"></script>
+    <script src="script copy.js" defer></script>
 
-  <main>
-    <article>
-      <h1>Catherine Ye</h1>
+</head>
+<body>
+
+  <!-- Navigation Area -->
+<!-- Vertical Timeline Navigation -->
+<nav class="timeline-navbar">
+  <ul class="timeline-links">
+    <li><a href="#firstContainer">Home</a></li>
+    <li><a href="#scroll-section">Deepfake Process</a></li>
+    <li><a href="#customerjourney">Beyond Linear</a></li>
+    <li><a href="#globeContainer">Fraud Growing Explosively</a></li>
+    <li><a href="#container">Navigating AI Challenges</a></li>
+    <li><a href="#conclusion-section">Methodology</a></li>
+  </ul>
+    </ul>
+    <div class="menu-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>
+
+
+<div id="firstContainer" class="firstContainer">
+    <h1>Click the screen</h1>
+  </div>
+
+
+
+  <div class="transition-section">
+    <div class="transition-text">
+        <p>Let's delve into the <span class="highlight">step-by-step</span> breakdown</p>
+        <p>to see how one of these high-profile frauds was orchestrated.</p>
+    </div>
+    <div class="down-arrow">
+        ↓
+    </div>
+</div>
+
+
+  <div id="scroll-section" style="position: relative;">
+    <div id="background">
+      <div id="graphs">
+        <div id="graph-container">
+          <div id="graph1" style="position: absolute; inset: 0; opacity: 0; border: none;">
+            <iframe src="./customflowtest/index2.html" style="width:100%; height:100vh"></iframe>
+          </div>
+          <div id="graph2" style="position: absolute; inset: 0; opacity: 0; border: none;">
+            <iframe src="./part1/image-license-info-T.html" style="width:100%; height:100vh"></iframe>
+          </div>
+        <div id="graph3" style="position: absolute; inset: 0; opacity: 0; border: none;">
+          <iframe src="./part1/image-license-info.html" style="width:100%; height:100vh"></iframe>
+        </div>
+        <div id="graph4" style="position: absolute; inset: 0; opacity: 0; border: none;">
+          <iframe src="./part1/search.html" style="width:100%; height:100vh"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>      
+
+  <div id="text"> <!-- start of text -->
+
+      <!-- step 01 -->
+      <div class="step">
+          <div class="columns">
+              <div class="column first">
+                  <div class="spacer-header">
+
+                      <p><b>02A: DS</b></p>
+                  </div>
+              </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- step 02 -->
+      <div class="step" data-graph="graph1">
+          <div class="columns">
+              <!-- Content for section 2 -->
+              <div class="column first"></div>
+              <div class="column last">
+                  <div class="spacer-header">
+
+                    <p><b>Initial Compromise</b></p>
+                  </div>
+                  <div class="spacer">
+                      <h3>Phishing Emails: </h3>
+                      <p>AI builds detailed profiles of key individuals, such as finance managers and executives.</p>
+                      <br>
+                      <h3>Reconnaissance:</h3>
+                      <p>AI analyzes the compromised accounts to gather information on organizational hierarchies, payment processes, and typical email content.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- step 03 -->
+      <div class="step" data-graph="graph2">
+        <div class="columns">
+            <div class="column first add-left-padding">
+              <div class="spacer-header">
+
+                <p><b>Preparation</b></p>
+              </div>
+              <div class="spacer">
+                <h3>Profile Building: </h3>
+                <p>AI builds detailed profiles of key individuals, such as finance managers and executives.</p>
+                <br>
+                <h3>Real-time Adaptation: </h3>
+                <p>AI monitors responses, adapting the messaging in real-time to overcome doubts and ensure the success of the fraud.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- step 04 -->
+      <div class="step" data-graph="graph3">
+        <div class="columns">
+            <div class="column first add-left-padding">
+              <div class="spacer-header">
+                <p><b>Execution</b></p>
+              </div>
+              <div class="spacer">
+                <h3>Deepfake Creation: </h3>
+                <p>Deepfake audio or video files are created to impersonate these individuals if necessary.</p>
+                <br>
+                <h3>Fraudulent Instructions:</h3>
+                <p>The emails contain instructions for unauthorized money transfers, disguised as urgent business transactions or legitimate requests.</p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- step 05 -->
+      <div class="step" data-graph="graph4"> 
+        <div class="columns">
+            <div class="column first add-left-padding">
+            <div class="spacer-header">
+
+              <p><b>Final Exploitation</b></p>
+            </div>
+            <div class="spacer">
+              <h3>Money Transfers:</h3>
+              <p>Believing the instructions to be legitimate, the target authorizes the transfer of funds to the fraudster’s account.</p>
+              <br>
+              <h3>Continued Exploitation: </h3> 
+              <p> AI may continue exploiting the compromised accounts to execute further fraudulent transactions or to compromise additional accounts.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+
+
+
+  <div id="customerjourney" class="customerjourney">
+      <div class="customerjourneytext">
+        <p>AIGC turns fraud into a <span class="highlight">dynamic</span>, <span class="highlight">adaptive</span> process, evolving with every interaction.</p>
+      </div>
+      <img src="assets/images/Customer Journey Graph (3).png" alt="Customer Journey Graph" class="journey-graph">
+  </div>
+
+  <div id="globeContainer" class="globeContainer">
+    <div class="globeText">Click a country to see its <span class="highlight">Deepfake Fraud Surge</span>: 2022-2023 (%)</div>
+    <iframe src="./interactiveglobe/indexfinal.html" frameborder="0" width="100%" height="100vh" style="border: none;"></iframe>
+  </div>
   
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system: </p>
-          <p>Store Owner Insights on Choosing a Boba Store’s Location in NYC</p>
-        
-        <img src="0709 DIAGRAMS-01.png">
-      </section>
+  <div id="container" class="container">
+    <div class="tabs-container">
+      <div class="tab" id="tab1">
+        <h3>Content Authenticity Initiative</h3>
+      </div>
+      <div class="tab" id="tab2">
+        <h3>Nightshade AI</h3>
+      </div>
+      <div class="tab" id="tab3">
+        <h3>Minimalist Metal Mask</h3>
+      </div>
+    </div>
   
-      <section>
-        <h2>“Location, Location, Location”</h2>
-        <p>
-          is a classic truism often repeated in real estate investment and management.Understanding the factors that influence location determination and selection is crucial for uncovering key elements in successful retail operations. This analysis delves into the system of store owner insights on choosing a boba store’s location in NYC. 
-        </p>
+    <div class="description panel blue" id="content-panel">
+
+      <div class="info-section" id="info-content">
+        <!-- Content from the selected tab will be displayed here -->
+      </div>
+    </div>
+  </div>
   
-        <p> System:   </p>
-        <p>The system comprises various elements and interactions that influence a store owner's decision-making process for selecting a location for a boba store in New York City. 
-        </p>
-
-        <p> Elements:   </p>
-        <p>Store Owners: Decision-makers evaluating potential locations.
-        </p>
-        <p>Potential Locations: Various neighborhoods and specific sites within NYC.</p>
-        <p>Market Conditions: Economic factors, rent prices, and local business regulations.</p>
-        <p>Customer Demographics: Age, preferences, income levels, and cultural factors of the target market.</p>
-        <p>Competition: Other boba stores and alternative beverage options.</p>
-
-        <hr>
-  
-        <figure>
-          <img src="0709 DIAGRAMS-03.png">
-        </figure>
-  
-        <p>Purpose: </p>
-        <p>The primary purpose of the system is to enable store owners to choose the most optimal location for their boba stores, aiming to maximize profitability and customer satisfaction</p>
-
-        <p>Hierarchy:  </p>
-        <p>The system operates within a broader hierarchy that includes: The local business ecosystem of NYC. The beverage and food industry. Socio-economic factors influencing consumer behavior. Regulations and policies affecting small businesses. 
-        </p>
-
-
-        <hr>
-        
-        <figure>
-          <img src="0709 DIAGRAMS-05.png">
-          <img src="0709 DIAGRAMS-02.png">, <img src="0709 DIAGRAMS-04.png">
-        </figure>
-        
-        <hr>
-      </section>
-  
-      <section>
-        <h2>Problematic Dynamics in the System</h2>
-  
-        <P>Delays in Adjusting Strategies</P>
-
+  <section id="conclusion-section" class="conclusion-container">
+    <div class="conclusion-content">
+        <h2>Unmasking the Deepfake with Trickery: </h2>
+          <h2><span class="highlight">The Power of Perception and the Art of Deception</span></h2>
         <p>
-          Delays in receiving and acting on customer feedback and market trends can be problematic. When store owners do not quickly adapt to changing consumer preferences or competitive pressures, they risk losing customers to more agile competitors. These delays can result in a prolonged period of suboptimal performance, during which a store might suffer from declining sales and customer dissatisfaction. 
-        </p>
-  
-        <p>External Economic Shocks: </p>
-        <p>
-          The system is vulnerable to external economic shocks, such as economic downturns or pandemics, which can drastically alter consumer behavior and spending patterns. These shocks can lead to sudden drops in customer traffic and sales, putting additional financial strain on store owners. Resilience to such shocks is crucial, but many small business owners may not have the resources or strategies in place to effectively manage these risks.
-        </p>
-
-        <p>Complex Customer Demographics: </p>
-        <p>
-          NYC’s diverse and dynamic customer demographics add complexity to the decision-making process. Store owners need to understand and cater to a wide range of customer preferences, which can be challenging. Misjudging the target market or failing to meet the diverse needs of the customer base can result in poor customer engagement and low sales. Tailoring products and services to suit a varied demographic requires continuous research and adaptation.
-        </p>
-        
-      </section>
-      
-      <section>
-        <h1 id="assignment-2">2 – Authorship</h1>
-        <blockquote>
-          "Understanding "Lock-In" in Technology for Marketing Strategies"
-        </blockquote>
-
-
-        <p>
-          Jaron Lanier speaks of “lock-in” in technology, referring to how certain design choices can become entrenched and shape the future evolution of technology, often limiting flexibility. 
-          Establishing a consistent brand identity, including a logo, color scheme, and messaging across all marketing materials, is a form of "lock-in" that is crucial for marketing, as it helps create a recognizable and trustworthy brand image. Using established social media platforms like Instagram, Facebook, and TikTok also represents "lock-in" due to their large user bases and effective advertising tools, which can reach potential customers efficiently. Additionally, implementing a Customer Relationship Management (CRM) system to track customer interactions and data ensures consistent engagement and personalized marketing strategies, enhancing customer loyalty and encouraging repeat business.
-        </p>
-  
-        <p>
-          Flexibility in marketing is essential for staying relevant and engaging with a diverse audience. By producing various types of content, such as videos, blogs, and social media posts, businesses can adapt to current trends and customer preferences, fostering creativity. Experimenting with different advertising channels, including local events, influencer collaborations, and new social media platforms, provides the flexibility to identify the most effective ways to reach and attract customers. Additionally, flexible promotional strategies, such as offering limited-time discounts, loyalty programs, or themed events, enable businesses to respond effectively to market trends and customer feedback.
-        </p>
-
-        <p>
-          1. WordPress
-        </p>
-
-        <p>
-          WordPress is a popular content management system (CMS) that allows users to create and manage websites and blogs. It offers a wide range of customizable themes and plugins, enabling both novice and expert users to build and maintain their online presence.
+            At the beginning of this presentation, you were led to believe in a scenario that felt entirely plausible. 
+            Just like in <em>The Yes Men</em>, the trickery lies in crafting a narrative that seems credible, only to reveal 
+            the truth at the most impactful moment.
         </p>
         <p>
-          The WordPress authorship model is beneficial because it balances flexibility and standardization. It allows for creativity in content creation and site design while ensuring that fundamental structures and security measures are in place. This model can be applied to marketing strategies by providing templates and customization options, ensuring that even those with limited technical skills can create effective marketing content.
+            This approach was not just a playful experiment, but a demonstration of how easily our <span class="highlight">perceptions</span> can be manipulated—whether by a presenter, a corporate entity, or an AI-generated deepfake. 
+            In today's world, where AI can create <span class="highlight">convincing yet entirely fake content</span>, it’s more important than ever to be critical and question the information presented to us.
         </p>
-
-        <p>
-          2. GitHub
-        </p>
-
-        <p>
-          GitHub is a platform for version control and collaboration, enabling developers to work together on projects from anywhere in the world. It uses Git for version control, allowing multiple contributors to make changes, track revisions, and manage project history.
-        </p>
-        <p>
-          GitHub's model emphasizes collaborative authorship, where multiple contributors can work together seamlessly. For marketing strategies, a similar model could involve collaborative tools that allow team members to contribute to campaigns, share feedback, and track changes over time. This approach ensures that diverse ideas are incorporated and the team stays aligned on goals and progress.
-        </p>
-
-        <p>
-          3. ComfyUI
-        </p>
-
-        <p>
-          ComfyUI is an innovative user interface design tool that emphasizes a comfortable and user-centric design approach. It focuses on providing a streamlined, efficient design process with built-in usability testing and real-time feedback features.
-        </p>
-        <p>
-          The ComfyUI authorship model is beneficial for creating marketing strategies and advertisements because it ensures that the user interface is both effective and engaging. By incorporating real-time feedback and usability testing, I can create marketing tools that are easy to use and navigate, enhancing the overall user experience. This approach is particularly valuable in developing intuitive marketing dashboards and analytics tools that provide clear insights and actionable data for users of all expertise levels.
-        </p>
-
-        <p>-</p>
-        <p>
-          These examples resonate with me because they each offer a unique approach to authorship that balances flexibility, collaboration, and accessibility. WordPress allows for scalable complexity, GitHub supports collaborative creation and version control, and ComfyUI emphasizes user comfort and usability. Implementing similar models in my own practice can enhance the creation and management of marketing strategies, ensuring that they are both effective and adaptable to changing needs and trends. By providing tools and frameworks that cater to different skill levels and encourage collaboration, these models help create a more inclusive and dynamic approach to content creation and management.
-        </p>
-
-        <p>Zine Link:</p>
-        <p>https://www.figma.com/proto/X7Te9GnJ2KfJmJZM86gg6A/20240722_Colloquium-1_Assisgnment_Zine?t=trYi8pDPN5qZ1deT-1</p>
-
-      </section>
-      
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-
-        <figure>
-          <img src="C:/Users/cathe/OneDrive/Desktop/colloqUium I/colloquium i Catherine Ye 2/Customer Journey Graph (2).png">
-          <img src="C:/Users/cathe/OneDrive/Desktop/colloqUium I/colloquium i Catherine Ye 2/globe.png">
-          <img src="C:/Users/cathe/OneDrive/Desktop/colloqUium I/colloquium i Catherine Ye 2/network1.png">, <img src="C:/Users/cathe/OneDrive/Desktop/colloqUium I/colloquium i Catherine Ye 2/network2.png">
-        </figure>
-
-    </section>
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-        <p> Trend: Aging Society </p>
+    </div>
+    <div class="image-content" style="flex: 0.5;">
+      <img src="./assets/images/theyesmen.jpg" alt="Related Image" style="width: 40%; height: auto; border-radius: 10px;">
+  </div>
+</div>
+</section>
 
 
-        <figure>
-          <img src="C:/Users/cathe/OneDrive/Desktop/colloqUium I/colloquium i Catherine Ye 2\DALL·E 2024-07-31 18.24.20 - A 78-year-old woman feeling lightheaded while enjoying her breakfast in a futuristic style room. The room is filled with advanced sensors that detect .webp">
-        </figure>
-
-        <p>In the year 2045, the serene kitchen of an elderly woman is seamlessly integrated with advanced technology, reflecting the future of healthcare in an aging society. She sits comfortably at a glass table, enjoying a healthy breakfast. The room is bathed in soft light, with a vase of vibrant flowers adding a touch of natural beauty.
-        </p>
-        <p>Surrounding her are holographic displays and interfaces, forming an intricate monitoring system that ensures her well-being. These futuristic displays provide real-time updates on various health metrics. The kitchen is designed with the elderly in mind, featuring ergonomic appliances and smart assistants that respond to her needs. The seamless integration of these technologies into her daily routine exemplifies how design can enhance the quality of life for an aging population.  </p>
-        <p>This design fiction presents a vision where technology and humanity coexist harmoniously. The monitoring system acts as a guardian, providing the woman with a sense of security and independence. It highlights a future where aging is not feared but embraced, with innovations ensuring that the elderly can live their lives with dignity, comfort, and peace of mind.
-        </p>
-
-
-
-
-      </section>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-
-        <p>
-          System and Methods of Interest
-        </p>
-
-        <p>
-          I am deeply interested in the intersection of artificial intelligence (AI), content generation, and cybersecurity, focusing on the systemic impact and governance of AI-generated content (AIGC). My research delves into the rapid evolution of AI and its implications for fraud schemes, emphasizing the need for robust oversight and innovative solutions. </p>
-
-        <p>
-          System Politics, Authorship, Governance
-        </p>
-
-        <p>
-          The current landscape of AIGC is a double-edged sword, with unprecedented advancements on one side and significant risks on the other. The politics of AI governance, authorship, and the ethical use of technology are central to my work. I am particularly concerned with the balance between fostering innovation and ensuring security and trust in digital systems.</p>
-        
-          <p>
-            Research Focus</p>
-
-        <p>
-          Quirky Insight About the World</p>
-
-        <p>
-          “Here’s the quirky thing about the world I want to reveal”: The rapid proliferation of AI-generated content has turned a once complex and labor-intensive task—creating convincing fraudulent content—into something that can be done in seconds. This shift has profound implications for how we perceive and mitigate risks in our digital ecosystem.</p>
-        
-          <p>
-            Backward Practices and New Approaches</p>
-        
-        <p> “The way we do something is backwards because of this, therefore we should investigate this way instead”: Currently, much of our focus is on the potential benefits of AI without equally considering the risks. We must rethink our approach to AI development and deployment, emphasizing the need for comprehensive governance frameworks that address the dual-use nature of these technologies.</p>
-
-        <p>-</p>
-        <p>The primary problem I aim to address is the increasing susceptibility of businesses and financial systems to AI-driven fraud. My research and design efforts target cybersecurity professionals, policy-makers, and tech developers, with the goal of creating robust, secure, and ethical AI frameworks.</p>
-
-        <p>
-          This line of inquiry captivates me because it sits at the crossroads of technology, ethics, and security. As AI continues to evolve, so too does the sophistication of fraudulent activities. By understanding and visualizing these dynamics through various analytical diagrams and exploring future solutions, I aim to contribute to a safer, more trustworthy digital world.</p>
-
-
-
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
 </body>
-
 </html>

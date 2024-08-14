@@ -1,0 +1,113 @@
+<div id="container" class="container-0 graph-scroll-fixed">
+    <div id="graph" class="diagram-container">
+    <svg class="pudding-chart" id="dist_diag" width="830" height="534" position="center">
+        <g class="g-axis"></g>
+        <g class="g-vis" transform="translate(20, 20)">
+            <image xlink:href="../assets/images/profile.png" class="logo-artist" width="100" height="100" x="580" y="187""></image>
+            <image xlink:href="../assets/images/spy.png" class="logo-apple" width="100" height="100" x="100" y="187"></image>
+            <image xlink:href="../assets/images/fake.png" class="logo-c1" width="60" height="60" x="120" y="349"></image>
+            <image xlink:href="../assets/images/fake.png" class="logo-c2" width="60" height="60" x="60" y="349"></image>
+            <image xlink:href="../assets/images/fake.png" class="logo-c3" width="60" height="60" x="180" y="349"></image>
+            <image xlink:href="./assets/images/lable_neon.png" id="dist_image" class="logo-label" width="100" height="100" x="360" y="187" style="opacity: 0;"></image>
+            <image xlink:href="./assets/images/artist_neon.png" class="logo-artist-2" width="100" height="100" x="0" y="349" style="opacity: 0;"></image>
+            <image xlink:href="./assets/images/artist_neon.png" class="logo-artist-3" width="100" height="100" x="0" y="511" style="opacity: 0;"></image>
+        
+            <text text-anchor="middle" dominant-baseline="central" id="dist_text" style="opacity: 0;" x="310" y="312">Dist / Label</text>
+            <text text-anchor="middle" dominant-baseline="central" id="artist_text" x="150" y="312">Fraudster</text>
+            <text text-anchor="middle" dominant-baseline="central" id="artist_text" x="150" y="440">Fake Profiles</text>
+            <text text-anchor="middle" dominant-baseline="central" id="streamers_text" x="630" y="312">Potential Targets</text>
+            <g id="music_notes">
+                <image xlink:href="../assets/images/hyperlink.png" class="music-note note-transaction" width="50" height="50" x="200" y="212"></image>
+                <image xlink:href="../assets/images/question.png" class="music-note note-question" width="50" height="50" x="200" y="212"></image>
+        
+                <image xlink:href="./assets/images/note_neon.png" class="moving-note" width="50" height="50" x="100" y="212" style="opacity: 0;"></image>
+            </g>
+    </svg>
+</div>
+    <div id="sections">
+      <div id="triggerDiv1" class="graph-scroll-active">
+        <p>
+ </p>      
+        
+      </div>
+      <div class="">
+            <p>
+ </p>
+      </div>
+      <div class="">
+        <p>
+ </p>
+      </div>
+      <div class="">
+
+      </div>
+  
+      <div class="last-div" id="lastDiv1"></div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes moveNoteTransaction {
+        0% { transform: translate(0, -30px); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translate(370px, -30px); opacity: 0; }
+
+    }
+
+    @keyframes moveNoteQuestion {
+        0% { transform: translate(370px, 30px); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translate(0, 30px); opacity: 0; }
+    }
+
+
+    .note-transaction, .note-question {
+        animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    .note-transaction {
+        animation-name: moveNoteTransaction;
+    }
+
+    .note-question {
+        animation-name: moveNoteQuestion;
+    }
+
+    body {
+        display: flex;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: white;
+        padding-left: 26%;
+    }
+
+
+    #container {
+        max-width: 100%;
+        width: 830px;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* 或者您想要的宽度 */
+    }
+
+    .fixed-logo {
+        position: fixed;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .logo-artist-2, .logo-artist-3 {
+        transition: opacity 0.5s ease-in-out;
+    }
+    text {
+        fill: rgb(167, 167, 167);
+    }
+
+</style>
