@@ -3,7 +3,14 @@
 
 <head>
   <meta charset="utf-8">
+  <title>Mapbox Storytelling</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/mapbox/assembly/publisher-staging/src/svgs/mapbox.svg">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://unpkg.com/intersection-observer@0.12.0/intersection-observer.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+
   <meta name="description"
     content="Student work by Chengxiu Yin from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
 
@@ -15,427 +22,419 @@
   <link href="style.css" rel="stylesheet" />
 
   <title>Chengxiu Yin</title>
+  <style>
+    /* Hiding all sections by default */
+    section.content-section {
+      display: none;
+    }
+
+/* Container for the buttons */
+.h1-buttons-container {
+  position: fixed;
+  top: 10px; /* Move to the top */
+  right: 10px; /* Align to the right */
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 5px;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.h1-buttons-container h3 {
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: black;
+  font-size: 12px; /* Reduce font size */
+}
+
+.h1-button {
+  display: block;
+  margin-bottom: 2px;
+  padding: 2px 4px;
+  cursor: pointer;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 12px; /* Reduce font size */
+}
+
+.h1-button:hover {
+  background-color: #333333;
+}
+  </style>
+
 </head>
 
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
+  
+  <section class="first-page">
+    <div class="content">
+      <img id="mainImage" src="storytelling/src/images/MainPage.jpg" alt="Main Page Image">
+    </div>
+  </section>
+  
+  <section class="second-page">
+    <div class="image-container">
+      <img src="WideImage.jpg" alt="Wide Image">
+    </div>
+    <p class="image-caption">
+      The study of New York City’s urban heat effect requires a comprehensive understanding of the city’s development over time. 
+      By examining the city’s historical periods and identifying prominent buildings, we can better understand how architectural 
+      and urban planning decisions have contributed to or mitigated the urban heat effect. Different phases of New York’s development 
+      saw varying architectural styles, building materials, and urban densities, all of which play significant roles in the city’s 
+      thermal environment. Analyzing these historical contexts and the buildings that define them allows us to pinpoint specific factors 
+      that influent heat retention in the urban landscape.
+    </p>
+  </section>
 
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Chengxiu Yin
-    </h2>
+  <section class="third-page">
+    <img src="CD_Heatmap.png" alt="Image 1">
+    <img src="Manhattan_heatmap.png" alt="Image 2">
+  </section>
+  
+  <section class="fourth-page">
+    <div class="content">
+      <img id="fourth-page" src="storytelling/src/images/third-Page.jpg" alt="third-Page Image">
+    </div>
+  </section>
 
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link"
-        target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
+  <section class="fifth-page" id="storytelling"></section>
+      <div class="image-container-large" style="width:100vw; height:100vh">
+        <iframe src="./storytelling/src/map1.html" style="width:100%; height:100vh"></iframe>
+      </div>
+  </section>
   <main>
+
+    <div class="h1-buttons-container">
+      <h3>COURSEWORK</h3>
+      <button class="h1-button" onclick="toggleSection('assignment-1')">1 – Systems</button>
+      <button class="h1-button" onclick="toggleSection('assignment-2')">2 – Authorship</button>
+      <button class="h1-button" onclick="toggleSection('assignment-3')">3 – Politics</button>
+      <button class="h1-button" onclick="toggleSection('assignment-4')">4 – Governance</button>
+    </div>
+
     <article>
-      <h1>Chengxiu Yin</h1>
-
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system.</p>
-
-        <img src="featured.jpg">
-      </section>
-
-      <section>
-        <h2>What is the system?</h2>
-        <p>
-          The integration of AI technology has significantly enriched traditional education frameworks, enhancing
-          connections between individuals and vast information. This approach facilitates more effective engagement with
-          information, strengthening the learner’s ability to interact, absorb, and apply knowledge. I am particularly
-          interested in how AI can transform BFA students into explorers of computational design.
-
-        </p>
-
-        <hr>
-
-        <figure>
-          <img src="Diagram 1.jpg">
-        </figure>
-
-        <hr>
-
-        <figure>
-          <img src="diagram2.jpg">
-          <img src="diagram3.jpg">
-        </figure>
-
-        <hr>
-      </section>
-
-      <section>
-        <h2>Feedback Loops:</h2>
-
-        <p>
-          The system dynamics involve multiple feedback loops. A reinforcing feedback loop occurs when students use
-          ChatGPT for idea generation, leading to more innovative projects and further use of the tool. However,
-          over-reliance on ChatGPT can stifle creativity, prompting a balancing feedback loop that encourage independent
-          work.
-        </p>
-
-        <section>
-          <h2>Stocks, Flows, and Delays: </h2>
-
-          <p>
-            students’ accumulated knowledge and creativity, while flows include continuous input of ideas and feedback
-            from ChatGPT and other stakeholders. Frequency and delay are evident in ChatGPT’s response times and
-            students’ integration of feedback. My diagrams illustrate a streamlined human-AI collaboration design
-            process, highlighting the importance of managing delays for effective learning outcomes.
-
-          </p>
-
-          <blockquote>
-            "Velit laoreet id donec ultrices tincidunt arcu…"
-          </blockquote>
-        </section>
-
-        <section>
-          <h2>Leverage Points and Hierarchy:</h2>
-
-          <p>
-            Key leverage points include the availability and quality of ChatGPT feedback. Enhancing these can
-            significantly improve system efficiency. The hierarchy comprises individual students, interactions with
-            classmates and professors, and integration into the broader art community. Boundaries are defined by
-            ChatGPT’s current limitations and its role in art education.
-          </p>
-
-          <section>
+        <section id="assignment-1" class="content-section">
+            <h1>1 – Systems</h1>
+          
+            <h2>What is the system?</h2>
+            <p>
+              The integration of AI technology has significantly enriched traditional education frameworks, enhancing
+              connections between individuals and vast information. This approach facilitates more effective engagement with
+              information, strengthening the learner’s ability to interact, absorb, and apply knowledge. I am particularly
+              interested in how AI can transform BFA students into explorers of computational design.
+            </p>
+          
+            <hr>
+          
+            <figure>
+              <img src="Diagram 1.jpg">
+            </figure>
+          
+            <hr>
+          
+            <figure>
+              <img src="diagram2.jpg">
+              <img src="diagram3.jpg">
+            </figure>
+          
+            <hr>
+          
+            <h2>Feedback Loops:</h2>
+            <p>
+              The system dynamics involve multiple feedback loops. A reinforcing feedback loop occurs when students use
+              ChatGPT for idea generation, leading to more innovative projects and further use of the tool. However,
+              over-reliance on ChatGPT can stifle creativity, prompting a balancing feedback loop that encourage independent
+              work.
+            </p>
+          
+            <h2>Stocks, Flows, and Delays: </h2>
+            <p>
+              Students’ accumulated knowledge and creativity, while flows include continuous input of ideas and feedback
+              from ChatGPT and other stakeholders. Frequency and delay are evident in ChatGPT’s response times and
+              students’ integration of feedback. My diagrams illustrate a streamlined human-AI collaboration design
+              process, highlighting the importance of managing delays for effective learning outcomes.
+            </p>
+          
+            <h2>Leverage Points and Hierarchy:</h2>
+            <p>
+              Key leverage points include the availability and quality of ChatGPT feedback. Enhancing these can
+              significantly improve system efficiency. The hierarchy comprises individual students, interactions with
+              classmates and professors, and integration into the broader art community. Boundaries are defined by
+              ChatGPT’s current limitations and its role in art education.
+            </p>
+          
             <h2>Resilience:</h2>
-
             <p>
               As students keep their professional strengths without being overshadowed by AI, adapting to new
               technologies and methods to ensure continuous support for their creative processes. By optimizing these
               elements, feedback loops, and leverage points, this system can greatly enhance the educational experience
               for BFA students transitioning to computational design.
             </p>
-
+          
             <figure>
               <img src="diagram4.jpg">
             </figure>
-
+          
             <hr>
-
+          
             <figure>
               <img src="Decision Tree.jpg">
             </figure>
-          </section>
-
-          <iframe
-          src="https://www.youtube.com/embed/hn5tl1VZOwo"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          style="aspect-ratio: 16 / 9; width: 100%;">
-          </iframe>
-
-          <section>
-            <h1 id="assignment-2">2 – Authorship</h1>
-            <h2>Authorship Philosophy in AI-Enhanced Design School Students in CAFA to create projects</h2>
-
-            <p>To be more specific, the system focuses on how students at the Central Academy of Fine Arts' School of
-              Design
-              complete their portfolios, particularly integrating generative AI into various stages of creation:
-              inspiration, research, analysis, workflow, framework building, technical implementation, visual
-              presentation,
-              drawing, and layout. Peers and professors are broadly defined as fellow graduate applicants and portfolio
-              advisors.</p>
-
-            <p>I believe AI itself does not hold copyright, as within my system, few would use AI-generated content
-              (AIGC)
-              without modifications. Images, videos, and text generated by AI require refinement and personal input.
-              Creators should be responsible for the content they generate. In this system, authorship levels are
-              defined by
-              the understanding of generative AI:</p>
-
-            <ul>
-              <li><strong>Mass Authors</strong>: Undergraduates (especially before junior year) who may use AI tools
-                with
-                less customization.</li>
-              <li><strong>User Authors</strong>: Applicants in the application season who use AI tools extensively and
-                customize their outputs.</li>
-              <li><strong>Program Authors</strong>: Computer science professionals who might develop agents and
-                customize
-                fine-tuning for this system.</li>
-            </ul>
-
-            <p>Control within the system follows a hierarchical model where increased capability comes with greater
-              responsibility.</p>
-
-            <h3>Lock-in and Flexibility</h3>
-
-            <p>In my system, the "lock-in" lies in the reliance on prompt engineering. This ensures that all
-              stakeholders do
-              not need to achieve breakthrough innovations but can work within the framework to create meaningful
-              content—akin to the 3% principle proposed by former LV director Virgil Abloh, where slight variations lead
-              to
-              significant impact.</p>
-
-            <h3>Comparison of Leading LLMs</h3>
-
-            <p>In the past 10 years, Pinterest has been the primary platform for Design school students in CAFA seeking
-              image inspiration. Whether high school students looking for artworks to study or those focused on
-              portfolio
-              creation in my system, Pinterest's strength lies in its ability to refine search results through
-              image-to-image tag similarities. This approach is ideal for visual workers and remains relevant even with
-              the
-              advent of Generative AI-LLM.</p>
-
-            <h4>ChatGPT-4</h4>
-            <ul>
-              <li><strong>Strengths</strong>: Widely recognized for its robust conversational abilities, extensive
-                training
-                data, and adaptability across different tasks.</li>
-              <li><strong>Authorship Model</strong>: Encourages user customization and interaction, allowing for
-                significant
-                user input and modification.</li>
-              <li><strong>Lock-in</strong>: Effective in creating a consistent and reliable interaction model but may
-                limit
-                innovative uses due to its predefined structures.</li>
-              <li><strong>Personal Experience</strong>: Best for everyday use and text-related tasks due to its
-                multimodal
-                capabilities.</li>
-            </ul>
-
-            <h4>Claude 3.5</h4>
-            <ul>
-              <li><strong>Strengths</strong>: Known for its ability to handle more complex tasks and nuanced
-                conversations,
-                often used in specialized applications.</li>
-              <li><strong>Authorship Model</strong>: Provides a balance between user customization and automated
-                suggestions, suitable for users with varying levels of expertise.</li>
-              <li><strong>Lock-in</strong>: Provides a flexible framework for users but may encounter limitations in
-                areas
-                requiring high specificity and control.</li>
-              <li><strong>Personal Experience</strong>: Best for coding capabilities, suitable for beginners exploring
-                the
-                computational design field.</li>
-            </ul>
-
-            <h4>Google Gemini Advanced</h4>
-            <ul>
-              <li><strong>Strengths</strong>: Integrates seamlessly with Google’s ecosystem, offering powerful tools for
-                research and information retrieval.</li>
-              <li><strong>Authorship Model</strong>: Emphasizes ease of use and accessibility, making it suitable for
-                both
-                novice and expert users.</li>
-              <li><strong>Lock-in</strong>: Highly flexible, allowing for broad applications, but may lead to dependency
-                on
-                Google’s ecosystem and tools.</li>
-              <li><strong>Personal Experience</strong>: Ideal as a learning aid, especially after coming to the U.S.,
-                when
-                used within the Google ecosystem.</li>
-            </ul>
-
-            <p>By balancing lock-in and flexibility, creating technologies that support innovation while maintaining
-              reliability and user trust is possible. Considering the diverse needs of different user groups and
-              fostering a
-              model of authorship that encourages creativity and ethical use can greatly enhance the educational
-              experience
-              for students transitioning to computational design.</p>
-          </section>
-          <div style="position:relative;padding-top:max(60%,324px);width:100%;height:0;">
-            <iframe 
-            style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" 
-            src="https://online.fliphtml5.com/vlqeb/awac/"  
-            seamless="seamless" 
-            scrolling="no" 
-            frameborder="0" 
-            allowtransparency="true" 
-            allowfullscreen="true" >
-          </iframe>
-        </div>
-
-        <figure>
-          <img src="WORKFLOW(G2).jpg">
-        </figure>
-
-        <iframe
-        src="https://www.youtube.com/embed/dnstdDRaAaE?si=xcjNx9Mm7bp6vEJW" 
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        style="aspect-ratio: 16 / 9; width: 100%;">
-
-        </iframe>
-
-          <section>
-            <h1 id="assignment-3">3 – Politics</h1>
+          
+            <iframe
+              src="https://www.youtube.com/embed/hn5tl1VZOwo"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              style="aspect-ratio: 16 / 9; width: 100%;">
+            </iframe>
           </section>
           
-          <section>
-            <h5>Interview Quotes</h5>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 03:06:02</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> MidJourney app</p>
-              <p><strong>Design Project Used For:</strong> Architectural projects</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Making intricate design details that would've otherwise taken forever to create manually. In architecture, a lot of iterations have to be made, and MidJourney made that iterative process significantly faster.</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 03:28:36</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> ChatGPT</p>
-              <p><strong>Design Project Used For:</strong> Portfolio website code review</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Speed</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 08:15:45</h6>
-              <p><strong>Rating:</strong> 4</p>
-              <p><strong>AI Tool Used:</strong> ChatGPT and OpenAI API</p>
-              <p><strong>Design Project Used For:</strong> Generative zine</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Ability to explain new libraries, write working code based on image or text descriptions, and allowed for experimentation and focus on higher-level concepts.</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 08:25:40</h6>
-              <p><strong>Rating:</strong> 5</p>
-              <p><strong>AI Tool Used:</strong> Cursor</p>
-              <p><strong>Design Project Used For:</strong> N/A</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Troubleshooting</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 08:56:03</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> N/A</p>
-              <p><strong>Design Project Used For:</strong> Converting massing to renders for client presentations</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Saved time</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 09:18:05</h6>
-              <p><strong>Rating:</strong> 4</p>
-              <p><strong>AI Tool Used:</strong> AI (general)</p>
-              <p><strong>Design Project Used For:</strong> Web design and architectural design</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Saved time</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 09:20:07</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> ChatGPT</p>
-              <p><strong>Design Project Used For:</strong> Organizing design ideas and finding useful tools</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Simplified the process and made techniques more accessible</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 09:22:54</h6>
-              <p><strong>Rating:</strong> 4</p>
-              <p><strong>AI Tool Used:</strong> AI (general)</p>
-              <p><strong>Design Project Used For:</strong> Rendering styles</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Helped with getting rough ideas and styles of renderings at the conceptual stage</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 09:26:11</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> AI (general)</p>
-              <p><strong>Design Project Used For:</strong> Preliminary stage of design</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Summarizing skills helped with seeing the big picture</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 10:09:12</h6>
-              <p><strong>Rating:</strong> 5</p>
-              <p><strong>AI Tool Used:</strong> AI (general)</p>
-              <p><strong>Design Project Used For:</strong> Developing briefs and plans of action</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Speed and organization</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 10:18:22</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> ChatGPT</p>
-              <p><strong>Design Project Used For:</strong> N/A</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Yes</p>
-            </div>
-            
-            <div>
-              <h6>Timestamp: 2024-07-25 12:24:34</h6>
-              <p><strong>Rating:</strong> 3</p>
-              <p><strong>AI Tool Used:</strong> ChatGPT</p>
-              <p><strong>Design Project Used For:</strong> Writing Arduino code for a drawing machine project</p>
-              <p><strong>Most Helpful Thing About AI:</strong> Saved a lot of time</p>
-            </div>
-            
-            <div>
-              <h6>Average Rating of AI Tools</h6>
-              <p>3.583333333</p>
-            </div>
-          </section>
+      <section id="assignment-2" class="content-section">
+        <h1>2 – Authorship</h1>
+        <h2>Authorship Philosophy in AI-Enhanced Design School Students in CAFA to create projects</h2>
 
-          <figure>
-            <img src="Gemini_Chart_Image.png">
-          </figure>
-  
-          <figure>
-            <img src="wordcloud.svg">
-          </figure>
-          <br>
-          <p>Worldcloud video is</p>
-          <a href="https://youtube.com/shorts/Awo9wmNTIYc?feature=share">Here</a>
+        <p>To be more specific, the system focuses on how students at the Central Academy of Fine Arts' School of Design
+          complete their portfolios, particularly integrating generative AI into various stages of creation: inspiration,
+          research, analysis, workflow, framework building, technical implementation, visual presentation, drawing, and
+          layout. Peers and professors are broadly defined as fellow graduate applicants and portfolio advisors.</p>
 
-          <iframe
+        <p>I believe AI itself does not hold copyright, as within my system, few would use AI-generated content (AIGC)
+          without modifications. Images, videos, and text generated by AI require refinement and personal input. Creators
+          should be responsible for the content they generate. In this system, authorship levels are defined by the
+          understanding of generative AI:</p>
+
+        <ul>
+          <li><strong>Mass Authors</strong>: Undergraduates (especially before junior year) who may use AI tools with
+            less customization.</li>
+          <li><strong>User Authors</strong>: Applicants in the application season who use AI tools extensively and
+            customize their outputs.</li>
+          <li><strong>Program Authors</strong>: Computer science professionals who might develop agents and customize
+            fine-tuning for this system.</li>
+        </ul>
+
+        <p>Control within the system follows a hierarchical model where increased capability comes with greater
+          responsibility.</p>
+
+        <h3>Lock-in and Flexibility</h3>
+
+        <p>In my system, the "lock-in" lies in the reliance on prompt engineering. This ensures that all stakeholders do
+          not need to achieve breakthrough innovations but can work within the framework to create meaningful
+          content—akin to the 3% principle proposed by former LV director Virgil Abloh, where slight variations lead to
+          significant impact.</p>
+
+        <h3>Comparison of Leading LLMs</h3>
+
+        <p>In the past 10 years, Pinterest has been the primary platform for Design school students in CAFA seeking image
+          inspiration. Whether high school students looking for artworks to study or those focused on portfolio creation
+          in my system, Pinterest's strength lies in its ability to refine search results through image-to-image tag
+          similarities. This approach is ideal for visual workers and remains relevant even with the advent of Generative
+          AI-LLM.</p>
+
+        <h4>ChatGPT-4</h4>
+        <ul>
+          <li><strong>Strengths</strong>: Widely recognized for its robust conversational abilities, extensive training
+            data, and adaptability across different tasks.</li>
+          <li><strong>Authorship Model</strong>: Encourages user customization and interaction, allowing for significant
+            user input and modification.</li>
+          <li><strong>Lock-in</strong>: Effective in creating a consistent and reliable interaction model but may limit
+            innovative uses due to its predefined structures.</li>
+          <li><strong>Personal Experience</strong>: Best for everyday use and text-related tasks due to its multimodal
+            capabilities.</li>
+        </ul>
+
+        <h4>Claude 3.5</h4>
+        <ul>
+          <li><strong>Strengths</strong>: Known for its ability to handle more complex tasks and nuanced conversations,
+            often used in specialized applications.</li>
+          <li><strong>Authorship Model</strong>: Provides a balance between user customization and automated suggestions,
+            suitable for users with varying levels of expertise.</li>
+          <li><strong>Lock-in</strong>: Provides a flexible framework for users but may encounter limitations in areas
+            requiring high specificity and control.</li>
+          <li><strong>Personal Experience</strong>: Best for coding capabilities, suitable for beginners exploring the
+            computational design field.</li>
+        </ul>
+
+        <h4>Google Gemini Advanced</h4>
+        <ul>
+          <li><strong>Strengths</strong>: Integrates seamlessly with Google’s ecosystem, offering powerful tools for
+            research and information retrieval.</li>
+          <li><strong>Authorship Model</strong>: Emphasizes ease of use and accessibility, making it suitable for both
+            novice and expert users.</li>
+          <li><strong>Lock-in</strong>: Highly flexible, allowing for broad applications, but may lead to dependency on
+            Google’s ecosystem and tools.</li>
+          <li><strong>Personal Experience</strong>: Ideal as a learning aid, especially after coming to the U.S., when
+            used within the Google ecosystem.</li>
+        </ul>
+
+        <p>By balancing lock-in and flexibility, creating technologies that support innovation while maintaining
+          reliability and user trust is possible. Considering the diverse needs of different user groups and fostering a
+          model of authorship that encourages creativity and ethical use can greatly enhance the educational experience
+          for students transitioning to computational design.</p>
+      </section>
+
+      <section id="assignment-3" class="content-section">
+        <h1>3 – Politics</h1>
+        <h2>Interview Quotes</h2>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 03:06:02</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> MidJourney app</p>
+          <p><strong>Design Project Used For:</strong> Architectural projects</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Making intricate design details that would've otherwise taken forever to create manually. In architecture, a lot of iterations have to be made, and MidJourney made that iterative process significantly faster.</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 03:28:36</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> ChatGPT</p>
+          <p><strong>Design Project Used For:</strong> Portfolio website code review</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Speed</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 08:15:45</h6>
+          <p><strong>Rating:</strong> 4</p>
+          <p><strong>AI Tool Used:</strong> ChatGPT and OpenAI API</p>
+          <p><strong>Design Project Used For:</strong> Generative zine</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Ability to explain new libraries, write working code based on image or text descriptions, and allowed for experimentation and focus on higher-level concepts.</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 08:25:40</h6>
+          <p><strong>Rating:</strong> 5</p>
+          <p><strong>AI Tool Used:</strong> Cursor</p>
+          <p><strong>Design Project Used For:</strong> N/A</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Troubleshooting</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 08:56:03</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> N/A</p>
+          <p><strong>Design Project Used For:</strong> Converting massing to renders for client presentations</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Saved time</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 09:18:05</h6>
+          <p><strong>Rating:</strong> 4</p>
+          <p><strong>AI Tool Used:</strong> AI (general)</p>
+          <p><strong>Design Project Used For:</strong> Web design and architectural design</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Saved time</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 09:20:07</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> ChatGPT</p>
+          <p><strong>Design Project Used For:</strong> Organizing design ideas and finding useful tools</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Simplified the process and made techniques more accessible</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 09:22:54</h6>
+          <p><strong>Rating:</strong> 4</p>
+          <p><strong>AI Tool Used:</strong> AI (general)</p>
+          <p><strong>Design Project Used For:</strong> Rendering styles</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Helped with getting rough ideas and styles of renderings at the conceptual stage</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 09:26:11</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> AI (general)</p>
+          <p><strong>Design Project Used For:</strong> Preliminary stage of design</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Summarizing skills helped with seeing the big picture</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 10:09:12</h6>
+          <p><strong>Rating:</strong> 5</p>
+          <p><strong>AI Tool Used:</strong> AI (general)</p>
+          <p><strong>Design Project Used For:</strong> Developing briefs and plans of action</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Speed and organization</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 10:18:22</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> ChatGPT</p>
+          <p><strong>Design Project Used For:</strong> N/A</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Yes</p>
+        </div>
+        
+        <div>
+          <h6>Timestamp: 2024-07-25 12:24:34</h6>
+          <p><strong>Rating:</strong> 3</p>
+          <p><strong>AI Tool Used:</strong> ChatGPT</p>
+          <p><strong>Design Project Used For:</strong> Writing Arduino code for a drawing machine project</p>
+          <p><strong>Most Helpful Thing About AI:</strong> Saved a lot of time</p>
+        </div>
+        
+        <div>
+          <h4>Average Rating of AI Tools</h4>
+          <p>3.583333333</p>
+        </div>
+      
+        <!-- Enclosing the figures and iframe inside the section to hide them by default -->
+        <h2>Data Visualization</h2>
+        <figure>
+          <img src="Gemini_Chart_Image.png">
+        </figure>
+      
+        <figure>
+          <img src="wordcloud.svg">
+        </figure>
+      
+        <iframe
           src="https://youtube.com/shorts/Awo9wmNTIYc?feature=share" 
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
           style="aspect-ratio: 16 / 9; width: 100%;">
-          </iframe>
+        </iframe>
+      </section>
 
-          <section>
-            <h1 id="assignment-4">4 – Governance</h1>
-          </section>
-
+          <section id="assignment-4" class="content-section">
+            <h1>4 – Governance</h1>
           <h2>science Fiction: </h2>
-          <a href="https://youtu.be/8rdwB0I3IE4?si=aF_GlFSHUSKuDMix">You can watch the video here:</a>
           <iframe
-          src="https://youtu.be/8rdwB0I3IE4?si=aF_GlFSHUSKuDMix" 
+          src="https://www.youtube.com/watch?v=8rdwB0I3IE4" 
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
           style="aspect-ratio: 16 / 9; width: 100%;">
           </iframe>
-
-          <section>
-            <h1 id="assignment-5">5 – Behavior</h1>
-          </section>
     </article>
-  </main>
+</main>
 
-  <footer></footer>
+<!-- <footer></footer> -->
+<script>
+    function toggleSection(id) {
+      var section = document.getElementById(id);
+      var sections = document.querySelectorAll('.content-section');
+      
+      // Hide all sections
+      sections.forEach(function(sec) {
+        sec.style.display = 'none';
+      });
+
+      // Toggle the selected section
+      if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block';
+        window.scrollTo(0, section.offsetTop); // Scroll to the opened section
+      } else {
+        section.style.display = 'none';
+      }
+    }
+  </script>
+
 </body>
 
 </html>

@@ -1,0 +1,209 @@
+/* General Reset and Body Styling */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    /* Link Styling */
+    a, a:hover, a:visited {
+        color: #000000;
+    }
+
+    /* Header Styling */
+    #header {
+        height: auto; /* Allow the height to be determined by content */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap; /* Ensure items don't wrap onto a new line */
+        width: 100%;
+        position: relative;
+        z-index: 5;
+        /* padding: 0 10px; Optional: add padding around the entire header */
+    }
+
+    #header h1, #header h2, #header p {
+        display: flex;
+        margin: 0;
+        padding: 1vh 1vw; /* Adjusted padding to ensure single-line layout */
+        text-align: center;
+        flex-grow: 1; /* Allow these elements to grow and fill space */
+        flex-shrink: 1; /* Allow these elements to shrink if necessary */
+        white-space: nowrap; /* Prevent text wrapping */
+        overflow: hidden; /* Prevent content overflow */
+        text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    }
+
+    /* Navigation Styling */
+    nav {
+        display: flex;
+        gap: 10px; /* Space between nav items */
+        flex-shrink: 1; /* Allow nav to shrink if necessary */
+        white-space: nowrap; /* Ensure nav items stay on one line */
+    }
+
+    /* Map and Map Inset Styling */
+    #map {
+        top: 0;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+    }
+
+    #mapInset {
+        bottom: 50px;
+        right: 30px;
+        height: 180px;
+        width: 250px;
+        max-width: 100%;
+        position: fixed;
+        z-index: 1;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+        pointer-events: none;
+    }
+
+    #mapInset .mapboxgl-ctrl-bottom-left {
+        display: none;
+    }
+
+    @media (max-width: 500px) {
+        #mapInset {
+            display: none;
+        }
+    }
+
+    /* Footer Styling */
+    #footer {
+        width: 100%;
+        min-height: 5vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        text-align: center;
+        line-height: 25px;
+        font-size: 13px;
+        position: relative;
+        z-index: 5;
+    }
+
+    /* Features Section Styling */
+    #features {
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+    }
+
+    /* Utility Classes */
+    .hidden {
+        visibility: hidden;
+    }
+
+    .centered {
+        width: 50vw;
+        margin: 0 auto;
+    }
+
+    .lefty {
+        width: 33vw;
+        margin-left: 5vw;
+    }
+
+    .righty {
+        width: 33vw;
+        margin-left: 62vw;
+    }
+
+    .fully {
+        width: 100%;
+        margin: auto;
+    }
+
+    .light {
+        color: #444;
+        background-color: #fafafa;
+    }
+
+    .dark {
+        color: #fafafa;
+        background-color: #444;
+    }
+
+    /* Step Section Styling */
+    .step {
+        padding-bottom: 50vh;
+        opacity: 0.25;
+    }
+
+    .step.active {
+        opacity: 0.9;
+    }
+
+    .step div {
+        padding: 25px 50px;
+        line-height: 25px;
+        font-size: 13px;
+    }
+
+    .step img {
+        width: 100%;
+    }
+
+    /* Media Query for Smaller Screens */
+    @media (max-width: 750px) {
+        .centered, .lefty, .righty, .fully {
+            width: 90vw;
+            margin: 0 auto;
+        }
+    }
+
+    /* Fix for Mobile Browser Scroll Issue */
+    .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+    .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+        touch-action: unset;
+    }
+
+    /* Section Styling */
+    section {
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
+    }
+
+    /* Hiding All Sections by Default */
+    section.content-section {
+        display: none;
+    }
+
+    /* H1 Button Container Styling */
+    .h1-buttons-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: white;
+        border: 1px solid #ddd;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .h1-buttons-container h3 {
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        color: black;
+    }
+
+    .h1-button {
+        display: block;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: #000000;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    .h1-button:hover {
+        background-color: #333333;
+    }

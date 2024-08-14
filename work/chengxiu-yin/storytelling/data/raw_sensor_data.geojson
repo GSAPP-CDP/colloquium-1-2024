@@ -1,0 +1,549 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_01",
+        "AirTemp": 95.24766667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.949563, 40.809398]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_03",
+        "AirTemp": 91.301,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9521, 40.80551]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_04",
+        "AirTemp": 97.79466667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.95152243, 40.80701875]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_05",
+        "AirTemp": 105.5666667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.951976, 40.807207]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_06",
+        "AirTemp": 94.6735,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9483, 40.80802]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_07",
+        "AirTemp": 95.471,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.94722497, 40.80860062]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_08",
+        "AirTemp": 94.0635,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9463, 40.80551]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_09",
+        "AirTemp": 96.69366667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.947, 40.80757]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_10",
+        "AirTemp": 92.38566667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN34"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9445, 40.80406]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_11",
+        "AirTemp": 91.88533333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9506, 40.80336]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_12",
+        "AirTemp": 97.7775,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.94995082, 40.80975021]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_13",
+        "AirTemp": 92.8405,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9502, 40.80564]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_14",
+        "AirTemp": 94.562,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.95062325, 40.8025164]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_15",
+        "AirTemp": 93.73183333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.94975521, 40.80380817]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_16",
+        "AirTemp": 91.01433333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9456, 40.80359]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_17",
+        "AirTemp": 95.96916667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.95232605, 40.80395907]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_19",
+        "AirTemp": 94.94466667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9484, 40.80724]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_20",
+        "AirTemp": 96.703,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.94783592, 40.80288849]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_21",
+        "AirTemp": 90.81283333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9476, 40.80362]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_22",
+        "AirTemp": 95.03983333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.947485, 40.806857]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_23",
+        "AirTemp": 92.81716667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN03"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.94334609, 40.80780655]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_25",
+        "AirTemp": 92.73116667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN03"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9462, 40.80901]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_26",
+        "AirTemp": 97.9505,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9495, 40.80251]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_27",
+        "AirTemp": 93.478,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9474961, 40.80476576]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_28",
+        "AirTemp": 102.4355,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN34"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9452, 40.80225]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_29",
+        "AirTemp": 94.84866667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Street Tree",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.946, 40.80686]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_30",
+        "AirTemp": 106.5125,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9473, 40.80554]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_31",
+        "AirTemp": 104.3203333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9504, 40.80616]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_32",
+        "AirTemp": 96.413,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.95205127, 40.80356079]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_33",
+        "AirTemp": 95.00916667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9522, 40.80856]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_34",
+        "AirTemp": 94.96816667,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9495, 40.80707]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Sensor.ID": "M-CH_35",
+        "AirTemp": 93.29733333,
+        "Day": "07/10/2018",
+        "Hour": 15,
+        "Year": 2018,
+        "Install.Type": "Light Pole",
+        "Borough": "Manhattan",
+        "ntacode": "MN11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9498, 40.80166]
+      }
+    }
+  ]
+}

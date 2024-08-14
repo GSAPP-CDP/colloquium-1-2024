@@ -1,5 +1,141 @@
 /* CSS style sheet specific to a single student page. */
 
-article>h1:first-child {
-  color: blue;
+/* 重置 body 和 html 的 margin 和 padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* 确保 section 没有默认的 margin */
+section {
+  margin: 0;
+  padding: 0;
+}
+
+/* 移除默认的 margin */
+.first-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* 确保占满整个视窗高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* 背景颜色可根据需要修改 */
+}
+
+
+/* 设置 third-page */
+.second-page {
+  /* display: flex; */
+  padding: 0;
+  margin: 0;
+  height: 90vh; /* 高度占满视窗 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  position: relative; /* 定位用于动画 */
+}
+
+.second-page img {
+  position: absolute;
+  height: 80%; /* 图片高度设置为视窗高度 */
+  width: auto; /* 宽度根据高度等比例调整 */
+  max-width: none; /* 取消最大宽度限制，确保宽度按比例缩放 */
+  max-height: none; /* 取消最大高度限制，确保高度按比例缩放 */
+  animation: moveImage 20s infinite; /* 20秒完成一次动画，线性移动，无限循环 */
+}
+
+/* 动画效果 */
+@keyframes moveImage {
+  from {
+      left: 0%; /* 从右边开始 */
+  }
+  to {
+      left: -100%; /* 向左移动直到消失 */
+  }
+}
+
+/* 图片说明文字 */
+.image-caption {
+  text-align: center; /* 文字居中 */
+  font-size: 20px; /* 字体大小 */
+  color: #000000; /* 字体颜色 */
+  padding: 40px;
+  margin: 0; /* 取消外边距 */
+  max-width: 100%; /* 控制文字最大宽度 */
+  margin-top: 500px; /* 与图片之间的间距 */
+  z-index: 100; /* 确保文字位于图片上方 */
+}
+
+.fourth-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* 确保占满整个视窗高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* 背景颜色可根据需要修改 */
+}
+
+      /* 设置 fourth-page */
+      .third-page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+    .third-page img {
+      width: 50%; /* 让两张图片各占一半宽度 */
+      height: auto; /* 保持图片的1:1比例 */
+    }
+
+section p, section h6 {
+  font-size: 1em; /* h4 的默认字体大小 */
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+  .content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* 确保图片按比例填充 */
+  }
+
+header {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+  position: relative;
+}
+
+h1, h2, nav {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 100px); /* 根据你的 header 高度调整值 */
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.image-container-large {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  pointer-events: auto;
 }

@@ -1,391 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Xiaoya Wang from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" />
-  <title>Xiaoya Wang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaoya Wang</title>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
 </head>
-
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
+    <section class="first-page">
+        <div class="content">
+            <h1 class="style_title" id="title">URBANIZATION&nbsp;AND&nbsp;TREE&nbsp;HEALTH</h1>
+            <p class="style_title" id="subtitle">Does&nbsp;Urbanization&nbsp;Deserve&nbsp;All&nbsp;the&nbsp;Blame&nbsp;for&nbsp;the&nbsp;Destruction&nbsp;of&nbsp;Trees&nbsp;And&nbsp;the&nbsp;Decline&nbsp;in&nbsp;Their&nbsp;Health&nbsp;?</p>
+        </div>
+    </section>
+
+    <section class="second-page">
+        <link rel="stylesheet" href="style_title.css">
+        <script src="script.js"></script>
+        <div class="draggable content-wrapper">
+            <h1 id="animated-text">As we all know, urbanization and urban development have significantly influenced trees, for this process requires the removal of large green spaces for the construction of buildings, roads, and other infrastructure. Development of city has such an impact on trees that when it comes to tree destruction, people immediately think of urbanization. But, does the urban development really deserve the blame for all the destruction?</h1>
+        </div>
+        <div class="draggable content-wrapper_2" id="draggable-box">
+            <h1>Location is also important. Trees thrive when planted in the right location. For the environmental factors have a great impact on trees. Spending some time thinking through the locations where trees are planted will determine the vigor and lifespan of those trees.</h1>
+            <h1>Here are some types of trees and the environment that suitable for them to live in.</h1>
+        </div>
+        <div class="draggable content-wrapper_3" id="draggable-box">
+            <h1>I'm not saying this in defense of the development of cities. It does destroy a lot of trees for development. But there are various reasons for the health of trees, and sometimes tree degradation is not directly related to urbanization. I hope that people will not just focus on urban development and ignore other factors. Here are some factors that also have a greater impact on the health of trees.</h1>
+            <p>&nbsp;</p>
+            <p>One important thing is Biological Competition. Competition between trees or with other vegetation, especially in resource-limited environments, can impact a tree’s access to sunlight, water, and nutrients, thus affecting its health.</p>
+        </div>
+        <div class="draggable content-wrapper_4">
+            <h1>And the Pests and Pathogens. Pests (such as beetles and the pinewood nematode) and pathogens (like fungi and bacteria) can cause diseases in trees, potentially leading to severe damage or death.</h1>
+            <p>Spotted lanternfly, an invasive insect that poses a significant threat to a variety of trees and plants in New York and other regions of the United States. Repeated feeding by large numbers of Spotted Lanternflies can stress trees, leading to reduced vigor and overall health decline.</p>
+            <p> Gypsy Moth, another common invasive species. The larvae (caterpillars) of the gypsy moth consume large quantities of tree leaves, leading to nutrient deficiencies. Severe defoliation can cause stunted growth, leaf drop, and even tree death. Besides, Affected trees are more susceptible to diseases and other pests.</p>
+        </div>
+        <div class="draggable content-wrapper_5">
+            <p>At last, extreme weather events, such as frequent droughts, heavy rains, extreme high or low temperatures, and other extreme weather events which can put significant stress on trees and affect their health.</p>
+            <p>High winds during storms can break branches, strip leaves, and even uproot entire trees, and Severe wind can result in the loss of a significant portion of a tree's canopy. Prolonged drought deprives trees of the necessary water to maintain their physiological processes. This can lead to wilting, leaf browning, and in severe cases, tree death, and Drought-stressed trees are more susceptible to pest infestations. Intense heat from wildfires can scorch the bark, damaging the cambium layer.</p>
+            <p>The following is a comparison of the forest before and after the fire.</p>
+            <p>Slide this slider ▼</p>
+        </div>
+        <div class="draggable content-wrapper_6">
+            <img src="./picture_tree/trees.png" alt="Description of the image" class="img-custom-3">
+        </div>
+    </section>
+
+    <section class="third-page" id="image-slider">
+        <div class="container">
+            
+            <div class="image-container">
+                
+                <img class="image-before slider-image" src="./picture_tree/after.jpg" alt="color photo">
     
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Xiaoya Wang
-    </h2>
-
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h1>Xiaoya Wang</h1>
-  
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>System Introduction</h2>
-        <p>This system is called using the artificial intelligence to design an architecture. Users and artificial intelligence are elements of this systems. Its function is to use the artificial intelligence to calculate the input design requirements, such as building type and surrounding environment, and then come up with a more suitable design plan. People can get an appropriate and ideal architecture design scheme through this system.</p>
-
-        <p>The following is the hierarchy of this system. First, input design requirements and surrounding building models. Based on the information inputted, AI will analyzes the appropriate layout of the rooms, orientation of the building and plane window opening,etc., and present several schemes for users to choose from. In these schemes, you can see the dynamic analysis of the plane lighting, heat dissipation, etc. Users can let AI recalculate or go back and modify the commands if there is no satisfactory solution. After choosing the plan design scheme, The system will generate the corresponding structural models according to the plane you choose. Then inputting the requirement for the facade design, and selecting the result you want. Users can skip over the structure and facade design, just generating the plane design. The result will be showed in a dynamic way, showing the construction process from nothing to the plane to the entire building.</p>
-        
-        <p>This system needs data support. It is necessary to input code of architecture design to reinforce the feedback loop. The most problematic part of this system is that architectural design is a complex process, so sometimes the output results are not satisfactory and can only be used as references. Meanwhile we can not use this system to design the buildings with dramatic shapes. It can only do some relatively regular construction.</p>
-        
-        <h2>System Diagrams</h2>
-
-        <img src="Diagrams.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-      </section>
-
-
-      <section>
-        <h2>System Behavior</h2>
-  
-        <p>We chose “whimsical” as the adjective of our machine. The main body of our machine is orange, a type of fruit that appears in almost every step of our system. </p>
-
-        <!--- YouTube -->
-<iframe
-src="https://www.youtube.com/embed/vZXOAE1zaZM?si=GtbZa4DUymnAhhE_"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen
-style="aspect-ratio: 16 / 9; width: 100%;">
-</iframe>
-
-      <section>
-        <h1 id="assignment-2">2 – Authorship</h1>
-
-        <h2>My Authorship Philosophy</h2>
-
-        <p>Possible audiences of my system is divided into two kinds of people—people who have some knowledge of architectural design and those who don’t know about the architectural design. The interface for the expert is somewhat different from the interface for the non-expert. There is more explanation in the interface used by non-expert users, such as the meaning of technical terms, so that users can better understand the scheme. On the contrary, the interface for expert users would be more concise and intuitive.</p>
-
-        <p style="margin-bottom: 1px;">1. &nbsp;Software engineer locks in: create an algorithm for calculating the properties of rooms inside a building, such as the room ventilation; suitabel database</p>
-
-        <p style="margin-top: 1px;margin-bottom: 1px;">2. &nbsp;Website, engineer: patterns of user interface; patterns of interactive interface</p>
-
-        <p style="margin-top: 1px;">3. &nbsp;User locks in: the requirement of design</p>
-
-        <p>——The administrator of this system can have the copyright of the content created by users. On the one hand, the process of architectural design is complex, the designer will most likely need to modify the scheme, which will not be the final model, and it means the data obtained by the AI and the users’ final results will have a certain gap. Besides, users who know nothing about architectural design may only use the data as a reference, such as a reference to choose a room, so the administrator has this data will not affect them. On the other hand, administrator can let AI will use the user-generated model as a reference, so that it can generate a solution that can better meet the needs of users later.</p>
-
-        <p>——As an author, what I need to do is to provide adequate and accurate background information, like the model of the entire cities and weather conditions of the city. The height and shape of each building should be accurate enough for AI to calculate precisely. Users need to guarantee that they will not use the generated models for illegal purposes.</p>
-
-        <p style="margin-bottom: 1px;">——Who should have control:</p>
-
-        <p style="margin-top: 1px;margin-bottom: 1px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. &nbsp;AI Developers and Data Scientists. They have control in the technical aspects of the system, including model training and algorithm updates. They have authority to implement changes to the AI system.</p>
-
-        <p style="margin-top: 1px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. &nbsp;Users. They have control in the final results. This is because they can override AI suggestions and make critical design choices.</p>
-
-        <p style="margin-bottom: 1px;">——Authorship levels:</p>
-        
-        <p style="margin-top: 1px;margin-bottom: 1px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The user author—they input the design requirement and select design flow</p>
-
-        <p style="margin-top: 1px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The program author—Write and maintain codes so that programs can calculate data to gain appropriate solutions</p>
-
-        <h2>Examples</h2>
-
-        <p style="font-weight: bold">Midjourney</p>
-
-        <p>Midjourney’s mode of operation is similar to that of my system. Both professional and amateur painters can draw with Midjourney. Users need to select appropriate instructions, and input the key words, then they can get some pictures that fit the descriptions. Users can either select one of the images to output or continue generating images until they are satisfied with the image.</p>
-
-        <img src="Midjourney.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p style="font-weight: bold">YouTube</p>
-
-        <p>YouTube allows non-expert users to upload their videos. My system also hopes that both non-expert users and expert users can participate in this process, which means that people with no experience in architectural design can also experience the process of designing architectures.</p>
-
-        <img src="YouTube.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p style="font-weight: bold">Google Maps</p>
-
-        <p>The interactive interface of Google maps is relatively rich, and users can easily get a lot of information. People can input the places they want to go to plan the route, and after inputting it will directly appear the relevant information of the area. Users only need to click the button and they will see all the information they want to see. Meanwhile, users can also choose a variety of travel methods. I want my system to have a relatively rich interactive interface, so that even non-expert users can understand how to operate and get a lot of useful information in a short time.</p>
-
-        <img src="Google Maps.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-      </section>
-
-      <section>
-        <h2>Generative Zine</h2>
-
-        <p>Our zine, AI Artifact Playground, aims to be an interactive collection that showcases users' creations. Using 3D modeling alongside everyday objects, events, and scenes as starting points. We empower users to freely interact with the assets that we generate. This enables them to design objects and craft stories according to their visions. The zines that the user created are part of our zine. </p>
-
-        <p>We provide tools that enable users to use AI-generated assets to produce unique works that reflect their personal vision and creativity. This collaborative approach coordinates content creation. It operates without being constrained by conventional authorship. By distributing control, users can customize their experience and influence the system, while designers maintain the ethical and foundational rules of the tools.</p>
-
-        <p style="font-weight: bold">Text to Image, Image to Model</p>
-
-        <P>We input prompts to the image generation tools such as OpenArt AI to get the image we want. Then, we uploaded images to 3D Model generation platforms. Now we have the assets for the “playground”!</P>
-
-        <img src="Text to Model.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p style="font-weight: bold;">Our Website</p>
-
-        <P>Our authorship philosophy embraces the evolving <strong>nature of creative ownership</strong>, particularly in the context of generative AI. In this model, the concept of authorship extends beyond traditional boundaries, <strong>empowering AI and users to become co-creators</strong>. </P>
-
-        <img src="Flow.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Step 1: Open the page and drag the models</p>
-
-        <img src="1.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Step 2: Assembling those models</p>
-
-        <img src="2.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Step 3: When the countdown ends, stop combining and take a screenshot</p>
-
-        <img src="3.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        
-        <div style="float: right; margin-left: 50px;">
-          <img src="zine.gif.gif" alt="Zine animation" class="" style="height: 300px; width: auto;">
-          <p class="descriptive-text">click to play the <a href="https://yilinzheng10.github.io/zine/">AI Artifact Playground</a></p>
+                <img class="image-after slider-image" src="./picture_tree/forest1.jpg" alt="black and white">
+    
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown" class="slider">
+    
+            <div class="slider-line" aria-hidden="true"></div>
+    
+            <div class="slider-button" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
+                <rect width="256" height="256" fill="none"></rect>
+                <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+            </svg>
         </div>
-        <p></p>
-      </section>
-      
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-        <h2>Gathering Data</h2>
-        <p style="font-weight: bold">Hypothesis</p>
-        <p>When the users decide to use it design a residential building, they will focus on the comfort of the surrounding environment when choosing the site.</p>
-        <p style="font-weight: bold">Datasets</p>
-        <p>Dataset 1: Ten well-rated apartments in New York City</p>
+    </section>
 
-        <img src="points.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Locations of Ten Apartments</p>
-
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-        <style>
-            #map { height: 300px;width: 50%;filter: saturate(100%);border: 3px solid #000000; }
-        </style>
-        
+    <section class="fourth-page" id="storytelling">
+        <link rel="stylesheet" href="map.css">
         <div id="map"></div>
-        <script src="main.js"></script>  <!-- Ensure this path is correct -->
+        <div id='story'></div>
+        <script src='config.js'></script>
+        <script type='text/javascript' src="map.js"></script>
+    </section>
 
-        <p>Dataset 2: Ratings and Reviews</p>
-
-        <img src="Comments.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Dataset 3: Tree Coverage</p>
-
-        <p>Count the number of trees and record the diameter at breast height of each tree in the four streets around the plot where these ten apartments is located.</p>
-
-        <img src="tree.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Dataset 4: Types of Buildings Around</p>
-
-        <img src="Surroundings.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Dataset 5: Number of Bus Stops in the Surrounding Area</p>
-
-        <img src="Bus_Stop.png">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>By analyzing the number of bus stops around, we can analyze the convenience of the surrounding environment of residential buildings. As can be seen from the picture, each of these ten buildings is surrounded by at least one or two nearby bus stop shelter.</p>
-
-        <p>Among the five sets of data I selected, the first set is the determination of residential buildings, and the last four sets can directly or indirectly see the comfort level of the surrounding environment of the buildings. It can be seen that these ten buildings are all distributed in the middle and south of Manhattan, which are prosperous, convenient in transportation, and have a certain coverage rate of green plants, and it also explains the relationship between the comfort of the surrounding environment and residential buildings to a certain extent. This will also be helpful in the statistical process of designing the system in the future.</p>
-
-      </section>
-
-      <section>
-        <h2>Sketch Prototypes</h2>
-
-        <p>I choose the data set tree coverage for presentation. I show the overall arrangement of trees in the street and the distribution and quantity of trees around the ten residential buildings selected before.</p>
-
-        <p>1. Analytical x Mapping x P5.js</p>
-
-          <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-          <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-          <style>
-              body {
-                    margin: 0;
-                    padding: 0;
-                    height: 100vh;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                }
-                .map-container {
-                    display: flex;
-                    width: 100%;
-                    height: 100%;
-                }
-                .map-wrapper {
-                    display: flex;
-                    flex-direction: column;
-                    margin: 10px; /* Add margin around each map wrapper */
-                    flex: 1; /* Allow maps to grow equally */
-                    max-width: 800px; /* Set a maximum width for each map */
-                }
-                #map2015, #map1995 {
-                    height: 500px;
-                    width:100%;
-                    border: 3px solid #000000;
-                }
-                /* Optional: Add spacing between the maps */
-                #map2015 {
-                  margin-right: 10px;
-                }
-                .map-title {
-                    text-align: center;
-                    font-size: 1em;
-                    margin-bottom: 10px;
-                    color: #333; /* Optional: Change title color */
-                }
-          </style>
-
-        <div class="map-container">
-          <div class="map-wrapper">
-            <div class="map-title">Street Trees Census in 2015</div>
-            <div id="map2015"></div>
+    <section class="fifth-page">
+        <link rel="stylesheet" href="style_title.css">
+        <div class="vertical-text">
+            <h1>Producer: Columbia University GSAPP2024 Xiaoya Wang</h1>
+            <h1>Instructors: Violet Whitney, William Martin, Mario Giampieri, Celeste Layne</h1>
+            <h1>Teaching Assistant: Jon Marcos</h1>
+            <h1>&nbsp;</h1>
+            <p>Tools: Mapbox, Mapbox API, ChatGPT, Visual Studio Code, Mapbox Storyline</p>
+            <p>Data: NYC Open Data, NYCMapHub, GitHub</p>
         </div>
-        <div class="map-wrapper">
-            <div class="map-title">Street Trees Census in 1995</div>
-            <div id="map1995"></div>
-        </div>
-      </div>
-      <script>
-          // Initialize the Leaflet map for 2015
-          var map2015 = L.map('map2015').setView([40.74, -74.0060], 12);  // New York City coordinates
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-              maxZoom: 18,
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-              opacity: 0.7
-          }).addTo(map2015);
-          // Load data for 2015
-          fetch('main2015.js').then(response => response.text()).then(script => eval(script));
-  
-          // Initialize the Leaflet map for 1995
-          var map1995 = L.map('map1995').setView([40.74, -74.0060], 12);  // New York City coordinates
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-              maxZoom: 18,
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-              opacity: 0.7
-          }).addTo(map1995);
-          // Load data for 1995
-          fetch('main1995.js').then(response => response.text()).then(script => eval(script));
-      </script>
+    </section>
 
-      <p>Above are two interactive maps of the distribution of street trees in 1995 and 2015, where the red circle represents the residential buildings, and the green dot represents the trees. Click on the dots representing trees, you can see the diameter at breast height of each tree. It can also be seen from the map that with the change of time, there are more and more trees around, and the tree coverage rate becomes higher.</p>
-
-      <p>2. Analytical x Data Visualization x Python</p>
-
-      <p>I took the points of ten residential buildings as the center of a circle and counted the number of trees within the radius of one kilometer.</p>
-
-      <img src="bar.png">
-      <link href="style.css" rel="stylesheet" />
-      <script src="script.js"></script>
-
-      <p>3. Analytical x Data Visualization x Grasshopper</p>
-
-      <p>Import the csv file into grasshopper, draw a circle in grasshopper with the coordinate points of the residential buildings as the center of the circle, screen the points in the circles, and use the gradient tool to fill in the color of each circle according to the number of points contained, so as to more obviously compare the change of the number of street trees from 1995 to 2015.</p>
-
-      <img src="View.jpg">
-      <link href="style.css" rel="stylesheet" />
-      <script src="script.js"></script>
-
-      </section>
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-
-        <h2>The control of the indoor environment of the building by AI system in the future</h2>
-
-        <p>In the future, the world has experienced rapid advancements in technology. And architectural and technological advancements have transformed how buildings function internally. One innovative system governing the interior operations of buildings, from optimizing energy use to enhancing occupant well-being.</p>
-
-        <p>This system is  an integrated, AI-driven management system designed to oversee and optimize every aspect of a building's interior environment. It utilizes a network of smart sensors and advanced analytics to create a better living and working experience. This system is able to adjust interior conditions based on real-time data. The AI monitors variables such as temperature, lighting, air quality, and acoustic levels, makes instant adjustments to optimize comfort and efficiency, and turns the interior into a fully automated living environment</p>
-
-        <h2>How this system functions</h2>
-
-        <p>People in buildings provide feedback through an intuitive interface embedded in their daily devices. This feedback is analyzed by the AI to understand preferences and detect emerging issues. Then the system adapts to individual and collective needs.</p>
-
-        <p>This system includes features for monitoring occupant health and well-being. It can analyze the emotions of the occupants based on their state.  It tracks factors such as air quality, humidity, and noise levels, and adjusts the environment to promote physical and mental well-being.  The system also provides alerts and recommendations for healthier living practices.</p>
-
-        <img src="governance_1.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>Imagining you are entering the office to get ready for work. As you arrive, the system uses biometric data to personalize your workspaces, adjusting lighting, temperature, and even the ergonomics of your desks to suit individual preferences. Meanwhile, system balances energy use by dimming non-essential lights and adjusting the HVAC system to maintain comfort while conserving power.</p>
-
-        <img src="governance_2.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-
-        <p>In a word, it represents a future where building interiors are dynamically managed to enhance comfort, efficiency, and well-being. </p>
-
-      </section>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
-  <link href="style.css" rel="stylesheet" />
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
+
+

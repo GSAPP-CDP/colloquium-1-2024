@@ -1,0 +1,529 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+section {
+    position: relative;
+    min-height: 100vh; /* Ensures sections fill the viewport height */
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+}
+
+.content {
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); /* Start at the original position */
+    }
+    50% {
+        transform: translateY(-12px); /* Move up */
+    }
+    100% {
+        transform: translateY(0); /* Return to the original position */
+    }
+}
+
+.first-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #292929;
+    z-index: 1000;
+}
+
+.first-page .content h1, .first-page .content p {
+    opacity: 0; /* Start with invisible text */
+    animation: fadeIn 1s forwards;
+    word-spacing: 0.2em;
+}
+
+.first-page .content h1 {
+    animation-delay: 0.5s; /* Start animation after 0.5s */
+    font-size: 4em;
+    color:white;
+    word-spacing: 0.2em;
+}
+
+.first-page .content p {
+    animation-delay: 1s; /* Start animation after 1.5s */
+    font-size: 2em;
+    color:white;
+    word-spacing: 0.1em;
+}
+
+.second-page {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 230vh;
+    background-color: #686868;
+    z-index: 1000;
+}
+
+.content-wrapper {
+    position: absolute;
+    right: 30px;
+    top: 1.5%;
+    transform: translateY(10%);
+    width: 72%; /* Adjust width as needed */
+    max-width: calc(100% - 60px); /* Ensure it doesn't exceed the screen width */
+    height: 40%;
+    max-height: 300px;
+    background-color: rgba(255, 255, 255, 0.6);
+    overflow-y: auto; /* Scroll only vertically if needed */
+    overflow-x: hidden; /* Hide horizontal scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    white-space: normal; /* Allow text to wrap */
+    word-break: break-word; /* Ensure long words break */
+    padding-left: 70px;
+    padding-right: 70px;
+    cursor: move;
+}
+
+.content-wrapper h1 {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #252525;
+    line-height: 2;
+    letter-spacing: 0.25px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    font-family: 'Roboto Condensed', sans-serif
+}
+
+.content-wrapper h1 span {
+    opacity: 0; /* Start with hidden letters */
+    animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
+}
+
+
+.draggable {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.content-wrapper_2 {
+    position: absolute;
+    right: 80px; /* Adjust distance from the right edge */
+    top: 27.5%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 700px; /* Optional: Set a maximum width */
+    height: 500%; /* Adjust height as needed */
+    max-height: 180px; /* Optional: Set a maximum height */
+    padding: 20px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0.2);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+}
+
+.content-wrapper_2 h1 {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.content-wrapper_2 p {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+
+.content-wrapper_3 {
+    position: absolute;
+    left: 50px;
+    top: 21%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 700px; /* Optional: Set a maximum width */
+    height: 500%; /* Adjust height as needed */
+    max-height: 400px; /* Optional: Set a maximum height */
+    padding: 5px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.content-wrapper_3 h1 {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.content-wrapper_3 p {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+
+.img-custom {
+    width: 670px;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.content-wrapper_4 {
+    position: absolute;
+    left: 35px;
+    top: 58%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 1000px; /* Optional: Set a maximum width */
+    height: 500%; /* Adjust height as needed */
+    max-height: 270px; /* Optional: Set a maximum height */
+    padding: 5px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0.05);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px; 
+    padding-bottom: 40px;
+}
+
+.content-wrapper_4 h1 {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.content-wrapper_4 p {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.img-custom-2 {
+    width: 360px;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.content-wrapper_5 {
+    position: absolute;
+    right: 10px;
+    top: 83%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 1300px; /* Optional: Set a maximum width */
+    height: 500%; /* Adjust height as needed */
+    max-height: 265px; /* Optional: Set a maximum height */
+    padding: 5px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0.4);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px; 
+    padding-bottom: 30px;
+}
+
+.content-wrapper_5 h1 {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.content-wrapper_5 p {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.content-wrapper_6 {
+    position: absolute;
+    left: 0px;
+    top: 41%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 1820px; /* Optional: Set a maximum width */
+    max-width: 2100px;
+    height: 550%; /* Adjust height as needed */
+    max-height: 267px; /* Optional: Set a maximum height */
+    padding: 5px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px; 
+    padding-bottom: 0px;
+}
+
+.content-wrapper_6 h1 {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.content-wrapper_6 p {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 0px;
+    position: relative;
+}
+
+.content-wrapper_7 {
+    position: absolute;
+    left: 55px;
+    top: 87.5%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 630px; /* Optional: Set a maximum width */
+    height: 500%; /* Adjust height as needed */
+    max-height: 270px; /* Optional: Set a maximum height */
+    padding: 5px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+
+.content-wrapper_8 {
+    position: absolute;
+    right: 55px;
+    top: 85%; /* Center vertically (optional) */
+    transform: translateY(0%); /* Center vertically (optional) */
+    width: 800px; /* Optional: Set a maximum width */
+    height: 500%; /* Adjust height as needed */
+    max-height: 270px; /* Optional: Set a maximum height */
+    padding: 5px; /* Optional: Add padding inside the container */
+    overflow: auto; /* Allow scrolling if content overflows */
+    display: flex;
+    background-color:  rgba(255, 255, 255, 0.25);
+    flex-direction: column; /* Stack content vertically */
+    align-items: left; /* Center content horizontally */
+    justify-content: left; /* Center content vertically */
+    text-align: left; /* Center text */
+    cursor: move;
+    animation: float 3s ease-in-out infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+
+.content-wrapper_8 p {
+    max-width: 100%;
+    white-space: normal; /* Allow text to wrap normally */
+    word-break: keep-all; /* Prevent breaking words in certain languages */
+    overflow-wrap: break-word; /* Break long words if necessary */
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+
+.first-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #292929;
+    z-index: 1000;
+}
+
+.fifth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #292929;
+    z-index: 1000;
+}
+
+.vertical-text {
+    display: flex;
+    flex-direction: column; /* 从右到左的垂直排列 */
+    text-align: center; /* 文字居中对齐 */
+    margin: 0;
+    color: #ffffff;
+}
+
+.vertical-text h1 {
+    margin: 10px 0;
+    font-family: 'Merriweather', serif;
+    font-size: 35px; 
+    line-height: 60px;
+}
+
+.img-custom-3 {
+    width: 2530px;
+}
