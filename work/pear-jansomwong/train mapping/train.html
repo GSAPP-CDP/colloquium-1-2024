@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Display places and train stops</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        #legend {
+            position: absolute;
+            bottom: 150px;
+            right: 150px;
+            background: #FFC6DE;
+            padding: 1px;
+            border-radius: 3px;
+            border-color: #9BCEA0;
+            opacity: 0.8;
+            font-family: dogica, sans-serif;
+            font-size: 7px;
+            color: #FFFFFF;
+        }
+        .legend-item {
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 8px;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+        .legend-line {
+            display: inline-block;
+            width: 20px;
+            height: 3px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<div id="legend">
+    <div class="legend-item">
+        <span class="legend-color" style="background-color: #9BCEA0;"></span>
+        Communities
+    </div>
+    <div class="legend-item">
+        <span class="legend-color" style="background-color: #C8AED8;"></span>
+        Train Stops
+    </div>
+
+</div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGFueWFudXMiLCJhIjoiY2x6MXo0Ym9jMWZ6cjJrb2l6YXk2NnAzaSJ9._smojqWBDds304Vg0Ubtmw';
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/panyanus/clzj2bizo015n01pa2yjg4mvl',
+        center: [100.5018, 13.7563],
+        zoom: 11
+    });
+
+    function parseCSV(text) {
+        const lines = text.split('\n');
+        const headers = lines[0].split(',').map(h => h.trim());
+        return lines.slice(1).map(line => {
+            const values = line.split(',');
+            return headers.reduce((obj, header, index) => {
+                obj[header] = values[index] ? values[index].trim() : '';
+                return obj;
+            }, {});
+        });
+    }
+
+    map.on('load', () => {
+        Promise.all([
+            fetch('oldcommu.geojson').then(response => response.json()),
+            fetch('20 nearest old craft commu.csv').then(response => response.text()).then(parseCSV),
+            fetch('train_stops.geojson').then(response => response.json())
+        ]).then(([geojsonData, csvData, trainStopsData]) => {
+            geojsonData.features.forEach(feature => {
+                const csvRow = csvData.find(row => 
+                    parseFloat(row.Latitude) === feature.geometry.coordinates[1] &&
+                    parseFloat(row.Longitude) === feature.geometry.coordinates[0]
+                );
+                if (csvRow) {
+                    feature.properties = { ...feature.properties, ...csvRow };
+                }
+            });
+
+            map.addSource('places', {
+                'type': 'geojson',
+                'data': geojsonData
+            });
+
+            map.addLayer({
+                'id': 'places',
+                'type': 'circle',
+                'source': 'places',
+                'paint': {
+                    'circle-color': '#9BCEA0',
+                    'circle-radius': 7,
+                    'circle-stroke-width': 0,
+                    'circle-stroke-color': '#FFFFFF'
+                }
+            });
+
+            map.addSource('train-stops', {
+                'type': 'geojson',
+                'data': trainStopsData
+            });
+
+            map.addLayer({
+                'id': 'train-lines',
+                'type': 'line',
+                'source': 'train-stops',
+                'layout': {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                'paint': {
+                    'line-color': '#4287f5',
+                    'line-width': 3
+                }
+            });
+
+            map.addLayer({
+                'id': 'train-stops',
+                'type': 'circle',
+                'source': 'train-stops',
+                'paint': {
+                    'circle-color': '#C8AED8',
+                    'circle-radius': 3,
+                    'circle-stroke-width': 0,
+                    'circle-stroke-color': '#000000'
+                }
+            });
+
+            const bounds = new mapboxgl.LngLatBounds();
+            geojsonData.features.concat(trainStopsData.features).forEach(feature => {
+                bounds.extend(feature.geometry.coordinates);
+            });
+            map.fitBounds(bounds, { padding: 50 });
+
+            const popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false
+            });
+
+            map.on('mouseenter', 'places', (e) => {
+                map.getCanvas().style.cursor = 'pointer';
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const properties = e.features[0].properties;
+                
+                const { Name, Description } = properties;
+
+                const popupContent = `
+                    <h3>${Name || 'Unnamed Location'}</h3>
+                    <p>${Description || 'No description available'}</p>
+                `;
+                popup.setLngLat(coordinates).setHTML(popupContent).addTo(map);
+            });
+
+            map.on('mouseleave', 'places', () => {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+
+            map.on('mouseenter', 'train-stops', (e) => {
+                map.getCanvas().style.cursor = 'pointer';
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const properties = e.features[0].properties;
+                
+                const popupContent = `
+                    <h3>${properties.name || 'Unnamed Train Stop'}</h3>
+                    <p>Latitude: ${coordinates[1]}</p>
+                    <p>Longitude: ${coordinates[0]}</p>
+                `;
+                const bounds = new mapboxgl.LngLatBounds(coordinates, coordinates);
+                geojsonData.features.forEach(place => {
+                    bounds.extend(place.geometry.coordinates);
+                });
+                map.fitBounds(bounds, {
+                    padding: 50,
+                    maxZoom: 15
+                });
+                popup.setLngLat(coordinates).setHTML(popupContent).addTo(map);
+            });
+
+            map.on('mouseleave', 'train-stops', () => {
+                map.getCanvas().style.cursor = '';
+                popup.remove();
+            });
+        }).catch(err => console.error('Error loading data:', err));
+    });
+</script>
+</body>
+</html>

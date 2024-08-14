@@ -1,929 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- LINKS + SCRIPTS + SITE NAME -->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Hao Lee from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <!--<link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400&display=swap">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
+    <meta name="description" content="Student work by Hao Lee from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." /> <!-- Provides a description of the document for search engines -->
+        
+    <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any"> <!-- Sets the favicon for the document -->
+    <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml"> <!-- Sets the SVG favicon for the document -->
+    <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" /> <!-- Links to a CSS file for normalizing styles across browsers -->
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconnects to Google Fonts for faster font loading -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnects to Google Fonts for faster font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- Links to the Poppins font family from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400&display=swap"> <!-- Links to the Host Grotesk font family from Google Fonts -->
+        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/> <!-- Links to the Leaflet CSS for mapping -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script> <!-- Includes the Leaflet library for mapping -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet-src.js"></script> <!-- Includes the Leaflet source code for mapping -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/1.2.0/leaflet.ajax.min.js"></script> <!-- Includes the Leaflet Ajax library for dynamic mapping data -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> <!-- Includes the jQuery library for JavaScript functionality -->
 
-  <link rel="stylesheet" href="style.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.14.8/build/matter.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet-src.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/1.2.0/leaflet.ajax.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  
-  
-
-  <script>
-        window.addEventListener('resize', function() {
-      location.reload();
-    });
-  </script>
-
-
-
-  <title>Draggable Box</title>
-  <title>Draggable Ball</title>
-
-  <style>
-  #canvas {
-    width: 100vw;
-    height: 100vh;
-    border: 1px solid #000;
-    display: block;
-    margin: 0;
-  }
-  .overlay {
-    mix-blend-mode: multiply;
-  }
-  </style>
-
-  <title>Hao Lee</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Hao Lee</title>
 </head>
 
-<body>
-  <div id="draggableBox">
-    
+<div id="draggableBox">
     <ul>
-      <br>
-      <li><a href="#about" class="scroll-link">About</a></li>
-      <br>
-      <li><a href="#assignment-1" class="scroll-link">System</a></li>
-      <li><a href="#assignment-2" class="scroll-link">Authorship</a></li>
-      <li><a href="#assignment-3" class="scroll-link">Politics</a></li>
-      <li><a href="#assignment-4" class="scroll-link">Governance</a></li>
-      <li><a href="#assignment-5" class="scroll-link">Behavior</a></li>
-      <br>
-      <li><a href="#assignment-0" class="scroll-link">Miscellaneous</a></li>
+        <br>
+        <li><a href="#section1" class="scroll-link">Guerrilla Urbanism</a></li>
+        <br><hr><br>
+        <li><a href="#section2a" class="scroll-link">The Empty Metropolis</a></li>
+        <li><a href="#section3a" class="scroll-link">Voids</a></li>
+        <li><a href="#section4a" class="scroll-link">Reusenaissance</a></li>
+        <li><a href="#section5a" class="scroll-link">To Be a Gorilla</a></li>
+        <br><hr><br>
+        <li><a href="#section6a" class="scroll-link">Miscellaneous</a></li>
     </ul>
+</div>
 
-  </div>
+<div id="draggableBox2">
+    <ul>
+        <br>
+        <div class="switch-container">
+            <li><a><button id="invert-toggle" class="styled-button"><u>Dark Mode</u></button></a></li>
+        </div>
+    <li><a><button id="navButton"><u>Fullscreen</u></button></a></li>
+    </ul>
+</div>
 
-  <header>
+<div id="draggableBox3">
+    <div class="scrollable-content">
+        <ul id="descriptionContent"></ul>
+    </div>
+</div>
+
+<div id="title-01"
+style="position: fixed; bottom: 80px; right: 35px; z-index: 1000; text-align: right;">
+    <a href="https://www.behance.net/haoleearch">
+        <img
+        src="title-01.png"
+        alt="Title-01"
+        class="colored-image"
+        style="float: right;">
+    </a>
+</div>
+
+
+
+
+<header>
     <h0>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
+        <a href="https://www.arch.columbia.edu/" target="_blank">
+            Columbia GSAPP
+        </a>
     </h0>
     <br>
     <h4>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a>
+        <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
+        Computational Design Practices
+        </a>
     </h4>
 
-    <h3>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Hao Lee
-    </h3>
-    
-    <!--<nav>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>-->
-  </header>
+    <!-- <h3>
+        <a href="/">Home</a> → <a href="/work">Student Work</a> → Hao Lee
+    </h3> -->
+</header>
 
-  <main>
-    <article>
-      <section>
-
-        <br>
-        <!--<img src="featured.png" alt="Featured Image" class="full-width-image">-->
-        <div class="model-viewer-container">
-          <div class="model-wrapper">
-
-            <model-viewer id="redBarrel1"
-            src="test2.gltf"
-            poster="tewscfuda_2K_Albedo_LOD5.webp"
-            ar environment-image="rostock_laage_airport_1k.hdr"
-            alt="Testing..."
-            shadow-intensity="1"
-            camera-controls touch-action="pan-y"
-            camera-orbit="calc(-2rad + env(window-scroll-y) * 4rad) calc(80deg + env(window-scroll-y) * 180deg) calc(15m - env(window-scroll-y) * 10m)"
-            disable-zoom
-            auto-rotate
-            style="width: 33.33%; height: 750px;">
-            </model-viewer>
-
-            <model-viewer id="redBarrel2"
-            src="test2.gltf"
-            poster="tewscfuda_2K_Albedo_LOD5.webp"
-            ar environment-image="rostock_laage_airport_1k.hdr"
-            alt="Testing..."
-            shadow-intensity="1"
-            camera-controls touch-action="pan-y"
-            camera-orbit="calc(-2rad + env(window-scroll-y) * 4rad) calc(80deg + env(window-scroll-y) * 180deg) calc(15m - env(window-scroll-y) * 10m)"
-            disable-zoom
-            auto-rotate
-            style="width: 33.33%; height: 750px;">
-            </model-viewer>
-
-            <model-viewer id="redBarrel3"
-            src="test2.gltf"
-            poster="tewscfuda_2K_Albedo_LOD5.webp"
-            ar environment-image="rostock_laage_airport_1k.hdr"
-            alt="Testing..."
-            shadow-intensity="1"
-            camera-controls touch-action="pan-y"
-            camera-orbit="calc(-2rad + env(window-scroll-y) * 4rad) calc(80deg + env(window-scroll-y) * 180deg) calc(15m - env(window-scroll-y) * 10m)"
-            disable-zoom
-            auto-rotate
-            style="width: 33.3%; height: 750px;">
-            </model-viewer>
-
-          </div>
-          <div class="arrow left-arrow" id="leftArrow">&#9664;</div>
-          <div class="arrow right-arrow" id="rightArrow">&#9654;</div>
-        </div>
-        <br>
-        <h2>Hao's it going?</h2>
-        <br>
-        <hr>
-
-      </section>
-    </article>
-    <article>
-
-      <div class="spacer"></div>
-
-      <!--<script id="physics">
-        // Create an engine
-        var engine = Matter.Engine.create();
-        // Lower the engine's gravity
-        engine.gravity.y = 0.8;
-        // Create a renderer
-        var render = Matter.Render.create({
-          element: document.body,
-          engine: engine,
-          options: {
-            width: window.innerWidth,
-            height: window.innerHeight,
-            wireframes: false,
-            background: 'transparent' // Make the background transparent
-          }
-        });
-        // Set the canvas to pointer-events: none to allow clicking behind it
-        render.canvas.style.pointerEvents = 'auto';
-        render.canvas.addEventListener('mousedown', function(event) {
-          event.stopPropagation();
-        });
-    
-        // Create three boxes and a ground
-        var boxA = Matter.Bodies.rectangle(400, 200, 40, 40, {
-          chamfer: { radius: 6 },
-          render: {
-            fillStyle: '#000000',
-            strokeStyle: '#000000',
-            lineWidth: 1
-          },
-          restitution: 0.2, // Lowered restitution to reduce bounciness
-          density: 0.8, // Increased density to make the box heavier
-          friction: 3
-        });
-        var boxB = Matter.Bodies.rectangle(400, 200, 40, 40, {
-          chamfer: { radius: 6 },
-          render: {
-            fillStyle: '#000000',
-            strokeStyle: '#000000',
-            lineWidth: 1
-          },
-          restitution: 0.2, // Lowered restitution to reduce bounciness
-          density: 0.8, // Increased density to make the box heavier
-          friction: 3
-        });
-        var boxC = Matter.Bodies.rectangle(400, 200, 40, 40, {
-          chamfer: { radius: 6 },
-          render: {
-            fillStyle: '#000000',
-            strokeStyle: '#000000',
-            lineWidth: 1
-          },
-          restitution: 0.2, // Lowered restitution to reduce bounciness
-          density: 0.8, // Increased density to make the box heavier
-          friction: 3
-        });
-    
-        // Add mouse control with rotation
-        var mouse = Matter.Mouse.create(render.canvas);
-        var mouseConstraint = Matter.MouseConstraint.create(engine, {
-          mouse: mouse,
-          constraint: {
-            stiffness: 0.01, // Lowered stiffness to make dragging slower
-            render: {
-              visible: false
-            },
-            angularStiffness: 0 // Allow rotation
-          }
-        });
-    
-        Matter.World.add(engine.world, mouseConstraint);
-    
-        // Keep the mouse in sync with rendering
-        render.mouse = mouse;
-        render.options.background = 'transparent';
-        var ground = Matter.Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
-    
-        // Create boundaries
-        var wallLeft = Matter.Bodies.rectangle(0, window.innerHeight / 2, 10, window.innerHeight, { 
-          isStatic: true,
-          render: {
-            fillStyle: 'transparent'
-          }
-        });
-        var wallRight = Matter.Bodies.rectangle(window.innerWidth, window.innerHeight / 2, 10, window.innerHeight, { 
-          isStatic: true,
-          render: {
-            fillStyle: 'transparent'
-          }
-        });
-        var wallTop = Matter.Bodies.rectangle(window.innerWidth / 2, 0, window.innerWidth, 10, { 
-          isStatic: true,
-          render: {
-            fillStyle: 'transparent'
-          }
-        });
-        var ground = Matter.Bodies.rectangle(window.innerWidth / 2, window.innerHeight, window.innerWidth, 10, { 
-          isStatic: true,
-          render: {
-            fillStyle: 'transparent'
-          }
-        });
-    
-        // Add all of the bodies to the world
-        Matter.World.add(engine.world, [boxA, boxB, boxC, ground, wallLeft, wallRight, wallTop]);
-    
-        // Add mouse control
-        var mouse = Matter.Mouse.create(render.canvas);
-        var mouseConstraint = Matter.MouseConstraint.create(engine, {
-          mouse: mouse,
-          constraint: {
-            stiffness: 0.2,
-            render: {
-              visible: false
-            }
-          }
-        });
-    
-        Matter.World.add(engine.world, mouseConstraint);
-    
-        // Keep the mouse in sync with rendering
-        render.mouse = mouse;
-    
-        // Add momentum to the boxes when released
-        Matter.Events.on(mouseConstraint, 'enddrag', function(event) {
-          var body = event.body;
-          if (body) {
-            Matter.Body.setVelocity(body, { x: body.velocity.x * 1.5, y: body.velocity.y * 1.5 });
-          }
-        });
-    
-        // Run the engine
-        Matter.Engine.run(engine);
-    
-        // Run the renderer
-        Matter.Render.run(render);
-    
-        // Allow scrolling when the cursor is inside the engine space
-        render.canvas.addEventListener('wheel', function(event) {
-          event.stopPropagation();
-        });
-
-        // Allow canvas to handle clicks when necessary
-        render.canvas.addEventListener('mousedown', function(event) {
-          render.canvas.style.pointerEvents = 'auto';
-        });
-
-        render.canvas.addEventListener('mouseup', function(event) {
-          render.canvas.style.pointerEvents = 'auto';
-        });
-
-        // Reset pointer events when mouse leaves the canvas
-        render.canvas.addEventListener('mouseleave', function(event) {
-          render.canvas.style.pointerEvents = 'none';
-        });
-      </script>-->
-      
-      <h1 id="about">About</h1>
-      <h2 style="position: relative;">
-        <span style="position: relative;">From</span> 
-        <span class="underline" id="random-word-A" style="margin: 10px; font-size: 2rem;">Windmill</span> 
-        <span style="position: relative;">to</span> 
-        <span class="underline" id="random-word-B" style="margin: 10px; font-size: 2rem;">skate park</span>
-      </h2>
-
-    </article>
-
-      <div class="spacer"></div>
-      <div class="spacer"></div>
-      
-      <hr>
-
-      <!--System-->
-      <section>
-        <h1 id="assignment-1">System</h1>
-        <h2>Post-Industrial Adaptive Reuse</h2>
-        <div class="outer-container">
-          <div class="text-column">
-            <p>
-              Elements:
-            </p>
-            <p>
-              Factory buildings, industrial infrastructure & street grid, architects/planners, developers/stakeholders, government agencies, construction workers, communities
-            </p>
-
-            <br>
-
-            <p>
-              Interconnections:
-            </p>
-            <p>
-              Design & construction  innovations, Zoning laws, incentives, community engagement, transportation
-            </p>
-
-            <br>
-
-            <p>
-              Functions:
-            </p>
-            <p>
-              Generate capital, historic preservation, environmental sustainability, address housing needs, generate tourism, increase property values.
-            </p>
-
-            <br>
-          
-            <p>
-                Most interesting: How designers, developers, and communities utilize modern (or primitive) technologies to transform spaces physically and culturally.
-            </p>
-
-            <br>
-
-            <p>
-                Most problematic: A double-edged sword: although adaptive reuse begins with benign intentions such as sustainability, it often ends up skyrocketing the housing prices and drives locals away—a form of gentrification. 
-            </p>
-            </div>
-          </div>
-      </section>
-
-      <section>
-        <h2>Whom does it impact?</h2>
-        <div class="outer-container">
-          <div class="text-column">
-          
-            <p>
-              Continuing from the problematic stuff, let’s first simplify the purpose of adaptive reuse in post-industrial zones, hereby referred to as 'the system,' into two outputs: address housing needs & increase property values. No matter how compassionate/malicious the initial intention might be, the system will always produce these two outputs. Like any complex system, we cannot rightfully determine whether an adaptive reuse project is “good-natured” or not, but what we can do is view the effort from a systemic perspective to perceive what crucial elements and relationships control the balance of its final output. 
-            </p>
-
-            <br>
-
-            <p>
-              As for the system’s elements, there are two major players relating to the outputs: residents & capital. For the sake of analysis, we’ll be looking at just two stocks formed by these two elements. Below, we now have the industrial zone formed by a resident stock and a capital stock. (Note: the capital here is a combined concept including infrastructure, housing, land use, space potential, etc.)
-            </p>
-
-            <p>
-              Once the reuse effort begins, potential investors will gradually catch wind of the project and invest in/move into nearby properties. Here we can identify the first delay: the information lag. On the other hand, we can also map out what is influencing the residential pool: immigration and emigration.
-            </p>
-
-            <p>
-              Due to the lengthy nature of architectural and planning projects, urban revitalization would often take at least five to ten years to fundamentally affect the urban space as a whole (a massive delay! We’ll swap out the “industrial zone” for “construction/cultivation delay”.) At a certain point, the transformed urban space generates enough positive output, e.g., word of mouth, career opportunities, and incentives, the reinforcing feedback loop gradually forms and fills up the capital and the residents stocks. For this instance, as long as the capital influence (Capitalism!) of the urban transformation stays above zero, which it almost always does, the feedback loops on both ends will contribute to more incoming investors/residents and drive out original residents.
-            </p>
-          </div>
-
-            <div class="image-column">
-              <br>
-              <img class="overlay" src="diagrams_20240723-01.png">
-              <img class="overlay" src="diagrams_20240723-02.png">
-              <img class="overlay" src="diagrams_20240723-03.png">
-            </div>
-          </section>
-          <section>
-            <p>
-              Short conclusion A: This is a very incomplete investigation into how gentrification forms and where can we differentiate our efforts from housing injustice. It does not touch on anything spatially-related, such as industrial site features, locations, transportation, etc.
-              Short conclusion B: Should we aim for housing justice or sustainable redevelopments, we need more than capitalism to do the trick. 
-            </p>
-          </section>
-
-      <hr>
-
-      <section>
-
-        <figure>
-          <img src="CDP-ColloquiumI-02.png">
-          <img src="CDP-ColloquiumI-05.png">
-          <img src="CDP-ColloquiumI-03.png">
-        </figure>
-
-        <br>
-        <h2>
-          Rube Goldberg Machine: Unpredictable
-        </h2>
-
-        <div class="video-container">
-          <iframe 
-          width="720" 
-          height="315" 
-          src="https://www.youtube.com/embed/Dr4IfNH6Ngk" 
-          frameborder="0" 
-          allowfullscreen>
-          </iframe>
-        </div>
-
-      </section>
-
-      <div class="spacer"></div>
-      <hr>
-
-      <!--Authorship-->
-      <section>
-        <h1 id="assignment-2">Authorship</h1>
-
-        <h2>Who's in charge?</h2>
-        <h3>Curate data literacy & cultivate urban landscapes-20240717</h3>
-        <p>
-          Through data interpretation and user vote/discussion,This practice deploys tactical installations that enable the locals to engage in their creation.
-        </p>
-
-        <h3>
-          Who are the users?
-        </h3>
-        <p>
-          - Data contributors: Provide data, discussions, and feedback to the system
-        </p>
-        <p>
-          - Residents: Leverage the system for informed decisions and spatial co-creation
-        </p>
-        <br>
-
-        <h3>
-          Authorship Levels
-        </h3>
-        <p>
-          - The Masses Author: Census data, AI as a tool than a content creation device
-        </p>
-        <p>
-          - The Program Author: Data interpretation, spatial curation
-        </p>
-        <p>
-          - The User Author: Actions guided by interpreted data, contribution to data
-        </p>
-        <br>
-
-        <h3>
-          Responsibility & Accountability
-        </h3>
-        <p>
-          In this system, the program and user authors are ultimately held responsible/accountable for their decisions and actions. This authorship system views data and automation software as mere tools to accelerate production rather than decision-makers. Although AI decision-making algorithms exist and are gaining traction nowadays, this system opposes that idea and believes a diluted and multi-processed information chain will lead to utterly inhuman and inhumane conclusions.
-        </p>
-        <br>
-        <p>
-          This system creates environments informed by mass data, establishing a curated platform (digital/physical) for users. The program authors are responsible for the platform’s ideation, creation, and maintenance. The user authors are held accountable for their locked-in actions under this framework.
-        </p>
-        <br>
-
-        <h3>
-          Copyright
-        </h3>
-        <p>
-          One of the most important parts of informing decisions is disclosing their data sources. Similar to how one would credit consultation firms in architectural projects or reference documents in bibliographies, one of this systemic practice’s aims is to gather and present the info used in decision-making.
-        </p>
-        <br>
-
-        <h3>
-          Authorship Model Examples
-        </h3>
-        <p>
-          <b>Solibri</b> utilizes AI in a controlled environment for code-checking and collaboration. The controlled environment matters a lot because its limiting nature will position AI as a tool rather than creating black boxes. It’s crucial to my practice because a core part of this system is established upon human responsibility and culpability. We use AI, or any other technologies, for that matter, as an auxiliary device for our actions.
-        </p>
-        <br>
-        <p>
-          <b>SmartWorldOS by cityzenith</b> allows users to build server-side and client-side Python apps for building analysis. Regarding the built environment, the users are equally important as those who designed their surroundings, if not more. Once the building has finished its construction, it’s up to the residents to carry out the architecture’s ultimate evolution or demise. Hence, this practice establishes a platform, whether digital or physical, for user participation and feedback. A platform is only successful when users can utilize it to fulfill their personal goals, rather than always thinking about the big picture. A user is just a user, and we, the program authors, need to set strict lock-in user boundaries and bring equal professionalism and humanity back to decision-making.
-        </p>
-        <br>
-        <p>
-          <b>Adapt, Reuse</b> internalizes the idea of its name by allowing users to submit, collect, and reuse resources. (The idea is great, but the execution, not so much.) One of the things I like about open-source projects is that they have a certain degree of “repeatability”. Actually, this sounds a bit like <b>LEGO Ideas</b> plus the LEGO subreddit, where users can submit and share different creations based on their unified passion for the same system. The reason many open-source projects became stagnant is because of the difficulty of replicating “projects”, whereas small and easy contributions could easily consolidate a whole system’s user base and its path forward.
-        </p>
-        <br>
-
-        <h2>
-          <a href="colloquium-1-2024/work/sebastian-schloesser/zine.html">
-          Interactive Zine (*Click to play*)
-          </a>
-        </h2>
-
-      </section>
-      <div class="spacer"></div>
-      <hr>
-
-      <!--Politics-->
-      <section>
-        <h1 id="assignment-3">Politics</h1>
-        <h2>Does adaptive reuse lead to gentrification?</h2>
-        <div class="outer-container">
-          <div class="text-column">
-            <p>
-              This is an investigation into whether adaptive reuse ultimately forms gentrification and where can we differentiate our efforts from housing injustice. Generally, gentrifiation includes physical change, cultural change, and rising prices. The following section takes The High Line as a case study to investigate gentrification data and its relationship to adaptive reuse.
-            </p>
-            <h2>
-              Data collection: The High Line
-            </h2>
-            <p> Dataset 1: Project Location</p>
-            <p class="indent">
-              a. Type: NURBs curve (.3dm) <br>
-              b. Information: Project geometry <br>
-              c. Data source: <a href="https://www.nyc.gov/site/planning/data-maps/open-data/dwn-nyc-3d-model-download.page"><u>NYC Department of City Planning</u></a><br>
-              d. Usage: Management/Education/Engagement<br>
-              e. Info Date: 2018 (data gathered in 2014)
-            </p>
-            <div class="model-viewer-container" style="height: 200px;">
-              <model-viewer
-              src="High-Line_2D.gltf" 
-              alt="High Line 2D Model"
-              auto-rotate
-              camera-orbit="0deg 45deg 2.5m"></model-viewer>
-            </div>
-            <br><br>
-
-            <p>Dataset 2: Demographic Change</p>
-            <p class="indent">
-              a. Type: Table (.xlsx) <br>
-              b. Information: Age/Race/Education/Income <br>
-              c. Data source: <a href="https://popfactfinder.planning.nyc.gov/explorer/selection/25ad29af5db931350ecdafa899360bbea95c92bd?acsTopics=demo-sexAndAge%2Cdemo-mutuallyExclusiveRaceHispanicOrigin%2Csoc-educationalAttainmentHighestGradeCompleted%2Csoc-languageSpokenAtHome%2Csoc-ancestry%2Csoc-computersAndInternetUse%2Cecon-earnings%2Chou-yearStructureBuilt%2Chou-grossRent%2Chou-grossRentAsAPercentageOfHouseholdIncomeGrapi%2Cecon-classOfWorker&source=acs-change"><u>NYC Department of City Planning</u></a><br>
-              d. Usage: Management/Education/Engagement<br>
-              e. Info Date: 2006-2022
-            </p>
-            <div class="scrollable-container">
-              <div class="scrollable-content">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_1.png?raw=true" alt="Demographic Data 1">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_2.png?raw=true" alt="Demographic Data 2">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_3.png?raw=true" alt="Demographic Data 3">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_4.png?raw=true" alt="Demographic Data 4">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_5.png?raw=true" alt="Demographic Data 5">
-              </div>
-            </div><br><br>
-
-            <p> Dataset 3: Google Street Views</p>
-            <p class="indent">
-              a. Type: Image (.png) <br>
-              b. Information: Physical Change <br>
-              c. Data source: <a href="https://streeteasy.com/"><u>Google Maps</u></a><br>
-              d. Usage: Management/Investment<br>
-              e. Info Date: 2018
-            </p>
-            <div class="scrollable-container">
-              <div class="scrollable-content">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_6.png?raw=true" alt="Demographic Data 6">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_7.png?raw=true" alt="Demographic Data 7">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_8.png?raw=true" alt="Demographic Data 8">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_9.png?raw=true" alt="Demographic Data 9">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_10.png?raw=true" alt="Demographic Data 10">
-              </div>
-            </div><br><br>
-            <div class="scrollable-container">
-              <div class="scrollable-content">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_11.png?raw=true" alt="Demographic Data 11">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_12.png?raw=true" alt="Demographic Data 12">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_13.png?raw=true" alt="Demographic Data 13">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_14.png?raw=true" alt="Demographic Data 14">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_15.png?raw=true" alt="Demographic Data 15">
-              </div>
-            </div><br><br>
-
-            <p> Dataset 4: POI Reviews</p>
-            <p class="indent">
-              a. Type: Wordcloud (.png) <br>
-              b. Information: Review emphases <br>
-              c. Data source: <a href="https://www.nyc.gov/site/planning/data-maps/open-data/dwn-nyc-3d-model-download.page"><u>Google Maps</u></a><br>
-              d. Usage: urban management/education/community engagement<br>
-              e. Info Date: 2018 
-            </p>
-            <div class="scrollable-container">
-              <div class="scrollable-content">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_16.png?raw=true" alt="Demographic Data 16">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_17.png?raw=true" alt="Demographic Data 17">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_18.png?raw=true" alt="Demographic Data 18">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_19.png?raw=true" alt="Demographic Data 19">
-                <img src="https://github.com/halfward/data/blob/main/Demographic-Data_20.png?raw=true" alt="Demographic Data 20">
-              </div>
-            </div><br><br>
-
-            <p> Dataset 5: Nearby POIs with "Art" tags</p>
-            <p class="indent">
-              a. Type: WKT (.csv) <br>
-              b. Information: POI physical distribution <br>
-              c. Data source: <a href="https://www.nyc.gov/site/planning/data-maps/open-data/dwn-nyc-3d-model-download.page"><u>Google Maps</u></a><br>
-              d. Usage: Advertisement/Management<br>
-              e. Info Date: 2024
-            </p>
-            <div class="scrollable-container">
-              <div id="csv-content"></div>
-            </div>
-
+<body>
+    <div class="container">
+        <!-- GUERRILLA URBANISM -->
+        <section id="section1" style="position: relative;">
             <div class="spacer"></div>
+            <img src="title-02.webp" alt="Title 02" style="position: absolute; top: 37.5vh; left: 78vw; width: 40px; height: auto; z-index: 1; mix-blend-mode: multiply;">
+            <h1 style="text-shadow: 
+            1px 1px 0 #dbdbdb, 
+            -1px -1px 0 #dbdbdb, 
+            1px -1px 0 #dbdbdb, 
+            -1px 1px 0 #dbdbdb;">Guerrilla Urbanism</h1>
+            <span class="word-container">
+                <div class="h2a">
+                    <span id="random-word-A" class="word-A">Windmill</span>
+                    <span class="center-word">to</span>
+                    <span id="random-word-B" class="word-B">skate park</span>
+                </div>
+            </span>      
+        </section>
 
-            <h2>
-              Manifesto
-            </h2>
-            <p>
-              The increase in the Hispanic community's population may not solely result from increased capital investment. Instead, other factors such as employment type, income levels, and social dynamics could play significant roles. When analyzing demographic data, it's essential to consider the context and causality, rather than drawing conclusions based purely on numerical changes.
-            </p>
-            <p>
-              The datasets also omit crucial information, such as each ethnicity's profession and income. Additionally, three of the five datasets are sourced from Google Maps, which prioritizes monetization over transparency to some extent. For instance, the Google Maps datasets provide a generalized view of points of interest (POIs) rather than reflecting the actual operations of businesses.
-            </p>
-            <p>
-              Moreover, the processed word clouds generated from scraping Google Reviews do not accurately reflect the actual content of the reviews but rather provide a general representation of the most popular words. For instance, if many reviewers mention the word "restroom," we wouldn't know if the points of interest (POIs) have ample, clean restrooms or if they lack them entirely (e.g., no restroom, small restroom, etc.). In fact, word clouds can only serve as a rough lens to highlight disparities between locations, guiding further, more detailed analysis.
-            </p>
-            <p>
-              One significant limitation of Google Maps is the lack of version control. When a dataset is updated, the previous version is lost, making it challenging to examine the gradual transformation of a neighborhood over time. By overlaying the PLUTO construction year data with detailed investigations of local businesses, it would be possible to illustrate a more comprehensive transformation of the neighborhood, especially around adaptive reuse projects.
-            </p>
-            <p>
-              Other important aspects to consider: the vendors' target audiences (product price range), vehicle vs pedestrian traffic, the number of local businesses, etc.
-            </p>
-          </div>
-        </div>
-      </section>
-      <div class="spacer"></div>
-
-      <section>
-        <h2>Local Businesses vs Art Galleries in Manhattan</h2>
-        <h2>There are 642 local businesses* and 832 art galleries** in Manhattan. </h2>
-        <h2>The two groups share no intersection.</h2>
-        
-        <div id="map"></div>
-
-        <div>
-            <h2>This area has <span id="localBusinesses">_ <span id="localBusinessLabel">local businesses</span></span> and <span id="artGalleries">_ <span id="artGalleryLabel">art galleries</span></span></h2>
-            
-        </div>
-
-
-        <!-- Circles -->
-        <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-            <div style="width: 250px; height: 250px; display: flex; justify-content: center; align-items: center; box-sizing: border-box;">
-                <div id="blueCircle" style="width: 100px; height: 100px; background-color: blue; border-radius: 50%; transition: width 0.5s, height 0.5s; opacity: 0.7;"></div>
+        <!-- THE EMPTY METROPOLIS -->
+        <section id="section2a">
+                <div class="spacer"></div>
+                <h1>The Empty Metropolis</h1>
+                <h2><span>
+                    Architecture as <span class="strikethrough">Living Spaces</span> Assets
+                </h2></span>
+                <p>
+                    Our markets prioritize capital investment over the built environment.
+                    <br>
+                    Can we identify this phenomenon? How might we challenge it?
+                </p>
+        </section>
+        <section id="section2b">
+            <div class="UI-container">
+                <img src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/UI-04.webp" alt="UI-04" class="UI-top-image-1">
+                <img src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/UI-05.webp" alt="UI-05" class="UI-top-image-2">
+                <div class="UI-background"></div>
+                <div class="UI-overlay"></div>
+                <div class="UI-cursor-mask">
+                    <span class="status-text top">Occupied</span>
+                    <span class="status-text bottom">Vacant</span>
+                </div>
+                <img src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/UI-03.webp" alt="UI-03" class="UI-corner-image">
             </div>
-            <div style="width: 250px; height: 250px; display: flex; justify-content: center; align-items: center; box-sizing: border-box; margin-left: 20px;">
-                <div id="redCircle" style="width: 100px; height: 100px; background-color: red; border-radius: 50%; transition: width 0.5s, height 0.5s; opacity: 0.7;"></div>
+        </section>
+        <section id="section2c">
+            <div id="mindmap-container">
+                <script src="https://d3js.org/d3.v7.min.js"></script>
+                <script src="mindmap.js"></script>
             </div>
-        </div>
+            <div class="reference-container">
+                    <div class="reference-item">
+                        <a href="https://whitney.org/artists/3592" target="_blank" rel="noopener noreferrer">
+                            <img src="https://whitneymedia.org/assets/artwork/43339/T_2013_203_cropped.jpeg" alt="Gordon Matta-Clark Work" style="filter: invert(1);">
+                        </a>
+                        <p style="font-size: 0.9rem !important;"><b>Conical Intersect</b>, 1975. Gordon Matta-Clark.<br>Whitney Museum of American Art.</p>
+                    </div>
+                    <div class="reference-item">
+                        <a href="https://borrow.nypl.org/search/card?id=dd907ae1-1593-5bb6-adf8-cc0a54a05862&entityType=FormatGroup" target="_blank" rel="noopener noreferrer">
+                            <img src="https://secure.syndetics.com/index.aspx?isbn=0395294576/lc.gif&upc=&client=nyplvega&type=unbound" alt="David Macaulay Work" style="filter: invert(1);">
+                        </a>
+                        <p style="font-size: 0.9rem !important;"><b>Unbuilding</b>, 1987. David Macaulay.<br>New York Public Library.</p>
+                    </div>
+                    <div class="reference-item">
+                        <a href="https://lebbeuswoods.wordpress.com/2011/12/15/war-and-architecture-three-principles/" target="_blank" rel="noopener noreferrer">
+                            <img src="https://lebbeuswoods.wordpress.com/wp-content/uploads/2011/12/lwblog-wa-7.jpg" alt="Lebbeus Woods Work" style="filter: invert(1) grayscale(100%);">
+                        </a>
+                        <p style="font-size: 0.9rem !important;"><b>War and Architecture</b>, 1993. Lebbeus Woods.<br>Lebbeus Woods.</p>
+                    </div>
+                    <div class="reference-item">
+                        <a href="https://www.belvedere.at/en/rachel-whiteread-1" target="_blank" rel="noopener noreferrer">
+                            <img src="https://www.belvedere.at/sites/default/files/jart-images/_523993615719_0.jpg" alt="Rachel Whiteread Work" style="filter: invert(1) grayscale(100%);">
+                        </a>
+                        <p style="font-size: 0.9rem !important;"><b>Chicken Shed</b>, 2017. Rachel Witheread.<br>Belvedere Museum Wien.</p>
+                    </div>
+            </div>
+        </section>
 
-        <!-- Circle Sizes -->
-        <script>
-            function updateCircleSizes() {
-                var localBusinesses = parseInt(document.getElementById('localBusinesses').innerText) || 0;
-                var artGalleries = parseInt(document.getElementById('artGalleries').innerText) || 0;
+        <!-- VOIDS -->
+        <section id="section3a">
+                <div class="spacer"></div>
+                <h1>Voids</h1>
+                <h2><span>
+                    Rebuilding by Unbuilding: <i>Booleanify!</i>
+                </h2></span>
+                <p>
+                    It's 2024.
+                    <br>
+                    Land resources have become increasingly scarce.
+                    <br>
+                    Adaptive Gorilla proudly presents the ultimate reuse package: Booleanify!
+                </p>
+                <div class="spacer"></div>
+        </section>
+        <section id="section3b">
+            <div class="img-container-outer">
+                <div class="gradient-rectangle">
+                    <span class="text-left">Less Daylight</span>
+                    <span class="text-right">More Daylight</span>
+                </div>
+                <div class="img-container">
+                    <img class="img" id="image" src="https://raw.githubusercontent.com/halfward/Coloquium-I-a/main/Frame_00000.png" alt="Slidable Image">
+                    <img class="watermark" src="watermark-01.webp" alt="Watermark">
+                </div>
+            </div> 
+        </section>
 
-                var blueCircle = document.getElementById('blueCircle');
-                var redCircle = document.getElementById('redCircle');
+        <!-- REUSENAISSANCE -->
+        <section id="section4a">
+                <div class="spacer"></div>
+                <div class="content-wrapper">
+                    <div class="heading-container">
+                        <h1>Reusenaissance</h1>
+                        <div class="overlay-words">
+                            <span class="overlay-word-1">Reuse</span>
+                            <span class="overlay-word-2">Renaissance</span>
+                        </div>
+                        <h2><span>
+                            Speculative Evolution: <i>Balloonify!</i>
+                        </h2></span>
+                        <p>
+                            It's 2124.
+                            <br>
+                            There are no more developable lands.
+                            <br>
+                            This shift has given rise to a new movement: the Reusenaissance.
+                        </p>
+                    </div>
+                </div>
 
-                var blueCircleArea = localBusinesses > 0 ? localBusinesses : 1;
-                var redCircleArea = artGalleries > 0 ? artGalleries : 1;
-
-                var blueCircleDiameter = Math.sqrt(blueCircleArea / Math.PI) * 2 * 15; 
-                var redCircleDiameter = Math.sqrt(redCircleArea / Math.PI) * 2 * 15; 
-
-                blueCircle.style.width = blueCircleDiameter + 'px';
-                blueCircle.style.height = blueCircleDiameter + 'px';
-
-                redCircle.style.width = redCircleDiameter + 'px';
-                redCircle.style.height = redCircleDiameter + 'px';
-            }
-
-            // Initial update with default sizes
-            document.getElementById('localBusinesses').innerText = document.getElementById('localBusinesses').innerText || '1';
-            document.getElementById('artGalleries').innerText = document.getElementById('artGalleries').innerText || '1';
-            updateCircleSizes();
-
-            // Initial update
-            updateCircleSizes();
-
-            // Update sizes whenever the numbers change
-            var observer = new MutationObserver(updateCircleSizes);
-            observer.observe(document.getElementById('localBusinesses'), { childList: true });
-            observer.observe(document.getElementById('artGalleries'), { childList: true });
-        </script>
-        </div>
-
-        <br>
-        <br>
-        <div>
-          <p style="margin-bottom: 0px; text-align: center;">Census Tract: <span id="tractLabel"> <span id="tractLabel"></span></span></p>
-            <p style="text-align: center;">Biz/Art Ratio: <span id="ratio"><span id="reciprocalRatio"></span></span></p>
-        </div>
-
-        <div class="spacer"></div>
-        <p>*Love Your Local Business List by <a href="https://data.cityofnewyork.us/City-Government/Love-Your-Local-Business-List/5694-9szk/about_data" target="_blank"><u>NYC OpenData</u></a>. 
-          <br>Last updated: February 7, 2020
-          <br>
-          **New York City Art Galleries by <a href="https://data.cityofnewyork.us/Recreation/New-York-City-Art-Galleries/tgyc-r5jh" target="_blank"><u>NYC OpenData</u></a>. 
-          <br>Last updated: February 19, 2024</p>
-
-        <div class="spacer"></div>
-
-        <!-- Map Script -->
-        <script>
-            // Initialize the map
-            var map = L.map('map', {
-                center: [40.7831, -73.9712],
-                zoom: 12,
-                scrollWheelZoom: true  // Enable scroll wheel zoom
-            });
-    
-            // Add the OSM tile layer
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors & © <a href="https://carto.com/attributions">CARTO</a>',
-                detectRetina: false
-            }).addTo(map);
-    
-            // Set map bounds and zoom level
-            
-            map.options.minZoom = 11;
-    
-            // Define the bounds for the map
-            var southWest = L.latLng(40.647399, -74.159090);
-            var northEast = L.latLng(40.937577, -73.800272);
-            var bounds = L.latLngBounds(southWest, northEast);
-    
-            // Set the max bounds for the map
-            map.setMaxBounds(bounds);
-            map.on('drag', function() {
-                map.panInsideBounds(bounds, { animate: false });
-            });
-    
-            // Determine the color based on the ratio
-            function getColor(ratio, minRatio, maxRatio) {
-                if (ratio < 1) {
-                    // Gradient from blue to white
-                    var normalized = (ratio - minRatio) / (1 - minRatio);
-                    var r = Math.round(255 * normalized);
-                    var g = Math.round(255 * normalized);
-                    var b = 255;
-                    return `rgb(${r}, ${g}, ${b})`;
-                } else if (ratio === 1) {
-                    // White color
-                    return 'rgb(255, 255, 255)';
-                } else {
-                    // Gradient from white to red
-                    var normalized = (ratio - 1) / (maxRatio - 1);
-                    var r = 255;
-                    var g = Math.round(255 * (1 - normalized));
-                    var b = Math.round(255 * (1 - normalized));
-                    return `rgb(${r}, ${g}, ${b})`;
-                }
-            }
-    
-            // Add GeoJSON layer
-            function onEachFeature(feature, layer) {
-                if (feature.properties) {
-                    var content = '<div style="font-family: \'Host Grotesk\'; font-size: 15px;">' +
-                        'Tract ' + feature.properties.CTLabel + '</strong><br>' +
-                        '<strong>Ratio: ' + feature.properties.ratio_art_galleries_to_local_businesses + 
-                        '</div>';
                     
-                    // Temporarily disable pop up
-                    // layer.bindPopup(content);
-                    
-                    layer.on('click', function(e) {
-                        var properties = e.target.feature.properties;
-                        window.parent.postMessage({
-                            tractLabel: properties.CTLabel,
-                            artGalleries: properties.art_gallery_count,
-                            localBusinesses: properties.local_business_count,
-                            ratio: properties.ratio_art_galleries_to_local_businesses
-                        }, '*');
-                    });
-                }
-            }
-    
-            fetch('merged_data.geojson')
-                .then(response => response.json())
-                .then(data => {
-                    // Find min and max ratio for color scaling
-                    var minRatio = Math.min(...data.features.map(f => f.properties.ratio_art_galleries_to_local_businesses));
-                    var maxRatio = Math.max(...data.features.map(f => f.properties.ratio_art_galleries_to_local_businesses));
-    
-                    let previousLayer = null;
+                <div class="spacer"></div>
+        </section>
+        <section id="section4b">
+            <div id="dvd-screensaver">
+                <img src="promo-06.webp" alt="DVD Screensaver">
+            </div>
+            <div class="img-container">
+                <img class="watermark" src="watermark-02.webp" alt="Watermark">
+            </div>
+            <div class="video-container">
+                <div class="inner-video-container">
+                    <a href="https://halfward.github.io/balloonify/" target="_blank">
+                        <video src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/balloonify-landing-page.mp4" 
+                            autoplay loop muted playsinline>
+                        </video>
+                    </a>
+                </div>
+            </div>
+            <div class="image-overlay-container">
+                <a href="https://halfward.github.io/balloonify/" target="_blank">
+                    <img src="promo-01.webp" class="promo-image" id="promo-01" alt="Promo 01">
+                </a>
+                <a href="https://halfward.github.io/balloonify/" target="_blank">
+                    <img src="promo-03.webp" class="promo-image" id="promo-03" alt="Promo 03">
+                </a>
+                <a href="https://halfward.github.io/balloonify/" target="_blank">
+                    <img src="promo-04.webp" class="promo-image" id="promo-04" alt="Promo 04">
+                </a>
+                <a href="https://halfward.github.io/balloonify/" target="_blank">
+                    <img src="promo-05.webp" class="promo-image" id="promo-05" alt="Promo 05">
+                </a>
+            </div>
+            <swiper-container
+                loop
+                direction="vertical"
+            >
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-02.webp');"><div class="swiper-text"></div></swiper-slide>
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-01.webp');"><div class="swiper-text"></div></swiper-slide>
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-05.webp');"><div class="swiper-text"></div></swiper-slide>
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-03.webp');"><div class="swiper-text"></div></swiper-slide>
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-06.webp');"><div class="swiper-text"></div></swiper-slide>
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-07.webp');"><div class="swiper-text"></div></swiper-slide>
+                <swiper-slide style="background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/screenshots-04.webp');"><div class="swiper-text"></div></swiper-slide>
+            </swiper-container>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const swiperEl = document.querySelector('swiper-container');
 
-                    L.geoJson(data, {
-                        style: function(feature) {
-                            return {
-                                color: 'black',
-                                fillColor: getColor(feature.properties.ratio_art_galleries_to_local_businesses, minRatio, maxRatio),
-                                weight: 0.3,
-                                fillOpacity: 0.6
-                            };
-                        },
-                        onEachFeature: function(feature, layer) {
-                            onEachFeature(feature, layer);
-                            layer.on('click', function(e) {
-                                if (previousLayer) {
-                                    previousLayer.setStyle({ weight: 0.3 });
-                                }
-                                layer.setStyle({ weight: 3 });
-                                previousLayer = layer;
-                            });
-                        }
-                    }).addTo(map);
+                    swiperEl.swiper.params.autoplay = {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    };
+                    swiperEl.swiper.autoplay.start();
                 });
-    
-            // Add a legend to the map
-            var legend = L.control({position: 'bottomright'});
-            legend.onAdd = function (map) {
-                var div = L.DomUtil.create('div', 'legend');
-                div.innerHTML = '<div style="display: flex; justify-content: space-between;">' +
-                    '<span style="margin-right: 10px; font-size: 0.75rem;">More Local Biz</span>' +
-                    '<span style="margin-left: 10px; font-size: 0.75rem;">More Art Gall.</span>' +
-                    '</div>' +
-                    '<div style="display: flex; justify-content: space-between; margin-top: 2px;">' +
-                    '<div class="gradient" style="background: linear-gradient(to right, blue, white); width: 45%; height: 4px;"></div>' +
-                    '<div class="gradient" style="background: linear-gradient(to right, white, red); width: 45%; height: 4px;"></div>' +
-                    '</div>';
-                div.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; // Set background to 70% opaque
-                return div;
-            };
-            legend.addTo(map);
-            // Listen for messages from the iframe
-            window.addEventListener('message', function(event) {
-                if (event.origin !== window.location.origin) {
-                    return;
-                }
-    
-                var data = event.data;
-                document.getElementById('artGalleries').textContent = `${data.artGalleries} ${data.artGalleries === 1 ? 'art gallery' : 'art galleries'}`;
-                document.getElementById('localBusinesses').textContent = `${data.localBusinesses} ${data.localBusinesses === 1 ? 'local business' : 'local businesses'}`;
-                document.getElementById('tractLabel').textContent = `${data.tractLabel}`;
-                var ratio = parseFloat(data.ratio);
-                var reciprocalRatio = ratio !== 0 ? (1 / ratio).toFixed(2) : 'N/A'; // Avoid division by zero
-                document.getElementById('ratio').textContent = reciprocalRatio;
-                
-            });
-        </script>
-      </section>
+            </script>
+        </section>
 
-      <hr>
+        <!-- TO BE A GORILLA -->
+        <section id="section5a">
+                <div class="spacer"></div>
+                <h1>To Be a Gorilla</h1>
+                <h2><span>
+                    Possibilities...
+                </h2></span>
+                <p style="text-align: justify; text-align-last: justify;">
+                    Urban Planner. Sustainability Consultant. Environmental Designer. Systems Thinker. Digital Fabricator. Heritage Conservationist. Spatial Analyst. Interactive Media Artist. Smart City Developer. Ecological Architect. Geospatial Data Specialist. Public Engagement Strategist. Computational Designer. Resilience Planner. Renewable Energy Engineer. Cultural Preservationist. Adaptive Reuse Specialist. Building Performance Analyst. Community Development Advocate. Information Architect. Virtual Reality Designer. Urban Resilience Expert. Environmental Impact Analyst. Data-Driven Designer. Collaborative Architect. Mixed Reality Architect. Historic Preservationist. Resource Efficiency Consultant. Urban Systems Engineer. Regenerative Design Specialist. Social Impact Designer. Digital Reuse Strategist. Architecture Technologist. Policy Advocate. Interactive Space Designer. Climate Action Coordinator. Landscape Restoration Expert. Digital Transformation Consultant.
+                </p>
+        </section>
+        <section id="section5b">
+            <div class="spacer2"></div>
+                <div class="model-container">
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-1.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-2.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-3.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-4.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-5.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-6.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-7.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-8.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-9.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-10.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-11.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-12.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-13.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-14.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-15.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-16.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-17.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-18.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-19.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-20.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-21.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-22.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-23.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-24.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-25.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-26.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-27.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-28.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-29.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                    <model-viewer src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/tower-30.glb" auto-rotate rotation-per-second="45deg" field-of-view="1deg" camera-orbit="0deg 90deg 1600m">
+                    </model-viewer>
+                </div>
+        </section>
+
+        <!-- MISCELLANEOUS -->
+        <section id="section6a">
+            <div class="spacer"></div>
+            <h1>Miscellaneous</h1>
+            <h2><span>
+                Content Archive *WIP*
+            </h2></span>
+            <p>
+                CDP assignments from the Summer semester.<br>
+                Too experimental to fit the narrative, too much effort to abandon.
+            </p>
+        </section>
+        <section id="section6b">
+            <div class="iframe-container">
+                <div class="iframe-wrapper">
+                    <iframe src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/CDP-ColloquiumI-02.png" 
+                    data-full="https://raw.githubusercontent.com/halfward/Colloquium-I/main/CDP-ColloquiumI-02.png" 
+                    data-description="Description for image 1"></iframe>
+                    <div class="iframe-overlay"></div>
+                </div>
+                <div class="iframe-wrapper">
+                    <iframe src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/CDP-ColloquiumI-03.png" 
+                    data-full="https://raw.githubusercontent.com/halfward/Colloquium-I/main/CDP-ColloquiumI-03.png" 
+                    data-description="Description for image 2"></iframe>
+                    <div class="iframe-overlay"></div>
+                </div>
+                <div class="iframe-wrapper">
+                    <iframe src="https://raw.githubusercontent.com/halfward/Colloquium-I/main/CDP-ColloquiumI-05.png" 
+                    data-full="https://raw.githubusercontent.com/halfward/Colloquium-I/main/CDP-ColloquiumI-05.png" 
+                    data-description="Description for image 3"></iframe>
+                    <div class="iframe-overlay"></div>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div id="modal" class="modal" style="display: none;">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="modal-img">
+                <div id="caption"></div>
+            </div>
+        </seciton>
 
 
-      <section>
-        <h1 id="assignment-4">Governance</h1>
-        <h2>It’s the year 2124.</h2> 
-        <p>A time when land resources have become increasingly scarce, and governments worldwide impose heavy taxes on new building constructions. This shift has given rise to a new movement known as the Reusenaissance. In this booming era, the reuse industry flourishes by blending cutting-edge technology with historical backdrops, creating a strikingly unique aesthetic.
-        
-        <h2>The Reusenaissance drives sustainable urban growth,</h2>
-        <p>Where every structure is a canvas for innovation and historical preservation.</p>
-        
-        <h2><i>BALLOONIFY!</i> spearheads this movement,</h2>
-        <p>Offering an innovative solution that transforms existing structures into modern, functional spaces without the need for new construction.</p>
-        <br>
+        <section id="section6c">
+            
+        </section>
+        <seciton id="section6d">
+            
+        </section>
+    </div>
 
-        <h2><a href="https://halfward.github.io/balloonify/" target="_blank" class="hover-effect"> Access <b><i><u>BALLOONIFY!</u></i></b> now</a></h2>
-        <style>
-            .hover-effect {
-                transition: background-color 0.6s ease, ease;
-            }
-            .hover-effect:hover {
-                background-color: pink;
-                border-radius: 50px;
-                padding: 20px;
-            }
-        </style>
-        
-      </section>
-      <div class="spacer"></div>
-      
-      <hr>
-      <section>
-        <h1 id="assignment-5">Behavior</h1>
-      </section>
-
-      <hr>
-      <section>
-        <h1 id="assignment-6">Miscellaneous</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
-  <script src="main.js"></script>
+    <footer>
+        © 2024 Hao Lee.<br>
+        All rights reserved.
+    </footer>
 </body>
+
+<!-- SCRIPTS -->
+<div>
+    <script src="main2.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.14.8/build/matter.min.js"></script> <!-- Includes the Matter.js library for physics simulations -->
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script> <!-- Includes the Interact.js library for interactive elements -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script> <!-- Includes the Model-Viewer library for 3D model rendering -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> <!-- Includes the Papa Parse library for CSV parsing -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script> <!-- Swiper library -->
+</div>
 
 </html>

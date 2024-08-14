@@ -1,9 +1,246 @@
-/* CSS style sheet specific to a single student page. */
-
-article>h1:first-child {
-  color: rgb(251, 0, 255);
-}
 body {
-  background-color: #a1b7a9; /* Light pink background */
-  font-family: 'Garamond', serif; /* Garamond font */
+  background-color: #efd8db; /* background */
+  font-family: 'Azeret Mono', monospace; /* font */
+  /*font-weight: 400;  Normal weight */
+  /*font-weight: 700;  Bold */
+}
+
+.fixed-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #f0cfd3;
+  z-index: 100;
+  padding: 10px 0;
+}
+
+.fixed-header nav ul {
+  list-style-type: disc;
+  color: #fa9446;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fixed-header nav ul li {
+  margin: 0 35px;
+}
+
+.fixed-header nav ul li a {
+  color: #fa9446;
+  text-decoration: none;
+}
+
+.fixed-header nav ul li a:hover {
+  text-decoration: underline dotted;
+}
+
+#cover-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #efd8db; /* Or any color you prefer */
+}
+
+#cover-page h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+#cover-page p {
+  font-size: 1.5em;
+}
+
+.floating-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  padding: 20px;
+  background-color: #A82707(255, 255, 255, 0.9);
+  border: 1px solid #A82707;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(195, 102, 102);
+  z-index: 1000;
+  cursor: move;
+}
+
+.floating-box .handle {
+  cursor: move;
+  background-color: #ff950b00;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.floating-box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#review-page {
+  width: 100%;
+  height: 800px; /* Adjust based on the desired distribution area */
+  overflow: hidden;
+  position: relative;
+  background-color: #efd8db;
+  padding: 10px;
+}
+
+.review {
+  position: absolute;
+  white-space: nowrap;
+  color: #ce6d23;
+  animation: fly-left-right 15s linear infinite;
+}
+
+/* Randomly distributed positions */
+.review:nth-child(1) { top: 10px; left: 0; font-size: 14px; }
+.review:nth-child(2) { top: 50px; left: 50%; font-size: 18px; }
+.review:nth-child(3) { top: 90px; left: 25%; font-size: 16px; }
+.review:nth-child(4) { top: 130px; left: 10%; font-size: 20px; }
+.review:nth-child(5) { top: 170px; left: 60%; font-size: 22px; }
+.review:nth-child(6) { top: 210px; left: 15%; font-size: 15px; }
+.review:nth-child(7) { top: 259px; left: 70%; font-size: 24px; }
+.review:nth-child(8) { top: 290px; left: 40%; font-size: 19px; }
+.review:nth-child(9) { top: 339px; left: 5%; font-size: 17px; }
+.review:nth-child(10) { top: 370px; left: 55%; font-size: 21px; }
+.review:nth-child(11) { top: 410px; left: 30%; font-size: 18px; }
+.review:nth-child(12) { top: 470px; left: 75%; font-size: 23px; }
+.review:nth-child(13) { top: 520px; left: 20%; font-size: 16px; }
+.review:nth-child(14) { top: 570px; left: 85%; font-size: 25px; }
+.review:nth-child(15) { top: 620px; left: 35%; font-size: 19px; }
+.review:nth-child(16) { top: 660px; left: 90%; font-size: 22px; }
+.review:nth-child(17) { top: 700px; left: 45%; font-size: 20px; }
+.review:nth-child(18) { top: 740px; left: 25%; font-size: 26px; }
+.review:nth-child(19) { top: 770px; left: 25%; font-size: 18px; }
+
+/* Add more as needed */
+
+@keyframes fly-left-right {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+
+.typing-container {
+  width: 100%;
+  max-width: 800px;
+  height: 200px; /* Adjust this value based on your needs */
+  margin: 0 auto;
+  overflow: hidden;
+  color: #8ec698;
+}
+
+.big-text {
+  font-size: 2rem;
+  line-height: 5;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 1400px) {
+  .content-wrapper {
+    padding: 0 50px;
+  }
+}
+
+main {
+  padding-top: 0px; /* Height of the fixed header */
+}
+
+.transition_page {
+  color: #8ec698;
+  font-weight: bold;
+  padding: 500px;
+}
+
+section {
+  padding: 50px;
+  border-bottom: 5px solid #ffffff4b;
+}
+
+section h2 {
+  margin-top: 0;
+  color: #FFA562;
+  font-size: 28px;
+}
+
+li {
+  margin-top: 5px;
+}
+
+footer {
+  background-color: #cca9a9;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer-column h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.footer-column p {
+  margin: 8px 0;
+}
+
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  margin-top: 20px;
+  border-top: 1px solid #555;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .footer-column {
+      margin-bottom: 20px;
+      text-align: center;
+  }
+
+  .footer-copyright {
+      margin-top: 10px;
+  }
 }

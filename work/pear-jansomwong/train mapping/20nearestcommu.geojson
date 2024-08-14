@@ -1,0 +1,465 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 1,
+                "Name": "Narng Lerng",
+                "Description": "Ban Nang Loeng, also known as Ban E-Leng, derives its name from the Mon word \"E-Leng,\" which means jar or earthenware pot. It is believed that the community originated from Mon traders who brought jars and other pottery from Ban Sam Khok, Pathum Thani, and sold them in Bangkok along the Khlong Phadung Krung Kasem canal. Over time, the area evolved into a market for exchanging a wide variety of goods, developing significantly since the reign of King Chulalongkorn (Rama V).",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.512143,
+                    13.759265
+                ]
+            },
+            "bbox": [
+                100.512143,
+                13.759265,
+                100.512143,
+                13.759265
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 2,
+                "Name": "Ban bat ",
+                "Description": "At the intersection of Meru Poon and Bamrung Mueang Roads, the exact origins of the community are unclear, with varying accounts. Some say the residents of Ban Bat were originally from Ayutthaya and migrated after the fall of the city, while others believe it was established during the early days of Bangkok. Historically, this community was renowned for its craftsmanship in making monk's alms bowls, with products once sold at markets in the Sao Chingcha and Sampeng areas. Today, only a few families continue this traditional craft.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.506086,
+                    13.751301
+                ]
+            },
+            "bbox": [
+                100.506086,
+                13.751301,
+                100.506086,
+                13.751301
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 3,
+                "Name": "Ban Dok Mai ",
+                "Description": "Another renowned artisan community in Phra Nakhon is located around Golden Mount (Wat Saket) and the area along Khlong Ong Ang. This old neighborhood developed alongside the construction of the temple and became an important center for the production of consumables in Phra Nakhon. Among these skilled artisan communities is 'Ban Dok Mai,' known for producing fireworks, firecrackers, and torches.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.506933,
+                    13.749196
+                ]
+            },
+            "bbox": [
+                100.506933,
+                13.749196,
+                100.506933,
+                13.749196
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 4,
+                "Name": "Ban Krua ",
+                "Description": "A historic Thai-Muslim community of Cham descent, the largest of its kind in Bangkok with a history spanning over 200 years. The community is renowned for its traditional silk weaving craftsmanship. It also houses the old 'Masjid Yameul Koiya' mosque, which was established during the reign of King Rama I.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.522362,
+                    13.751746
+                ]
+            },
+            "bbox": [
+                100.522362,
+                13.751746,
+                100.522362,
+                13.751746
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 5,
+                "Name": "Trok Ban Panthom",
+                "Description": "In the past, this community was known for producing engraved trays, or 'phaan thom,' a significant craft in old Bangkok. Today, this tradition no longer exists, but the community is remembered for its historical role as a key producer of these ancient metalworks.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.504187,
+                    13.761454
+                ]
+            },
+            "bbox": [
+                100.504187,
+                13.761454,
+                100.504187,
+                13.761454
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 6,
+                "Name": "Ban Panthom",
+                "Description": "Area is known for its craftsmen specializing in making tinware such as water vessels and trays. While there is no exact historical record of when this began, the tinware style was influenced by people who migrated from Nakhon Si Thammarat, hence it was commonly referred to as 'Nakhon tin.' Today, this tradition is no longer present.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.502779,
+                    13.760197
+                ]
+            },
+            "bbox": [
+                100.502779,
+                13.760197,
+                100.502779,
+                13.760197
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 7,
+                "Name": "Pom Mahakarn ",
+                "Description": "This group has been continuously settled for over 50 years, blending with people who have been here since the reign of King Rama III, who established the old houses still present today. Wat Thepthidaram and Wat Ratchanadda serve as the centers for religious ceremonies and beliefs, while the shrine at Phom Mahakan is a place of veneration for the community.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.501025,
+                    13.755563
+                ]
+            },
+            "bbox": [
+                100.501025,
+                13.755563,
+                100.501025,
+                13.755563
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 8,
+                "Name": "Chareonchai ",
+                "Description": "Home to many valuable historic buildings and serves as a major hub for Chinese cultural and traditional goods in Bangkok.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.509952,
+                    13.742657
+                ]
+            },
+            "bbox": [
+                100.509952,
+                13.742657,
+                100.509952,
+                13.742657
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 9,
+                "Name": "Troksilpa-Troktuekdin ",
+                "Description": "It is an ancient community that still preserves architecture over 80 years old, including residential areas of its inhabitants. It is situated in the vicinity of significant religious sites, which may have contributed to the establishment of what is now known as the 'Trok Sin-Trok Tin Soi' community, such as Wat Thepthidaram, Wat Mahannapharam, and Wat Ratchanadda.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.500477,
+                    13.755369
+                ]
+            },
+            "bbox": [
+                100.500477,
+                13.755369,
+                100.500477,
+                13.755369
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 10,
+                "Name": "Trok Bawornrungsee",
+                "Description": "Currently renowned for gold leaf production but was historically known for its highly skilled goldsmiths.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.500791,
+                    13.758791
+                ]
+            },
+            "bbox": [
+                100.500791,
+                13.758791,
+                100.500791,
+                13.758791
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 11,
+                "Name": "Tuekdin Mosque ",
+                "Description": "An old Islamic neighborhood behind the Rajdamnoen building area, features the pristine white 'Tindin Mosque' located in a community surrounded by houses, which may obscure its once-visible beauty.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.500355,
+                    13.758368
+                ]
+            },
+            "bbox": [
+                100.500355,
+                13.758368,
+                100.500355,
+                13.758368
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 12,
+                "Name": "Luenrit ",
+                "Description": "Uncovered ancient artifacts within the area, including fragments of plates, bowls, glasses, tiles, horseshoes, doors, roofs, mahjong tiles, and even pig remains. These findings reflect historical value from the reign of King Rama IV to the present day.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.505074,
+                    13.743784
+                ]
+            },
+            "bbox": [
+                100.505074,
+                13.743784,
+                100.505074,
+                13.743784
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 13,
+                "Name": "Ban Thongkamplew ",
+                "Description": "This ancient gold leaf production community, dating back to the reign of King Rama V, was once a major center for trading gold leaf and royal decorations. It is also a historically valuable community for gold craftsmanship in Bangkok.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.49931,
+                    13.750754
+                ]
+            },
+            "bbox": [
+                100.49931,
+                13.750754,
+                100.49931,
+                13.750754
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 14,
+                "Name": "Ban Teethong ",
+                "Description": "A community of Lao people from Vientiane and Luang Prabang who migrated during the early Rattanakosin period, specializing in gold leaf crafting for covering Buddha statues and for decorating various artworks.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.498662,
+                    13.757333
+                ]
+            },
+            "bbox": [
+                100.498662,
+                13.757333,
+                100.498662,
+                13.757333
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 15,
+                "Name": "Ban Krua Nhuer",
+                "Description": "The Chamu ethnic community, originally from Cambodia, is renowned for its traditional silk weaving. This community, with its rich cultural heritage, continues to uphold and celebrate its textile craftsmanship.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.527612,
+                    13.749869
+                ]
+            },
+            "bbox": [
+                100.527612,
+                13.749869,
+                100.527612,
+                13.749869
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 16,
+                "Name": "Pahurat ",
+                "Description": "The historic commercial district of Pahurat in Bangkok is renowned for its vibrant and diverse fabric shops, featuring textiles from Thai, Chinese, and Indian traditions. The area is predominantly occupied by Thai-Indian merchants who offer a range of products, including clothing, accessories, and Indian food with distinctive spice flavors. This makes Pahurat a small Indian community within Thailand, showcasing a rich blend of cultural heritage and commercial activity.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.49953,
+                    13.744542
+                ]
+            },
+            "bbox": [
+                100.49953,
+                13.744542,
+                100.49953,
+                13.744542
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 17,
+                "Name": "Wat Sampraya",
+                "Description": "The Wat Sam Phraya community is renowned for its unique craftsmanship, such as art made from 'palm leaves.' Although this art form has faded, a notable specialty is 'khao tom nam woon,' a well-known sweet. Additionally, Wat Sam Phraya Worawihan, an ancient temple, has long stood alongside the community.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.499424,
+                    13.766639
+                ]
+            },
+            "bbox": [
+                100.499424,
+                13.766639,
+                100.499424,
+                13.766639
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 18,
+                "Name": "Ban Mhor ",
+                "Description": "Located next to Ban Lao, is a community of Vietnamese immigrants who settled during the early Rattanakosin period. They originally specialized in making pots and cooking utensils. As modern containers replaced their traditional products, they shifted their focus to selling jewelry, gemstones, and accessories, becoming a renowned area in Phra Nakhon. Today, it has transformed into a major hub for audio equipment sales.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.497299,
+                    13.744873
+                ]
+            },
+            "bbox": [
+                100.497299,
+                13.744873,
+                100.497299,
+                13.744873
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 19,
+                "Name": "Yan Ta Praarthit ",
+                "Description": "A popular area for foreign tourists in the Banglamphu neighborhood, Khao San Road is a street along the Chao Phraya River featuring restaurants, hotels, hostels, tour companies, coffee shops, dessert places, photo spots, and public parks for relaxation.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.493162,
+                    13.762276
+                ]
+            },
+            "bbox": [
+                100.493162,
+                13.762276,
+                100.493162,
+                13.762276
+            ]
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "ID": 20,
+                "Name": "Yan Ta Praarthit ",
+                "Description": "A popular area for foreign tourists in the Banglamphu neighborhood, Khao San Road is a street along the Chao Phraya River featuring restaurants, hotels, hostels, tour companies, coffee shops, dessert places, photo spots, and public parks for relaxation.",
+                "Country": "Thailand",
+                "Province": "Bangkok"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    100.493162,
+                    13.762276
+                ]
+            },
+            "bbox": [
+                100.493162,
+                13.762276,
+                100.493162,
+                13.762276
+            ]
+        }
+    ]
+}

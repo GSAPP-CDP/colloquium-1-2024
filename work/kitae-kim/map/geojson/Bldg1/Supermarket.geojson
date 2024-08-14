@@ -1,0 +1,1 @@
+{"type":"FeatureCollection","crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:ESPG:4326" } },"features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[-73.966072378442405,40.804198802387539]},"properties":{"id":0}},{"type":"Feature","geometry":{"type":"Point","coordinates":[-73.966072378442405,40.804198802387539]},"properties":{"id":"15.421878"}}]}

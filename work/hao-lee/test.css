@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#swiper-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1s ease, opacity 1s ease, z-index 0s;
+}
+
+.previous-slide {
+    transform: translateY(-50%) scale(0.8) rotateX(30deg);
+    opacity: 1;
+    z-index: 1;
+}
+
+.current-slide {
+    transform: translateY(0) scale(1) rotateX(0deg);
+    opacity: 1;
+    z-index: 2;
+}
+
+.next-slide {
+    transform: translateY(50%) scale(0.8) rotateX(-30deg);
+    opacity: 1;
+    z-index: 1;
+}

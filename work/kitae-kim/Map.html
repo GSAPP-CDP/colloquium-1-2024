@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">  
+  <meta name="description" content="Student work by Kitae Kim from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
+  
+  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
+  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
+  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
+  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+  
+  <link href="style_map.css" rel="stylesheet" />
+  
+  <title>Kitae Kim</title>
+</head>
+
+<body>
+ 
+    <div id="map-container">
+      <div id="map"></div>
+      <img src="Price.png" id="price-image" alt="Pricing Information">
+      <div id="Owned-box"></div>
+      <div id="Rented-box"></div>
+      <div id="box-index1">
+        Owned House
+      </div>
+      <div id="box-index2">
+        Rented House
+      </div>
+      <div id="overlay-index">
+        "All 817782 / Owned 191489 / Rented 626293"
+        "Expressed 1/10 points of data"
+        "US Census Bureau's SF1 2020 Census"
+      </div>
+      <div id="menu">
+        <button onclick="showLayerGroup('points')">Points</button>
+        <button onclick="showLayerGroup('Owned+Rented')">Owned + Rented</button>
+        <button id="graph-button" onclick="toggleGraph()">Price Forecast</button>
+      </div>
+      <div id="text" class="typing-effect">
+        <span id="typed-text">“The sellers language is working… things are getting price"</span>
+      </div>
+    </div>
+    <div id="button-container">
+      <div class="button-wrapper">
+        <a href="index.html" class="text-link">Home</a>
+    </div>
+      <div class="button-wrapper">
+          <a href="Map.html" class="text-link">Price issue</a>
+      </div>
+      <div class="button-wrapper">
+          <a href="text/text2.html" class="text-link">Ad vs Review</a>
+      </div>
+      <div class="button-wrapper">
+          <a href="map/map.html" class="text-link">Tool for tenants</a>
+      </div>
+    </div>
+
+  <script src="map.js"></script>
+  <script src="script_map.js"></script>
+</body>
+
+</html>

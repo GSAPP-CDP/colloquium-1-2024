@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox with GeoJSON</title>
+    <link rel="stylesheet" href="style_map.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+    <div id="Title">Negotiating Tool for Tenants</div>
+    <div id="back-image">
+        <img id="image_back" src="tab.png" alt="Image_back">
+    </div>
+    <div id="map"></div>
+    <div id="score0">
+        <div class="Pick">
+            Pick 
+            the Building</div>
+    </div>
+    <div id="score">
+        <div id="scoreA">
+            <div class="scoreb">House Condition</div>
+            <div class="score-context"></div>
+            <div class="scoremb">1800$</div>
+        </div>
+        <div id="scoreB">
+            <div class="scoreb">PROS</div>
+            <div class="score-context"></div>
+            <div class="scoren">Park - 2 in 10min</div>
+            <div class="scorem">+ 100$</div>
+            <div class="scoren">Sub - 1 in 5min</div>
+            <div class="scorem">+ 200$</div>
+            <div class="scoren">Bus - 2 in 5min</div>
+            <div class="scorem">+ 200$</div>
+            <div class="scoren">Market 24h - 1 in 5min</div>
+            <div class="scorem">+ 200$</div>
+    
+        </div>
+        <div id="scoreC">
+            <div class="scoreb">CONS</div>
+            <div class="score-context"></div>
+            <div class="scoren">Bar - 1 in 5min</div>
+            <div class="scoremr">- 0$</div>
+            <div class="scoren">Club - None</div>
+            <div class="scoremr">- 0$</div>
+            <div class="scoren">Fire station - None</div>
+            <div class="scoremr">- 0$</div>
+        </div>
+        <div id="scoreD">
+            <div class="scoreb">RECKONING</div>
+            <div class="score-context"></div>
+            <div class="scoremo">2500$</div>
+        </div>
+    </div>
+    <div id="score2">
+        <div id="scoreA">
+            <div class="scoreb">House Condition</div>
+            <div class="score-context"></div>
+            <div class="scoremb">3500$</div>
+        </div>
+        <div id="scoreB">
+            <div class="scoreb">PROS</div>
+            <div class="score-context"></div>
+            <div class="scoren">Park - 3 in 10min</div>
+            <div class="scorem">+ 100$</div>
+            <div class="scoren">Sub - 1 in 10min</div>
+            <div class="scorem">+ 100$</div>
+            <div class="scoren">Bus - 1 in 5min</div>
+            <div class="scorem">+ 200$</div>
+            <div class="scoren">Market 24h - 3 in 15min</div>
+            <div class="scorem">+ 100$</div>
+    
+        </div>
+        <div id="scoreC">
+            <div class="scoreb">CONS</div>
+            <div class="score-context"></div>
+            <div class="scoren">Bar - 9 in 5min</div>
+            <div class="scoremr">- 300$</div>
+            <div class="scoren">Club - 2 in 10min</div>
+            <div class="scoremr">- 200$</div>
+            <div class="scoren">Fire station - 1 in 10min</div>
+            <div class="scoremr">- 100$</div>
+        </div>
+        <div id="scoreD">
+            <div class="scoreb">RECKONING</div>
+            <div class="score-context"></div>
+            <div class="scoremo">3400$</div>
+        </div>
+    </div>
+        
+    </div>
+    <div id="button-container">
+        <button id="geojson1-btn">Manhattan Valley</button>
+        <button id="geojson2-btn">Hell's Kitchen</button>
+    </div>
+    
+    <div id="Number">
+        <div class="Score-number-name">Price</div>
+        <div class="Score-number"></div>
+        <div class="Real-Score-name">Score</div>
+        <div class="Real-Score"></div> 
+    </div>
+    
+    <div id="recomandation">
+        <div class="recomandationB"></div>
+        <div class="recomandationT"></div>
+    </div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="map_map.js"></script>
+    <div id="button-container2">
+        <div class="button-wrapper">
+            <a href="../index.html" class="text-link">Home</a>
+        </div>
+        <div class="button-wrapper">
+            <a href="../Map.html" class="text-link">Price issue</a>
+        </div>
+        <div class="button-wrapper">
+            <a href="../text/text2.html" class="text-link">Ad vs Review</a>
+        </div>
+        <div class="button-wrapper">
+            <a href="map.html" class="text-link">Tool for tenants</a>
+        </div>
+      </div>
+    <div id="description">This tool helps tenants accurately assess property prices. Unlike rental websites, it highlights both the advantages and disadvantages of a property's surroundings. Each pro and con is factored in as a positive or negative influence, and the tool recalculates the estimated price of the property accordingly. This allows tenants to view properties more accurately and avoid being misled by the deceptive ads of sleazy capitalists. 
+    </div>
+    <div id="description-2">    
+    * Crime-related safety, Pests, and Odors may be included asap.
+    </div>
+
+</body>
+</html>

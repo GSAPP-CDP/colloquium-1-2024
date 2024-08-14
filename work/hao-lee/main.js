@@ -1,5 +1,113 @@
-// DRAGGABLE BOX
+// SCROLL SNAPPING
+  // Query sections by specific IDs
+  const sections = document.querySelectorAll('#chapter-1, #chapter-2, #chapter-3'); // Add more as needed
+  let currentSection = 0;
+  let isScrolling = false;
 
+  function scrollToSection(index) {
+    isScrolling = true;
+    sections[index].scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      isScrolling = false;
+    }, 1000); // Adjust the timeout duration as needed
+  }
+
+  document.addEventListener('wheel', (e) => {
+    if (isScrolling) return;
+    if (e.deltaY > 0) { // Scrolling down
+      currentSection = Math.min(currentSection + 1, sections.length - 1);
+    } else { // Scrolling up
+      currentSection = Math.max(currentSection - 1, 0);
+    }
+    scrollToSection(currentSection);
+    e.preventDefault(); // Prevent default scroll behavior
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (isScrolling) return;
+    if (e.key === 'ArrowDown') {
+      currentSection = Math.min(currentSection + 1, sections.length - 1);
+      scrollToSection(currentSection);
+    } else if (e.key === 'ArrowUp') {
+      currentSection = Math.max(currentSection - 1, 0);
+      scrollToSection(currentSection);
+    }
+  });
+
+
+// FULLSCREEN BUTTON
+document.getElementById('fullscreenButton').addEventListener('click', function() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(err => {
+      alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+    });
+  } else {
+    document.exitFullscreen().catch(err => {
+      alert(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
+    });
+  }
+});
+
+// CURSOR
+
+// Create vertical and horizontal lines
+const verticalLine = document.createElement('div');
+const horizontalLine = document.createElement('div');
+const dotCursor = document.createElement('div');
+
+// Style the lines
+verticalLine.style.position = 'fixed';
+verticalLine.style.width = '1.5px';
+verticalLine.style.height = '100vh';
+verticalLine.style.backgroundColor = 'black';
+verticalLine.style.pointerEvents = 'none';
+verticalLine.style.zIndex = '999';
+verticalLine.style.left = '0px';  // Initialize position
+verticalLine.style.top = '0px';  // Ensure the top property is set
+verticalLine.style.opacity = '0.2';  // Set opacity to 50%
+
+horizontalLine.style.position = 'fixed';
+horizontalLine.style.width = '100vw';
+horizontalLine.style.height = '1.5px';
+horizontalLine.style.backgroundColor = 'black';
+horizontalLine.style.pointerEvents = 'none';
+horizontalLine.style.zIndex = '999';
+horizontalLine.style.top = '0px';  // Initialize position
+horizontalLine.style.left = '0px';  // Ensure the left property is set
+horizontalLine.style.opacity = '0.2';  // Set opacity to 50%
+
+// Style the dot
+dotCursor.style.position = 'fixed';
+dotCursor.style.width = '8px';
+dotCursor.style.height = '8px';
+dotCursor.style.backgroundColor = 'black';
+dotCursor.style.borderRadius = '50%';
+dotCursor.style.pointerEvents = 'none';
+dotCursor.style.zIndex = '1001';
+dotCursor.style.display = 'none'; // Initially hidden
+
+// Append lines and dot to the body
+document.body.appendChild(verticalLine);
+document.body.appendChild(horizontalLine);
+document.body.appendChild(dotCursor);
+
+// Update line and dot positions on mouse move
+document.addEventListener('mousemove', function(e) {
+  verticalLine.style.left = e.clientX + 'px';
+  horizontalLine.style.top = e.clientY + 'px';
+  
+  if (e.clientY < 130) { // Show the dot when near the top of the window
+    dotCursor.style.display = 'block';
+    dotCursor.style.left = e.clientX + 'px';
+    dotCursor.style.top = e.clientY + 'px';
+  } else {
+    dotCursor.style.display = 'none';
+  }
+});
+
+
+
+// DRAGGABLE BOX
 const draggableBox = document.getElementById('draggableBox');
 let mouseX, mouseY, boxLeft, boxTop;
 
@@ -39,12 +147,12 @@ draggableBox.ondragstart = function() {
 // Change cursor to move-cursor.png when hovering over the box, except for the texts
 draggableBox.addEventListener('mouseover', function(e) {
   if (!e.target.matches('a, li, ul')) {
-    draggableBox.style.cursor = 'url("move-cursor.png") 8 8, move';
+    draggableBox.style.cursor = none;
   }
 });
 
 draggableBox.addEventListener('mouseout', function(e) {
-  draggableBox.style.cursor = 'url("move-cursor.png") 8 8, move';
+  draggableBox.style.cursor = none;
 });
 
 document.querySelectorAll('.scroll-link').forEach(link => {
@@ -93,7 +201,6 @@ document.querySelectorAll('#draggableBox ul li a').forEach(link => {
     this.style.color = ''; // Reset the text color
   });
 });
-
 
 
 
@@ -165,37 +272,69 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // RANDOM WORD A
-const wordsA = ["office","windmill", "smokehouse", "church", "bathhouse", "tannery", "factory", "foundry", "fire tower", "silo", "print shop", "temple", "castle", "prison", "train yard", "monument"];
+const wordsA = ["office", "windmill", "smokehouse", "church", "bathhouse", "tannery", "factory", "foundry", "fire tower", "silo", "print shop", "temple", "castle", "prison", "train yard", "monument"];
 
-// Function to get a random word from the list wordsA
 function getRandomWordA() {
     return wordsA[Math.floor(Math.random() * wordsA.length)];
 }
 
-// Function to update the word in the HTML for wordsA
 function updateWordA() {
     const wordContainer = document.getElementById('random-word-A');
-    wordContainer.textContent = getRandomWordA();
+    const newWord = getRandomWordA();
+    
+    // Create a temporary element to measure the width of the new word
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.whiteSpace = 'nowrap';
+    temp.textContent = newWord;
+    document.body.appendChild(temp);
+    const newWidth = temp.offsetWidth;
+    document.body.removeChild(temp);
+    
+    // Update width first, then opacity and text
+    wordContainer.style.width = newWidth + 'px';
+    wordContainer.style.opacity = 0;
+    
+    setTimeout(() => {
+        wordContainer.textContent = newWord;
+        wordContainer.style.opacity = 1;
+    }, 500); // Match the CSS transition duration
 }
 
-setInterval(updateWordA, 1000);
+setInterval(updateWordA, 2000);
 updateWordA();
 
 
 // RANDOM WORD B
 const wordsB = ["apartment", "skate park", "incubator space", "shelter", "data center", "esports arena", "school", "library", "museum", "zoo", "park", "art museum", "garden", "aquarium", "garden"];
 
-// Function to get a random word from the list
 function getRandomWordB() {
     return wordsB[Math.floor(Math.random() * wordsB.length)];
 }
 
-// Function to update the word in the HTML
 function updateWordB() {
     const wordContainer = document.getElementById('random-word-B');
-    wordContainer.textContent = getRandomWordB();
+    const newWord = getRandomWordB();
+    
+    // Create a temporary element to measure the width of the new word
+    const temp = document.createElement('span');
+    temp.style.visibility = 'hidden';
+    temp.style.whiteSpace = 'nowrap';
+    temp.textContent = newWord;
+    document.body.appendChild(temp);
+    const newWidth = temp.offsetWidth;
+    document.body.removeChild(temp);
+    
+    // Update width first, then opacity and text
+    wordContainer.style.width = newWidth + 'px';
+    wordContainer.style.opacity = 0;
+    
+    setTimeout(() => {
+        wordContainer.textContent = newWord;
+        wordContainer.style.opacity = 1;
+    }, 500); // Match the CSS transition duration
 }
 
-setInterval(updateWordB, 1000);
+setInterval(updateWordB, 2000);
 updateWordB();
 

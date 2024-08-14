@@ -1,0 +1,143 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #eeeeee;
+}
+
+#image-container {
+    position: relative; /* 절대 위치와 z-index 적용을 위한 상대 위치 설정 */
+    width: 100%;
+    height: 100vh; /* 전체 뷰포트 높이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeeeee;
+    z-index: 1;
+}
+
+img {
+    height: 100vh; /* 이미지 높이를 뷰포트의 높이에 맞춤 */
+    width: auto; /* 이미지의 원래 비율을 유지 */
+}
+
+#special-area {
+    position: absolute; /* 절대 위치 설정 */
+    top: 40%; /* 상단에서부터 40% 위치 */
+    left: 49.5%; /* 좌측에서부터 50% 위치 */
+    transform: translate(-50%, -50%); /* 정중앙 정렬 */
+    width: 200px; /* 특별 영역의 너비 */
+    height: 200px; /* 특별 영역의 높이 */
+    border: none; /* 테두리 없음 */
+    background-color: transparent; /* 반투명 배경 */
+    cursor: auto; /* 초기 커서 스타일 */
+    z-index: 10; /* 텍스트보다 뒤에 위치 */
+}
+
+#typing-container_left {
+    position: absolute; /* 절대 위치 설정으로 이미지 위에 표시 */
+    top: 13%; /* 이미지 위에 위치하도록 조정 */
+    left: 1%; /* 이미지 왼쪽에 위치하도록 조정 */
+    font-family: "Heveltica";
+    white-space: pre; /* 공백과 줄 바꿈 모두 유지 */
+    z-index: 20; /* 이미지 위에 표시되도록 설정 */
+}
+
+.typing-text {
+    display: inline-block;
+    border-right: 0px solid black;
+    padding-right: 0px;
+    animation: blink-caret 1s step-end infinite;
+}
+
+#first-part {
+    font-size: 3.5vw;
+    font-style: italic;
+    font-weight: bold;
+    color: #959381; /* 원하는 색상으로 변경 */
+}
+
+#second-part {
+    margin-left: 63vw;
+    font-size: 1.5vw;
+    font-style: italic;
+    font-weight: bold;
+    color: #727063; /* 원하는 색상으로 변경 */
+    opacity: 0; /* 처음에는 두 번째 부분 숨김 */
+}
+
+/* 줄 바꿈을 시각적으로 유지하는 방법 */
+.typing-text::after {
+    content: '\A'; /* 줄 바꿈 문자 추가 */
+    white-space: pre; /* 줄 바꿈을 유지 */
+}
+
+#typing-container_right {
+    position: absolute; /* 절대 위치 설정으로 이미지 위에 표시 */
+    top: 40vh; /* 이미지 위에 위치하도록 조정 */
+    left: 63vw; /* 이미지 왼쪽에 위치하도록 조정 */
+    font-family: "Helvetica";
+    white-space: pre; /* 공백과 줄 바꿈 모두 유지 */
+    z-index: 20; /* 이미지 위에 표시되도록 설정 */
+    text-align: justify;
+}
+
+#description {
+    font-size: 1vw;
+    font-style: italic;
+    font-weight: bold;
+    color: #727063; /* 원하는 색상으로 변경 */
+    opacity: 0; /* 처음에는 숨김 상태 */
+    transition: opacity 1s ease-in-out; /* 부드러운 전환 효과 */
+    text-align: justify;
+    line-height: 1.5; /* 줄 간격 조정 */
+    width: 80%; /* 적절한 너비 설정 */
+}
+
+#button-container {
+    position: absolute;
+    z-index: 20;
+    top: 88vh; /* Position the container as needed */
+    left: 0vw;
+    width: 6vw; /* Width of the entire container */
+    height: 10vh;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+    padding-top: 0.5vw;
+    padding-bottom: 3.5vw;
+    border-radius: 0.5vw;
+    display: flex;
+    flex-direction: row; /* Stack the buttons vertically */
+    justify-content: space-around; /* Space out the buttons evenly */
+    align-items: center;
+}
+
+.button-wrapper {
+    
+    padding: 0.5vw 1vw;
+    margin-bottom: 1vw; /* Space between buttons */
+    border-radius: 0.5vw;
+    
+    
+    width: 100%; /* Make button wrappers fill the container width */
+}
+
+.text-link {
+    display: block;
+    font-size: 0.8vw;
+    color: rgb(101, 97, 97);
+    text-decoration: none;
+    text-align: center;
+    font-family: "Helvetica";
+    white-space: nowrap;
+}
+
+.button-wrapper:hover {
+    background-color: #f1d4b2; /* Change background color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+.button-wrapper:active {
+    background-color: #9a5400; /* Change background on active/click */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
