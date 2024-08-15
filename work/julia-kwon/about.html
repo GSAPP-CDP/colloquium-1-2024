@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox GL JS Example</title>
+    <!-- Include Mapbox GL CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+
+    <!-- Include Mapbox GL JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="draggableBox">
+        <ul>
+            <br>
+            <li><a href="#about" class="scroll-link">about</a></li>
+            <br>
+            <hr>
+            <br>
+            <li><a href="waste.html" class="scroll-link">waste from consumption</a></li>
+            <li><a href="urban.html" class="scroll-link">urban foraging</a></li>
+            <li><a href="system.html" class="scroll-link">system: le module</a></li>
+            <li><a href="design.html" class="scroll-link">design fiction</a></li>
+            <br>
+            <hr>
+            <br>
+            <li><a href="miscellaneous.html" class="scroll-link">miscellaneous</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <!-- About Section -->
+        <div class="section" id="about">
+            <h2>about</h2>
+            <div id="typingEffect"></div>
+        </div>
+        <div class="section" id="about">
+            <h2>about</h2>
+            <div id="typingEffect2"></div>
+            <b>I did it too because it was there.</b>
+        </div>
+
+        <!-- Waste from Consumption Section -->
+        <div class="section" id="section2">
+            <h2>waste from consumption</h2>
+        </div>
+
+        <!-- Urban Foraging Section with Map -->
+        <div class="section" id="section3">
+            <h2>urban foraging</h2>
+            <div id="map"></div>
+        </div>
+
+        <!-- System: Le Module Section -->
+        <div class="section" id="section4">
+            <h2>system: le module</h2>
+        </div>
+
+        <!-- Design Fiction Section -->
+        <div class="section" id="section5">
+            <h2>design fiction</h2>
+        </div>
+
+        <!-- Miscellaneous Section -->
+        <div class="section" id="section6">
+            <h2>miscellaneous</h2>
+        </div>
+    </div>
+
+    <!-- Your custom JavaScript files -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

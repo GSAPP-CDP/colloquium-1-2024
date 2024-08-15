@@ -140,7 +140,8 @@ function typeWriter() {
             index++;
         }
         setTimeout(typeWriter, speed);
-    }}
+    }
+}
 
 // const typingEffectElement2 = document.getElementById("typingEffect2");
 // const text2 = typingEffectElement2.textContent.trim(); // Get the text content from the span
@@ -167,9 +168,9 @@ function typeWriter() {
 // }
 
 // Limit the text to a certain width
-const maxWidth = 80; // Set a maximum width for the text
+const maxWidth = 1500; // Set a maximum width for the text
 if (typingEffectElement) {
-    typingEffectElement.style.maxWidth = `${maxWidth}vw`;
+    typingEffectElement.style.maxWidth = `${maxWidth}px`;
     typingEffectElement.style.overflow = 'visible'; // Allow text to overflow
     typingEffectElement.style.whiteSpace = 'normal'; // Allow text to wrap to the next line
     typingEffectElement.style.marginLeft = 'auto'; // Center the text horizontally
