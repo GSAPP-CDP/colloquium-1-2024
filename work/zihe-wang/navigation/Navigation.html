@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Navigator</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- 顶部主题和地址框 -->
+    <div id="top-bar">
+        <h1>Parking Navigator</h1>
+        <div id="location-display">
+            <input id="start-location" type="text" placeholder="Enter start address" value="Your Current Location">
+            <input id="end-location" type="text" placeholder="Enter destination">
+            <button id="calculate-route" onclick="calculateRoute()">Search</button>
+        </div>
+    </div>
+
+    <div id="directions" class="sidebar left"></div>
+    <div id="parking-info" class="sidebar right"></div>
+
+    <!-- 图例部分 -->
+    <div id="legend">
+        <div class="legend-item">
+            <img src="parking.png" alt="Parking Lot Icon" class="legend-icon">
+            <span>Parking Lot</span>
+        </div>
+        <div class="legend-item">
+            <img src="street_parking.png" alt="Street Parking Icon" class="legend-icon">
+            <span>Street Parking</span>
+        </div>
+    </div>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>

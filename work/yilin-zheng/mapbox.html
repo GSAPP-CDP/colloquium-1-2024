@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mapbox</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <style>
+        body, html { font-family: Montserrat; margin: 0; padding: 0; height: 100%; }
+        #map { position: absolute; top: 0; bottom: 0; width: 75%; }
+        .story {
+            height: 100%;
+            overflow-y: scroll;
+        }   
+
+        .chapter {
+            min-height: 100vh; /* Make each chapter take at least the height of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scroll-indicator { cursor: pointer; animation: blink-animation 1.5s steps(5, start) infinite; }
+        .triangle { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid black; margin: 5px auto; }
+        @keyframes blink-animation { 50% { opacity: 0; } }
+
+        h2 { margin: 0; }
+    </style>
+</head>
+<div>
+
+<div id="map"></div>
+
+<div id="story-container" style="position: fixed; right: 10px; top: 10px; width: 20%; overflow-y: auto; height: 90%;">
+    <div class="story">
+        <div id="chapter-1" class="chapter">
+            <h2>% Unemployment</h2>
+            <p>High levels of unemployment can exacerbate vulnerability, as unemployed individuals and households may lack the financial resources necessary to prepare for, respond to, or recover from adverse events such as natural disasters or economic downturns.</p>
+
+            <div class="scroll-indicator">
+                <div class="triangle"></div>
+                <p>scroll to continue</p>
+            </div>
+        </div>
+        <div id="chapter-2" class="chapter">
+            <h2>% 65+ populations</h2>
+            <p>Older adults often face greater health risks and may have mobility or access challenges, making them more susceptible during emergencies or disasters.</p>
+        </div>
+        <div id="chapter-3" class="chapter">
+            <h2>% under 18 population</h2>
+            <p>In times of crisis, such as during natural disasters or economic hardship, children are particularly at risk due to their dependence on others and potential disruptions to education, healthcare, and nutrition.</p>
+        </div>
+        <div id="chapter-4" class="chapter">
+            <h2>% household receiving public assistance/food stamp</h2>
+            <p>In times of crisis, such as during natural disasters or economic hardship, children are particularly at risk due to their dependence on others and potential disruptions to education, healthcare, and nutrition.</p>
+        </div>
+        <div id="chapter-5" class="chapter">
+            <h2>% composite vulnerability index</h2>
+            <p>The composite vulnerability index is an aggregate measure that combines above indicators to provide an overall assessment of a community's vulnerability. Areas built on landfill or close to sea level, like parts of <span style="font-style: italic; text-decoration: underline;">Brooklyn</span>, house significant vulnerable populations who are at high risk.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoicXVpeWlsIiwiYSI6ImNsemoxNHlhMTBsa2UyaXByd3pvcjM4ZjgifQ.JTxA-uHyVmgrVrRoNJiAyA';
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-73.86, 40.7128], // starting position [lng, lat] for NYC
+        zoom: 11 // starting zoom suitable for city overview
+    });
+
+    function addLayer(map, id, source, property, colorStops) {
+        map.addLayer({
+            id: id,
+            type: 'fill',
+            source: {
+                type: 'geojson',
+                data: source
+            },
+            layout: {
+                'visibility': 'none' // Start with layer hidden
+            },
+            paint: {
+                'fill-color': [
+                    'interpolate',
+                    ['linear'],
+                    ['get', property],
+                    ...colorStops
+                ],
+                'fill-opacity': 0.8
+            }
+        }); 
+    }   
+
+    map.on('load', function() {
+        addLayer(map, 'unemployment', 'percentage_unemployed_16andover.geojson', 'percentage_unemployed_16andover', [
+            0, '#fff7bc',    // Light yellow
+            20, '#fff7bc',    // Light yellow
+            40, '#fec44f',   // Orange
+            60, '#fe9929',   // Deeper orange
+            80, '#ec7014',   // Light red
+            100, '#cc4c02',   // Reddish brown
+        ]);
+        addLayer(map, 'percentage_over65', 'percentage_employed_65andover.geojson', 'percentage_employed_65andover', [
+            0, '#fde0dd',    // Light pink
+            20, '#fa9fb5',   // Soft pink
+            40, '#c51b8a',   // Deep pink
+            60, '#7a0177',   // Light purple
+            80, '#4a1486'    // Deep purple
+        ]);
+        addLayer(map, 'percentage_under18', 'percentage_under18.geojson', 'percentage_under18', [
+            0, '#ffffcc',    // Light yellow
+            15, '#ffeda0',   // Soft yellow
+            30, '#fed976',   // Medium yellow
+            45, '#feb24c',   // Orange
+            60, '#f03b20'    // Red
+        ]);
+        addLayer(map, 'percentage_publicassistance', 'percentage_publicassistance.geojson', 'percentage_publicassistance', [
+            0, '#e0f3db',    // Light green
+            20, '#a8ddb5',   // Soft green
+            40, '#43a2ca',   // Light blue
+            60, '#0868ac',   // Medium blue
+            80, '#084081'    // Dark blue
+        ]);
+        addLayer(map, 'composite_vulnerability_index', 'composite_vulnerability_index.geojson', 'composite_vulnerability_index', [
+            0, '#ffeda0',    // Pale yellow
+            20, '#feb24c',   // Orange
+            40, '#fc4e2a',   // Red orange
+            60, '#e31a1c',   // Red
+            80, '#b10026'    // Dark red
+        ]);
+
+        // Setup IntersectionObserver to toggle layer visibility on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    ['unemployment', 'percentage_over65', 'percentage_under18', 'percentage_publicassistance', 'composite_vulnerability_index'].forEach(layer => {
+                        map.setLayoutProperty(layer, 'visibility', 'none');
+                    });
+
+                    switch(entry.target.id) {
+                        case 'chapter-1':
+                            map.setLayoutProperty('unemployment', 'visibility', 'visible');
+                            break;
+                        case 'chapter-2':
+                            map.setLayoutProperty('percentage_over65', 'visibility', 'visible');
+                            break;
+                        case 'chapter-3':
+                            map.setLayoutProperty('percentage_under18', 'visibility', 'visible');
+                            break;
+                        case 'chapter-4':
+                            map.setLayoutProperty('percentage_publicassistance', 'visibility', 'visible');
+                            break;
+                        case 'chapter-5':
+                            map.setLayoutProperty('composite_vulnerability_index', 'visibility', 'visible');
+                            break;
+                    }
+                }
+            });
+        }, {
+            root: document.querySelector('.story'),
+            rootMargin: '0px',
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('.chapter').forEach(chapter => {
+            observer.observe(chapter);
+        });
+    });
+</script>
+
+</body>
+</html>

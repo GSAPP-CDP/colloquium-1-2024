@@ -2,187 +2,448 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Christina Huang from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  
-  <link href="style.css" rel="stylesheet" />
-  
-  <title>Christina Huang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking the Chains: Challenging Linear Career Paths</title>
+    <meta name="description" content="Exploring the limitations of traditional HR and hiring practices in the Age of AI and Rapid Technological Change. Understanding the need for a dynamic, flexible career development system.">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+            color: #000;
+            line-height: 1.8;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #FFF;
+            text-align: center;
+            border-bottom: 1px solid #000;
+        }
+
+        header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .rotated-text {
+            display: inline-block;
+            transform: rotate(20deg);
+            transform-origin: center;
+        }
+
+        .blockquote {
+            font-family: 'Montserrat', sans-serif; /* Font for block quotes */
+            font-size: 1.2em;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-left: 4px solid #333; /* Modern left border */
+            color: #444;
+            max-width: 800px; /* Adjust as needed for your layout */
+            position: relative;
+        }
+
+        header h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0;
+            color: #333;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #FFF;
+            border-bottom: 1px solid #000;
+            z-index: 1000;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin: 0 15px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #555;
+        }
+
+        nav .brand {
+            font-size: 30px;
+            font-weight: bold;
+            font-weight: 700;
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        section {
+            padding: 80px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #FFF;
+            border-top: 1px solid #000;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #333;
+        }
+
+        #the-system {
+            background-color: #dcff5aff;
+        }
+
+        #why-matters {
+            background-color: #0db54aff;
+        }
+
+        #why-matters-more {
+            background-color: #ffa096ff;
+        }
+
+        #ideal-future {
+            background-color: #00afd7ff;
+        }
+
+        #about-me {
+            background-color: #eeeeeeff;
+        }
+
+        #methods {
+            background-color: #ff8f1cff;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .image-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px; /* Adjust spacing between images if needed */
+            overflow-x: auto; /* Allow horizontal scrolling if needed */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .image-wrapper {
+            flex: 0 0 auto;
+            width: 100vw; /* Full viewport width */
+            max-height: calc(100vh - 160px); /* Ensure images fit within section height */
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-wrapper img {
+            width: auto; /* Maintain aspect ratio */
+            height: 100%; /* Scale image to fit the height of the container */
+            object-fit: contain; /* Ensure the entire image is visible */
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-wrapper:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .two-column-layout {
+            display: flex;
+            gap: 20px;
+        }
+
+        .left-column {
+            flex: 3;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .right-column {
+            flex: 1;
+            max-height: 600px; /* Adjust the height as needed */
+            overflow-y: auto;
+        }
+
+        .two-equal-column-layout {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100%; /* Ensure the layout takes up the full height of its container */
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            position: relative;
+            height: 100%; /* Ensure the column takes up the full height of its container */
+        }
+
+        .column img {
+            width: auto; /* Maintain aspect ratio */
+            max-width: 100%; /* Ensure image does not overflow column width */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 100%; /* Ensure image fits within the column height */
+            display: block;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .two-equal-column-layout {
+                flex-direction: column;
+            }
+        }
+
+        .scrollable-container {
+            height: 100%;
+            width: 100%;
+        }
+
+        .long-graph {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            header h2 {
+                font-size: 18px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
-    
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Christina Huang
-    </h2>
-
     <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
+        <span class="brand">Christina Huang</span>
     </nav>
-  </header>
+    
+    <!--
+    <nav>
+        <span class="brand">Christina Huang</span>
+        <a href="#the-system">•</a>
+        <a href="#why-matters">•</a>
+        <a href="#why-matters-more">•</a>
+        <a href="#ideal-future">•</a>
+        <a href="#about-me">•</a>
+        <a href="#methods">•</a>
+    </nav>
+    -->
+    <header>
+        <h1>Bre<span class="rotated-text">aking</span> the Corporate Ladder</h1>
+        <h2>Reimagining Career Paths in the Age of AI and Rapid Technological Advancements</h2>
+    </header>
 
-  <main>
-    <article>
-      <h1>Christina Huang</h1>
-  
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system.</p>
-        
-        <img src="featured.jpg">
-      </section>
-  
-      <section>
-        <h2>What is the system?</h2>
+    <section id="the-system">
+        <h2>The Corporate Ladder Is Broken. I’ve Experienced It Firsthand.</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
+            For years, I believed in the promise of the corporate ladder—a steady climb rewarded by hard work and loyalty. But as industries evolve rapidly, this outdated model has left many of us stuck in roles that no longer fit. The promise of upward mobility has become a frustrating illusion, trapping employees in positions that feel increasingly irrelevant.
         </p>
-  
-        <p>
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-        </p>
-
-        <hr>
-  
-        <figure>
-          <img src="https://picsum.photos/1201/800">
-        </figure>
-  
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/601/400">
-          <img src="https://picsum.photos/600/400">
-        </figure>
-        
-        <hr>
-      </section>
-  
-      <section>
-        <h2>Whom does it impact?</h2>
-  
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-          tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-        </p>
-  
-        <p>
-          Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-        </p>
-        
-        <blockquote>
-          "Velit laoreet id donec ultrices tincidunt arcu…"
+        <blockquote class="blockquote">
+            "I’m stuck in a role I’ve outgrown."
         </blockquote>
-      </section>
-  
-      <section>
-        <h2>What are its leverage points?</h2>
-  
+        <blockquote class="blockquote">
+            "I want to move from software engineer to product manager, but everyone says it's impossible without the 'right' background."
+        </blockquote>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-          tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam.
+            These stories are all too common. With my background in corporate learning and development, I’ve seen how rigid career paths restrict opportunities for diverse talent. My work across Los Angeles, New York, São Paulo, Taipei, and Shanghai has focused on advancing individuals' skills and career growth through targeted education initiatives.
         </p>
-  
         <p>
-          Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
+            Throughout my career, I've seen how the traditional system fails to support career transitions in today’s fast-changing job market. As an Education and Career Mobility Fellow at the Aspen Institute and a member of the World Economic Forum Global Shapers Community, I know it’s time to reimagine career paths. We must break free from outdated models and create opportunities that reflect the dynamic nature of today’s workforce.
         </p>
         
-        <figure>
-          <img src="https://picsum.photos/601/401">
-          <img src="https://picsum.photos/600/401">
-        </figure>
-        
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/1201/801">
-        </figure>
-      </section>
-      
-      
-      <section>
-        <h1 id="assignment-2">2 – Systems</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
+
+    </section>
+
+    <section id="why-matters">
+        <h2>Traditional HR and Hiring Practices Are Broken.</h2>
+        <div class="two-column-layout">
+            <!-- Left Column with Text -->
+            <div class="left-column">
+                <p>
+                    The traditional HR system is flawed. It’s designed for a world where stability and predictability were the norm, where career paths were linear, and job roles were well-defined. But in today's rapidly changing environment, this model is failing employees and companies alike.
+                </p>
+                <p>
+                    One of the core problems is the overemphasis on past experience. Hiring practices are often biased toward candidates who have followed conventional paths, particularly those who have worked for big-name companies or have held roles with specific titles. If you’ve worked at a prestigious firm, your chances of landing a new job are significantly higher, regardless of whether your skills are the best fit for the role. This creates a self-perpetuating cycle where only those who have already climbed part of the corporate ladder are given opportunities to advance further, leaving many talented individuals stuck on the lower rungs.
+                </p>
+                <p>
+                    Moreover, HR practices tend to focus on narrowly defined skill sets that match the immediate needs of a specific role. This approach ignores the broader capabilities and potential of candidates, reducing people to a list of qualifications that may quickly become outdated as technology evolves.
+                </p>
+            </div>
+    
+            <!-- Right Column with Scrollable Graph -->
+            <div class="right-column">
+                <div class="scrollable-container">
+                    <img src="Corporate Ladder Flowchart.png" alt="Long Graph" class="long-graph">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="why-matters-more">
+        <h2>Hire for Learning Agility and Curiosity, Not Just Experience.</h2>
+        <p>
+            In an era where the half-life of learned skills is shrinking, the traditional emphasis on past experience is increasingly outdated. The rapid pace of technological advancement means that skills can become obsolete in a matter of years, or even months.
+        </p>
+        <div class="two-equal-column-layout">
+            <div class="column">
+                <img src="Employee Skill Development Journey Flowchart.gif" alt="Future Vision 1">
+                <p><strong>Past</strong> | Employee Skill Development Journey</p>
+            </div>
+            <div class="column">
+                <img src="Employee Skill Development Journey Flowchart_fast.gif" alt="Future Vision 2">
+                <p><strong>Current</strong> | Employee Skill Development Journey</p>
+            </div>
+        </div>
+        <p>
+            Hiring processes should focus on identifying candidates who demonstrate the ability to learn quickly, adapt to new challenges, and remain curious about emerging trends.
+        </p>
+        <div class="column">
+            <img src="Hiring Manager Dashboard.png" alt="Hiring Manager Dashboard">
+        </div>
+    </section>
+    
+    <!--
+    <section id="ideal-future">
+        <h2>The Future of Career Development Focuses on Non-Linear Career Paths and Continuous Learning.</h2>
+        <p>
+            The traditional view of career progression, which focuses on linear advancement and specific job titles, is becoming increasingly inadequate in today’s rapidly evolving job market. Both individuals and organizations need to adopt a more flexible and comprehensive approach to career development.
+        </p>
+        <p>
+            For <strong>individuals</strong>, career growth should be about more than just climbing a predefined ladder. Success in the modern workplace involves accumulating a diverse range of experiences, developing a broad skill set, and demonstrating adaptability. Instead of aiming for a single path to success, professionals should focus on acquiring versatile skills and seeking out opportunities for growth across various roles and industries.
+        </p>
+        <p>
+            <strong>Organizations</strong>, on the other hand, need to move beyond rigid metrics and traditional qualifications when evaluating talent. Instead of relying solely on titles and past experiences, companies should value a wide array of skills and capabilities. By recognizing the importance of diverse career experiences and fostering a culture of continuous learning, businesses can better support their employees’ growth and ensure they are prepared for future challenges.
+        </p>
+        <p>
+            In this new model, career growth is seen as a dynamic and ongoing journey rather than a fixed trajectory. By embracing this holistic approach, both individuals and organizations can unlock greater potential, drive innovation, and adapt more effectively to the ever-changing business environment.
+        </p>
+    </section>
+    -->
+
+    <section id="about-me">
+        <h2>Career Growth Is Not a One-Time Event—It’s a Lifelong Journey.</h2>
+        <p>
+            The traditional view of career growth as a linear, one-time event is no longer valid. As industries and job roles evolve, career development must be seen as an ongoing process. Employees should be encouraged to explore new roles, industries, and skills throughout their careers.
+        </p>
+        <p>
+            Organizations need to support this journey by offering diverse experiences and continuous learning opportunities. By doing so, they can retain top talent and adapt to changing market demands. This approach not only benefits employees by providing them with a sense of purpose and growth but also ensures that companies remain agile and competitive in an ever-changing environment.
+        </p>
+        <div class="two-equal-column-layout">
+            <div class="column">
+                <img src="CareerNavigator - Job Comparison_1.png" alt="Future Vision 1">
+                <p><strong>Wireframe</strong> | Skill Comparison</p>
+            </div>
+            <div class="column">
+                <img src="CareerNavigator - Job Comparison_2.png" alt="Future Vision 2">
+                <p><strong>Wireframe</strong> | Recommended Learning</p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section id="methods">
+        <h2>Leaders Serve as Catalysts for Career Development</h2>
+        <p>
+            Leadership plays a crucial role in redefining career growth in today’s dynamic work environment. The focus is shifting from rigid, linear career paths to a more flexible approach that prioritizes skill development and cross-functional experience.
+        </p>
+        <p>
+            Effective leaders actively create opportunities for employees to explore new roles and projects, enabling them to develop a diverse skill set. This approach not only empowers individuals to take charge of their career growth but also fosters a culture of innovation and adaptability within the organization.
+        </p>
+        <p>
+            By promoting career agility, leaders help retain top talent and ensure their organizations thrive in an ever-changing landscape.
+        </p>
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img src="CareerNavigator - Job Comparison_1.png" alt="Method 1">
+                <div class="image-overlay">Method 1 | Biological Analogies</div>
+            </div>
+            <div class="image-wrapper">
+                <img src="CareerNavigator - Job Comparison_2.png" alt="Method 2">
+                <div class="image-overlay">Method 2 | Historical Precedents</div>
+            </div>
+            <div class="image-wrapper">
+                <img src="authorship zine.gif" alt="Method 3">
+                <div class="image-overlay">Method 3 | Authorship</div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <footer>
+        <p>Advisors: Professor Violet Whitney & Professor William Martin</p>
+    </footer>
 </body>
 
 </html>

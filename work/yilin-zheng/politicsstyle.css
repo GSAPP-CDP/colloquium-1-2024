@@ -1,0 +1,405 @@
+body, html {
+    font-family: "Montserrat, Sans Serif";
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden; /* Hide vertical overflow on the main page */
+    transition: background 1.5s ease; /* Smooth transition for background change */
+}
+
+            .nav-container {
+                font-family: "Montserrat, Sans Serif";
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                list-style-type: none; /* Removes the default bullet points */
+                text-align: left;
+                position: fixed;
+                font-size: 12px; /* Fixed typo: changed text-size to font-size */
+                top: 50px; /* Added 'px' unit */
+                left: 50px; /* Added 'px' unit */
+                z-index: 1000; /* Ensures it stays above other elements */
+                opacity: 0; /* Initially hidden */
+                transition: opacity 0.5s ease; /* Smooth transition for showing/hiding */
+                background-color: rgba(255, 255, 255, 0.7);
+                padding-left: 30px;
+                padding-right: 20px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border-radius: 8px;
+            }
+
+            .nav-container.visible {
+                opacity: 1; /* Show when mouse is hovering */
+            }
+
+            .nav-container nav ul {
+                padding-left: 0; /* Removes default padding */
+            }
+
+            .nav-container nav ul li {
+                position: relative; /* Allows the pseudo-element to be positioned relative to the <li> */
+                list-style: none; /* Ensures no list style is applied */
+                margin-bottom: 3px; /* Space between list items */
+            }
+
+            .nav-container nav ul li a span {
+                display: inline-block; /* Necessary for the animation */
+                position: relative; /* Allows us to animate its position */
+                transition: transform 0.3s ease-in-out; /* Smooth transition */
+                color: black;
+            }
+
+            .nav-container nav ul li a:hover span {
+                transform: translateY(0px); /* Move the text upwards on hover */
+                animation: scrollText 0.6s ease-in-out;
+            }
+
+            @keyframes scrollText {
+                0% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-5px);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-container nav ul li::before {
+                content: "";
+                position: absolute;
+                left: -15px; /* Adjust the position of the circle */
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                background-color: transparent;
+                border-radius: 50%;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .nav-container nav ul li:hover::before,
+            .nav-container nav ul li.active::before {
+                width: 5px; /* Adjust the size of the bullet circle */
+                height: 5px;
+                background-color: darkolivegreen; /* Circle color */
+            }
+
+.main-container {
+    font-family: "Montserrat, Sans Serif";
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    display: flex;
+    flex-direction: row; /* Set to row for horizontal scrolling */
+    width: 100%;
+    height: 100%;
+    overflow-x: auto; /* Ensure the container can scroll horizontally */
+    overflow-y: hidden; /* Hide vertical overflow on the main container */
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+.main-container > * {
+    flex: 0 0 100vw; /* Ensure each section takes full viewport width */
+    height: 100vh;
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+    display: flex;
+    flex-direction: column; /* Stack content vertically within each section */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    overflow-y: hidden; /* Hide vertical overflow within each section */
+}
+
+.about, .coverpage, .intropage, .property, .risk, .financial, .financial2, .conclusion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+            .about {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                width: 80%; /* Adjusts the width of the content area */
+                padding: 200px;
+                text-align: left;
+            }
+
+            .about_first {
+                color: #333; /* Use a dark gray color similar to the image */
+                font-size: 24px; /* Adjust the size to match the screenshot */
+                line-height: 1.6; /* Adjust line spacing for readability */
+                z-index: 10; /* Ensures that the text is above the p5 canvas */
+                background: rgba(221, 221, 221, 0.75);
+                padding: 20px;
+            }
+
+            .canvas-container {
+                position: absolute;
+                top: 0; /* Start at the top of the parent container */
+                left: 0;
+                width: 100%;
+                height: 100%; /* Fill the parent container height */
+                overflow: hidden;
+                z-index: 0; /* Ensure it is below the about section */
+            }
+    
+            canvas {
+                width: 100%;
+                height: 100%;
+            }
+
+.slider-container {
+    overflow: hidden; /* Hide overflow to keep the container tidy */
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    width: 200%; /* Adjust based on the number of images */
+    height: 100%;
+    animation: slide 40s linear infinite; /* Adjust duration for scroll speed */
+}
+
+.slider img {
+    width: auto; 
+    height: 30vh;
+    object-fit: cover; /* Ensure images cover the container */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+            .gallery-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 1.25s ease-in-out;
+            }
+
+            .show {
+                opacity: 1;
+            }
+
+
+.content-container { 
+    width: 50vw; /* Make content containers wider */
+    max-width: 50vw; /* Ensure it doesn't grow beyond 60vw */
+    padding-left: 100px; /* Add padding to ensure content is not cut off */
+    text-align: justify;
+}
+
+.vertical-scroll {
+    width: 100vw; /* Set the scrolling container to take the full viewport width */
+    height: 100vh; /* Optional: set to full viewport height or adjust as needed */
+    position: relative; /* Establish a positioning context */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+            #typing {
+                animation: blink-caret 0.75s step-end infinite;
+            }
+
+.section_first {
+    padding-top: 400px;
+    padding-bottom: 50px;
+    font-size: 2em;
+}
+
+            iframe {
+                width: 100%; /* Make the iframe take up 100% of its parent container's width */
+                height: 100vh; /* Adjust height to take the full viewport height or as needed */
+                border: none; /* Remove default border */
+                display: block; /* Remove extra space below the iframe */
+            }
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50vw;
+    max-width: 50vw;
+    padding-top: 20px;
+    color: white;
+}
+
+.section, .risk, .property{
+    overflow-y: auto; /* Allow vertical scrolling within sections with class 'section' */
+    justify-content: flex-start;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+}
+
+.description-container {
+    display: block;
+    height: 100%;
+}
+
+.description {
+    margin: 30;
+    border:solid #aaa;
+    display: sticky;
+}
+
+.arrow {
+    font-size: 3em;
+}
+
+.cover_first {
+    font-size: 2em;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8); /* Add a text shadow to make the text pop */
+    font-weight: bold; /* Make the text bold for better emphasis */
+}
+
+.intro_first {
+    font-size: 1.3em;
+}
+
+
+
+.property_first, .risk_first, .financial_first {
+    font-size: 2em;
+}
+
+.about_first {
+    padding-bottom: 300px;
+    /* font-size: 2em; */
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.overlay .fade {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(100px); /* Start from below the current position */
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Keyframe animation to slide up and fade in */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px); /* Start position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position */
+    }
+}
+
+/* Specific delays for each fade element */
+.overlay .fade:nth-of-type(1) {
+    animation-delay: 4s;
+}
+
+.overlay .fade:nth-of-type(2) {
+    animation-delay: 6s;
+}
+
+.overlay .fade:nth-of-type(3) {
+    animation-delay: 8s;
+}
+
+.overlay .fade:nth-of-type(4) {
+    animation-delay: 9s; /* Adjusted for the fourth element */
+}
+
+.intropage .fade:nth-of-type(1) {
+    animation-delay: 4s;
+}
+
+.intropage .fade:nth-of-type(2) {
+    animation-delay: 6s;
+}
+
+/* #map {
+    width: 100%; /* Make iframes responsive */
+    /* height: 60vh;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Relative positioning to allow the iframe to be positioned absolutely */
+    /* overflow: hidden; Hide any overflow from the larger iframe */ */
+/* } */
+
+.dialogue-box {
+    position: absolute; /* Make it absolute so it can be moved around */
+    max-width: 500px;
+    margin: 20px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.544);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+    cursor: move; /* Change cursor to indicate the box can be dragged */
+    right: 0;
+    top: 0;
+    z-index: 1000; /* Ensure the dialogue box is on top of everything */
+}
+
+.dialogue-box::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f9f9f9;
+    border-top-color: inherit;
+}
+
+.dialogue-box p {
+    margin: 0;
+}
+
+.properties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.property-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.property-image:hover {
+    transform: scale(1.05);
+}

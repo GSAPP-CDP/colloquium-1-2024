@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background-image.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            color: #fff;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 50px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            padding: 0;
+            max-width: 900px;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            width: 45%;
+            position: relative;
+            margin-bottom: 20px;
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .timeline-item.left {
+            float: left;
+            clear: left;
+        }
+
+        .timeline-item.right {
+            float: right;
+            clear: right;
+        }
+
+        .timeline-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-content img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            clear: both;
+            display: table;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #3498db;
+            border-radius: 50%;
+            top: 20px;
+        }
+
+        .timeline-item.left::before {
+            left: -15px;
+        }
+
+        .timeline-item.right::before {
+            right: -15px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #3498db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .property-image {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .property-image:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    function revealOnScroll() {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        timelineItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top + scrollTop;
+            const itemHeight = item.offsetHeight;
+
+            if (scrollTop + windowHeight > itemTop + itemHeight * 0.2) {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check in case already scrolled
+});
+
+    </script>
+</head>
+<body>
+    <div class="timeline-container">
+        <img src="assets\userjourney.png" style="width: 100%;height: auto;">
+        <div class="timeline-item right" id="3">
+            <!-- <div class="content-container"> -->
+                <h4 class="property_first fade">Initial Considerations</h4>
+                <br><br><br>
+                <p class="dialogue-box">I am in my 30s and moved to New York a few years ago for work. After working in NY, I decided to settle down and invest in a property for my family. <br>I wanted my children to study in New York, and I trust the recommendations of those close to me. I am looking into neighborhoods that are safe and familiar to me. My key considerations are how far the property is from my job, my kids' school, and everyday amenities.</p>
+
+                <div class="neighborhoods">
+                    <img src="journey/4neighborhood.gif" class="neighborhood">
+                </div>
+                <div class="properties">
+                    <img src="journey/option1.png" class="property-image">
+                    <img src="journey/option2.png" class="property-image">
+                    <img src="journey/option3.png" class="property-image">
+                    <img src="journey/option4.png" class="property-image">
+                    <img src="journey/option5.png" class="property-image">
+                    <img src="journey/option6.png" class="property-image">
+                    <img src="journey/option7.png" class="property-image">
+                    <img src="journey/option8.png" class="property-image">
+                    <img src="journey/option9.png" class="property-image">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="timeline-item right" id="4">
+            <div class="content-container">
+                <h3 class="risk_first fade">Research & Risk Assessment<br><br><br><span style="font-style: italic; text-decoration: underline;">Past/Future Risks</span></h3>
+                <p class="dialogue-box">Then, I looked at available listings to see which ones fall within my budget. I focused on properties that are recently built, require less refurbishing, and have potential for appreciation in value.</p>
+                <div class="properties">
+                    <img src="journey/5condition.webp" class="property-image">
+                    <img src="journey/5condition1.webp" class="property-image">
+                    <img src="journey/5condition2.webp" class="property-image">
+                    <img src="journey/5condition3.webp" class="property-image">
+                    <img src="journey/5condition4.webp" class="property-image">
+                    <img src="journey/5condition5.webp" class="property-image">
+                    <img src="journey/5condition6.webp" class="property-image">
+                    <img src="journey/5condition7.webp" class="property-image">
+                    <img src="journey/5condition8.webp" class="property-image">
+                    <img src="journey/5condition9.webp" class="property-image">
+                    <img src="journey/5condition10.webp" class="property-image">
+                    <img src="journey/5condition11.webp" class="property-image">
+                    <img src="journey/5condition12.webp" class="property-image">
+                    <img src="journey/5condition13.webp" class="property-image">
+                    <img src="journey/5condition13.webp" class="property-image">
+                </div>    
+            </div>
+            
+            <div class="timeline-item left">
+                <div class="map-container fade">
+                    <!-- <iframe src="https://dcp.maps.arcgis.com/apps/webappviewer/index.html?id=1c37d271fba14163bbb520517153d6d5" frameborder="0"></iframe> -->
+                    <iframe src="assets/share-of-nyc-residential.svg" frameborder="0"></iframe>
+                    <iframe src="assets/residential-buildings-wi.svg" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item right" id="5">
+            <div class="content-container">
+                <h4 class="financial_first fade">Financial Evaluation<br><br><br><span style="font-style: italic; text-decoration: underline;">Property Value</span></h4>
+
+                <p class="dialogue-box">While narrowing down my options, I want to consider mortgage premiums and insurance premiums. Given the current interest rate, what can I afford? How much do I have set aside for the down payment, insurance, new furniture, moving costs, and renovations? How many days will I need to miss work for the relocation? And what will be the total interest I will need to pay?</p>
+
+                <p>If a low-likelihood storm resulting in severe flooding (a 1-in-100 year flood event), occurred today, it could affect 7,373 properties in New York. This type of event has a 26% chance of occurring at least once over the life of a 30 year mortgage. 30 years from now, an event of this same likelihood would affect 8,244 properties due to a changing environment.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item right" id="">
+            <div class="content-container">
+                <h3 class="financial_first fade">Financial Evaluation<br><br><br><span style="font-style: italic; text-decoration: underline;">Disaster</span></h3>
+                <p class="dialogue-box">Finally, my property is in a flood risk area. Can I tolerate the risk of flooding given my financial situation and insurance coverage? I plan to consult with friends and a real estate agent before making this significant purchase. </p>
+                <div class="placeholder-box2 fade">Neighborhood scale: increase of area of impact (financial loss)</div>
+                <div class="placeholder-box2 fade">Household scale: Cost of disaster mitigation measures (e.g., adding flood barriers, retrofitting).</div>
+            </div>
+        </div>
+
+        <div class="timeline-item right" id="">
+            <div class="content-container">
+                <h4 class="first fade">Weight: Risk tolerance and personal resilience to potential disasters</h4>
+                <p class="dialogue-box">"Individuals and firms often make decisions based on imperfect information and limited cognitive capacity, which can lead to outcomes that are not socially optimal. This bounded rationality challenges the assumptions of perfect rationality that underpin many economic models and policy recommendations." — Joseph Stiglitz, "Information and the Change in the Paradigm in Economics"</p>
+            </div>
+        </div>
+
+        <div class="timeline-item right" id="1">
+
+        </div>
+        </div>
+    </div>
+</body>
+</html>

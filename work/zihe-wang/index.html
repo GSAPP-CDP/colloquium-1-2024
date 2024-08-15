@@ -1,192 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Zihe Wang from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  
-  <link href="style.css" rel="stylesheet" />
-  
-  <title>Zihe Wang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapbox Storyline & Parking Navigator</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
-    
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Zihe Wang
-    </h2>
+    <div id="map"></div>
+    <div class="story">
+        <!-- Chapter 00: Introductory Chapter with Image and Text -->
+        <div id="chapter-00" class="chapter full-screen-chapter">
+            <div class="chapter-content">
+                <h1>Where can I find parking?
+                    <br> How can I find such a hidden parking space?
+                    <br> How can I park for less money in Manhattan?</h1>
+            <img src="Background.jpg" alt="Introduction Image 1" class="full-screen-image">
+            </div>
+        </div>
+        
+        <!-- Chapter 0: Second Introductory Chapter -->
+        <div id="chapter-0" class="chapter full-screen-chapter">
+            <div class="chapter-content">            
+            <img src="Comparision.png" alt="Introduction Image 2" class="full-screen-image">
+            </div>
+        </div>
 
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
+        <!-- Existing Chapters Begin Here -->
+        <div id="chapter-1" class="chapter">
+            <h2>Parking Locations</h2>
+            <p>Description of parking locations in New York City.</p>
+            <div id="legend-parking">
+                <h3>Legend</h3>
+                <div><span style="background-color: rgba(221, 255, 144, 1);"></span>Parking Location (4px)</div>
+            </div>
+        </div>
+        <div id="chapter-2" class="chapter">
+            <h2>Industry Impact</h2>
+            <p>Displays how different industries are impacted by parking availability.</p>
+            <div id="legend-industry">
+                <h3>Legend</h3>
+                <div><span style="background-color: rgba(255, 105, 180, 0.6);"></span>Garage (8px)</div>
+                <div><span style="background-color: rgba(255, 140, 0, 0.6);"></span>Parking Lot (6px)</div>
+                <div><span style="background-color: rgba(138, 43, 226, 0.6);"></span>Garage and Parking Lot (10px)</div>
+            </div>
+        </div>
+        <div id="chapter-3" class="chapter">
+            <h2>Operation Hours</h2>
+            <p>Operation hours of parking locations.</p>
+            <div id="legend-hours">
+                <h3>Legend</h3>
+                <div><span style="background-color: rgba(60, 179, 113, 0.6);"></span>24 hours (12px)</div>
+                <div><span style="background-color: rgba(70, 130, 180, 0.6);"></span>6am-11pm (10px)</div>
+                <div><span style="background-color: rgba(100, 149, 237, 0.6);"></span>7am-9pm (8px)</div>
+                <div><span style="background-color: rgba(72, 61, 139, 0.6);"></span>8am-10pm (8px)</div>
+            </div>
+        </div>
+        <div id="chapter-4" class="chapter">
+            <h2>Price Visualization</h2>
+            <p>Visualization of parking pricing across different locations.</p>
+            <div id="legend-price">
+                <h3>Legend</h3>
+                <div><span style="background-color: rgba(255, 245, 235, 0.6);"></span>Price: 5-9</div>
+                <div><span style="background-color: rgba(255, 218, 185, 0.6);"></span>Price: 10-14</div>
+                <div><span style="background-color: rgba(255, 178, 102, 0.6);"></span>Price: 15-19</div>
+                <div><span style="background-color: rgba(255, 140, 0, 0.6);"></span>Price: 20-24</div>
+                <div><span style="background-color: rgba(205, 92, 0, 0.6);"></span>Price: 25-29</div>
+            </div>
+        </div>
+        <div id="chapter-5" class="chapter">
+            <h2>Capacity Data</h2>
+            <p>Displays parking capacity data.</p>
+            <div id="legend-capacity">
+                <h3>Legend</h3>
+                <div><span style="background-color: rgba(255, 182, 193, 0.6);"></span>Capacity: 50-99</div>
+                <div><span style="background-color: rgba(255, 105, 180, 0.6);"></span>Capacity: 100-199</div>
+                <div><span style="background-color: rgba(255, 20, 147, 0.6);"></span>Capacity: 200-299</div>
+                <div><span style="background-color: rgba(219, 112, 147, 0.6);"></span>Capacity: 300-399</div>
+                <div><span style="background-color: rgba(199, 21, 133, 0.6);"></span>Capacity: 400-499</div>
+            </div>
+        </div>
+        <!-- 新增的第6章 -->
+        <div id="chapter-6" class="chapter">
+            <h2>Street parking</h2>
+            <p>This chapter visualizes the locations where <br> parking is allowed and where it is not <br> allowed in streets of New York City.</p>
+            <div id="legend-parking-status">
+                <h3>Legend</h3>
+                <div><span style="background-color: rgba(0, 255, 0, 0.6);"></span>Parking Allowed</div>
+                <div><span style="background-color: rgba(255, 0, 0, 0.6);"></span>Parking Not Allowed</div>
+            </div>
+        </div>
+                <div id="chapter-7" class="chapter full-screen-chapter">
+            <div class="chapter-content">
+                <h2>Design Fiction</h2>
+                <p>In the future smart city, Mr. Wang's travel experience is completely overturned. Every morning, his XR navigation system will provide him with the best parking plan based on real-time traffic, parking lot occupancy and geographic information. Through holographic projection, Mr. Wang can choose the route that saves the most time and money.
 
-  <main>
-    <article>
-      <h1>Zihe Wang</h1>
-  
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-        <h1 id="assignment-1a">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system.</p>
-        
-        <img src="Assignment 1 Submission(1).jpg">
-      </section>
-
-
-      <section>
-        <h1 id="assignment-1b">1 – Systems</h1>
-        <!--- YouTube -->
-        <iframe
-        src="https://www.youtube.com/embed/VGAsD-RivM0"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        style="aspect-ratio: 16 / 9; width: 100%;">
-        </iframe>
-      </section>
-      
-      
-      <section>
-        <h1 id="assignment-2-1">2-1 – Authorship</h1>
-        <h2>Authorship philosophy and examples</h2>
-        <p>Authorship in Uber System.</p>
-        
-        <img src="Authorship in Uber System_01.png">
-      </section>
-      
-      <section>
-        <h1 id="assignment-2-2">2-2 – Zine</h1>
-        <h2>Authorship</h2>
-        <p>Authorship in Uber System.</p>
-        
-        <img src="1.jpg">
-        <img src="2.jpg">
-        <img src="3.jpg">
-        <img src="4.jpg">
-        <img src="5.jpg">
-        <img src="6.jpg">
-        <img src="7.png">
-        <img src="8.png">
-        <img src="9.png">
-        <img src="10.png">
-      </section> 
-      
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-        <h2>Analysis of Smart City Parking Management System</h2>
-        <p>The smart city parking management system aims to reduce the time spent searching for parking spaces and alleviate urban traffic congestion in Manhattan. Data collected includes parking space availability and usage from OpenStreetMap and Parkopedia API, real-time occupancy from Parkopedia API, traffic flow and congestion from Google Traffic, user satisfaction from Google Reviews, and parking-related traffic accidents from the NYC DOT. These datasets provide a comprehensive view of parking efficiency and its impact on traffic. The analysis will highlight areas for improvement and support the hypothesis that smart parking systems can enhance urban mobility and reduce congestion.</p>
-        
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="parking_data.png" alt="Parking Space Availability and Usage" style="margin-bottom: 5px;">
-          <p style="margin-top: 0;">Parking Space Availability and Usage</p>
+                    <br> When he drives, the vehicle interacts seamlessly with the city infrastructure and Robotaxi to ensure smooth travel. When approaching the destination, the XR system will mark the vacant parking space on the car window to guide him to park quickly. The whole process is efficient and time-saving, and Mr. Wang no longer has to worry about finding a parking space. Every day in the future, he can enjoy this intelligent travel convenience..</p>
+                <img src="Smart_city.jpg" alt="Ending Image 1" class="full-screen-image">
+                </div>
         </div>
-        
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="real-time_occupancy.png" alt="Real-time Parking Occupancy" style="margin-bottom: 5px;">
-          <p style="margin-top: 0;">Real-time Parking Occupancy</p>
+        <div id="chapter-8" class="chapter full-screen-chapter">
+            <object data="navigation/Navigation.html" type="text/html" style="width: 100%; height: 100%; border: none;"></object>
         </div>
-        
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="traffic_flow.png" alt="Traffic Flow" style="margin-bottom: 5px;">
-          <p style="margin-top: 0;">Traffic Flow</p>
-        </div>
-        
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="user_satisfaction.png" alt="User Satisfaction and Reviews" style="margin-bottom: 5px;">
-          <p style="margin-top: 0;">User Satisfaction and Reviews</p>
-        </div>
-        
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="traffic_accidents.png" alt="Parking-related Traffic Accidents" style="margin-bottom: 5px;">
-          <p style="margin-top: 0;">Parking-related Traffic Accidents</p>
-        </div>
-      </section>
-      
-      <section>
-        <h2>Data Virtualization</h2>   
-        
-        <div style="text-align: center; margin-bottom: 30px;">
-          <iframe src="parking_lots_map.html" width="100%" height="600" style="border:none;"></iframe>
-          <p style="margin-top: 0; text-align: center;">Interactive Map of Parking Lots in Manhattan</p>
-        </div>
-      </section>      
-      
-      <div style="text-align: center; margin-bottom: 30px;">
-        <img src="parking_lots_capacity_distribution.png" alt="Parking Lots Capacity Distribution" style="margin-bottom: 5px;">
-        <p style="margin-top: 0;">Parking Space Availability and Usage</p>
-      </div>
-      
-      <div style="text-align: center; margin-bottom: 30px;">
-        <img src="parking_lots_open_hours_distribution.png" alt="Parking Lots Open Hours Distribution" style="margin-bottom: 5px;">
-        <p style="margin-top: 0;">Real-time Parking Occupancy</p>
-      </div>
-      
-      <div style="text-align: center; margin-bottom: 30px;">
-        <img src="parking_lots_price_distribution.png" alt="Parking Lots Price Distribution" style="margin-bottom: 5px;">
-        <p style="margin-top: 0;">Parking Lots Price Distribution</p>
-      </div>
-      
-      <div style="text-align: center; margin-bottom: 30px;">
-        <img src="filtered_distance_distribution.png" alt="Filtered Distance Distribution" style="margin-bottom: 5px;">
-        <p style="margin-top: 0;">Filtered Distance Distribution</p>
-      </div>
-      </section>
-
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>     
-        <div style="text-align: center; margin-bottom: 30px;">
-          <img src="The use of an AR navigation system for parking in a smart city.png" alt="AR Navigation System Diagram" style="margin-bottom: 5px;">
-          <p style="margin-top: 0; text-align: center;">AR Navigation System Diagram</p>
-        </div>
-        
-        <p>Jane starts her day by putting on her AR glasses as she leaves her apartment in Manhattan. The AR interface immediately displays her schedule, weather updates, and news headlines, seamlessly integrating with her morning routine. She heads to her car, which she parks in a nearby garage. As she drives, the AR system projects navigation instructions onto her windshield, showing her the fastest route to her office while highlighting available parking spots along the way.</p>
-        
-        <p>Midway through her commute, Jane receives a notification that the nearest parking lot has a few spaces available. The AR system guides her to the entrance, displaying green markers for available spots. Jane effortlessly follows the arrows projected on the ground, leading her to an open space. Once parked, her AR glasses confirm the parking fee and time, allowing her to complete the payment through her mobile app.</p>
-        
-        <p>During her lunch break, Jane has a doctor's appointment and plans to do some shopping. She inputs her destinations into the AR system, which calculates the optimal routes and parking availability at each location. The system suggests a nearby garage for her doctor's visit, displaying the shortest path and indicating the number of free spots. After her appointment, she heads to the shopping mall, where the AR system again provides real-time parking guidance.</p>
-        
-        <p>At the end of the day, Jane heads home. The AR system shows the fastest route, avoiding traffic congestion. It highlights alternative paths if there are any delays, ensuring a smooth drive back. As she arrives home, the AR system deactivates, and Jane seamlessly transitions back to her daily routine, having saved time and reduced the stress associated with parking in a bustling city like Manhattan.</p>
-      </section>      
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
-  
-  <footer></footer>
+    </div>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js'></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
