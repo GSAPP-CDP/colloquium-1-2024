@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    position: fixed; /* 固定位置 */
+    top: 0; /* 顶部对齐 */
+    bottom: 0; /* 底部对齐 */
+    width: 100%; /* 宽度为100% */
+}
+
+.story {
+    position: absolute; /* 绝对定位 */
+    top: 17%; /* 距离顶部 */
+    right: 0%; /* 距离右侧减少 */
+    width: 35%; /* 宽度 */
+    margin: 2%; /* 外边距 */
+}
+
+.chapter {
+    padding: 25px; /* 内边距为40像素 */
+    background: rgba(255, 255, 255, 0.6); /* 背景颜色为白色，透明度为0.6 */
+    margin-bottom: 1000px; /* 底部外边距为1000像素 */
+    overflow-y: visible; /* 垂直方向上隐藏溢出内容 */
+    position: auto; /* 相对定位 */
+    box-sizing: border-box; /* 包括内边距和边框在内计算元素的宽度和高度 */
+    box-shadow: 0 0 10px rgba(151, 148, 148, 0.5);
+}
+
+.chapter h2 {
+    font-family: 'Georgia', serif; /* 设置故事标题的字体 */
+    font-size: 1.6em; /* 设置故事标题的字体大小 */
+}
+
+.chapter p {
+    font-family: 'Courier New', Courier, monospace; /* 设置正文文本的古代电报风格字体 */
+    font-size: 1.1em; /* 设置正文文本的字体大小 */
+}
+
+.scroll-indicator {
+    position: fixed; /* 固定定位 */
+    bottom: 10px; /* 距离底部10px */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 水平居中调整 */
+    text-align: center; /* 文本居中对齐 */
+    font-size: 1em; /* 设置字体大小 */
+    color: #333; /* 设置字体颜色 */
+    display: flex; /* 使用Flexbox布局 */
+    flex-direction: column; /* 垂直排列子元素 */
+    align-items: center; /* 水平居中对齐子元素 */
+}
+
+.scroll-indicator .triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 8px solid #333; /* 设置三角形的颜色 */
+    margin-bottom: 5px; /* 三角形和文本之间的间距 */
+}
+
+.scroll-indicator p {
+    margin: 0; /* 移除文本的外边距 */
+}
+
+.custom-iframe {
+    background-color: rgba(255, 255, 255, 0); /* 设置背景颜色和透明度 */
+    border: 0px solid rgba(0, 0, 0, 0.8); /* 设置边框颜色和透明度 */
+    width: 130%; /* 与 .story 的宽度相同 */
+    position: auto; /* 绝对定位 */
+}
+.story-chapter1-image {
+    width: 100%; /* 设置图像宽度与 .story 一致 */
+}

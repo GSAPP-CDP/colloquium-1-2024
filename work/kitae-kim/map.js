@@ -38,7 +38,7 @@ map.on('load', function () {
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': '../data/Owned.geojson'
+            'data': 'data/Owned.geojson'
         },
         'paint': {
             'fill-color': [
@@ -62,7 +62,7 @@ map.on('load', function () {
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': '../data/Rented.geojson'
+            'data': 'data/Rented.geojson'
         },
         'paint': {
             'fill-color': [
@@ -86,7 +86,7 @@ map.on('load', function () {
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': '../data/Owned+Rented.geojson'
+            'data': 'data/Owned+Rented.geojson'
         },
         'paint': {
             'fill-color': [
@@ -129,7 +129,7 @@ map.on('load', function () {
         'type': 'circle',
         'source': {
             'type': 'geojson',
-            'data': '../data/Points_Owned.geojson'
+            'data': 'data/Points_Owned.geojson'
         },
         'paint': {
             'circle-color': '#57ce7f',
@@ -143,7 +143,7 @@ map.on('load', function () {
         'type': 'circle',
         'source': {
             'type': 'geojson',
-            'data': '../data/Points_Rented.geojson'
+            'data': 'data/Points_Rented.geojson'
         },
         'paint': {
             'circle-color': '#cf58e3',

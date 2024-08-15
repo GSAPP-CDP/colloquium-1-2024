@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 커서 변경 관련
     const specialArea = document.getElementById('special-area');
     specialArea.addEventListener('mouseenter', function() {
-        specialArea.style.cursor = `url('../scissors.png') 32 32, auto`; // 커서 변경
+        specialArea.style.cursor = `url('scissors.png') 32 32, auto`; // 커서 변경
     });
 
     specialArea.addEventListener('mouseleave', function() {

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Routes</title>
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <style>
+         body {
+        margin: 0;
+        padding: 0;
+        border: 0px solid rgba(255, 255, 255, 0.667); /* 黑色边框 */
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 76%;
+        border: 1.5px solid rgba(83, 83, 83, 0.561); /* 黑色边框 */
+    }
+        #info {
+            position: absolute;
+            top: 68px;
+            left: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #search {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+        }
+        .transport-button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .transport-button.active {
+            background-color: #3887be;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+<div id="info"></div>
+<div id="search">
+    <input type="text" id="startAddress" placeholder="Enter start address">
+    <div id="startSuggestions"></div>
+    <input type="text" id="destinationAddress" placeholder="Enter destination address" value="Columbia University">
+    <div id="destinationSuggestions"></div>
+    <button class="transport-button active" id="driving">Driving</button>
+    <button class="transport-button" id="cycling">Cycling</button>
+    <button class="transport-button" id="walking">Walking</button>
+</div>
+
+<!-- Mapbox JS -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+<script>
+    // 替换为你的API密钥
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlbmZlbmc5MjkiLCJhIjoiY2x6Znh3ZjVlMWR5djJpcTJtc2JoamFlbCJ9.p8sYODV2j8QLx1aheHvKLA';
+
+    // 初始化地图
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10', // Mapbox提供的浅色样式，接近单色效果
+        center: [-73.929,40.777], // 哥伦比亚大学坐标
+        zoom: 10
+    });
+
+    // 默认目的地坐标（哥伦比亚大学）
+    let destination = [-73.9626, 40.8075];
+    let profile = 'driving-traffic'; // 默认交通方式
+
+    async function getRoute(start, destination) {
+        const query = await fetch(
+            `https://api.mapbox.com/directions/v5/mapbox/${profile}/${start[0]},${start[1]};${destination[0]},${destination[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+            { method: 'GET' }
+        );
+        const json = await query.json();
+        const data = json.routes[0];
+        const route = data.geometry.coordinates;
+        const distance = data.distance / 1609.34; // 距离（英里）
+        const duration = data.duration / 60; // 时间（分钟）
+
+        // 获取地址信息
+        const startAddress = await getAddress(start);
+        const destinationAddress = await getAddress(destination);
+
+        // 更新信息窗口内容
+        document.getElementById('info').innerHTML = `
+            <p><strong>Distence:</strong> ${distance.toFixed(2)} Miles</p>
+            <p><strong>Time:</strong> ${duration.toFixed(2)} Minutes</p>
+        `;
+
+        const geojson = {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+                type: 'LineString',
+                coordinates: route
+            }
+        };
+        if (map.getSource('route')) {
+            map.getSource('route').setData(geojson);
+        } else {
+            map.addLayer({
+                id: 'route',
+                type: 'line',
+                source: {
+                    type: 'geojson',
+                    data: geojson
+                },
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                paint: {
+                    'line-color': '#3887be',
+                    'line-width': 4,
+                    'line-opacity': 0.7
+                }
+            });
+        }
+    }
+
+    async function getAddress(coords) {
+        const query = await fetch(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${coords[0]},${coords[1]}.json?access_token=${mapboxgl.accessToken}`,
+            { method: 'GET' }
+        );
+        const json = await query.json();
+        return json.features[0]?.place_name || '未知位置';
+    }
+
+    async function searchAddress(inputId, suggestionsId, callback) {
+        const address = document.getElementById(inputId).value;
+        const query = await fetch(
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${mapboxgl.accessToken}&autocomplete=true`,
+            { method: 'GET' }
+        );
+        const json = await query.json();
+        const suggestions = json.features.map(feature => feature.place_name);
+        const suggestionsContainer = document.getElementById(suggestionsId);
+        suggestionsContainer.innerHTML = '';
+        suggestions.forEach(suggestion => {
+            const div = document.createElement('div');
+            div.textContent = suggestion;
+            div.addEventListener('click', () => {
+                document.getElementById(inputId).value = suggestion;
+                suggestionsContainer.innerHTML = '';
+                callback(json.features.find(feature => feature.place_name === suggestion).geometry.coordinates);
+            });
+            suggestionsContainer.appendChild(div);
+        });
+    }
+
+    document.getElementById('startAddress').addEventListener('input', () => {
+        searchAddress('startAddress', 'startSuggestions', (coords) => {
+            const start = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: {},
+                        geometry: {
+                            type: 'Point',
+                            coordinates: coords
+                        }
+                    }
+                ]
+            };
+            if (map.getLayer('start')) {
+                map.getSource('start').setData(start);
+            } else {
+                map.addLayer({
+                    id: 'start',
+                    type: 'circle',
+                    source: {
+                        type: 'geojson',
+                        data: start
+                    },
+                    paint: {
+                        'circle-radius': 10,
+                        'circle-color': '#f30'
+                    }
+                });
+            }
+            getRoute(coords, destination);
+        });
+    });
+
+    document.getElementById('destinationAddress').addEventListener('input', () => {
+        searchAddress('destinationAddress', 'destinationSuggestions', (coords) => {
+            destination = coords;
+            const dest = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: {},
+                        geometry: {
+                            type: 'Point',
+                            coordinates: coords
+                        }
+                    }
+                ]
+            };
+            if (map.getLayer('destination')) {
+                map.getSource('destination').setData(dest);
+            } else {
+                map.addLayer({
+                    id: 'destination',
+                    type: 'circle',
+                    source: {
+                        type: 'geojson',
+                        data: dest
+                    },
+                    paint: {
+                        'circle-radius': 10,
+                        'circle-color': '#3887be'
+                    }
+                });
+            }
+            getRoute(start, destination);
+        });
+    });
+
+    document.getElementById('driving').addEventListener('click', () => {
+        profile = 'driving-traffic';
+        updateTransportButtons('driving');
+        getRoute(start, destination);
+    });
+
+    document.getElementById('cycling').addEventListener('click', () => {
+        profile = 'cycling';
+        updateTransportButtons('cycling');
+        getRoute(start, destination);
+    });
+
+    document.getElementById('walking').addEventListener('click', () => {
+        profile = 'walking';
+        updateTransportButtons('walking');
+        getRoute(start, destination);
+    });
+
+    function updateTransportButtons(activeButtonId) {
+        document.querySelectorAll('.transport-button').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.getElementById(activeButtonId).classList.add('active');
+    }
+
+    map.on('load', () => {
+        map.addLayer({
+            id: 'point',
+            type: 'circle',
+            source: {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: [
+                        {
+                            type: 'Feature',
+                            properties: {},
+                            geometry: {
+                                type: 'Point',
+                                coordinates: destination
+                            }
+                        }
+                    ]
+                }
+            },
+            paint: {
+                'circle-radius': 5,
+                'circle-color': '#3887be'
+            }
+        });
+    });
+
+    map.on('click', (event) => {
+        const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+        const start = {
+            type: 'FeatureCollection',
+            features: [
+                {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: {
+                        type: 'Point',
+                        coordinates: coords
+                    }
+                }
+            ]
+        };
+        if (map.getLayer('start')) {
+            map.getSource('start').setData(start);
+        } else {
+            map.addLayer({
+                id: 'start',
+                type: 'circle',
+                source: {
+                    type: 'geojson',
+                    data: start
+                },
+                paint: {
+                    'circle-radius': 5,
+                    'circle-color': '#f30'
+                }
+            });
+        }
+        getRoute(coords, destination);
+    });
+</script>
+
+</body>
+</html>
