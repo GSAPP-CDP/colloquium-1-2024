@@ -258,7 +258,7 @@ section {min-height: 100vh;}
   position: absolute;
   width: 185px; 
   height: 80px; 
-  background-image: url('promo-02.webp');
+  background-image: url('https://raw.githubusercontent.com/halfward/Colloquium-I/main/promo-02.webp');
   background-size: cover;
   pointer-events: none; 
   z-index: 9999;
