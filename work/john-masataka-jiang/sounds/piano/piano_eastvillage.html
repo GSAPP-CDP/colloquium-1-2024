@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover and Play Note</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: none;
+        }
+        #image-container {
+            position: relative;
+        }
+        #color-image {
+            display: block;
+            max-width: 100%;
+            transform: rotate(90deg); /* Rotate 90 degrees */
+            transform-origin: center; /* Set the rotation origin*/
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img id="color-image" src="Sounds_East Village_long.png" alt="Color Blocks">
+    </div>
+
+    <audio id="do" src="do.wav"></audio>
+    <audio id="re" src="re.wav"></audio>
+    <audio id="mi" src="mi.wav"></audio>
+    <audio id="fa" src="fa.wav"></audio>
+    <audio id="sol" src="sol.wav"></audio>
+    <audio id="la" src="la.wav"></audio>
+    <audio id="si" src="si.wav"></audio>
+    <audio id="do-octave" src="do-octave.wav"></audio>
+
+    <script>
+        // The RGB color of the pitch scale
+        const noteColors = {
+            "C": [58, 58, 58],  // Do
+            "D": [79, 79, 79],  // Re
+            "E": [100, 100, 100],  // Mi
+            "F": [121, 121, 121],  // Fa
+            "G": [145, 145, 145],  // So
+            "A": [171, 171, 171],  // La
+            "B": [200, 200, 200],  // Ti
+            "C8": [232, 232, 232]  // Do (higher octave)
+        };
+
+        const noteFiles = {
+            "C": document.getElementById('do'),
+            "D": document.getElementById('re'),
+            "E": document.getElementById('mi'),
+            "F": document.getElementById('fa'),
+            "G": document.getElementById('sol'),
+            "A": document.getElementById('la'),
+            "B": document.getElementById('si'),
+            "C8": document.getElementById('do-octave')
+        };
+
+        const img = document.getElementById('color-image');
+
+        img.addEventListener('mousemove', (event) => {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = img.height; // Adjust canvas width to image height
+            canvas.height = img.width; // Adjust canvas height to image width
+            context.rotate(90 * Math.PI / 180); // Rotate the canvas 90 degrees
+            context.drawImage(img, 0, -img.height, img.width, img.height); // Draw an image after rotation
+            
+            const rect = img.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const pixelData = context.getImageData(x, y, 1, 1).data;
+            const [r, g, b] = [pixelData[0], pixelData[1], pixelData[2]];
+
+            let noteToPlay = null;
+            for (const [note, color] of Object.entries(noteColors)) {
+                if (r === color[0] && g === color[1] && b === color[2]) {
+                    noteToPlay = note;
+                    break;
+                }
+            }
+
+            if (noteToPlay && noteFiles[noteToPlay]) {
+                const audioElement = noteFiles[noteToPlay];
+                if (audioElement.paused) {
+                    audioElement.currentTime = 0; // Restart the audio
+                    audioElement.play();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

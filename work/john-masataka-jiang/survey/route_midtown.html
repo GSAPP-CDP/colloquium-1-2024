@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mapbox Line Animation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9obm1hc2F0YWthIiwiYSI6ImNseDl0ZnByMzJ1cnQyam9lbnB5ajQ3d3EifQ.vDNx6tuvH4CxRBRu-Tt0Tg';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/satellite-streets-v12',
+        center: [-73.976943, 40.759132], // Midtown 
+        zoom: 14.5, // Initial zoom level
+        pitch: 45, // Tilt the map for 3D effect
+        bearing: 5 // Rotate the map for better 3D view
+    });
+
+    const start = [-73.976943, 40.759132]; // Midtown
+    const end = [-73.981874, 40.752347]; // Midtown
+    const route = {
+        'type': 'Feature',
+        'geometry': {
+            'type': 'LineString',
+            'coordinates': [start, end]
+        }
+    };
+
+    
+    map.on('load', () => {
+        map.addSource('route', {
+            'type': 'geojson',
+            'data': route
+        });
+
+        map.addLayer({
+            'id': 'route',
+            'type': 'line',
+            'source': 'route',
+            'layout': {
+                'line-cap': 'round',
+                'line-join': 'round'
+            },
+            'paint': {
+                'line-color': '#ff0000',
+                'line-width': 10
+            }
+        });
+
+        let progress = 0;
+        const speed = 0.01; // Animation speed
+
+        function animateLine() {
+            if (progress < 1) {
+                progress += speed;
+                const currentPosition = [
+                    start[0] + progress * (end[0] - start[0]),
+                    start[1] + progress * (end[1] - start[1])
+                ];
+
+                map.flyTo({ center: currentPosition, speed: 0.5, curve: 1 });
+
+                requestAnimationFrame(animateLine);
+            }
+        } 
+
+        animateLine();
+
+            // Function to be called when the animation ends
+    function onAnimationEnd() {
+        // Dispatch a custom event to signal the parent page
+        if (window.parent) {
+            window.parent.postMessage('animationEnded', '*');
+        }
+    }
+
+    // Example: Set a timeout based on animation duration
+    // Replace `animationDuration` with your animation's duration in milliseconds
+    var animationDuration = 5000; // 5 seconds
+    setTimeout(onAnimationEnd, animationDuration);
+    });
+</script>
+</body>
+</html>

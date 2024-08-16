@@ -13,551 +13,408 @@
   
   <link href="style.css" rel="stylesheet" />
 
-  <style>
-    .image-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .image-wrapper {
-        text-align: center;
-        margin: 10px;
-    }
-    .image-wrapper img {
-       text-align: center;
-       margin: 10px;
-    }
-  </style>
-
   <title>John Masataka Xianfeng Jiang</title>
 </head>
 
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
-    
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → John Masataka Xianfeng Jiang
-    </h2>
-
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h1>John Masataka Xianfeng Jiang</h1>
   
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
+    <div class="video-container" id="page0">
+      <img src="./0_main/Main-Page.gif" alt="Color" style="height: 120%;">
+      <p id="typing-text"></p><span id="cursor">|</span>
+    </div>
 
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Featured Image</h2>
-        <p>An analysis of a complex world system.</p>
-        
-        <img src="featured.jpg">
-      </section>
 
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-        <h2>Google Maps Navigation System (Drive)</h2>
+<!-- Corner Bar -->
+    <div class="corner-bar">
+      <nav class="navbar">
+        <a href="#about">John Masataka Xianfeng Jiang</a>
+      </nav>
+    </div>
 
-        <div class="image-container">
-          <div class="image-wrapper">
-            <img src="./images/colloquium1-assignment1-sheet1.png" height="2000">
-          </div>
-          <div class="image-wrapper">
-            <img src="./images/colloquium1-assignment1-sheet2.png" height="2000">
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <ul>
+    <li><a href="#page0">Welcome</a></li>
+    <li><a href="#page1">Survey Sites</a></li>
+    <li><a href="#page2" onclick="loadRoute()">Survey Routes</a></li>
+    <li><a href="#page3">1. Colors</a>
+      <ul class="nested horizontal">
+        <li><a href="#page4" class="small-item">1.1</a></li>
+        <li><a href="#page5" class="small-item">1.2</a></li>
+      </ul>
+    </li>
+    <li><a href="#page6">2. Textures</a>
+      <ul class="nested horizontal">
+        <li><a href="#page7" class="small-item">2.1</a></li>
+        <li><a href="#page8" class="small-item">2.2</a></li>
+      </ul>
+    </li>
+    <li><a href="#page9">3. Sounds</a>
+      <ul class="nested horizontal">
+        <li><a href="#page10" class="small-item">3.1</a></li>
+        <li><a href="#page11" class="small-item">3.2</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+<!-- Sidebar_2 -->
+<!-- <div id="sidebar2" class="sidebar2">
+  <div id="pageContent"> -->
+    <!-- Content will be updated via JavaScript -->
+  <!-- </div>
+</div> -->
+
+
+<!-- Communities -->
+    <div class="page-container" id="page1">
+      <p id="typing-text-page1" class="hidden"></p>
+      <div class="image-grid">
+        <div class="image-wrapper">
+          <img src="./0_main/harlem.jpg" alt="Color">
+          <div class="overlay">
+            <div class="description">Harlem</div>
           </div>
         </div>
-
-        <div class="image-container">
-          <div class="image-wrapper">
-            <p>Figure 1: System Diagram</p>
-            <img src="./images/colloquium1-assignment1-diagram1.jpg" height="750">
-          </div>
-          <div class="image-wrapper">
-            <p>Figure 2: Stakeholder Map </p>
-            <img src="./images/colloquium1-assignment1-diagram2.jpg" height="300">
-          </div>
-          <div class="image-wrapper">
-            <p>Figure 3: Business Diagram</p>
-            <img src="./images/colloquium1-assignment1-diagram3.jpg" height="300">
+        <div class="image-wrapper">
+          <img src="./0_main/Midtown.jpg" alt="Color">
+          <div class="overlay">
+            <div class="description">Midtown</div>
           </div>
         </div>
-
-        <div class="image-container">
-          <div class="image-wrapper">
-            <p>Figure 4: Service Diagram </p>
-            <img src="./images/colloquium1-assignment1-diagram4.jpg" height="1250">
-          </div>
-          <div class="image-wrapper">
-            <p>Figure 5: User Journey </p>
-            <img src="./images/colloquium1-assignment1-diagram5.jpg" height="1200">
+        <div class="image-wrapper">
+          <img src="./0_main/eastvillage.jpg" alt="Color">
+          <div class="overlay">
+            <div class="description">East Village</div>
           </div>
         </div>
+      </div>
+    </div>
+
+<!-- survey -->
+    <div class="page-container" id="page2">
+      <p id="typing-text-page2" class="hidden"></p>
+      <div class="image-wrapper">
+        <iframe src="./survey/route_harlem.html" class="map-frame" style="height: 100vh"></iframe>
+      </div>
+      <div class="image-wrapper">
+        <iframe src="./survey/route_midtown.html" class="map-frame" style="height: 100vh"></iframe>
+      </div>
+      <div class="image-wrapper">
+        <iframe src="./survey/route_eastvillage.html" class="map-frame" style="height: 100vh"></iframe>
+      </div>
+    </div>
 
 
-
-        <!--<img src="./images/colloquium1-assignment1-diagram1.jpg" height="500">
-
-        <p>Diagram 2: Stakeholder Map </p>
-        <img src="./images/colloquium1-assignment1-diagram2.jpg" height="500">
-
-        <p>Diagram 3: Business </p>
-        <img src="./images/colloquium1-assignment1-diagram3.jpg" height="500">
-
-        <p>Diagram 4: Service Diagram </p>
-        <img src="./images/colloquium1-assignment1-diagram4.jpg" height="1000">
-
-        <p>Diagram 5: User Journey </p>
-        <img src="./images/colloquium1-assignment1-diagram5.jpg" height="1000">
-      </section>-->
+<!-- colors -->
+    <!-- colors 1: Street Views + hover-->
+    <div class="page-container" id="page3">
+      <p id="typing-text-page3" class="hidden"></p>
+      <div class="image-wrapper">
+        <img src="./colors/20240810_Combined_Harlem.jpg" alt="Street View">
+        <div class="overlay">
+          <div class="description">Harlem</div>
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/20240810_Combined_Midtown.jpg" alt="Street View">
+        <div class="overlay">
+          <div class="description">Midtown</div>
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/20240810_Combined_East Village.jpg" alt="Street View">
+        <div class="overlay">
+          <div class="description">East Village</div>
+        </div>
+      </div>
+    </div>
   
-      <section>
-        <h2>Google Maps Navigation System (Drive)</h2>
-        <p>
-          The Google Maps navigation system is a widely used tool for modern driving. It is known for its dynamic capabilities and intricate feedback loops. This system has several important features, including real-time location tracking, route guidance, and adaptive rerouting based on current traffic conditions.
-        </p>
-        <p>
-          The Google Maps navigation system is an intricate network composed of multiple interconnected elements: GPS satellites, user devices, traffic data sensors, and mapping algorithms. Its primary function is to provide drivers with optimal routes to their destinations, adjusting dynamically to traffic conditions, road closures, and other variables. The purpose of this system is to facilitate efficient travel, reducing travel time and enhancing user experience.
-        </p>
-        <p>
-          One of the most interesting dynamics of this system is its ability to provide real-time feedback loops. These loops can be either reinforcing or balancing. For example, a reinforcing feedback loop occurs when a route becomes more congested, prompting the system to reroute users, which in turn can reduce congestion on the original route. Conversely, a balancing feedback loop stabilizes traffic flow by distributing vehicles across multiple routes.
-        </p>
-        <p>
-          However, the system faces significant challenges, especially in densely populated cities like New York and Tokyo. In such environments, finding parking near these places is a major issue. Drivers often spend considerable time searching for available parking, and sometimes the nearest parking is full. This situation can force drivers to park further away and use additional public transportation to reach their destination, causing delays and frustration.
-        </p>
-        <p>
-          Consider a driver navigating Times Square Manhattan. The system provides real-time updates and reroutes based on traffic conditions. However, upon reaching the destination, the challenge of finding parking becomes apparent. The delay in securing parking can disrupt the flow and schedule, reflecting a critical leverage point where the integration of parking availability data could significantly improve system performance. Therefore, addressing parking issues to enhance the overall efficiency and resilience of the navigation system is important.
-        </p>
-        <p>
-          Although the Google Maps navigation system excels in guiding drivers through complex traffic conditions, its effectiveness is sometimes hindered by external factors like parking availability in dense urban areas. Addressing these challenges through better integration of parking data and other leverage points can enhance the system's overall functionality and user experience. 
-        </p>
-        </section>
+    <!-- colors 2: long image -->
+    <div class="page-container" id="page4">
+      <p id="typing-text-page4" class="hidden">
+      <div class="image-wrapper">
+        <img src="./colors/Community_Harlem.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">Harlem</div>
+        </div>
+        <div>
+          <img src="./colors/color_long_Harlem.png" alt="Image" class="image-above" style="width: 75px; height: 100%;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/Community_Midtown.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">Midtown</div>
+        </div>
+        <div>
+          <img src="./colors/color_long_Midtown.png" alt="Image" class="image-above" style="width: 75px; height: 100%;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/Community_East Village.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">East Village</div>
+        </div>
+        <div>
+          <img src="./colors/color_long_East Village.png" alt="Image" class="image-above" style="width: 75px; height: 100%;">
+        </div>
+      </div>
+    </div>
 
-        <section>
-        <h2>Keywords</h2>
-        <p>
-          Elements: GPS satellites, user devices, traffic sensors, and mapping algorithms.
-        </p>
-        <p>
-          Function/Purpose: guide drivers efficiently to their destinations, optimizing for time and convenience.
-        </p>
-        <p>
-          Feedback Loops: the system uses both reinforcing and balancing feedback loops to manage traffic flow and provide alternative routes.
-        </p>
-        <p>
-          Stocks: accumulation of vehicles on the road.
-        </p>
-        <p>
-          Flows: the rate at which vehicles enter or exit the traffic system.
-        </p>
-        <p>
-          Frequency and Delay: the system's responsiveness can vary, with delays occurring due to data processing times and the frequency of traffic updates.
-        </p>
-        <p>
-          Leverage Points: traffic sensors and rerouting algorithms that can significantly influence traffic patterns with small adjustments.
-        </p>
-        <p>
-          Hierarchy: the navigation system operates within a hierarchy of subsystems, including local traffic management systems and broader regional navigation networks.
-        </p>
-        <p>
-          Boundaries: the geographic area it covers and the extent of its traffic data integration.
-        </p>
-        <p>
-          Resilience: The system's resilience is demonstrated by its ability to adapt to sudden changes in traffic conditions, such as accidents or road closures, and still provide effective guidance.
-        </p>
-
-      </section>
-  
-      <section>
-        <h2>Rube Goldberg Machine</h2> 
-  
-        <p>
-          Team: John Masataka Xianfeng Jiang | Catherine Ye | Manas Bhatia 
-        </p>
-
-        <figure>
-          <p>Figure 1: Cover Page of the Project</p>
-          <img src="./images/colloquium1-assignment1-image1.jpg">
-        </figure>
-
-        <figure>
-          <p>Figure 2: Diagram of the System</p>
-          <img src="./images/colloquium1-assignment1-diagram6.jpg">
-        </figure>
-  
-
-        <p>
-          Watch the Full Video for this Project Here:  
-        </p>
-
-        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/988178682?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="20240721_Rube Goldberg Machine"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    <!-- colors 3: Blended Long Images -->
+    <div class="page-container" id="page5">
+      <p id="typing-text-page5" class="hidden"></p>
+      <div class="image-wrapper">
+        <img src="./colors/Community_Harlem.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">Harlem</div>
+        </div>
+        <div>
+          <img src="./colors/color_gradient_Harlem.png" alt="Image" class="image-above" style="width: 75px; height: 100%;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/Community_Midtown.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">Midtown</div>
+        </div>
+        <div>
+          <img src="./colors/color_gradient_Midtown.png" alt="Image" class="image-above" style="width: 75px; height: 100%;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/Community_East Village.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">East Village</div>
+        </div>
+        <div>
+          <img src="./colors/color_gradient_East Village.png" alt="Image" class="image-above" style="width: 75px; height: 100%;">
+        </div>
+      </div>
+    </div>
 
 
-
-      <section>
-        <h1 id="assignment-2">2 – Authorship</h1>      
-        <h2>Google Maps' Navigation System: Balancing Lock-in and Flexibility</h2>
-        <p>
-          Google Maps' navigation system serves a diverse range of “audiences”. End users such as tourists use it to plan routes, restaurant owners use it to promote their businesses, and delivery drivers use it to find destinations. Commercially, travel companies collect hotspot data to create new services, and real estate companies estimate apartment rental prices based on traffic and location features. These users enhance Google Maps' depth and breadth significantly. For example, diners’ rate and review restaurants on Google Maps, leading to better revenue for highly-rated establishments. Subsequently, a food magazine might cover these restaurants, attracting more visitors. Google Maps developers might then highlight these popular restaurants on the map, making them easier to find, thus improving the user experience. This flexibility is characterized by autonomy and cyclicality, engaging more “audiences”.
-        </p>
-
-        <p>
-          However, some aspects are locked-in. Google Maps users must operate within Google's defined rules. For instance, users cannot rate more than 5.0 for restaurants or plan driving routes through pedestrian-only pathways. This "lock-in" is based on ethics, laws, and fair competition, benefiting the system's smooth operation. Yet, some lock-ins hinder the system's functionality. For instance, Google Maps often biases its AI to suggest the fastest routes. However, users might seek the "most cost-effective" route rather than the fastest. In Japan, if you search for routes from Tokyo to Yokohama, Google Maps suggests taking the Shinkansen, listing almost all options as Shinkansen routes. Although the Shinkansen is the fastest, taking only 20 minutes, it costs $30 and, with boarding time, takes around 30 minutes. Locals might mock taking the Shinkansen, as most people take the regular metro's "rapid service," which also takes 30 minutes but costs only $3 and goes directly to the city center. In this example, modern technology violates the local system's operating principles. In Google Maps, authorship is defined by Google's user boundaries, the virtual traffic world Google created, and the 0 to 5-star restaurant rating platform, etc. These are locked in by Google, its creator.
-        </p>
-
-        <p>
-          While Google Maps' powerful data collection and visualization capabilities (and potentially AI technology in the future) help users quickly find the fastest routes to avoid being late for work, does AI own the copyright for these routes? Legally, rights and responsibilities are complementary. If AI owns the copyright (potentially charging usage fees), how to define responsibility? If the AI suggests a route that's not the fastest, causing an employee to be late, should the AI be held accountable? For more severe legal responsibilities, can AI be imprisoned? If AI cannot fulfill obligations, it naturally shouldn't enjoy "rights," including authorship. Similarly, Google Maps users who create their own content should have certain rights, such as membership benefits based on contribution levels (like frequent restaurant reviewers). These rewards recognize user copyrights. Likewise, users should bear legal responsibility for false edits. Google might introduce a user rating service for popular routes in the future, which could mitigate AI's copyright controversies and reduce AI biases.
-        </p>
-
-        <p>
-          In the Google Maps system, I believe both end users and Google, the service provider, should have certain control. Google, having created and continuously improved the platform, holds the authority to set the game rules and service boundaries. However, their control should remain at the structural level, guiding the building's form while preventing its collapse. The bricks and mortar should be completed by the users. End users should control specific uses, such as constructing reasonable traffic plans and restaurant recommendations through millions of ratings. Software engineers might update an application or create various plugins to enhance user experience based on these "uses." We can consider their control as akin to electrical and HVAC engineering, maintaining the building. Thus, different authorships indeed have different levels. A building without a basic structure cannot stand even with bricks, mortar, and HVAC. However, a building without bricks and mortar is just an empty shell. Therefore, at least in the Google Maps system, although different authorships have different levels, there is no priority as they are indispensable.
-        </p>
-
-      </section>
-
-
-      <section> 
-        <h2>Three-Case Study of Authorship Models</h2>
-      </section>
-
-      <section> 
-        <h3>Example 1. SUUMO</h3>
-        <p>
-          Description:
-        </p>
-        <p>
-          SUUMO is a popular Japanese real estate search platform that allows users to find rental and purchase properties. The platform features listings from real estate agents, developers, and landlords, providing detailed information about each property.
-        </p>
-        <p>Figure 1: SUUMO Home Page</p>
-        <img src="./images/colloquium1-assignment2-image2.PNG" height="400">
-        <p>
-          Authorship Model:
-        </p>
-        <p>
-          1. User Contribution: Users can leave reviews and ratings for properties and real estate agents. This feedback helps future users make informed decisions.
-        </p> 
-        <p> 
-          2. Expert Contribution: Real estate agents and developers create the primary content, including property descriptions, photos, and virtual tours.
-        </p>
-        <p>
-          3. Platform Control: SUUMO ensures that listings meet quality standards and comply with legal requirements, maintaining a trustworthy database.          
-        </p>
-        <p>
-          4. Property Recommendations: AI analyzes user preferences and behaviors to suggest properties that match their interests more accurately. By understanding user queries and context, it can generate tailored property recommendations.
-        </p>
-
-        <p>
-          Reasons for Selection: 
-        </p>
-        <p>
-          SUUMO's authorship model balances expert-generated content with user feedback. This combination ensures high-quality, reliable information while incorporating real user experiences, enhancing trust and engagement. In my practice, leveraging both expert technology and user input can create a more robust and user-friendly system. 
-        </p>
-
-        <div class="image-container">
-          <div class="image-wrapper">
-            <p>Figure 1-1: Property Page</p>
-            <img src="./images/colloquium1-assignment2-image3.jpg" height="400">
-          </div>
-          <div>
-            <p>Figure 1-2: User Contribution</p>
-            <img src="./images/colloquium1-assignment2-image6.jpg" height="350">
-          </div>
-          <div class="image-wrapper">
-            <p>Figure 1-3: Expert Contribution</p>
-            <img src="./images/colloquium1-assignment2-image5.jpg" height="400">
-          </div>
-          <div class="image-wrapper">
-            <p>Figure 1-5: Property Recommendations</p>
-            <img src="./images/colloquium1-assignment2-image4.jpg" height="400">
-          </div>
-          <div class="image-wrapper">
-            <p>Figure 1-4: Platform Control</p>
-            <img src="./images/colloquium1-assignment2-image7.jpg" height="300">
+<!-- Textures -->
+    <!-- Textures 1: Street Views -->
+    <div class="page-container" id="page6">
+      <p id="typing-text-page6" class="hidden"></p>
+      <div class="image-grid">
+        <div class="image-wrapper">
+          <img src="./textures/Textures_Harlem.gif" alt="Color">
+          <div class="overlay">
+            <div class="description">Harlem</div>
           </div>
         </div>
-      </section>
-
-      <section> 
-        <h3>Example 2. TikTok</h3>
-        <p>
-          Description:
-        </p>
-        <p>
-          TikTok is a social media platform where users create and share short videos. The platform is known for its powerful algorithm that curates content to match user preferences.
-        </p>
-        <p>Figure 2: TikTok Home Page</p>
-        <img src="./images/colloquium1-assignment2-image8.PNG" height="400">
-        <p>
-          Authorship Model:
-        </p>
-        <p>
-          1. User Contribution: Anyone can create and upload videos, making content creation accessible to non-experts.
-        </p>
-        <p>
-          2. Algorithmic Curation: TikTok's algorithm promotes videos based on engagement, ensuring that popular content reaches a broader audience.
-        </p>
-        <p>
-          3. Platform Control: TikTok sets guidelines and policies to regulate content, ensuring a safe and appropriate environment for users.
-        </p>
-        <p>
-          Reasons for Selection: 
-        </p>
-        <p>
-          TikTok's model emphasizes accessibility and inclusivity, allowing diverse voices to be heard. The platform's algorithmic curation highlights engaging content, giving creators a fair chance to gain visibility. This approach aligns with my goal of fostering a participatory environment in my practice, where contributions are valued and recognized.
-        </p>
-
-        <div class="image-container">
-          <div class="image-wrapper">
-            <p>Figure 2-1: Algorithmic Curation</p>
-            <img src="./images/colloquium1-assignment2-image9.PNG" height="400">
-          </div>
-          <div>
-            <p>Figure 2-2: User Contribution</p>
-            <img src="./images/colloquium1-assignment2-image10.PNG" height="400">
+        <div class="image-wrapper">
+          <img src="./textures/Textures_Midtown.gif" alt="Color">
+          <div class="overlay">
+            <div class="description">Midtown</div>
           </div>
         </div>
-      </section>
-
-      <section> 
-        <h3>Example 3. Mercari / メルカリ</h3>
-        <p>
-          Description:
-        </p>
-        <p>
-          Mercari is a popular Japanese e-commerce platform for buying and selling second-hand goods. It provides a user-friendly interface for individuals to list items and complete transactions.
-        </p>
-        <p>Figure 3: Mercari Home Page</p>
-        <img src="./images/colloquium1-assignment2-image12.PNG" height="400">
-        <p>
-          Authorship Model:
-        </p>
-        <p>
-          1. User Contribution: Users create listings, including descriptions, photos, and pricing for their items.
-        </p>
-        <p>
-          2. Peer Feedback: Buyers can leave ratings and reviews for sellers, influencing their reputation on the platform.
-        </p>
-        <p>
-          3. Platform Control: Mercari enforces rules and guidelines to prevent fraud and ensure a safe trading environment.
-        </p>
-        <p>
-          Reasons for Selection:
-        </p>
-        <p>
-          Mercari 's authorship model empowers users to be both creators and consumers, fostering a sense of community and trust. The peer review system holds users accountable and encourages honesty and transparency. This aligns with my practice's emphasis on user empowerment and creating a mutually beneficial environment.
-        </p>
-
-        <div class="image-container">
-          <div class="image-wrapper">
-            <p>Figure 3-1: User Contribution</p>
-            <img src="./images/colloquium1-assignment2-image13.jpg" height="400">
-          </div>
-          <div>
-            <p>Figure 3-2: Peer Feedback</p>
-            <img src="./images/colloquium1-assignment2-image15.jpg" height="400">
+        <div class="image-wrapper">
+          <img src="./textures/Textures_East Village.gif.gif" alt="Color">
+          <div class="overlay">
+            <div class="description">East Village</div>
           </div>
         </div>
-      </section>
-          
-
-      <section> 
-        <h2>Generative Zine</h2>
-      </section>
-      
-      <section> 
-        <p>Slides for the Concept of Zine</p>
-        <!--<iframe src="https://docs.google.com/presentation/d/1PHnba0eW5QKDA1pu9awzej-JLPVnoLNrAl-tilxI9DU/edit#slide=id.g2ed74844b55_3_20" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>-->
-        <iframe src="./images/colloquium1-assignment2-pdf1.pdf" width="1000" height="600" style="border: none;"></iframe>
-      </section> 
-
-      <section>
-        <figure>
-          <p>Figure 4: Workflow of Zine</p>
-          <img src="./images/colloquium1-assignment2-image1.jpg">
-          <p>Review the Full Version of Zine here: </p> 
-          <div style="padding:62.61% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/988439508?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="20240722_Zine_Prototype"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-        </figure>
-        <p>You Can Also Try It by Accessing Here: </p>
-        <a href="https://www.figma.com/proto/X7Te9GnJ2KfJmJZM86gg6A/20240722_Colloquium-1_Assisgnment_Zine?t=trYi8pDPN5qZ1deT-1">Click Link</a>
-      </section>
+      </div>
+    </div>
 
 
+    <!-- Textures 2: Blur Texture -->
+    <div class="page-container" id="page7" style="background-color: black">
+      <p id="typing-text-page7" class="hidden"></p>
+      <div class="image-wrapper">
+        <image src="./textures/Backgroud_Color.webp" style="width: 100%; height: 100%;">
+        <div class="overlay">
+          <div class="description_2">Harlem</div>
+        </div>
+        <div>
+          <img src="./textures/Change_Harlem.gif" alt="Color" class="image-above" style="height: 55%; object-fit: contain;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <image src="./textures/Backgroud_Color.webp" style="width: 100%; height: 100%;">
+        <div class="overlay">
+          <div class="description_2">Midtown</div>
+        </div>
+        <div>
+          <img src="./textures/Change_Midtown.gif" alt="Color" class="image-above" style="height: 55%; object-fit: contain;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <image src="./textures/Backgroud_Color.webp" style="width: 100%; height: 100%;">
+        <div class="overlay">
+          <div class="description_2">East Village</div>
+        </div>
+        <div>
+          <img src="./textures/Change_East Village.gif" alt="Color" class="image-above" style="height: 55%; object-fit: contain;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Textures 3: Line Texture -->
+    <div class="page-container" id="page8" style="background-color: black">
+      <p id="typing-text-page8" class="hidden"></p>
+      <div class="image-wrapper">
+        <image src="./textures/Backgroud_Color.webp" style="width: 100%; height: 100%;">
+        <div class="overlay">
+          <div class="description_2">Harlem</div>
+        </div>
+        <div>
+          <img src="./textures/Change_Harlem_Flow.gif" alt="Color" class="image-above" style="height: 55%; object-fit: contain;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <image src="./textures/Backgroud_Color.webp" style="width: 100%; height: 100%;">
+        <div class="overlay">
+          <div class="description_2">Midtown</div>
+        </div>
+        <div>
+          <img src="./textures/Change_Midtown_Flow.gif" alt="Color" class="image-above" style="height: 55%; object-fit: contain;">
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <image src="./textures/Backgroud_Color.webp" style="width: 100%; height: 100%;">
+        <div class="overlay">
+          <div class="description_2">East Village</div>
+        </div>
+        <div>
+          <img src="./textures/Change_East Village_Flow.gif" alt="Color" class="image-above" style="height: 55%; object-fit: contain;">
+        </div>
+      </div>
+    </div>
 
 
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>      
-        <h1>Topic: Is the Suggested Route Truly the Best Option? </h1>
-        <p>When we want to walk to a certain place, Google Maps typically provides a suggested route along with a few alternative routes. From my extensive experience as a user, the "recommended route" is usually just the fastest one. However, I often wonder: is the " recommended route " really the best option? If a slightly slower route could offer more shade, safety, and fewer uphill climbs, might it be more advantageous for different users? </p>
-        <p>Therefore, I conducted a small experiment, choosing to walk from Avery Hall at Columbia University to the Guggenheim Museum. This is nearly an hour-long walk, scheduled for 10 AM on July 24, 2024 (though, admittedly, few would likely walk this long in the heat of summer). I selected three significantly different walking routes provided by Google Maps for this study. Additionally, I collected five datasets: the number of crimes reported along each route in the first half of 2024, the length of each route that could be shaded between 10 and 11 AM on July 24, the elevation gain of each route, the street view information of each route, and the length of available public transportation running parallel to each route. </p>
-        <p>These datasets illustrate the advantages and disadvantages of each route under five different contexts. For example, if you prefer fewer uphill climbs, route option 1 might be the best choice; if you prioritize safety, route option 2 could be optimal. Of course, these data have limitations. For instance, crime rates are often time-dependent. The data cover all time periods, but focusing only on 10 AM might yield different safety conclusions. </p>
-        <p>These data also carry some "political" implications. While the time required for each route was a given dataset at the start of the experiment, it is a typical example of political data. Google Maps defaults to arranging recommended routes by the fastest walking time, based on the assumption that "most people want to reach their destination as quickly as possible." Indeed, the primary users of Google Maps are commuters and travelers, who are indeed time-conscious. However, retirees might prefer routes that conserve energy or have more parks. Overlooking niche user groups is a common pain point in Google Maps' walking route suggestions.</p>
-        <p>Among the five datasets, the number of crimes, elevation gain, and shaded length for each route were analyzed through objective data collection, representing a relatively high "god's eye view" approach. However, analyzing the interestingness of each route through street view information might involve a "first person narrative view," as everyone's definition of "interesting" varies.</p>
-        <p>In conclusion, there are various ways to address the data's shortcomings. For instance, the interestingness of each route could be better assessed through more in-depth field research, such as interviewing 1,000 pedestrians about their definition of "interesting" and then scientifically collecting and visualizing these points of interest for analysis.</p>
-      </section>
+<!-- sounds -->
+    <!-- sounds 1: Videos -->
+    <div class="page-container" id="page9">
+      <p id="typing-text-page9" class="hidden"></p>
+      <div class="image-grid">
+        <div class="image-wrapper">
+          <img src="./sounds/Sounds_Harlem.gif" alt="Color">
+          <div class="overlay">
+            <div class="description">Harlem</div>
+          </div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./sounds/Sounds_Midtown.gif" alt="Color">
+          <div class="overlay">
+            <div class="description">Midtown</div>
+          </div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./sounds/Sounds_East-Village.gif" alt="Color">
+          <div class="overlay">
+            <div class="description">East Village</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <section>
-           <hr>
-      </section>
+    <!-- Sounds 2: Visualized Sounds -->
+    <div class="page-container" id="page10">
+      <p id="typing-text-page10" class="hidden"></p>
+      <img src="./sounds/legend.png" alt="City Walk" style="bottom: 1%; right: 20px; height: 5%; z-index: 200; position: absolute;">
+      <div class="image-wrapper">
+        <img src="./sounds/Sounds Results_Harlem.gif" alt="City Walk">
+        <div class="overlay">
+          <div class="description">Harlem</div>
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./sounds/Sounds Results_Midtown.gif" alt="City Walk">
+        <div class="overlay">
+          <div class="description">Midtown</div>
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./sounds/Sounds Results_East Village.gif" alt="City Walk">
+        <div class="overlay">
+          <div class="description">East Village</div>
+        </div>
+      </div>
+    </div>
 
-      <section>
-        <h1>Study: Is the Suggested Route Truly the Best Option? </h1>
-        <img src="./images/colloquium1-assignment3-image1.jpg" height="800">
-        <img src="./images/colloquium1-assignment3-image2.jpg" height="800">
-        <img src="./images/colloquium1-assignment3-image3.jpg" height="800">
-        <img src="./images/colloquium1-assignment3-image4.jpg" height="800">
-        <img src="./images/colloquium1-assignment3-image5.jpg" height="800">
-        <img src="./images/colloquium1-assignment3-image6.jpg" height="800">
-      </section>
+   <!-- Sounds 3: Long -->
+    <div class="page-container" id="page11">
+      <p id="typing-text-page11" class="hidden"></p>
+      <div class="image-wrapper">
+        <img src="./colors/Community_Harlem.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">Harlem</div>
+        </div>
+        <div style="width: 100%; overflow-x: auto;">
+          <iframe src="./sounds/piano/piano_harlem.html" class="piano-above" style="height: 300%; width:300%"></iframe>
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/Community_Midtown.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">Midtown</div>
+        </div>
+        <div style="width: 100%; overflow-x: auto;">
+          <iframe src="./sounds/piano/piano_midtown.html" class="piano-above" style="height: 300%; width:300%"></iframe>
+        </div>
+      </div>
+      <div class="image-wrapper">
+        <img src="./colors/Community_East Village.webp" alt="City Walk">
+        <div class="overlay">
+          <div class="description_2">East Village</div>
+        </div>
+        <div style="width: 100%; overflow-x: auto;">
+          <iframe src="./sounds/piano/piano_eastvillage.html" class="piano-above" style="height: 300%; width:300%"></iframe>
+        </div>
+      </div>
+    </div>
 
-      <section>
-        <h1>Data visualization</h1>
+    <section id="about">
+      <div class="about-container">
+          <img src="./about/20240731_Photo_John.webp" alt="John Masataka Xianfeng Jiang">
+          <div class="about-text">
+              <h1>John Masataka Xianfeng Jiang</h1>
+              <p>John Masataka Xianfeng Jiang is a Tokyo/New York-based architect and project manager with over seven years of professional experience at Kengo Kuma & Associates, where he has led teams on a wide range of projects, including luxury towers, resorts, private residences, and high-end furniture. He has been responsible for global architectural projects, bridging the confluence of technology, design, and management. Notable completed work includes <em>Endo at the Rotunda</em> (London), <em>Aman Miami Beach</em> (Florida), <em>LA Brooktree House</em> (California), and <em>Alberni Tower</em> (Vancouver). John also serves as an assistant researcher at the Center for Spatial Research in New York. He received his master's degree in architecture from Hokkaido University in Japan and master's degree in computation from Columbia University in the United States.</p>
+          </div>
+      </div>
+  </section>
 
-        <h2>Crime Incidents on Each Route</h2>
-        <img src="./images/colloquium1-assignment3-image7.png" height="800">
-      </section>
-
-      <section>
-        <img src="./images/colloquium1-assignment3-image8a.png" height="1000" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image8b.png" height="1000" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image8c.png" height="1000" style="display: inline-block;">
-      </section>
-
-      <section>
-        <img src="./images/colloquium1-assignment3-image9a.gif" height="500" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image9b.gif" height="500" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image9c.gif" height="500" style="display: inline-block;">
-      </section>
-
-      <h2>Color Mood on Each Route</h2>
-      <p>Route 1</p>
-      <section>
-        <img src="./images/colloquium1-assignment3-image10a.gif" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image10b.png" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image10c.png" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image10d.png" height="300" style="display: inline-block;">
-      </section>
-      <p>Route 2</p>
-      <section>
-        <img src="./images/colloquium1-assignment3-image11a.gif" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image11b.png" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image11c.png" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image11d.png" height="300" style="display: inline-block;">
-      </section>
-      <p>Route 3</p>
-      <section>
-        <img src="./images/colloquium1-assignment3-image12a.gif" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image12b.png" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image12c.png" height="300" style="display: inline-block;">
-        <img src="./images/colloquium1-assignment3-image12d.png" height="300" style="display: inline-block;">
-      </section>
-
-
-
-
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>      
-
-        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/993573571?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Amazon Homes"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
-
-
-      <hr>
-      <p>The Contents Below are Under Construction</p>
-      <hr>
-      <p>The Contents Below are Under Construction</p>
-      <hr>
-      <p>The Contents Below are Under Construction</p>
-      <hr>
-
-
-
-      <section>
-        <blockquote>
-          "Velit laoreet id donec ultrices tincidunt arcu…"
-        </blockquote>
-      </section>
-  
-      <section>
-        <h2>What are its leverage points?</h2>
-  
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Condimentum id venenatis a condimentum
-          vitae sapien pellentesque habitant. Praesent elementum facilisis leo vel fringilla
-          est. Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit. Duis 
-          tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam.
-        </p>
-  
-        <p>
-          Sagittis nisl rhoncus mattis rhoncus urna neque. Velit laoreet id donec ultrices
-          tincidunt arcu non sodales neque. Volutpat blandit aliquam etiam erat velit.
-          Velit laoreet id donec ultrices tincidunt arcu non sodales neque. Volutpat blandit
-          aliquam etiam erat velit. Duis tristique sollicitudin nibh sit amet. Quam pellentesque
-          nec nam aliquam sem et. Parturient montes nascetur ridiculus mus mauris vitae. Tellus
-          in metus vulputate eu. Nulla porttitor massa id neque aliquam. Vestibulum sed arcu non
-          odio euismod lacinia at. In vitae turpis massa sed elementum tempus egestas sed sed.
-        </p>
-        
-        <figure>
-          <img src="https://picsum.photos/601/401">
-          <img src="https://picsum.photos/600/401">
-        </figure>
-        
-        <hr>
-        
-        <figure>
-          <img src="https://picsum.photos/1201/801">
-        </figure>
-      </section>
-      
-      
-      <section>
-        <h1 id="assignment-2">2 – Systems</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-3">3 – Politics</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-4">4 – Governance</h1>
-      </section>
-      
-      <section>
-        <h1 id="assignment-5">5 – Behavior</h1>
-      </section>
-    </article>
-  </main>
   
   <footer></footer>
+  
+      <!-- Include the JavaScript file here -->
+      <script src="script.js"></script>
+    <script>
+          // Array of route HTML file names
+    var routes = ['route_harlem.html', 'route_midtown.html', 'route_eastvillage.html'];
+    var currentRouteIndex = 0;
+    var iframe = document.getElementById('routeFrame');
+
+    // Function to load the current route
+    function loadRoute() {
+        iframe.src = routes[currentRouteIndex];
+    }
+
+    // Listen for the custom event from the iframe
+    window.addEventListener('message', function(event) {
+        if (event.data === 'animationEnded') {
+            // Move to the next route
+            currentRouteIndex = (currentRouteIndex + 1) % routes.length;
+            // Reload the iframe with the next route
+            loadRoute();
+        }
+    });
+
+    // Initial load
+    loadRoute();
+    </script>
 </body>
 
 </html>
+
+
+
+
+
+
