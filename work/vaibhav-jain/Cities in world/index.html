@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Grid</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+      color: white;
+      font-family: Consolas, monospace;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-item img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 105%;
+      height: 105%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+    }
+
+    @supports (object-fit: cover) {
+      .grid-item img {
+        top: -2.5%;
+        left: -2.5%;
+        transform: none;
+      }
+    }
+
+    .city-name {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.5vw;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .grid-item:hover .city-name {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/MnyNyH1pYtw?autoplay=1&loop=1&playlist=MnyNyH1pYtw&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Amsterdam, Netherlands</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/esRETMOemvg?autoplay=1&loop=1&playlist=esRETMOemvg&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Barcelona, Spain</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/1WoHtBFcMqw?autoplay=1&loop=1&playlist=1WoHtBFcMqw&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Berlin, Germany</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/bu4aTd_ZnD8?autoplay=1&loop=1&playlist=bu4aTd_ZnD8&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Buenos Aires, Argentina</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/tzUi6A2BiVI?autoplay=1&loop=1&playlist=tzUi6A2BiVI&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Copenhagen, Denmark</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/kmylDFjzKS0?autoplay=1&loop=1&playlist=kmylDFjzKS0&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Hong Kong, China</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/I9zc9102_5I?autoplay=1&loop=1&playlist=I9zc9102_5I&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Istanbul, Turkey</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Wi-Myx_hLEc?autoplay=1&loop=1&playlist=Wi-Myx_hLEc&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Milan, Italy</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/krT64zjDb7Q?autoplay=1&loop=1&playlist=krT64zjDb7Q&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Mumbai, India</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ei7blNUiqDY?autoplay=1&loop=1&playlist=ei7blNUiqDY&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Paris, France</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/UOWegGQm2ps?autoplay=1&loop=1&playlist=UOWegGQm2ps&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Sao Paulo, Brazil</div>
+    </div>
+  
+    <div class="grid-item">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/smd786uEUj4?autoplay=1&loop=1&playlist=smd786uEUj4&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&fs=0" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="city-name">Tokyo, Japan</div>
+    </div>
+  </div>
+  

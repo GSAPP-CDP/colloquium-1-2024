@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.heading {
+    font-family: Consolas, monospace;
+    font-size: 24px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: calc(100% - 80px); /* Adjust for the heading height */
+    justify-content: center; /* Center-align the container */
+    position: relative;
+}
+
+.flowchart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.title {
+    font-family: Consolas, monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.flowchart {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    align-items: center; /* Center-align the boxes */
+}
+
+.flowchart .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center-align text inside the boxes */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: center; /* Center-align text for bullet points and colored boxes */
+    font-size: 14px;
+}
+
+.flowchart .box.step1 {
+    background-color: #b3cde0; /* Pastel blue */
+}
+
+.flowchart .box.step2 {
+    background-color: #ccebc5; /* Pastel green */
+}
+
+.flowchart .box.step3 {
+    background-color: #fbb4ae; /* Pastel red */
+}
+
+.flowchart .box.step4 {
+    background-color: #fefcbf; /* Pastel yellow */
+}
+
+.flowchart .box.step5 {
+    background-color: transparent; /* No fill color */
+    border: 2px solid #000; /* Black border */
+    color: #000; /* Black text color */
+    height: 400px; /* Fixed height for the box */
+    font-size: 14px; /* Adjust font size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Padding to ensure text does not touch edges */
+    overflow-y: auto; /* Allow scrolling if text overflows */
+}
+
+/* Style for text in colored boxes */
+.flowchart .box .content {
+    font-family: Consolas, monospace; /* Font style for text in boxes */
+}
+
+.flowchart .box .content .highlight {
+    font-weight: bold; /* Bold heading */
+}
+
+.flowchart .box .content .normal {
+    font-weight: normal; /* Regular font weight for descriptions */
+}
+
+/* Style for bullet points */
+.bullet-points {
+    font-family: Consolas, monospace; /* Font style for bullet points */
+    text-align: center; /* Center-align text */
+    line-height: 1.5; /* Line spacing for readability */
+}
+
+.bullet-points ul {
+    list-style-type: disc; /* Use bullet points */
+    margin: 0;
+    padding: 0; /* No padding on the list */
+}
+
+.bullet-points li {
+    margin: 10px 0; /* Margin between bullet points */
+}
+
+.bullet-points strong {
+    font-weight: bold; /* Bold heading */
+}

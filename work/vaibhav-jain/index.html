@@ -1,327 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">  
-  <meta name="description" content="Student work by Vaibhav Jain from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
-  
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
-  
-  <link href="style.css" rel="stylesheet" />
-  
-  <title>Vaibhav Jain</title>
-</head>
-
-<body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
-    
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Vaibhav Jain
-    </h2>
-
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link" target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h1>Vaibhav Jain</h1>  
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-  
-      <section>
-
-        <section>
-          <h1 id="assignment-1">1 – Systems</h1> 
-        <h2>1a - Systems Diagrams</h2>
-        <p>The network of the entertainment hotspots in the city for foreign travellers. </p>
-      </section>
-
-      <figure>
-        <img src="1a-Systems.jpg">
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js"></script>
-      </figure>
-
-
-      </section>  
-
-         <hr>
-
-         <section>
-          <h2>1b - Systems Behavior</h2>
-          <p>Rube Goldberg Machine </p>
-
-          <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom YouTube Video with Cover Image</title>
+    <title>Main Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        /* CSS Reset */
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
+            box-sizing: border-box;
         }
 
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
+        html, body {
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
             overflow: hidden;
         }
 
-        .cover-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            background-color: #000;
+        body {
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            scroll-snap-align: start;
+            height: 100vh;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            background-color: #fff;
         }
 
-        .cover-image img {
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: left;
+            padding: 10px 20px;
+            background-color: transparent;
+            box-shadow: none;
+            z-index: 1000;
+            height: 50px;
+        }
+
+        nav {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            transition: color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: #ff006d;
+            border-bottom: 2px solid #ff006d;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: transparent;
+            box-shadow: none;
+            z-index: 1000;
+            height: 40px;
+        }
+
+        #footer-text {
+            font-size: 12px;
+            margin-top: -5px;
+            line-height: 1.4;
+        }
+
+        #home {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            height: 100vh;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            align-items: center;
+        }
+
+        #home::-webkit-scrollbar {
+            display: none;
+        }
+
+        #home img {
+            display: inline-block;
+            height: 100vh;
+            width: auto;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+        }
+
+        #about, #projects {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #about iframe, #projects iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
+
+        .scroll-section h1 {
+            color: lightgrey;
+            text-align: center;
+            font-size: 3vw;
+        }
+
+        #project-name-section h1 {
+            position: absolute;
+            top: 20%;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        .play-button {
+        #project-name-section h1.middle {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 64px;
-            height: 64px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            color: #fff;
+            width: 100%;
         }
 
-        #youtube-video {
+        #project-name-section h1.bottom {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 80%;
             width: 100%;
-            height: 100%;
-            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <div class="cover-image" id="cover-image">
-            <img src="1b-Systems_2.jpg" alt="Cover Image">
-            <div class="play-button">&#9658;</div>
-        </div>
-        <iframe id="youtube-video" src="https://www.youtube.com/embed/4oq0hd6UBA4?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <header>
+        <h1 style="font-size: 20px; margin: 0;">Columbia GSAPP</h1>
+        <h2 style="font-size: 16px; margin: 0;">M.S. Computational Design Practices</h2>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showSection('home')">HOME</a>
+        <a href="#" onclick="showSection('about')">ABOUT</a>
+        <a href="#" onclick="showSection('projects')">PROJECTS</a>
+    </nav>
+
+    <section id="home">
+        <!-- Images for horizontal scroll -->
+        <img src="Home Page Narratives/Home Page Narrative_ (1).jpg" alt="Home Image 1">
+        <img src="Home Page Narratives/Home Page Narrative_ (2).jpg" alt="Home Image 2">
+        <img src="Home Page Narratives/Home Page Narrative_ (3).jpg" alt="Home Image 3">
+        <img src="Home Page Narratives/Home Page Narrative_ (4).jpg" alt="Home Image 4">
+        <img src="Home Page Narratives/Home Page Narrative_ (5).jpg" alt="Home Image 5">
+        <img src="Home Page Narratives/Home Page Narrative_ (6).jpg" alt="Home Image 6">
+        <img src="Home Page Narratives/Home Page Narrative_ (7).jpg" alt="Home Image 7">
+        <img src="Home Page Narratives/Home Page Narrative_ (8).jpg" alt="Home Image 8">
+        <img src="Home Page Narratives/Home Page Narrative_ (9).jpg" alt="Home Image 9">
+        <img src="Home Page Narratives/Home Page Narrative_ (10).jpg" alt="Home Image 10">
+        <img src="Home Page Narratives/Home Page Narrative_ (11).jpg" alt="Home Image 11">
+        <img src="Home Page Narratives/Home Page Narrative_ (12).jpg" alt="Home Image 12">
+        <img src="Home Page Narratives/Home Page Narrative_ (13).jpg" alt="Home Image 13">
+        <img src="Home Page Narratives/Home Page Narrative_ (14).jpg" alt="Home Image 14">
+        <img src="Home Page Narratives/Home Page Narrative_ (15).jpg" alt="Home Image 15">
+        <img src="Home Page Narratives/Home Page Narrative_ (16).jpg" alt="Home Image 16">
+        <img src="Home Page Narratives/Home Page Narrative_ (17).jpg" alt="Home Image 17">
+        <img src="Home Page Narratives/Home Page Narrative_ (18).jpg" alt="Home Image 18">
+        <img src="Home Page Narratives/Home Page Narrative_ (19).jpg" alt="Home Image 19">
+        <img src="Home Page Narratives/Home Page Narrative_ (20).jpg" alt="Home Image 20">
+        <img src="Home Page Narratives/Home Page Narrative_ (21).jpg" alt="Home Image 21">
+        <img src="Home Page Narratives/Home Page Narrative_ (22).jpg" alt="Home Image 22">
+        <img src="Home Page Narratives/Home Page Narrative_ (23).jpg" alt="Home Image 23">
+        <img src="Home Page Narratives/Home Page Narrative_ (24).jpg" alt="Home Image 24">
+    </section>
+
+<!-- About Section -->
+<section id="about">
+    <iframe src="Practice/index.html"></iframe>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <iframe src="Projects/index.html"></iframe>
+</section>
+
+<style>
+    /* Ensure the body and html take up the full viewport height */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    /* Ensure the section takes up the full viewport height */
+    #projects {
+        height: 100vh; /* 100% of the viewport height */
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Hide scrollbars if any */
+        display: flex; /* Use flexbox to ensure iframe can stretch */
+    }
+
+    /* Style the iframe to take up the full space of the section */
+    #projects iframe {
+        flex: 1; /* Allow iframe to stretch within the section */
+        width: 100vw;
+        height: 100vh;
+        border: none; /* Remove the border if you want it to blend seamlessly */
+    }
+</style>
+
+<style>
+    /* Ensure the body and html take up the full viewport height */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    /* Ensure the section takes up the full viewport height */
+    #projects {
+        height: 100vh; /* 100% of the viewport height */
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Hide scrollbars if any */
+        display: flex; /* Use flexbox to ensure iframe can stretch */
+    }
+
+    /* Style the iframe to take up the full space of the section */
+    #projects iframe {
+        flex: 1; /* Allow iframe to stretch within the section */
+        width: 100vw;
+        height: 100vh;
+        border: none; /* Remove the border if you want it to blend seamlessly */
+    }
+</style>
+
+<!-- Main Content -->
+<div class="scroll-container">
+        <section id="project-name-section" class="scroll-section">
+            <div id="project-name">
+                <p>EXPLORING THE INTERACTIONS BETWEEN PUBLIC SPACES AND PRIVATE SPACES</p>
+            </div>
+        </section>
+    
+
+        <!-- World Map 1 Section -->
+        <section id="world-map-1-section" class="scroll-section">
+            <iframe src="World Map/world map 1.html" title="World Map 1" frameborder="0" style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- World Map 2 Section -->
+        <section id="world-map-2-section" class="scroll-section">
+            <iframe src="World Map/world map 2.html" title="World Map 2" frameborder="0" style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- Cities in World Section -->
+        <section id="cities-world-section">
+            <iframe src="Cities in world/index.html" style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- World Map 3 Section -->
+        <section id="world-map-3-section" class="scroll-section">
+            <iframe src="World Map/world map 3.html" title="World Map 3"  style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- New York Map 1 Section -->
+
+        <section id="ny-map-1-section" class="scroll-section">
+            <iframe src="New York Maps/Map_001.html" title="New York Map 1"  style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- New York Map 2 Section -->
+
+        <section id="ny-map-2-section" class="scroll-section">
+            <iframe src="New York Maps/Map_002.html" title="New York Map 2"  style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- New York Map 6 Section -->
+
+        <section id="ny-map-6-section" class="scroll-section">
+            <iframe src="New York Maps/Map_006.html" title="New York Map 6"  style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- Restaurant GIFs Section -->
+        <section id="restaurant-gifs-section" class="scroll-section">
+            <iframe src="12 RESTAURANTS/giffs/index.html" title="Restaurant GIFs"  style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- Restaurant Analysis Map Section -->
+        <section id="restaurant-analysis-map-section" class="scroll-section">
+            <iframe src="12 RESTAURANTS/analysis map/index.html" title="Restaurant Analysis Map"  style="width:100vw; height:100vh"></iframe>
+        </section>
+
+        <!-- Street Views Section -->
+        <section id="street-views-section" class="scroll-section">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5Vr7FcyVNxg?autoplay=1&loop=1&playlist=5Vr7FcyVNxg&controls=0&modestbranding=1&rel=0&fs=0&showinfo=0&iv_load_policy=3" title="YouTube video player" frameborder="0" allow="autoplay; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <!-- Future Prediction Section -->
+        <section id="future-prediction-section" class="scroll-section">
+            <img src="Future Prediction/1.gif" title="Future Prediction" alt="Future Prediction">
+        </section>
+
+        <!-- Intervention Section -->
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (1).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (2).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (3).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (4).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (5).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (6).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (7).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (8).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (9).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (10).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (11).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (12).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (13).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (14).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (15).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+        <section id="intervention-section" class="scroll-section">
+            <img src="Intervention/Intervention  (16).jpg" title="Intervention" alt="Intervention">
+        </section>   
+
+
+    
+
+    <footer>
+        <p id="footer-text">&copy; 2024-2025 Columbia GSAPP. All rights reserved.<br>Designed and developed by <span style="font-weight: bold; color: #ff006d;">0209VAIBHAV</span></p>
+    </footer>
+
     <script>
-        var coverImage = document.getElementById('cover-image');
-        var video = document.getElementById('youtube-video');
-        var player;
-
-        // Load YouTube Iframe API
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtube-video', {
-                events: {
-                    'onStateChange': onPlayerStateChange
-                }
-            });
+        function showSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
         }
-
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-                coverImage.style.display = 'flex';
-                video.style.display = 'none';
-            }
-        }
-
-        coverImage.addEventListener('click', function() {
-            coverImage.style.display = 'none';
-            video.style.display = 'block';
-            player.playVideo();
-        });
     </script>
 </body>
 </html>
-
-      
-  <p>Credits - Badriyah Alsalem, Sebastian Schloesser and Vaibhav Jain</p>  
-
-         </section>
-
-         <hr>        
-    
-      <section>
-        <h1 id="assignment-2">2 – Authorship</h1>
-        <h2>2a - Authorship Philosophy - Filmaking</h2>
-        <p>My authorship philosophy revolves around the concept of authorship in the digital age, particularly in the context of filmmaking. I believe that authorship is a powerful tool for expression and creativity, and its dynamics have been profoundly altered by technological advancements. In this landscape, it's crucial to consider how authorship empowers various stakeholders and the responsibilities that come with it. </p>
-      </section>
-
-
-      
-      <section>
-          <h2>Authorship and Power Dynamics</h2>
-        <p>The act of authoring is intrinsically linked to power. In filmmaking, the director often holds significant control over the creative vision, but with the advent of collaborative tools and platforms, this power is more distributed. For example, platforms like YouTube democratize content creation, allowing anyone with a camera to become a filmmaker. This shift empowers a broader range of voices but also raises questions about the ownership and credit of content. </p>
-      </section>
-      
-      <section>
-        <h2>Stakeholders and Flexibility</h2>
-      <p>Considering the stakeholders in my system, such as filmmakers, audiences, and content platforms, it's essential to balance "lock-in" and flexibility. Jaron Lanier's concept of "lock-in" refers to the rigidity imposed by certain technologies, which can be both beneficial and limiting. For expert filmmakers, a high degree of control and customization in editing software is crucial, while non-experts benefit from more guided, flexible tools that simplify the creation process. Thus, my approach to authorship should cater to varying levels of expertise, offering robust features for seasoned professionals and intuitive interfaces for novices. </p>
-    </section>
-
-    <section>
-      <h2>Crediting and Copyright</h2>
-    <p>In the realm of generative tools and AI, the issue of crediting becomes complex. AI-generated content raises questions about authorship and ownership. I believe that creators who use AI tools should be credited for their input and creativity, while acknowledging the role of the AI and the data it was trained on. AI itself should not hold copyrights, but the original authors of the data used to train AI models should be recognized. This ensures fair attribution and maintains the integrity of creative works. </p>
-  </section>
-
-  <section>
-    <h2>Responsibility and Accountability</h2>
-  <p>Being an author comes with significant responsibilities. Filmmakers and content creators should be accountable for the authenticity and originality of their work. Platforms hosting user-generated content should implement mechanisms to ensure proper crediting and to prevent plagiarism. Users, businesses, and technology developers must all adhere to ethical standards, promoting transparency and respect for intellectual property. </p>
-</section>
-
-<section>
-  <h2>Control and Empowerment</h2>
-<p>Control in my practice should be distributed among various stakeholders. Filmmakers should have control over their creative processes, while audiences should have the power to interact with and critique content. Platforms should facilitate this interaction while maintaining ethical standards. For instance, collaborative tools should enable multiple authors to contribute while tracking individual contributions, ensuring everyone receives proper credit. </p>
-</section>
-
-<section>
-  <h2>Examples of Authorship Models</h2>
-        <section>
-      <ul>
-        <li><a id="Youtube : ">1 – Democratization of Filmmaking through Platforms:</a></li><p>Platforms like YouTube have democratized filmmaking by allowing anyone with a camera and internet access to share their work with a global audience. This shift has redistributed the power traditionally held by major studios and distributors. While it empowers a diverse range of voices to contribute to the cinematic landscape, it also raises questions about content ownership and credit. For example, a filmmaker using a low-budget setup can create viral content that challenges established norms, reflecting the new dynamics of authorship and power in the digital age.
-        </p>
-        <li><a id="Github : ">2 – Balancing Expertise and Accessibility in Editing Software:</a></li><p>Editing software such as Adobe Premiere Pro offers advanced features for professional filmmakers, allowing for detailed control and customization of their projects. In contrast, simpler tools like iMovie cater to novices by providing guided, user-friendly interfaces. This distinction aligns with Jaron Lanier's concept of "lock-in," where experts benefit from sophisticated options while beginners use more accessible tools. By offering varying levels of functionality, these tools support a range of expertise, reflecting a balanced approach to flexibility and control in authorship.
-        </p>
-        <li><a id="Are.na : ">3 – AI in Screenwriting and Its Impact on Crediting:</a></li><p>The use of AI tools like ChatGPT in screenwriting raises complex issues regarding authorship and crediting. For instance, if a script is generated with the assistance of an AI, the human author who provided the initial input and guidance should be credited, while acknowledging the AI's role in developing the content. This approach ensures fair attribution of creative contributions and maintains the integrity of the work. By recognizing the contributions of both the human and the AI, this model addresses the challenges of ownership and creativity in the era of generative tools.
-
-        </p>
-      </ul>
-    </section>    
-  
-    <hr>
-
-    <section>
-          <h2>2b - Authorship Philosophy - Zine</h2>
-          </section>
-
-          <!-- Canva Embed -->
-    <div class="canva-embed">
-      <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;">
-          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-              src="https://www.canva.com/design/DAGLzJt0TaA/V5sak1r3R38UDDVwOKUbyA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-          </iframe>
-      </div>
-      <a href="https://www.canva.com/design/DAGLzJt0TaA/V5sak1r3R38UDDVwOKUbyA/view" target="_blank" rel="noopener">View Canva Design</a>
-  </div>
-          <p>Credits - Badriyah Alsalem,Chengxiu Yin,Siqi Zhang and Vaibhav Jain</p>  
-
-          <hr>
-
-
-          <section>
-            <h1 id="assignment-3">3 – Politics</h1>
-            <h2>3a - Politics - Encroachment of Private Spaces into Urban Public Areas</h2>
-            <p>My future practice revolves around addressing the intrusion of private spaces into public realms, such as cafes encroaching on pedestrian walkways, public plazas, and cycling paths. The types of data that resonate most with my practice include location coordinates, images, interview quotes, text reviews, and ratings. Location data (both lat/lon and addresses) help pinpoint specific areas of encroachment. Images capture visual evidence of the intrusion, while interview quotes provide firsthand accounts of its impact on pedestrians and cyclists. Text reviews and ratings offer public sentiment and highlight recurring issues.<p>
-              <p>The datasets shed light on the "pain points" by illustrating the frequency and severity of encroachments. They support my hypothesis by revealing patterns of intrusion and public dissatisfaction. Finding this data was relatively straightforward due to the prevalence of location-based services and online review platforms. However, the data is not exhaustive and may miss subtle or less-reported instances of intrusion.<p>
-              <p>The politics of data collection can influence its accuracy and representation. Data collected by business owners may downplay negative impacts, whereas data from affected individuals might emphasize them. Some methods, like interviews, offer a personal narrative, while geolocation data provides an overarching view. I am drawn to datasets that balance quantitative precision with qualitative depth, ensuring a comprehensive understanding of the issue. Addressing data gaps may involve conducting surveys or deploying sensors to gather unbiased, firsthand data. <p>
-            <div class="container">
-              <div class="grid">
-                <div class="box" data-pdf="Lido Harlem Restaurant">LIDO HARLEM RESTAURANT</div>
-                <div class="box" data-pdf="67 Orange Street">67 ORANGE STREET</div>
-                <div class="box" data-pdf="Arts and Crafts Beer Parlor">ARTS AND CRAFTS BEER PARLOR</div>
-                <div class="box" data-pdf="Bixi">BIXI</div>
-                <div class="box" data-pdf="Cantina Taqueria & Tequila Bar">CANTINA TAQUERIA & TEQUILA BAR</div>
-                <div class="box" data-pdf="Harlem Burger">HARLEM BURGER</div>
-                <div class="box" data-pdf="La Diagonal Agaveria">LA DIAGONAL AGAVERIA</div>
-                <div class="box" data-pdf="Lalibela Ethopian Restaurant">LALIBELA ETHOPIAN RESTAURANT</div>                          
-                <div class="box" data-pdf="Melba's Restaurant">MELBA'S RESTAURANT</div>
-                <div class="box" data-pdf="Mess Hall">MESS HALL</div>
-                <div class="box" data-pdf="Ortomare Ristorante Pizzeria">ORTOMARE RISTORANTE PIZZERIA</div>
-                <div class="box" data-pdf="Rosa Pizza">ROSA PIZZA</div>
-                <div class="box" data-pdf="Silvana">SILVANA</div>
-                <div class="box" data-pdf="Tartina">TARTINA</div>
-                <div class="box" data-pdf="Vinateria">VINATERIA</div>
-              </div>
-            </div>
-    
-            <!-- Modal for displaying PDF -->
-            <div id="pdf-modal" class="modal">
-              <span class="close">&times;</span>
-              <iframe id="pdf-viewer" src="" width="100%" height="80%"></iframe>
-              <div id="pdf-controls" class="controls">
-                <button id="prev-slide">Previous</button>
-                <button id="next-slide">Next</button>
-              </div>
-            </div>
-          </section>
-    
-          <hr>
-    
-          <section>
-            <h1 id="assignment-4">4 – Governance</h1>
-            <h2>4a - Design Fiction - Amazon Homes</h2>
-            <div style="padding:56.25% 0 0 0;position:relative;">
-              <iframe src="https://player.vimeo.com/video/993573571?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Amazon Homes"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-            <p>Credits - Badriyah Alsalem, Sebastian Schloesser, and Vaibhav Jain</p>
-          </section>
-    
-          <hr>
-    
-          <section>
-            <h1 id="assignment-5">5 – Behavior</h1>
-            <p>Content for Assignment 5...</p>
-          </section>
-    
-        </article>
-      </main>
-    </body>
-    
-    </html>

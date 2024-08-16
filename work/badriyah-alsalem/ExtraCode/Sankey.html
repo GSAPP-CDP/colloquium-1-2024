@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankey Diagram</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #sankey-diagram {
+            width: 90%;
+            height: 80%;
+        }
+
+        #playPauseButton {
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #000000;
+            font-size: 24px;
+            padding: 10px;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #playPauseButton:focus {
+            outline: none;
+        }
+
+        .play-icon::before {
+            content: '▶';
+        }
+
+        .pause-icon::before {
+            content: '❚❚';
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sankey-diagram"></div>
+    <button id="playPauseButton" class="play-icon"></button>
+
+    <script>
+        // Define the nodes with more sub-categories
+        var nodes = [
+            "OBJECTIVE TIME", "SUBJECTIVE TIME", "BIOLOGICAL TIME", "SOCIAL TIME",
+            "CULTURAL TIME", "HISTORICAL TIME", "CHRONOPOLITICS", "CHRONOPSYCHOLOGY",
+            "EVENT TIME DESIGNATION",
+            "CLOCK TIME", "CALENDAR TIME", "PERSONAL TIME", "EXPERIENTIAL TIME",
+            "CIRCADIAN RHYTHMS", "LIFESPAN", "INSTITUTIONAL TIME", "COMMUNAL TIME",
+            "RITUAL TIME", "URBAN TIME", "LOST HISTORY", "RECORDED HISTORY",
+            "MEMORY", "POLICY-DRIVEN TIME", "LEGISLATION-DRIVEN TIME",
+            "PERCEPTION OF TIME", "MENTAL TIME TRAVEL", "SCHEDULED EVENTS",
+            "SPONTANEOUS EVENTS", "CIVIC TIME", "TRANSPORTATION TIME",
+            "WORKPLACE TIME", "TIME PERCEPTION", "RESIDENTIAL"
+        ];
+
+        // Define the links with more complexity
+        var links = [
+            // Objective Time
+            { source: 0, target: 9, value: 10 }, { source: 0, target: 10, value: 10 },
+            { source: 9, target: 31, value: 10 }, { source: 10, target: 31, value: 15 },
+            // Subjective Time
+            { source: 1, target: 11, value: 10 }, { source: 1, target: 12, value: 10 },
+            { source: 11, target: 31, value: 10 }, { source: 12, target: 31, value: 15 },
+            // Biological Time
+            { source: 2, target: 13, value: 15 }, { source: 2, target: 14, value: 10 },
+            { source: 13, target: 31, value: 25 }, { source: 14, target: 31, value: 10 },
+            // Social Time
+            { source: 3, target: 15, value: 10 }, { source: 3, target: 16, value: 10 },
+            { source: 15, target: 31, value: 15 }, { source: 16, target: 31, value: 15 },
+            // Cultural Time
+            { source: 4, target: 17, value: 10 }, { source: 4, target: 18, value: 10 },
+            { source: 17, target: 31, value: 10 }, { source: 18, target: 31, value: 10 },
+            // Historical Time
+            { source: 5, target: 19, value: 10 }, { source: 5, target: 20, value: 10 },
+            { source: 5, target: 31, value: 10 },
+            // Chronopolitics
+            { source: 6, target: 21, value: 10 }, { source: 6, target: 22, value: 10 },
+            { source: 21, target: 31, value: 10 }, { source: 22, target: 31, value: 10 },
+            // Chronopsychology
+            { source: 7, target: 23, value: 10 }, { source: 7, target: 24, value: 10 },
+            { source: 23, target: 31, value: 10 }, { source: 24, target: 31, value: 10 },
+            // Event Time Designation (ETD)
+            { source: 8, target: 25, value: 10 }, { source: 8, target: 26, value: 10 },
+            { source: 25, target: 31, value: 10 }, { source: 26, target: 31, value: 10 },
+            // Urban and Architectural Concepts
+            { source: 4, target: 27, value: 10 }, { source: 4, target: 28, value: 10 },
+            { source: 4, target: 29, value: 10 }, { source: 4, target: 30, value: 10 },
+            { source: 27, target: 31, value: 10 }, { source: 28, target: 31, value: 15 },
+            { source: 29, target: 31, value: 20 }, { source: 30, target: 31, value: 25 },
+        ];
+
+        var data = [{
+            type: "sankey",
+            orientation: "h",
+            node: {
+                pad: 15,
+                thickness: 20,
+                line: {
+                    color: "white",
+                    width: 0.5
+                },
+                label: nodes,
+                color: "white"
+            },
+            link: {
+                source: links.map(link => link.source),
+                target: links.map(link => link.target),
+                value: links.map(link => link.value),
+                color: "rgba(255, 255, 255, 0.5)"
+            }
+        }];
+
+        var layout = {
+            font: {
+                size: 10,
+                color: "white",
+                family: "Arial, sans-serif",
+                weight: "bold"
+            },
+            paper_bgcolor: "#000000",
+            plot_bgcolor: "#000000",
+            updatemenus: []
+        };
+
+        Plotly.newPlot('sankey-diagram', data, layout);
+
+        // Define animation frames
+        var frames = links.map((link, i) => ({
+            data: [{
+                type: "sankey",
+                orientation: "h",
+                node: {
+                    pad: 15,
+                    thickness: 20,
+                    line: {
+                        color: "white",
+                        width: 0.5
+                    },
+                    label: nodes,
+                    color: "white"
+                },
+                link: {
+                    source: links.slice(0, i + 1).map(l => l.source),
+                    target: links.slice(0, i + 1).map(l => l.target),
+                    value: links.slice(0, i + 1).map(l => l.value),
+                    color: "rgba(255, 255, 255, 0.5)"
+                }
+            }]
+        }));
+
+        // Animation control
+        var animationPlaying = false;
+        var playPauseButton = document.getElementById('playPauseButton');
+
+        playPauseButton.addEventListener('click', function () {
+            if (!animationPlaying) {
+                Plotly.animate('sankey-diagram', frames, {
+                    mode: 'immediate',
+                    frame: { duration: 1000, redraw: true },
+                    transition: { duration: 500 }
+                });
+                playPauseButton.classList.remove('play-icon');
+                playPauseButton.classList.add('pause-icon');
+                animationPlaying = true;
+            } else {
+                Plotly.animate('sankey-diagram', [null], {
+                    mode: 'immediate',
+                    frame: { duration: 0, redraw: true },
+                    transition: { duration: 0 }
+                });
+                playPauseButton.classList.remove('pause-icon');
+                playPauseButton.classList.add('play-icon');
+                animationPlaying = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Grid</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+      color: white;
+      font-family: Consolas, monospace;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .grid-item {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grid-item img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 105%;
+      height: 105%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+    }
+
+    @supports (object-fit: cover) {
+      .grid-item img {
+        top: -2.5%;
+        left: -2.5%;
+        transform: none;
+      }
+    }
+
+    .city-name {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.5vw;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .grid-item:hover .city-name {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <div class="grid-item">
+      <img src="67 Orange Street.gif" alt="67 Orange Street">
+      <div class="city-name">67 Orange Street</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Bixi.gif" alt="Bixi">
+      <div class="city-name">Bixi</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Cantina Taqueria & Tequila Bar.gif" alt="Cantina Taqueria & Tequila Bar">
+      <div class="city-name">Cantina Taqueria & Tequila Bar</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Harlem Burger.gif" alt="Harlem Burger">
+      <div class="city-name">Harlem Burger</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Lalibela Ethopian Restaurant.gif" alt="Lalibela Ethiopian Restaurant">
+      <div class="city-name">Lalibela Ethiopian Restaurant</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Lido Harlem Restaurant.gif" alt="Lido Harlem Restaurant">
+      <div class="city-name">Lido Harlem Restaurant</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Melba's Restaurant.gif" alt="Melba's Restaurant">
+      <div class="city-name">Melba's Restaurant</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Mess Hall.gif" alt="Mess Hall">
+      <div class="city-name">Mess Hall</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Ortomare Ristorante Pizzeria.gif" alt="Ortomare Ristorante Pizzeria">
+      <div class="city-name">Ortomare Ristorante Pizzeria</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Rosa Pizza.gif" alt="Rosa Pizza">
+      <div class="city-name">Rosa Pizza</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Silvana.gif" alt="Silvana">
+      <div class="city-name">Silvana</div>
+    </div>
+
+    <div class="grid-item">
+      <img src="Vinateria.gif" alt="Vinateria">
+      <div class="city-name">Vinateria</div>
+    </div>
+  </div>
+
+</body>
+</html>

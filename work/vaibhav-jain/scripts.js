@@ -1,48 +1,36 @@
-document.querySelectorAll('.box').forEach(box => {
-    box.addEventListener('click', function(event) {
-        event.preventDefault(); 
-        const pdfNumber = this.getAttribute('data-pdf');
-        const pdfUrl = `pdfs/${pdfNumber}.pdf`;
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        if (section.id === sectionId) {
+            section.classList.add('active');
+            section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            section.classList.remove('active');
+        }
+    });
+}
 
-        const viewer = document.getElementById('pdf-viewer');
-        viewer.src = pdfUrl + "#page=1"; 
-        viewer.setAttribute('data-current-page', 1);
-        viewer.setAttribute('data-pdf-url', pdfUrl);
-
-        document.getElementById('pdf-modal').style.display = 'flex';
+// Event listeners for navigation links
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const sectionId = this.getAttribute('href').substring(1);
+        showSection(sectionId);
     });
 });
 
-document.querySelector('.modal .close').addEventListener('click', function(event) {
-    event.stopPropagation(); 
-    document.getElementById('pdf-modal').style.display = 'none';
-});
+// Change text color on scroll
+const projectNameSection = document.getElementById('project-name-section');
+const projectName = document.getElementById('project-name');
 
-window.addEventListener('click', function(event) {
-    if (event.target === document.getElementById('pdf-modal')) {
-        document.getElementById('pdf-modal').style.display = 'none';
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const sectionHeight = projectNameSection.offsetHeight;
+    const opacity = scrollY / sectionHeight;
+
+    if (opacity > 0.5) {
+        projectName.style.color = '#ff006d';
+    } else {
+        projectName.style.color = `rgba(255, 0, 109, ${opacity})`;
     }
-});
-
-// Page navigation
-document.getElementById('prev-slide').addEventListener('click', function() {
-    const viewer = document.getElementById('pdf-viewer');
-    let currentPage = parseInt(viewer.getAttribute('data-current-page'));
-    const pdfUrl = viewer.getAttribute('data-pdf-url');
-    
-    if (currentPage > 1) {
-        currentPage--;
-        viewer.src = `${pdfUrl}#page=${currentPage}`;
-        viewer.setAttribute('data-current-page', currentPage);
-    }
-});
-
-document.getElementById('next-slide').addEventListener('click', function() {
-    const viewer = document.getElementById('pdf-viewer');
-    let currentPage = parseInt(viewer.getAttribute('data-current-page'));
-    const pdfUrl = viewer.getAttribute('data-pdf-url');
-    
-    currentPage++;
-    viewer.src = `${pdfUrl}#page=${currentPage}`;
-    viewer.setAttribute('data-current-page', currentPage);
 });

@@ -2,573 +2,278 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description"
-    content="Student work by Badriyah Alsalem from Colloquium 1 of the Columbia GSAPP CDP Program in 2024." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporal Awareness Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
 
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.ico" sizes="any">
-  <link rel="icon" href="https://gsapp-cdp.github.io/colloquium-1-2024/favicon.svg" type="image/svg+xml">
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/normalize.css" rel="stylesheet" />
-  <link href="https://gsapp-cdp.github.io/colloquium-1-2024/main.css" rel="stylesheet" />
 
-  <link href="style.css" rel="stylesheet" />
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.34.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
 
-  <title>BADRIYAH ALSALEM</title>
+
+
+
+    <!-- Your custom scripts -->
+    <script src="./globe.js"></script>
+    <script src="./network.js"></script>
+    <script src="./main.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 200px;
+            background-color: black;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #ccc;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar h1 {
+            margin: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .moving-gif {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>
-      <a href="https://www.arch.columbia.edu/" target="_blank">
-        Columbia GSAPP
-      </a>
-    </h1>
-
-    <h2>
-      <a href="https://www.arch.columbia.edu/programs/15-m-s-computational-design-practices">
-        M.S. Computational Design Practices
-      </a><br>
-      <a href="/">Home</a> → <a href="/work">Student Work</a> → Badriyah Alsalem
-    </h2>
-
-    <nav>
-      <a href="/">Home</a>
-      <a href="/work">Student&nbsp;Work</a>
-      <a href="https://docs.google.com/document/d/1Qo6nrXenc5JgFhbh6s3mjOBXv6vVZ-D5daYAWId5BBY/edit?usp=drive_link"
-        target="_blank">
-        Syllabus
-      </a>
-      <a href="/about">About</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h1>Badriyah Alsalem</h1>
-      <section>
-
-        <img src="featured.jpg" alt="Featured system analysis">
-      </section>
-      <section>
-        <h2>Table of Contents</h2>
-        <ul>
-          <li><a href="#assignment-1">1 – Systems</a></li>
-          <li><a href="#assignment-2">2 – Authorship</a></li>
-          <li><a href="#assignment-3">3 – Politics</a></li>
-          <li><a href="#assignment-4">4 – Governance</a></li>
-          <li><a href="#assignment-5">5 – Behavior</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h1 id="assignment-1">1 – Systems</h1>
-      </section>
-
-      <section>
-        <h2>What is the system?</h2>
-        <h3>Energy Supply Systems in Underdeveloped Countries</h3>
-        <p>
-          So initially in the reading I went with something that aligns with what a system is much more clearly, and I
-          went with energy supply systems, which offer clear documented systems and structures, and decided to specify
-          that even further where it applies to underdeveloped countries.
-        </p>
-
-        <p>
-          This system is very important because its existence is what ensures reliable and sustainable energy to poor
-          areas, which obviously will greatly improve living standards and help with economic development.
-        </p>
-
-        <p>
-          The energy supply system has a very clear structure. First, we have energy generation, which includes power
-          plants like solar, wind, hydro, and fossil fuels. These power plants are where energy is made. Next comes
-          the distribution part, which involves transmission lines and local networks that carry energy to where it's
-          needed. Then, we have the consumption part, which includes homes, businesses, and public services that use
-          the energy. Lastly, there's maintenance, which keeps everything running well.
-        </p>
-
-        <p>
-          In this system, we can understand it as a balance of stocks and flows. Stocks are reserves of energy, like
-          batteries and fossil fuels, and infrastructure like power plants and transmission lines. Flows are the rates
-          at which energy is produced and used, as well as the money invested in energy infrastructure.
-        </p>
-
-        <p>
-          Feedback loops play a big role in this system. A reinforcing feedback loop happens when more energy access
-          leads to more economic activities, making more money that can be reinvested in energy projects. This creates
-          a positive cycle of improvement. A balancing feedback loop involves maintenance and support systems that
-          ensure stability and stop infrastructure from breaking down, keeping the energy supply steady. But upon
-          further understanding, this system faces several problems.
-        </p>
-
-        <p>
-          There are:
-          Physical Constraints: Hard to reach places, tough terrain, availability of resources.
-          Technological Constraints: Access to modern tech, reliability of networks.
-          Financial Constraints: Limited money for projects, economic problems.
-          Leverage Points: Investing in renewable energy to reduce fossil fuel use.
-        </p>
-
-        <p>
-          What makes this system very clear and direct, and why I used it as an example, is because its clear to
-          follow how energy supply directly affects economic growth and quality of life. Access to energy can change
-          communities; allowing businesses to work, students to study, and hospitals to operate effectively. The use
-          of renewable energy can also reduce environmental damage, making the system more sustainable in the long
-          run.
-        </p>
-
-        <p>
-          So as a conclusion:
-          The energy supply system to poor countries is:
-          Hierarchical
-          Has Stocks and Flows
-          Affected by Constraints and Needs Resilience
-          Understanding these dynamics helps improve energy access, support sustainable growth, and better life in
-          poor regions.
-        </p>
-
-        <p>
-          When it came to diagrams, I decided not to go with this system. I want to have more fun with this class, so
-          instead of going with something clear and reliable, I decided to go with something a little harder to pin
-          down - time perception. I understand that this will come with much more critique, but I am welcome to it.
-        </p>
-
-        <h3 style="font-size: 1.5em;">PERCEPTION OF TIME IN NY</h3>
-
-        <p>
-          The perception of time is the system chosen because of its fluidity
-          between abstract and concrete, the way it exists in many more obviously tangible systems, and the effect it
-          has on individual and societal behaviors. It is broad enough to vary depending on culture, but specific
-          enough to be analysed through doors, paths, and apps. The perception of time can be conceptualized as a
-          system because it
-          has many interacting components, even though it seems the components
-          are fluid depending on what factors are chosen to analyze.
-          These interacting components are tied together by an application. They include environmental phenomena,
-          biological processes, cognitive factors, and how it all appears in our tech.
-
-          And the system holds its importance in the way it affects how we live our lives, it influences
-          our decisions, our relationships, our work, and our mental health. Understanding this invisible
-          influence will improve the way we design products, buildings, and our cities to improve wellbeing
-          and productivity.
-        </p>
-
-        <hr>
-        <hr>
-
-        <figure>
-          <img src="Systemsexports-01.png" alt="System analysis image 2">
-          <img src="Systemsexports-02.png" alt="System analysis image 3">
-          <img src="Systemsexports-04.png" alt="System analysis image 4">
-          <img src="Systemsexports-05.png" alt="System analysis image 5">
-
-        </figure>
-        <p>
-          Inputs can be factors that influence the perception of time, especially controlled
-          factors, such as how much daylight is accessible, the flow of people in space, sounds, temperature, etc.
-          The outputs are cognitive responses, energy levels, human interactions, speeding up, slowing down, etc.
-          And the resources are the hardest part to define, but in this case, they could be anything between attention,
-          memory, money, consumption, time spent in a place, etc.
-        </p>
-        <hr>
-      </section>
-
-      <section>
-        <h2>Rube Goldberg Machine</h2>
-        <p>
-          This is how we planned our Rube Goldberg sequence. First, our Rube Goldberg machine
-          was triggered from the previous group's dancing Trump video.
-        </p>
-        <li>
-          <strong>Dance Movement Detection:</strong>
-          <ul>
-            <li>We used a webcam that captured the movements of the dancer, prompting
-              him to dance. And then once the program recognizes that the subject
-              is dancing, will trigger the IFTTT device. .</li>
-
-          </ul>
-        </li>
-        <li>
-          <strong>Hairdryer Activation:</strong>
-          <ul>
-            <li>When dance movements are detected, the computer sends a signal to an IFTTT plug.</li>
-            <li>IFTTT triggers the hairdryer to blow air onto the makeshift carousel.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Spinning Carousel and Water bucket:</strong>
-          <ul>
-            <li>The carousel rotates as soon as the hairdryer air hits it,
-              and will spin a few times gatehring momentum. There is a string tied
-              to it, which will eventually yank on the next object, a cup filled with water.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <strong>Arduino Liquid Sensor:</strong>
-          <ul>
-            <li>The water spills into a container, and activates the Arduino liquid sensor.</li>
-            <li>The Arduino sends a signal to the second computer.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Hand-Holding Sensor:</strong>
-          <ul>
-            <li>The second computer prompts people to hold two ends of Arduino jumper wires by
-              asking them to hold hands and make a circle.
-            </li>
-            <li>When the circuit is completed, the second sequence is triggered.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Celebratory Screen and Clap Sensor:</strong>
-          <ul>
-            <li>The celebratory screen displays a celebratory and invites the audience to clap.</li>
-            <li>The sound sensor detects the clap, triggering the next group’s machine.</li>
-          </ul>
-        </li>
-        </ol>
-      </section>
-
-      <section>
-
-        <div class="full">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/4oq0hd6UBA4?si=pTaiVaMITSvI-6iY"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <hr>
-      </section>
-
-      <section>
-        <h1 id="assignment-2">2 – Authorship</h1>
-      </section>
-
-      <body>
-        <details class="collapsible">
-          <summary> Reading Response 02</summary>
-          <div class="content">
-            <p>
-              This all seems like a very futile attempt to gain control over something that has already lost control a
-              very long time ago. We’re all going to use AI, so we’re already working off a platform that is so skewed,
-              and so many subjective ideas that we could easily challenge and tip over, will be the lattice on which we
-              stand, if we want to keep up with the pace of the progress of tech. I think that on the smaller scale, we
-              can try to create tools that go against certain principles, that challenge ideals, that refuse to
-              perpetuate without questioning, but I think these tools will only be used on a very small scale - and only
-              for our own creative exploration, because the world is already so steeped in the biases and political
-              agendas of long-gone ancestors. If we were to start over, it would take our entire lifetimes to create a
-              tool from scratch, and even then, you could point out a million unavoidable biases.
-            </p>
-            <p>
-              So to give in to this system is really the only way for actual economic success today.
-            </p>
-            <p>
-              And although I don’t think it is impossible to create more thoughtful, ethical tools, I do believe that to
-              give in to the system first, to understand it, to play by its rules, is the only way you can Trojan horse
-              your way into any real change. So if you’re at that point, you’d already be steeped in biases that are
-              impossible to scrub off.
-            </p>
-            <p>
-              I’m a deeply cultural person, I’m very in tune with my heritage, language, and I appreciate culture more
-              than the people around me back home, I teach Bedouin poetry, and I would say that I put a lot of effort
-              into trying to learn and embody my roots. However, at the same time, I speak English, I know and can adapt
-              into Western culture, I am known back home as the Americanized Kuwaiti. I’m a walking contradiction. So I
-              guess I am Trojan horsing my way into this territory, with attempts to understand the system from their
-              own viewpoint, and to slowly dismantle it for myself.
-            </p>
-            <p>
-              As for the development of AI, I do agree and am fascinated with the speed of it, and I do believe that we
-              are all sprinting to keep up - and we’re going too fast to really think of where we’re stepping. We are
-              all Alice, following the white rabbit urgently to somewhere unknown, without having the time to ask WHERE
-              ARE YOU TAKING US?
-            </p>
-            <p>
-              However, I do disagree with the articles talking about the dangers of AI because these dangers are not due
-              to AI. Every issue discussed, whether it's from the first book that looks at digital evolution as a house
-              of cards or the last article which sees AI as grouping the world into stereotypes, is already so present
-              in the world that we live in. They are so big, confirmation bias, solidification of refutable concepts, in
-              math, in politics, in religion, in language, in documentation, in your everyday life, that they are
-              difficult to see. It’s too big and encompassing that we’re not able to see it clearly. This new tool only
-              puts a magnifying glass on something that has already been controlling us since the dawn of time. Whether
-              it's orientalism, bias for political agendas, Western philosophy being called fact, etc., it was not
-              created with AI, and it certainly cannot be changed within AI. It’s much deeper and bigger than that, and
-              this monster of historical confirmation bias is only rearing its ugly head in a new light.
-            </p>
-            <p>
-              This is how I feel AI works today:
-            </p>
-            <figure>
-              <img src="RR02img3.png" alt=“Sketch 1”>
-            </figure>
-            <p>
-              Back to the actual response - I will answer in a more personal way. So because of who I am, my background,
-              my beliefs, my philosophy is to create tools that actually have very little user input. This is not
-              applicable to widely used tools, but instead embodies my own agenda in learning and creating digital
-              tools. In the simplest terms, the world is already messy, I don’t want that mess seeping into what I
-              create. This might be a pessimistic take, but flexibility doesn’t exist on the large scale, big money, big
-              influence world. So authorship, although it would be great if people used tools that had a wide enough
-              authorship quota that anyone can contribute and be heard by everyone else, that contradicts big money and
-              influence. The tools I create are transparent, clear, show my bias, my background, and allow users to
-              interact in a limited way. And if I wanted to create something that was truly neutral, that means I’m
-              unknowingly creating a platform for the world to exercise its bias once again. It’s me or them, so it will
-              be me. If I could create a language model, it would be clearly specific to my worldview, without
-              pretending it is unbiased. People know what they’re getting into. Tools WILL ALWAYS BE BIASED!
-            </p>
-            <p>
-              So the user can control inputs, applications, and the program should be malleable enough that users can
-              apply it to different parts of their life.
-            </p>
-            <p>
-              The program author, myself, is from a clear background, with clear incentives, with clear data that I am
-              pulling from. I will not claim to be unbiased or to hold a worldview wider than my own eyes and personal
-              experience. I will have the most control over the output, and whoever approaches my program will know what
-              they’re getting into. Again. I believe this is how tools are anyways, I’m just being transparent about it.
-            </p>
-            <p>
-              The masses author is the trickiest part. This will require a lot of research but I believe the data I pull
-              from will have to be vetted, translated, and organized. Data will only be a product of the people it is
-              representing, and I will avoid, or try to avoid, sources documenting people or histories or sciences that
-              are not their own histories. Microphones will not be passed around.
-            </p>
-            <p>
-              How I think AI is now, and how I feel it should be.
-            </p>
-            <figure>
-              <img src="RR02img1.png" alt=“Sketch 2”>
-            </figure>
-            <figure>
-              <img src="RR02img2.png" alt=“Sketch 3”>
-            </figure>
-            <p>
-              So in this sense, I do prefer sources like Twitter, where each person speaks for themselves, and as a user
-              you can clearly see where the data is coming from. Youtube, which also has a clear platform, and a clear
-              message, and you can choose who are you are listening to. I enjoy reddit for the same reasons as well.
-              which have more clear information than AI models, however I do think some sort of AI could be built on a
-              different skeleton where you choose which sources are being analysed. Behance, Pinterest, and Are.na allow
-              users to curate their interface a bit more than the previous social media websites, and they allow you to
-              delve deeper into your niche. They have more of the user’s voice.
-            </p>
-          </div>
-        </details>
-        <p>
-
-
-
-
-
-        </p>
-
-
-
-
-        <p>
-
-
-
-        <details class="collapsible">
-          <summary> Authorship philosophy - Perception of Time in Cities</summary>
-          <div class="content">
-            <p>
-              So ultimately, the level of authorship users should have on online tools, if I’m speaking from the voice
-              of the developer, should be minimal enough that every input is constrained, feeding into the digital tool.
-              The output of said digital tool will reflect only some of the user input, but will mostly reflect the
-              developer himself. The reason for this is because it makes bias, lock-in syndrome, and other implicit
-              influences on the outputs of our tech more explicit. It points the finger to what you should be analyzing,
-              rather than falling into the trap of assuming that the output of a digital product is mostly influenced by
-              the user’s input, when in actuality, what the output reflects is already heavily embedded in the tool
-              itself.
-            </p>
-            <p>
-              The system I chose previously was the perception of time and understanding its effect on people. It looks
-              at the stakeholders of who is controlling that perception, and some specific applications in certain urban
-              settings.
-            </p>
-            <p>
-              The authorship one has on their perception of time illustrates my authorship philosophy perfectly. The
-              individual might assume they are fully “in charge” of their own “time”. Their productivity, movement in a
-              city, and understanding of time passing seems to be in their hands. Once time is wasted or used
-              ineffectively, the user will look at their own hands instead of looking at the world built around them.
-            </p>
-            <p>
-              The biggest “lock-in” idea is the concept of time itself. once developed from sun-time, to water-time, to
-              gravity-time, to spring-time, to now, quantum-time, is an untouchable, unmoving force that we live within.
-              The way it presents itself in digital tools is the fact that time will always go back to Greenwich time,
-              which is neither necessary nor accurate. In the tools I create, users will be more aware of what their
-              perception of time stems from, but for this to be possible, their input is minimal.
-            </p>
-            <p>
-              The copyright of the tool or AI is essential because it demands accountability. If people use ChatGPT as a
-              search engine, then they will only have access to the world through the LLM’s lenses. Nothing the AI
-              produces should be taken as an accurate representation of what exists in the world.
-            </p>
-            <p>
-              Flexibility should include inputs, interfaces, languages, topics, strengths, and weaknesses, but not the
-              content of the output.
-            </p>
-            <p>
-              I should have the most control in my practice, and I should be clearly given credit for that, because
-              whatever biases I am harboring, I should be held accountable for.
-            </p>
-            <p>
-              Authors and artists should be credited, and the AI should also be credited for transparency and
-              accountability. User input should be given out responsibility, with the understanding that more input
-              leads to more general results.
-            </p>
-            <p>
-              To apply this to broader tech, in general, it seems if the input by the user is less, the output will be
-              dependent on the lock-in ideas that exist, so on the opinion of the internet. It will be more focused and
-              more steeped in bias and stereotype. Some are explicit stereotypes, but the overwhelming majority are the
-              implicit ones - bias towards a certain type of logic, or representation, or language, that we mistakenly
-              accept as fact. The more input the user has, the technology is forced to generalize, so the bias is less
-              influential.
-            </p>
-            <figure>
-              <img src="Inputbias.png" alt="Page 27">
-            </figure>
-          </div>
-        </details>
-        <section>
-
-          <h2>Generative Zine</h2>
-          <p>
-            We "authored" a tool to illustrate how less user input leads to a more focused output,
-            often reflecting the voice/bias of the tool. The more user input, the more general the
-            result is, and the less the voice of the tool is apparent.
-          </p>
-        </section>
-        <h1>MAPPAM Authorship Zine</h1>
-        <section class="image-gallery">
-          <figure>
-            <img src="MAPPAM-zine/3.png" alt="Page 3">
-          </figure>
-          <figure>
-            <img src="MAPPAM-zine/4.png" alt="Page 4">
-          </figure>
-
-          <img src="MAPPAM-zine/7.png" alt="Page 7">
-          </figure>
-
-          <figure>
-            <img src="MAPPAM-zine/11.png" alt="Page 11">
-          </figure>
-
-          <figure>
-            <img src="MAPPAM-zine/15.png" alt="Page 15">
-          </figure>
-
-          <figure>
-            <img src="MAPPAM-zine/19.png" alt="Page 19">
-          </figure>
-
-          <figure>
-            <img src="MAPPAM-zine/23.png" alt="Page 23">
-          </figure>
-
-          <figure>
-            <img src="MAPPAM-zine/27.png" alt="Page 27">
-          </figure>
-
-
-        </section>
-        </p>
-        <div class="full">
-          <iframe width="560" height="315" src="https://youtu.be/PLONWZBMsrw" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="container">
+        <!-- Sidebar with Title -->
+        <div class="sidebar">
+            <h1>Temporal Awareness Study</h1>
         </div>
 
+        <div class="scroll-container">
+            <!-- Rotating Image -->
+            <section class="step" data-step="0" data-title="What does temporal awareness look like?">
+                <div class="rotating-container">
+                    <img src="./Assets/Slide1.png" alt="Rotating Image" class="rotating-image">
+                </div>
+            </section>
+
+            <!-- Embedded Timer Video -->
+            <section class="step" data-step="1" data-title="How long is a minute?">
+                <div class="timer-container">
+                    <video width="640" height="360" controls>
+                        <source src="./Assets/Timer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+            <!-- Embed Variance Diagram -->
+            <section class="step" data-step="2" data-title="The variance increases with scale...">
+                <iframe src="./ExtraCode/Variance.html" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+            </section>
+
+            <!-- Embed Sankey Diagram -->
+            <section class="step" data-step="3" data-title="What shapes our perception of time?">
+                <iframe src="./ExtraCode/Sankey.html" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+            </section>
+
+            <!-- GIF 1 -->
+            <section class="step" data-step="4">
+                <div class="gif-container">
+                    <img id="moving-gif" src="Assets/Devices1.gif" alt="Moving GIF">
+                </div>
+            </section>
+
+            <!-- GIF 2 -->
+            <section class="step" data-step="5">
+                <div class="gif-container">
+                    <img id="moving-gif" src="Assets/Devices2.gif" alt="Moving GIF">
+                </div>
+            </section>
+
+            <!-- Time-Telling Devices Evolution -->
+            <section class="step" data-step="6" data-title="Time telling devices shaped human perception.">
+                <div class="image-flip-container">
+
+                    <img id="myImage" class="image-flip" src="Assets/Devices/DevicesAll1.png" alt="Time-Telling Device">
+
+                    <div class="image-flip-buttons">
+                        <button id="beforeButton">◀</button>
+                        <button id="afterButton">▶</button>
+                    </div>
+
+                    <div class="custom-image-buttons">
+                        <button id="customButton1">Forces</button>
+                        <button id="customButton2">Material</button>
+                        <button id="customButton3">Control</button>
+                        <button id="customButton4">Sync</button>
+                        <button id="customButton5">Constant</button>
+                        <button id="customButton6">Inaccessible</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step" data-step="7" data-title="So who's controlling it?">
+                <div class="container">
+                    <!-- Globe Container -->
+                    <div id="globeViz" class="globe-container"></div>
+                </div>
+            </section>
+            <section class="step" data-step="8" data-title="Organizations that decide on your minute:">
+                <div class="organizations-container">
+                    <h2></h2>
+                    <ul class="organization-list">
+                        <li>
+                            <span class="organization-name">International Bureau of Weights and Measures (BIPM)</span>
+                            in <em>Sèvres, France.</em>
+                            <div class="tooltip">Oversees global time standards, including Coordinated Universal Time
+                                (UTC), and maintains the International System of Units (SI).</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">National Institute of Standards and Technology (NIST)</span>
+                            in <em>Gaithersburg, USA.</em>
+                            <div class="tooltip">Contributes to maintaining and disseminating UTC in the United States
+                                and conducts research on atomic clocks and timekeeping.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">Physikalisch-Technische Bundesanstalt (PTB)</span> in
+                            <em>Braunschweig, Germany.</em>
+                            <div class="tooltip">Maintains Germany’s time standards and contributes to global
+                                timekeeping, including UTC.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">National Physical Laboratory (NPL)</span> in <em>Teddington,
+                                UK.</em>
+                            <div class="tooltip">Provides the UK’s time standards and contributes to international
+                                timekeeping efforts, including the definition of UTC.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">National Metrology Institute of Japan (NMIJ)</span> in
+                            <em>Tsukuba, Japan.</em>
+                            <div class="tooltip">Maintains Japan’s time standards and contributes to the international
+                                timekeeping system, including UTC.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">International Organization for Standardization (ISO)</span>
+                            in <em>Geneva, Switzerland.</em>
+                            <div class="tooltip">Publishes standards that include time-related specifications for
+                                various industries, ensuring consistency in global time formats.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">International Telecommunication Union (ITU)</span> in
+                            <em>Geneva, Switzerland.</em>
+                            <div class="tooltip">Defines the structure of Coordinated Universal Time (UTC) and manages
+                                time signals broadcasted globally.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">International Maritime Organization (IMO)</span> in
+                            <em>London, UK.</em>
+                            <div class="tooltip">Sets regulations that include time-keeping standards for maritime
+                                navigation and safety.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">International Electrotechnical Commission (IEC)</span> in
+                            <em>Geneva, Switzerland.</em>
+                            <div class="tooltip">Develops standards for time-related technologies in electrical and
+                                electronic devices.</div>
+                        </li>
+                        <li>
+                            <span class="organization-name">International Astronomical Union (IAU)</span> in <em>Paris,
+                                France.</em>
+                            <div class="tooltip">Responsible for defining time scales related to astronomical phenomena
+                                and for standardizing celestial time references.</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="step" data-step="9" data-title="Policies that shaped time as we know it.">
+                <canvas id="network" width="1200" height="800"></canvas>
+            </section>
+
+            <section class="step video-container" data-step="10" data-title="How far will it go?">
+                <video autoplay loop muted playsinline>
+                    <source src="Assets/KADA.mp4" type="video/mp4">
+                </video>
+            </section>
 
 
-        <section>
-          <h1 id="assignment-3">3 – Politics</h1>
-        </section>
-        <a href="https://trialcdp1.my.canva.site/time-perception-data-collection" target="_blank" class="h1-link">Time
-          Perception Data Collection</a>
-        <details class="collapsible">
-          <summary>Reading Response 03 - “SimCities and SimCrises,” Pedercini</summary>
-          <div class="content">
-            <p>
-              The reading is really interesting in the way that it breaks down very complicated ideas by presenting them
-              in a video game. And the other thing that the author does, intentionally or unintentionally, is he can
-              speak candidly and plainly about very touchy topics because technically he’s not talking about real life
-              and real people, he’s talking about the characters in a game, and the production of an algorithm. So what
-              is a result of evil or racism or historical biases can be spoken about like pixels on a screen. I enjoyed
-              that and I think it is necessary.
-            </p>
-            <p>
-              The conclusion is encouraging and discouraging. The politics of the game - reflecting real politics - will
-              never be resolved. The solutions given like when he created a fair city with greenery and whatever would
-              backfire in ways that he didn’t expect. The system is broken because it has to be. Otherwise it wouldn’t
-              be a system. It would be a straight line, or an unchangeable fact like the blueness of the sky. A utopia
-              can never be achieved because then there’s nothing to strive to. The perfection of the system is the death
-              of it.
-            </p>
-            <p>
-              “Utopia is already here, it’s just not evenly distributed.”
-            </p>
-            <p>
-              The critique on the structure of the city will never be a way for cities to fix or realign or prioritize -
-              its the way class and money works. It’s like a critique on the way clouds dissipate. Or the way coral
-              reefs are formed. He describes cities “like coral. The Coral reef is not a structure or a mere collection
-              of animals but a leftover, a sedimentation of generations of creatures. […] And if we want to do something
-              with it, for example if we want to save the coral reef we have to understand it as ecosystem, and how it
-              responds to the larger systems.” So the way cities are unfair or harmful or the way humanity oppresses or
-              systemizes or categorizes… it’s just the way money works. It’s the way scarcity works. It’s the way webs
-              work. Its the way fractals work. These mental models, system, networks, are how money and class and
-              education are distributed as well. And it’s great how this game showed it.
-            </p>
-          </div>
-        </details>
-        <section>
-          <h1 id="assignment-4">4 – Governance</h1>
-        </section>
-
-        <section>
-          <h1 id="assignment-5">5 – Behavior</h1>
-        </section>
-        <p>
-          P001
-        </p>
-
-        <p>
-          P002
-        </p>
-
-        <blockquote>
-          P003
-        </blockquote>
-        </section>
-
-        <section>
-          <h2>
-            T001
-            <p>
-              T002
-            </p>
-
-            <p>
-              T003
-            </p>
 
 
-            <figure>
-              <img src="https://picsum.photos/601/401" alt="System leverage points image 1">
-              <img src="https://picsum.photos/600/401" alt="System leverage points image 2">
-            </figure>
 
-            <hr>
+            <!-- CYCLES ALL TOGETHER GIF -->
+            <section class="step video-container" data-step="36" data-title="How do we untangle?">
+                <video autoplay loop muted playsinline>
+                    <source src="./Assets/CyclesAll2.mp4" type="video/mp4">
+                </video>
+            </section>
 
-            <figure>
-              <img src="https://picsum.photos/1201/801" alt="System leverage points image 3">
-            </figure>
-        </section>
-        <hr>
+            <section class="step video-container" data-step="34" data-title="Building custom tools?">
+                <video autoplay loop muted playsinline>
+                    <source src="./Assets/Parametric.mp4" type="video/mp4">
+                </video>
+            </section>
 
-    </article>
-  </main>
-  <footer></footer>
+            <section class="step" data-step="25" data-title="So what is 'Open source' time?">
+                <div id="myContainer" class="hole centered-content"></div>
+            </section>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    <script type="module">
+        import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/@visnup/re-we-need-more-tiny-knowledge-projects-heres-one.js?v=4";
+        new Runtime().module(define, name => {
+            if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-9afe758a"));
+        });
+    </script>
+
 </body>
 
 </html>
-```

@@ -1,0 +1,17 @@
+.grid-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 102%; /* Slightly wider than the container */
+  height: 102%; /* Slightly taller than the container */
+  object-fit: cover;
+  transform: translate(-51%, -51%); /* Offset the extra size */
+}
+
+@supports (object-fit: cover) {
+  .grid-item img {
+    top: -1%;
+    left: -1%;
+    transform: none;
+  }
+}

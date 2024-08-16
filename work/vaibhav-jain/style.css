@@ -1,95 +1,157 @@
-/* CSS style sheet specific to a single student page. */
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-article>h1:first-child {
-  color: blue;
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow: hidden;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    scroll-snap-type: y mandatory;
 }
 
-.container {
-    padding: 20px;
+section {
+    scroll-snap-align: start;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.box {
-    padding: 20px;
-    background-color: #ddd;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.box:hover {
-    background-color: #bbb;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-#pdf-viewer {
-  width: 100%;
-  height: 80%;
-  max-width: 1000px;
-  max-height: 80vh;
-  border: none;
-  display: block; /* Ensure iframe is displayed */
-}
-
-/* Close Button Styles */
-.modal .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer; /* Indicate clickable */
-}
-
-.modal .close:hover,
-.modal .close:focus {
-  color: black;
-  text-decoration: none;
-}
-
-/* Controls Styles */
-.controls {
-  text-align: center;
-  margin: 10px;
-}
-
-.controls button {
-  margin: 5px;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
     padding: 10px 20px;
+    background-color: transparent;
+    z-index: 1000;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: #ff006d;
+    border-bottom: 2px solid #ff006d;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: transparent;
+    z-index: 1000;
+    height: 40px;
+}
+
+#footer-text {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+#home {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: 100vh;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    align-items: center;
+}
+
+#home::-webkit-scrollbar {
+    display: none;
+}
+
+#home img {
+    display: inline-block;
+    height: 100vh;
+    width: auto;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
+
+#about, #projects {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#about iframe, #projects iframe {
+    width: 100vw;
+    height: 100vh;
     border: none;
-    border-radius: 5px;
-    background-color: #444;
-    color: #fff;
-    cursor: pointer;
+    display: block;
 }
 
-.controls button:hover {
-    background-color: #666;
+.scroll-container {
+    height: 100%;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
 }
 
+.scroll-section {
+    scroll-snap-align: start;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.scroll-container section {
+    position: relative;
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.scroll-container section.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.scroll-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}

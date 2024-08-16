@@ -39,6 +39,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("work/**/*.obj");
   eleventyConfig.addPassthroughCopy("work/**/*.csv");
   eleventyConfig.addPassthroughCopy("work/**/*.geojson");
+  eleventyConfig.addPassthroughCopy("work/**/*.svg");
+  eleventyConfig.addPassthroughCopy("work/**/*.glb");
+  eleventyConfig.addPassthroughCopy("work/**/*.gltf");
+  eleventyConfig.addPassthroughCopy("work/**/*.webp");
+  eleventyConfig.addPassthroughCopy("work/**/*.pdf");
+
+
+
   
   eleventyConfig.addPassthroughCopy("work/**/*.eot");
   eleventyConfig.addPassthroughCopy("work/**/*.ttf");
