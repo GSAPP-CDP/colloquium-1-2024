@@ -3,61 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Authorship Philosophy</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap"
-    />
-    <link rel="stylesheet" href="index.css" />
+    <title>Interactive Content Display</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="main-container">
-      <span class="authorship-philosophy">Authorship <br />Philosophy</span>
-      <span class="user-interface-design">
-        Different users require different levels of interaction with the system.
-        Non-experts need a simple, guided interface that minimizes
-        decision-making complexity, while experts may require advanced options
-        for fine-tuning recommendations based on nuanced preferences. This
-        differentiation in user interface design impacts what needs to be
-        encoded in the technology, ensuring that the system is accessible and
-        functional for all users.
-      </span>
-      <div class="rectangle"></div>
-      <span class="concept-authorship">
-        The concept of authorship in the context of the Optimal Space Navigator
-        encompasses several layers. Users who generate content, such as reviews
-        or preferences, should be credited for their contributions, as their
-        input directly influences the system’s recommendations. While AI itself
-        should not hold copyrights, the content created using AI tools should
-        have clear ownership attributed to the users. Similarly, data used to
-        train AI models should acknowledge the original authors to maintain
-        transparency and respect intellectual property rights.<br /><br />Responsibility
-        in authorship involves accountability for the accuracy and ethical use
-        of data. Users, developers, and businesses must ensure that the
-        recommendations provided are based on reliable data and that privacy is
-        maintained. Developers must be accountable for encoding ethical
-        guidelines and ensuring the system does not perpetuate biases.<br /><br />Control
-        within the Optimal Space Navigator should be balanced. Users need
-        control over their preferences and the ability to provide feedback,
-        which influences the system’s adaptability. Developers should have
-        control over the core algorithms and ethical guidelines, ensuring the
-        system functions correctly and fairly. The masses, represented by the
-        data sets and collective input, should shape the system’s evolution,
-        ensuring it remains relevant and responsive to changing needs.<br /><br />In
-        conclusion, the Optimal Space Navigator must balance lock-in and
-        flexibility, provide clear authorship credit, and distribute control
-        appropriately among users, developers, and data contributors. This
-        approach ensures a robust, user-friendly, and ethically sound system.
-      </span>
-      <div class="frame"><span class="suji-lee">Suji Lee</span></div>
+      <div class="decision-fatigue">Decision Fatigue</div>
+      <div class="better-choices">
+        Which apps and data prevent decision paralysis and help us make better
+        choices without causing decision fatigue?
+      </div>
+
+      <!-- Description Box -->
+      <div class="description-box" id="description-box">
+        <!-- Description will appear here -->
+      </div>
+
+      <div class="container">
+        <div class="laptop-container">
+          <img
+            src="./assets/laptop.png"
+            alt="Laptop"
+            class="laptop"
+            id="laptop"
+          />
+          <div class="window-overlay" id="window-overlay">
+            <img src="./assets/window.png" alt="Window" class="window" />
+
+            <!-- Content Images -->
+            <div
+              class="content"
+              id="content1"
+              data-description="Google maps is providing unlimited information of geological location, distance and ADs."
+            >
+              <img src="./assets/google.gif" alt="Google" />
+            </div>
+
+            <div
+              class="content"
+              id="content2"
+              data-description="The Zillow website provides an overwhelming amount of options, including prices, photos, and layouts."
+            >
+              <img src="./assets/zillow.gif" alt="Zillow" />
+            </div>
+
+            <div
+              class="content"
+              id="content3"
+              data-description="The Yelp website also provides information on sponsored restaurants, salons, and their reviews."
+            >
+              <img src="./assets/yelp.png" alt="Yelp" />
+            </div>
+
+            <div
+              class="content"
+              id="content4"
+              data-description="Data from the facts provided by the NYPD cannot be manipulated."
+            >
+              <img src="./assets/crime-data.png" alt="Crime Data" />
+            </div>
+
+            <div
+              class="content"
+              id="content5"
+              data-description="Based on the data, there is a possibility of automating the visualization process by mapping."
+            >
+              <img src="./assets/crime-viz.gif" alt="Crime Viz" />
+            </div>
+
+            <div
+              class="content"
+              id="content6"
+              data-description="Daylighting simulation to determine the number of natural light hours we receive throughout the year."
+            >
+              <img src="./assets/daylighting.gif" alt="Daylighting" />
+            </div>
+
+            <div
+              class="content"
+              id="content7"
+              data-description="Energy usage intensity analysis to estimate the amount of utility fees we will incur based on our consumption patterns."
+            >
+              <img src="./assets/energy-usage.png" alt="Energy Usage" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
