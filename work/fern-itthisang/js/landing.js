@@ -1,10 +1,22 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+let contextStarted = false;
 let scene, camera, renderer, controls;
 let audioLoader, listener;
 let soundBarsMap = new Map();
 let progressBar, progressContainer, progressText;
+
+// Function to start the audio context immediately
+function startAudioContext() {
+    if (!contextStarted) {
+        const audioContext = THREE.AudioContext.getContext();
+        audioContext.resume().then(() => {
+            console.log('AudioContext resumed');
+        });
+        contextStarted = true;
+    }
+}
 
 function init() {
     const container = document.getElementById('backgroundContainer');
@@ -32,7 +44,8 @@ function init() {
     directionalLight.position.set(0, 50, 50).normalize();
     scene.add(directionalLight);
 
-    // Create the dynamic grid and play all sounds together
+    // Start audio context and play all sounds immediately
+    startAudioContext();
     createDynamicGrid();
 
     // Add progress bar for the 10-second delay
@@ -51,9 +64,9 @@ function init() {
 
 function createDynamicGrid() {
     const audioFiles = [
-        'noisy street.mp3', 'tuk tuk.mp3', 'market restaurant.mp3',
-        'indoor market.mp3', 'chanbuying.mp3', 'bkk musical instrument stall.mp3',
-        'fruit seller.mp3', 'lumphini selected.mp3', 'seafood.mp3'
+        'asset/sound/noisy street.mp3', 'asset/sound/tuk tuk.mp3', 'asset/sound/market restaurant.mp3',
+        'asset/sound/indoor market.mp3', 'asset/sound/chanbuying.mp3', 'asset/sound/bkk musical instrument stall.mp3',
+        'asset/sound/fruit seller.mp3', 'asset/sound/lumphini selected.mp3', 'asset/sound/seafood.mp3'
     ];
 
     const gridSize = 3;
@@ -298,31 +311,6 @@ function createBarsForSound(group, sound, material, initialHeights) {
     soundBarsMap.get(sound).additionalBars = additionalBars;
 
     updateBars(analyser, additionalBars);
-}
-
-function initObserver(container) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                playAllSounds(); // Play all sounds when the container is in view
-            } else {
-                pauseAllSounds(); // Pause all sounds when the container is out of view
-            }
-        });
-    }, {
-        threshold: 0.5 // Adjust the threshold as needed
-    });
-
-    observer.observe(container);
-}
-
-function playAllSounds() {
-    soundBarsMap.forEach(({ sound }) => {
-        if (!sound.isPlaying) {
-            sound.play();
-            sound.isPlaying = true; // Track playing state
-        }
-    });
 }
 
 function updateBars(analyser, additionalBars) {

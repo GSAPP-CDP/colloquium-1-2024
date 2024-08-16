@@ -14,11 +14,11 @@ function init() {
     const soundContainer = document.getElementById('soundContainer');
 
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 500);
-    camera.position.set(45, 15, 45);
+    camera = new THREE.PerspectiveCamera(15, container.clientWidth / container.clientHeight, 0.1, 500);
+    camera.position.set(45, 20, 45);
 
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth / 2, window.innerHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
     controls = new OrbitControls(camera, renderer.domElement);
@@ -26,11 +26,11 @@ function init() {
 
     // Sound visualization scene
     soundScene = new THREE.Scene();
-    soundCamera = new THREE.PerspectiveCamera(10, window.innerWidth / window.innerHeight, 0.1, 500);
-    soundCamera.position.set(45,20,45);
+    soundCamera = new THREE.PerspectiveCamera(15, soundContainer.clientWidth / soundContainer.clientHeight, 0.1, 500);
+    soundCamera.position.set(45, 20, 45);
 
     soundRenderer = new THREE.WebGLRenderer();
-    soundRenderer.setSize(window.innerWidth / 2, window.innerHeight);
+    soundRenderer.setSize(soundContainer.clientWidth, soundContainer.clientHeight);
     soundContainer.appendChild(soundRenderer.domElement);
 
     soundControls = new OrbitControls(soundCamera, soundRenderer.domElement);
@@ -56,23 +56,23 @@ function init() {
     soundScene.add(soundDirectionalLight);
 
     // Create the dynamic grid
-    createDynamicGrid();
+    createDynamicGrid(container, soundContainer);
 
     window.addEventListener('resize', onWindowResize, false);
 
     animate();
 }
 
-function createDynamicGrid() {
+function createDynamicGrid(container, soundContainer) {
     const audioFiles = [
-        'noisy street.mp3', 'tuk tuk.mp3', 'market restaurant.mp3',
-        'indoor market.mp3', 'chanbuying.mp3', 'bkk musical instrument stall.mp3',
-        'fruit seller.mp3', 'lumphini selected.mp3', 'seafood.mp3'
+        'asset/sound/noisy street.mp3', 'asset/sound/tuk tuk.mp3', 'asset/sound/market restaurant.mp3',
+        'asset/sound/indoor market.mp3', 'asset/sound/chanbuying.mp3', 'asset/sound/bkk musical instrument stall.mp3',
+        'asset/sound/fruit seller.mp3', 'asset/sound/lumphini selected.mp3', 'asset/sound/seafood.mp3'
     ];
 
     const imageFiles = [
         'asset/picture/noise.webp', 'asset/picture/6.jpg', 'asset/picture/market.jpeg',
-        'asset/picture/market.jpeg', 'asset/picture/9.jpeg', 'asset/picture/images.jpeg',
+        'asset/picture/market restaurant.webp', 'asset/picture/9.jpeg', 'asset/picture/images.jpeg',
         'asset/picture/8.jpeg', 'asset/picture/temple.jpg', 'asset/picture/seafood.jpeg',
     ];
 
@@ -149,114 +149,6 @@ async function analyzeInitialAudio(buffer, numBars) {
     }
     return heights;
 }
-// function createBarsForSound(group, sound, material, initialHeights) {
-//     const analyser = new THREE.AudioAnalyser(sound, 256);
-//     const barsGroup = new THREE.Group();
-//     const bars = [];
-//     const boxSize = 1;
-//     const numBars = 9; // Number of bars to display for each sound
-//     const gridSize = 3; // 3x3 grid
-//     const spacing = 1; // Adjusted spacing to keep bars close together
-
-//     const offset = ((gridSize - 1) * spacing) / 2; // Calculate the offset to center the bars
-
-//     // Define the glow material once
-//     const glowShader = {
-//         vertexShader: `
-//             varying vec3 vNormal;
-//             void main() {
-//                 vNormal = normalize(normalMatrix * normal);
-//                 gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-//             }
-//         `,
-//         fragmentShader: `
-//             uniform float glowIntensity;
-//             uniform vec3 glowColor;
-//             varying vec3 vNormal;
-
-//             void main() {
-//                 float intensity = pow(1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0)), glowIntensity);
-//                 gl_FragColor = vec4(glowColor, 1.0) * intensity;
-//             }
-//         `,
-//         uniforms: {
-//             glowIntensity: { value: 1.5 }, // Intensity of the glow
-//             glowColor: { value: new THREE.Color(0xffffff) } // Glow color: white
-//         },
-//         side: THREE.BackSide, // Render the shader on the outside of the box
-//         blending: THREE.AdditiveBlending, // Use blending for the glow effect
-//         transparent: true
-//     };
-
-//     const glowMaterial = new THREE.ShaderMaterial(glowShader);
-
-//     for (let j = 0; j < numBars; j++) {
-//         // Create the black box material
-//         const boxMaterial = new THREE.MeshPhongMaterial({
-//             color: 0x000000, // Black color
-//         });
-
-//         const geometry = new THREE.BoxGeometry(boxSize, 1, boxSize);
-//         const mesh = new THREE.Mesh(geometry, boxMaterial);
-//         const row = Math.floor(j / gridSize);
-//         const col = j % gridSize;
-//         mesh.position.set(col * spacing - offset, 0, row * spacing - offset); // Arrange in a 3x3 grid centered at (0,0,0)
-//         mesh.scale.y = initialHeights[j] / 2; // Set initial height
-//         mesh.position.y = initialHeights[j] / 4; // Adjust position to match height
-//         mesh.userData = { sound: sound, analyser: analyser, index: j, initialHeight: initialHeights[j] };
-//         barsGroup.add(mesh);
-//         bars.push(mesh);
-
-//         // Add white edges to the box
-//         const edges = new THREE.EdgesGeometry(geometry);
-//         const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff }); // White color for edges
-//         const line = new THREE.LineSegments(edges, lineMaterial);
-//         mesh.add(line);
-
-//         // Add glow effect to the edges
-//         const glowMesh = new THREE.Mesh(geometry, glowMaterial.clone());
-//         glowMesh.scale.multiplyScalar(1.1); // Scale the glow mesh to make the glow visible
-//         mesh.add(glowMesh);
-//     }
-
-//     // Create additional bars group in the soundScene
-//     const additionalBarsGroup = new THREE.Group();
-//     const additionalBars = [];
-//     for (let j = 0; j < numBars; j++) {
-//         const geometry = new THREE.BoxGeometry(boxSize, 1, boxSize);
-//         const solidColorMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff }); // Set bar color to blue
-//         const mesh = new THREE.Mesh(geometry, solidColorMaterial);
-//         const row = Math.floor(j / gridSize);
-//         const col = j % gridSize;
-//         mesh.position.set(col * spacing - offset, 0, row * spacing - offset); // Arrange in a 3x3 grid centered at (0,0,0)
-//         mesh.userData = { sound: sound, analyser: analyser, index: j, initialHeight: initialHeights[j] };
-//         additionalBarsGroup.add(mesh);
-//         additionalBars.push(mesh);
-
-//         // Add white edges to the additional bars
-//         const edges = new THREE.EdgesGeometry(geometry);
-//         const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff }); // White color for edges
-//         const line = new THREE.LineSegments(edges, lineMaterial);
-//         mesh.add(line);
-
-//         // Add glow effect to the additional bars
-//         const glowMesh = new THREE.Mesh(geometry, glowMaterial.clone());
-//         glowMesh.scale.multiplyScalar(1.1); // Scale the glow mesh to make the glow visible
-//         mesh.add(glowMesh);
-//     }
-
-//     group.add(barsGroup);
-//     soundScene.add(additionalBarsGroup);
-
-//     // Adjust the position of additionalBarsGroup in a grid layout
-//     const gridPosition = calculateGridPosition(soundBarsMap.size, 3, 3); // Assuming a grid size of 3x3 and spacing of 7
-//     additionalBarsGroup.position.set(gridPosition.x, gridPosition.y, gridPosition.z);
-
-//     soundBarsMap.set(sound, { bars: bars, additionalBars: additionalBars, analyser: analyser, barsGroup: barsGroup, additionalBarsGroup: additionalBarsGroup });
-
-//     // Update bars initially to reflect default height
-//     updateBars(analyser, bars, additionalBars);
-// }
 
 function createBarsForSound(group, sound, material, initialHeights) {
     const analyser = new THREE.AudioAnalyser(sound, 256);
@@ -401,44 +293,31 @@ function createTextForSound(group, text) {
 
 function addImageToRow(group, imageFile) {
     const imageRow = document.getElementById('imageRow');
+    
+    // Check if imageRow exists
+    if (!imageRow) {
+        console.error('imageRow element not found');
+        return;
+    }
+
     const imageElement = document.createElement('img');
     imageElement.src = imageFile;
     imageElement.className = 'overlayImage';
     imageElement.style.display = 'none'; // Initially hidden
+    
+    // Check if image loads successfully
+    imageElement.onload = () => {
+        console.log('Image loaded:', imageFile);
+    };
+    imageElement.onerror = () => {
+        console.error('Failed to load image:', imageFile);
+    };
+
     imageRow.appendChild(imageElement);
 
     // Store the image element in the group's userData for later access
     group.userData.overlayImage = imageElement;
 }
-
-// function createButton(group, text) {
-//     const button = document.createElement('button');
-//     button.textContent = 'Play';
-//     button.style.position = 'absolute';
-//     button.style.backgroundColor = 'transparent'; // Make the button background transparent
-//     button.style.border = 'none'; // Remove border
-//     button.style.color = 'rgba(255, 255, 255, 0)'; // Make the text transparent
-//     button.style.cursor = 'pointer'; // Optionally, change the cursor to pointer
-//     button.onclick = () => {
-//         const sound = group.children.find(child => child instanceof THREE.PositionalAudio);
-//         const textMesh = group.userData.textMesh;
-//         const overlayImage = group.userData.overlayImage;
-//         if (sound) {
-//             if (sound.isPlaying) {
-//                 sound.stop();
-//                 if (textMesh) textMesh.visible = false;
-//                 if (overlayImage) overlayImage.style.display = 'none';
-//             } else {
-//                 sound.play();
-//                 if (textMesh) textMesh.visible = true;
-//                 if (overlayImage) overlayImage.style.display = 'block';
-//                 visualizeSound3D(sound, group);
-//             }
-//         }
-//     };
-//     document.body.appendChild(button);
-//     buttons.push({ group, button });
-// }
 
 function createButton(group, text) {
     const button = document.createElement('button');
@@ -451,55 +330,48 @@ function createButton(group, text) {
 
     let isPlaying = false;
 
-    // Handle hover (mouseenter)
     button.addEventListener('mouseenter', () => {
         const sound = group.children.find(child => child instanceof THREE.PositionalAudio);
         const textMesh = group.userData.textMesh;
         const overlayImage = group.userData.overlayImage;
 
-        if (isPlaying && sound) {
-            // If the sound is playing, stop it when hovering again
-            sound.stop();
-            isPlaying = false;
-            if (textMesh) textMesh.visible = false;
-            if (overlayImage) overlayImage.style.display = 'none';
-        } else if (!isPlaying && sound) {
-            // If the sound is not playing, start playing it
+        if (sound && !isPlaying) {
             sound.play();
             isPlaying = true;
             if (textMesh) textMesh.visible = true;
-            if (overlayImage) overlayImage.style.display = 'block';
+            if (overlayImage) {
+                overlayImage.style.display = 'block';
+                console.log('Image displayed');
+            }
             visualizeSound3D(sound, group);
         }
     });
 
-    // Handle click
     button.addEventListener('click', () => {
         const sound = group.children.find(child => child instanceof THREE.PositionalAudio);
         const textMesh = group.userData.textMesh;
         const overlayImage = group.userData.overlayImage;
 
         if (isPlaying && sound) {
-            // Stop the sound if it's playing
             sound.stop();
             isPlaying = false;
             if (textMesh) textMesh.visible = false;
             if (overlayImage) overlayImage.style.display = 'none';
+            console.log('Image hidden');
         } else if (!isPlaying && sound) {
-            // Play the sound if it's not playing
             sound.play();
             isPlaying = true;
             if (textMesh) textMesh.visible = true;
-            if (overlayImage) overlayImage.style.display = 'block';
+            if (overlayImage) {
+                overlayImage.style.display = 'block';
+                console.log('Image displayed');
+            }
             visualizeSound3D(sound, group);
         }
     });
 
-    button.addEventListener('mouseleave', () => {
-        // No action on mouse leave to keep playing the sound
-    });
-
-    document.body.appendChild(button);
+    const container = document.getElementById('threeContainer');
+    container.appendChild(button);
     buttons.push({ group, button });
 }
 
@@ -529,17 +401,21 @@ function updateButtonPositions() {
 
         // Update button position
         button.style.left = `${x}px`;
-        button.style.top = `${y+8900}px`;
+        button.style.top = `${y+40}px`;
     });
 }
 
-
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    const container = document.getElementById('threeContainer');
+    const soundContainer = document.getElementById('soundContainer');
 
-    renderer.setSize(window.innerWidth / 2, window.innerHeight);
-    soundRenderer.setSize(window.innerWidth / 2, window.innerHeight);
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+
+    soundCamera.aspect = soundContainer.clientWidth / soundContainer.clientHeight;
+    soundCamera.updateProjectionMatrix();
+    soundRenderer.setSize(soundContainer.clientWidth, soundContainer.clientHeight);
 }
 
 function visualizeSound3D(sound) {

@@ -37,15 +37,15 @@ map.on('load', () => {
 
 const chapters = {
     'chapter-1': { center: [-73.74, 40.711], zoom: 10.18, bearing: 0, pitch: 0 },
-    'chapter-2': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-3': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-4': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-5': { center: [-73.84809, 40.72622], zoom: 12.82, bearing: 35.2, pitch: 73.5 },
-    'chapter-6': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-7': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-8': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-9': { center: [-73.77, 40.7], zoom: 10.5, bearing: 0, pitch: 0 },
-    'chapter-10': { center: [-74.27942, 39.06451], zoom: 3.5, bearing: 0, pitch: 5 },
+    'chapter-2': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-3': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-4': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-5': { center: [-73.95309, 40.72622], zoom: 12.82, bearing: 35.2, pitch: 73.5 },
+    'chapter-6': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-7': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-8': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-9': { center: [-73.79, 40.725], zoom: 10.43, bearing: 0, pitch: 0 },
+    'chapter-10': { center: [-74.27942, 39.06451], zoom: 3.3, bearing: 0, pitch: 5 },
     'chapter-11': { center: [100, 33], zoom: 1.5, bearing: 0, pitch: 0 },
 };
 

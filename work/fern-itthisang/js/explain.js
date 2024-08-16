@@ -79,9 +79,9 @@ function addAxesHelper() {
 
 function createDynamicGrid() {
     const audioFiles = [
-        'noisy street.mp3', 'tuk tuk.mp3', 'market restaurant.mp3',
-        'indoor market.mp3', 'chanbuying.mp3', 'bkk musical instrument stall.mp3',
-        'fruit seller.mp3', 'lumphini selected.mp3', 'seafood.mp3'
+        'asset/sound/noisy street.mp3', 'asset/sound/tuk tuk.mp3', 'asset/sound/market restaurant.mp3',
+        'asset/sound/indoor market.mp3', 'asset/sound/chanbuying.mp3', 'asset/sound/bkk musical instrument stall.mp3',
+        'asset/sound/fruit seller.mp3', 'asset/sound/lumphini selected.mp3', 'asset/sound/seafood.mp3'
     ];
     const gridSize = 3;
     const spacing = 3; // Increase spacing to avoid overlap

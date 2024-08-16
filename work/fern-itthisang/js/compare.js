@@ -46,8 +46,8 @@ function init() {
     addLights(sceneThai);
 
     // Set up sounds with visualization
-    setupSoundWithVisualization(containerNYC, 'nyc.mp3', sceneNYC, cameraNYC, rendererNYC);
-    setupSoundWithVisualization(containerThai, 'Thai voice.mp3', sceneThai, cameraThai, rendererThai);
+    setupSoundWithVisualization(containerNYC, 'asset/sound/nyc.mp3', sceneNYC, cameraNYC, rendererNYC);
+    setupSoundWithVisualization(containerThai, 'asset/sound/Thai voice.mp3', sceneThai, cameraThai, rendererThai);
 
     window.addEventListener('resize', onWindowResize, false);
 
