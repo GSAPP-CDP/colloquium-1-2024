@@ -1,24 +1,69 @@
-hao-lee: Hao Lee
-kitae-kim: Kitae Kim
-manas-bhatia: Manas Bhatia
-pear-jansomwong: Pear Jansomwong
-fern-itthisang: Fern Itthisang
-john-masataka-jiang: John Masataka Xianfeng Jiang
-judd-smith: Judd Smith
-yilin-zheng: Yilin Zheng
-badriyah-alsalem: Badriyah Alsalem
-xiaoya-wang: Xiaoya Wang
-yuxi-dai: Yuxi Dai
-julia-kwon: Julia Kwon
-sebastian-schloesser: Sebastian Schloesser
-siqi-zhang: Siqi Zhang
-chengxiu-yin: Chengxiu Yin
-zihe-wang: Zihe Wang
-yuchao-ma: Yuchao Ma
-catherine-ye: Catherine Ye
-genda-lin: Genda Lin
-vaibhav-jain: Vaibhav Jain
-chen-feng: Chen Feng
-christina-huang: Christina Huang
-elif-koc: Elif Koc
-suji-lee: Suji Lee
+hao-lee:
+  name: Hao Lee
+  featured: featured.jpg
+kitae-kim:
+  name: Kitae Kim
+  featured: featured.jpg
+manas-bhatia:
+  name: Manas Bhatia
+  featured: featured.jpg
+pear-jansomwong:
+  name: Pear Jansomwong
+  featured: featured.jpg
+fern-itthisang:
+  name: Fern Itthisang
+  featured: featured.jpg
+john-masataka-jiang:
+  name: John Masataka Xianfeng Jiang
+  featured: featured.jpg
+judd-smith:
+  name: Judd Smith
+  featured: featured.jpg
+yilin-zheng:
+  name: Yilin Zheng
+  featured: featured.jpg
+badriyah-alsalem:
+  name: Badriyah Alsalem
+  featured: featured.jpg
+xiaoya-wang:
+  name: Xiaoya Wang
+  featured: featured.jpg
+yuxi-dai:
+  name: Yuxi Dai
+  featured: featured.jpg
+julia-kwon:
+  name: Julia Kwon
+  featured: featured.jpg
+sebastian-schloesser:
+  name: Sebastian Schloesser
+  featured: featured.jpg
+siqi-zhang:
+  name: Siqi Zhang
+  featured: featured.jpg
+chengxiu-yin:
+  name: Chengxiu Yin
+  featured: featured.jpg
+zihe-wang:
+  name: Zihe Wang
+  featured: featured.jpg
+yuchao-ma:
+  name: Yuchao Ma
+  featured: featured.jpg
+catherine-ye:
+  name: Catherine Ye
+  featured: featured.jpg
+genda-lin:
+  name: Genda Lin
+  featured: featured.jpg
+vaibhav-jain:
+  name: Vaibhav Jain
+  featured: featured.jpg
+chen-feng:
+  name: Chen Feng
+  featured: featured.jpg
+christina-huang:
+  name: Christina Huang
+  featured: featured.jpg
+suji-lee:
+  name: Suji Lee
+  featured: featured.jpg

@@ -45,14 +45,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("work/**/*.woff");
   eleventyConfig.addPassthroughCopy("work/**/*.woff2");
   
-  // Open the work/students.yaml file and create a collection from it for
-  // Eleventy to render.
-  const yamlData = yaml.load(fs.readFileSync(path.join(__dirname, 'work/students.yaml'), 'utf8'));
-  
+  const studentsYamlPath = path.join(__dirname, 'work/students.yaml');
+  eleventyConfig.addWatchTarget(studentsYamlPath);
   eleventyConfig.addCollection('students', function(collection) {
-    return Object.entries(yamlData).map(([folder, name]) => ({
-      folder,
-      name
+    // Open the work/students.yaml file and create a collection from it for Eleventy to render.
+    const yamlData = yaml.load(fs.readFileSync(studentsYamlPath, 'utf8'));
+    return Object.entries(yamlData).map(([key, data]) => ({
+      ...data,
+      folder: key,
     }));
   });
   
