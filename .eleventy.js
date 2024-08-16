@@ -44,9 +44,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("work/**/*.gltf");
   eleventyConfig.addPassthroughCopy("work/**/*.webp");
   eleventyConfig.addPassthroughCopy("work/**/*.pdf");
-
-
-
   
   eleventyConfig.addPassthroughCopy("work/**/*.eot");
   eleventyConfig.addPassthroughCopy("work/**/*.ttf");
