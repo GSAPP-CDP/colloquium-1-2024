@@ -13,7 +13,6 @@
     "js-yaml": "^4.1.0"
   },
   "dependencies": {
-    "config": "^3.3.12",
     "eleventy": "^1.0.7",
     "liquidjs": "^10.16.1"
   }
